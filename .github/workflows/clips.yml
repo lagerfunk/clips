@@ -43,7 +43,11 @@ jobs:
             case "$INPUT_JOB" in *[!a-z0-9.-]*) echo "bad job name"; exit 1;; esac
             echo "files=jobs/$INPUT_JOB" >> "$GITHUB_OUTPUT"
           else
-            files=$(git diff --name-only --diff-filter=AM HEAD~1 HEAD -- 'jobs/*.json' | tr '\n' ' ')
+            if git rev-parse -q --verify HEAD~1 >/dev/null; then
+              files=$(git diff --name-only --diff-filter=AM HEAD~1 HEAD -- 'jobs/*.json' | tr '\n' ' ')
+            else
+              files=$(git show --name-only --format= HEAD -- 'jobs/*.json' | tr '\n' ' ')
+            fi
             echo "files=$files" >> "$GITHUB_OUTPUT"
           fi
       - name: Run, deliver, queue
@@ -54,11 +58,12 @@ jobs:
           BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
           MEDIA_BASE: https://raw.githubusercontent.com/${{ github.repository }}/media
         run: |
+          set -o pipefail
           git config user.name "clips-bot"
           git config user.email "clips-bot@users.noreply.github.com"
           for f in $FILES; do
-            echo "== $f"
-            python -m clips.job "$f" --work work --out out
+            echo "== $f" | tee -a run.log
+            python -m clips.job "$f" --work work --out out 2>&1 | tee -a run.log
             id=$(python -c 'import json,sys; print(json.load(open(sys.argv[1]))["id"])' "$f")
             m="out/$id/manifest.json"
             grep -q '"stage": "rendered"' "$m" || continue
@@ -103,6 +108,8 @@ jobs:
             id=$(basename "$d"); mkdir -p "results/$id"
             cp "$d"/*.json "results/$id/" 2>/dev/null || true
           done
+          mkdir -p results/_runs
+          [ -f run.log ] && tail -n 150 run.log > "results/_runs/${{ github.run_id }}.log"
           git add results
           [ -f .clips-chat.enc ] && git add .clips-chat.enc
           git diff --cached --quiet || { git commit -q -m "results from run ${{ github.run_id }}"; git pull -q --rebase; git push -q; }
