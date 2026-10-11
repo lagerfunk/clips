@@ -1,0 +1,115 @@
+name: clips
+# A job file in jobs/ runs here: fetch, transcribe, then either candidates (no clips picked yet, committed back to
+# results/ for picking) or rendered clips. Rendered clips go to the owner's private Telegram channel when that is set
+# up. When the job says "autopost": true, the files are put on the "media" branch (kept 10 days) and queued in
+# Buffer, which publishes them on the owner's accounts at his queue times; he can check or delete them in Buffer.
+on:
+  push:
+    branches: [main]
+    paths: ['jobs/*.json']
+  workflow_dispatch:
+    inputs:
+      job:
+        description: job file name in jobs/ (for example 2026-10-12-lovable.json)
+        required: true
+permissions:
+  contents: write
+concurrency:
+  group: clips
+  cancel-in-progress: false
+jobs:
+  run:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 2
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: '3.12'
+          cache: pip
+      - name: Tools
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg fonts-dejavu-core >/dev/null
+          pip install -q -r requirements.txt
+      - name: Pick job files
+        id: pick
+        env:
+          INPUT_JOB: ${{ inputs.job }}
+        run: |
+          if [ -n "$INPUT_JOB" ]; then
+            case "$INPUT_JOB" in *[!a-z0-9.-]*) echo "bad job name"; exit 1;; esac
+            echo "files=jobs/$INPUT_JOB" >> "$GITHUB_OUTPUT"
+          else
+            files=$(git diff --name-only --diff-filter=AM HEAD~1 HEAD -- 'jobs/*.json' | tr '\n' ' ')
+            echo "files=$files" >> "$GITHUB_OUTPUT"
+          fi
+      - name: Run, deliver, queue
+        env:
+          FILES: ${{ steps.pick.outputs.files }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          CLIPS_CHAT_ID: ${{ secrets.CLIPS_CHAT_ID }}
+          BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
+          MEDIA_BASE: https://raw.githubusercontent.com/${{ github.repository }}/media
+        run: |
+          git config user.name "clips-bot"
+          git config user.email "clips-bot@users.noreply.github.com"
+          for f in $FILES; do
+            echo "== $f"
+            python -m clips.job "$f" --work work --out out
+            id=$(python -c 'import json,sys; print(json.load(open(sys.argv[1]))["id"])' "$f")
+            m="out/$id/manifest.json"
+            grep -q '"stage": "rendered"' "$m" || continue
+            if [ -n "$TELEGRAM_BOT_TOKEN" ]; then python -m clips.deliver "$m"; else echo "No Telegram token: skipped delivery"; fi
+            auto=$(python -c 'import json,sys; print(json.load(open(sys.argv[1])).get("autopost", False))' "$f")
+            if [ "$auto" = "True" ] && [ -n "$BUFFER_API_KEY" ]; then
+              # Buffer fetches each file from a public https URL until it has published it. The files live on the
+              # "media" branch (rebuilt each run with only the last 10 days, so the repo stays small) and are read
+              # from raw.githubusercontent.com, which serves them directly with no redirect and no setup.
+              tmp=$(mktemp -d); mkdir -p "$tmp/keep"
+              if git ls-remote --exit-code origin media >/dev/null; then
+                git fetch -q --depth 1 origin media
+                git --work-tree="$tmp/keep" checkout FETCH_HEAD -- . 2>/dev/null || true
+                git reset -q
+              fi
+              cutoff=$(date -u -d '10 days ago' +%Y-%m-%d)
+              for d in "$tmp"/keep/*/; do
+                [ -d "$d" ] || continue
+                n=$(basename "$d"); day=${n:0:10}
+                if [[ "$day" =~ ^[0-9]{4}-[0-9]{2}-[0-9]{2}$ ]] && [[ "$day" < "$cutoff" ]]; then rm -rf "$d"; fi
+              done
+              mkdir -p "$tmp/keep/$id" && cp out/"$id"/*.mp4 "$tmp/keep/$id/"
+              git init -q -b media "$tmp/repo" && cp -a "$tmp/keep/." "$tmp/repo/"
+              git -C "$tmp/repo" add -A && git -C "$tmp/repo" -c user.name=clips-bot -c user.email=clips-bot@users.noreply.github.com commit -q -m "media up to $id"
+              git -C "$tmp/repo" push -q -f "$(git remote get-url origin)" media
+              first=$(find "out/$id" -maxdepth 1 -name '*.mp4' | sort | head -n 1); url="$MEDIA_BASE/$id/$(basename "$first")"
+              for _ in $(seq 1 20); do
+                code=$(curl -s -o /dev/null -w '%{http_code}' -I "$url")
+                [ "$code" = "200" ] && break
+                sleep 15
+              done
+              [ "$code" = "200" ] || { echo "Media file not reachable after 5 minutes"; exit 1; }
+              python -m clips.buffer queue "$m" --base-url "$MEDIA_BASE/$id"
+            fi
+          done
+      - name: Keep candidates and manifests
+        if: always()
+        run: |
+          mkdir -p results
+          for d in out/*/; do
+            [ -d "$d" ] || continue
+            id=$(basename "$d"); mkdir -p "results/$id"
+            cp "$d"/*.json "results/$id/" 2>/dev/null || true
+          done
+          git add results
+          [ -f .clips-chat.enc ] && git add .clips-chat.enc
+          git diff --cached --quiet || { git commit -q -m "results from run ${{ github.run_id }}"; git pull -q --rebase; git push -q; }
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        if: always()
+        with:
+          name: clips-${{ github.run_id }}
+          path: out/**/*.mp4
+          retention-days: 7
+          if-no-files-found: ignore
