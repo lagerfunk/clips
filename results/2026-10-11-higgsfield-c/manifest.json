@@ -1,0 +1,477 @@
+{
+  "id": "2026-10-11-higgsfield-c",
+  "stage": "rendered",
+  "campaign": {
+    "name": "Higgsfield 20VC Clipping",
+    "board": "contentrewards",
+    "brand": "Higgsfield",
+    "rate": "$1 per 1K views, min payout $1, max $350 per clip",
+    "platforms": [
+      "youtube",
+      "instagram"
+    ],
+    "tagsByPlatform": {
+      "youtube": [
+        "@HiggsfieldAI",
+        "@20VC"
+      ],
+      "instagram": [
+        "@higgsfield.ai",
+        "@20vchq"
+      ]
+    },
+    "minSecs": 30,
+    "maxSecs": 60,
+    "rules": "Footage only from the WeTransfer link. Higgsfield watermark big on the whole clip. English captions. Own hook in the first seconds. 30 to 60 s. Never change or splice Alex's words. 40%+ views from US, UK, CA, AU. Likes visible, 0.20% engagement, keep 30 days. Submit link on Whop, then demographics and a ticket when the clip hits min payout."
+  },
+  "files": [
+    {
+      "clip": "h17-europe-competitive",
+      "out": "out/2026-10-11-higgsfield-c/h17-europe-competitive-youtube.mp4",
+      "platform": "youtube",
+      "duration": 48.7,
+      "layout": "crop",
+      "words": 125,
+      "watermark": [
+        243,
+        1300,
+        837,
+        1482
+      ],
+      "caption": "Werbung | Paid promotion for Higgsfield\n\nAlex points to Legora, ElevenLabs, Lovable and ASML: outside the model layer, he says Europe is extremely competitive. Energy is the open question.\n\n#higgsfield #20vc #founder #europe #ad @HiggsfieldAI @20VC",
+      "title": "Higgsfield CEO Alex Mashrabov on why Europe is extremely competitive in AI",
+      "tags": [
+        "#higgsfield",
+        "#20vc",
+        "#founder",
+        "#europe",
+        "#ad",
+        "@HiggsfieldAI",
+        "@20VC"
+      ],
+      "disclosure": {
+        "label": "Werbung",
+        "brand": "Higgsfield",
+        "youtubePaidPromotion": true,
+        "tiktokBrandedContent": true,
+        "instagramPaidPartnership": true
+      }
+    },
+    {
+      "clip": "h17-europe-competitive",
+      "out": "out/2026-10-11-higgsfield-c/h17-europe-competitive-instagram.mp4",
+      "platform": "instagram",
+      "duration": 48.7,
+      "layout": "crop",
+      "words": 125,
+      "watermark": [
+        243,
+        1305,
+        837,
+        1487
+      ],
+      "caption": "Werbung | Paid promotion for Higgsfield\n\nAlex points to Legora, ElevenLabs, Lovable and ASML: outside the model layer, he says Europe is extremely competitive. Energy is the open question.\n\n#higgsfield #20vc #founder #europe #ad @higgsfield.ai @20vchq",
+      "title": "Higgsfield CEO Alex Mashrabov on why Europe is extremely competitive in AI",
+      "tags": [
+        "#higgsfield",
+        "#20vc",
+        "#founder",
+        "#europe",
+        "#ad",
+        "@higgsfield.ai",
+        "@20vchq"
+      ],
+      "disclosure": {
+        "label": "Werbung",
+        "brand": "Higgsfield",
+        "youtubePaidPromotion": true,
+        "tiktokBrandedContent": true,
+        "instagramPaidPartnership": true
+      }
+    },
+    {
+      "clip": "h18-job-hopping",
+      "out": "out/2026-10-11-higgsfield-c/h18-job-hopping-youtube.mp4",
+      "platform": "youtube",
+      "duration": 41.93,
+      "layout": "crop+fit",
+      "words": 113,
+      "watermark": [
+        243,
+        1300,
+        837,
+        1482
+      ],
+      "caption": "Werbung | Paid promotion for Higgsfield\n\nAlex sees people in Silicon Valley switch jobs every two years. For building a strong team, he thinks loyalty is where Europe can compete.\n\n#higgsfield #20vc #founder #hiring #ad @HiggsfieldAI @20VC",
+      "title": "Higgsfield CEO: Silicon Valley job-hopping vs European loyalty when building teams",
+      "tags": [
+        "#higgsfield",
+        "#20vc",
+        "#founder",
+        "#hiring",
+        "#ad",
+        "@HiggsfieldAI",
+        "@20VC"
+      ],
+      "disclosure": {
+        "label": "Werbung",
+        "brand": "Higgsfield",
+        "youtubePaidPromotion": true,
+        "tiktokBrandedContent": true,
+        "instagramPaidPartnership": true
+      }
+    },
+    {
+      "clip": "h18-job-hopping",
+      "out": "out/2026-10-11-higgsfield-c/h18-job-hopping-instagram.mp4",
+      "platform": "instagram",
+      "duration": 41.93,
+      "layout": "crop+fit",
+      "words": 113,
+      "watermark": [
+        243,
+        1305,
+        837,
+        1487
+      ],
+      "caption": "Werbung | Paid promotion for Higgsfield\n\nAlex sees people in Silicon Valley switch jobs every two years. For building a strong team, he thinks loyalty is where Europe can compete.\n\n#higgsfield #20vc #founder #hiring #ad @higgsfield.ai @20vchq",
+      "title": "Higgsfield CEO: Silicon Valley job-hopping vs European loyalty when building teams",
+      "tags": [
+        "#higgsfield",
+        "#20vc",
+        "#founder",
+        "#hiring",
+        "#ad",
+        "@higgsfield.ai",
+        "@20vchq"
+      ],
+      "disclosure": {
+        "label": "Werbung",
+        "brand": "Higgsfield",
+        "youtubePaidPromotion": true,
+        "tiktokBrandedContent": true,
+        "instagramPaidPartnership": true
+      }
+    },
+    {
+      "clip": "h19-three-jobs",
+      "out": "out/2026-10-11-higgsfield-c/h19-three-jobs-youtube.mp4",
+      "platform": "youtube",
+      "duration": 58.2,
+      "layout": "crop+fit",
+      "words": 145,
+      "watermark": [
+        243,
+        1300,
+        837,
+        1482
+      ],
+      "caption": "Werbung | Paid promotion for Higgsfield\n\nAlex on growing up: his mother worked three jobs and his father dedicated his life to him. He says capital and exits can't fully change things.\n\n#higgsfield #20vc #founder #family #ad @HiggsfieldAI @20VC",
+      "title": "Higgsfield CEO Alex Mashrabov on his mother's three jobs and his father's sacrifice",
+      "tags": [
+        "#higgsfield",
+        "#20vc",
+        "#founder",
+        "#family",
+        "#ad",
+        "@HiggsfieldAI",
+        "@20VC"
+      ],
+      "disclosure": {
+        "label": "Werbung",
+        "brand": "Higgsfield",
+        "youtubePaidPromotion": true,
+        "tiktokBrandedContent": true,
+        "instagramPaidPartnership": true
+      }
+    },
+    {
+      "clip": "h19-three-jobs",
+      "out": "out/2026-10-11-higgsfield-c/h19-three-jobs-instagram.mp4",
+      "platform": "instagram",
+      "duration": 58.2,
+      "layout": "crop+fit",
+      "words": 145,
+      "watermark": [
+        243,
+        1305,
+        837,
+        1487
+      ],
+      "caption": "Werbung | Paid promotion for Higgsfield\n\nAlex on growing up: his mother worked three jobs and his father dedicated his life to him. He says capital and exits can't fully change things.\n\n#higgsfield #20vc #founder #family #ad @higgsfield.ai @20vchq",
+      "title": "Higgsfield CEO Alex Mashrabov on his mother's three jobs and his father's sacrifice",
+      "tags": [
+        "#higgsfield",
+        "#20vc",
+        "#founder",
+        "#family",
+        "#ad",
+        "@higgsfield.ai",
+        "@20vchq"
+      ],
+      "disclosure": {
+        "label": "Werbung",
+        "brand": "Higgsfield",
+        "youtubePaidPromotion": true,
+        "tiktokBrandedContent": true,
+        "instagramPaidPartnership": true
+      }
+    },
+    {
+      "clip": "h20-owns-no-property",
+      "out": "out/2026-10-11-higgsfield-c/h20-owns-no-property-youtube.mp4",
+      "platform": "youtube",
+      "duration": 49.4,
+      "layout": "crop",
+      "words": 132,
+      "watermark": [
+        243,
+        1300,
+        837,
+        1482
+      ],
+      "caption": "Werbung | Paid promotion for Higgsfield\n\nAfter selling his first company, Alex spent the money on apartments for his parents and relatives. He owns no property himself and drives a Tesla Model 3.\n\n#higgsfield #20vc #founder #family #ad @HiggsfieldAI @20VC",
+      "title": "Higgsfield CEO made over $1M, bought apartments for his family, and owns no property",
+      "tags": [
+        "#higgsfield",
+        "#20vc",
+        "#founder",
+        "#family",
+        "#ad",
+        "@HiggsfieldAI",
+        "@20VC"
+      ],
+      "disclosure": {
+        "label": "Werbung",
+        "brand": "Higgsfield",
+        "youtubePaidPromotion": true,
+        "tiktokBrandedContent": true,
+        "instagramPaidPartnership": true
+      }
+    },
+    {
+      "clip": "h20-owns-no-property",
+      "out": "out/2026-10-11-higgsfield-c/h20-owns-no-property-instagram.mp4",
+      "platform": "instagram",
+      "duration": 49.4,
+      "layout": "crop",
+      "words": 132,
+      "watermark": [
+        243,
+        1305,
+        837,
+        1487
+      ],
+      "caption": "Werbung | Paid promotion for Higgsfield\n\nAfter selling his first company, Alex spent the money on apartments for his parents and relatives. He owns no property himself and drives a Tesla Model 3.\n\n#higgsfield #20vc #founder #family #ad @higgsfield.ai @20vchq",
+      "title": "Higgsfield CEO made over $1M, bought apartments for his family, and owns no property",
+      "tags": [
+        "#higgsfield",
+        "#20vc",
+        "#founder",
+        "#family",
+        "#ad",
+        "@higgsfield.ai",
+        "@20vchq"
+      ],
+      "disclosure": {
+        "label": "Werbung",
+        "brand": "Higgsfield",
+        "youtubePaidPromotion": true,
+        "tiktokBrandedContent": true,
+        "instagramPaidPartnership": true
+      }
+    },
+    {
+      "clip": "h21-day-with-son",
+      "out": "out/2026-10-11-higgsfield-c/h21-day-with-son-youtube.mp4",
+      "platform": "youtube",
+      "duration": 45.93,
+      "layout": "crop+fit",
+      "words": 117,
+      "watermark": [
+        243,
+        1300,
+        837,
+        1482
+      ],
+      "caption": "Werbung | Paid promotion for Higgsfield\n\nAlex works 80 to 90 hours a week on Higgsfield. In three months he found one full day with his son, with no emails and no talking to the team.\n\n#higgsfield #20vc #founder #worklifebalance #ad @HiggsfieldAI @20VC",
+      "title": "Higgsfield CEO on 80 to 90 hour weeks and finding one full day with his son",
+      "tags": [
+        "#higgsfield",
+        "#20vc",
+        "#founder",
+        "#worklifebalance",
+        "#ad",
+        "@HiggsfieldAI",
+        "@20VC"
+      ],
+      "disclosure": {
+        "label": "Werbung",
+        "brand": "Higgsfield",
+        "youtubePaidPromotion": true,
+        "tiktokBrandedContent": true,
+        "instagramPaidPartnership": true
+      }
+    },
+    {
+      "clip": "h21-day-with-son",
+      "out": "out/2026-10-11-higgsfield-c/h21-day-with-son-instagram.mp4",
+      "platform": "instagram",
+      "duration": 45.93,
+      "layout": "crop+fit",
+      "words": 117,
+      "watermark": [
+        243,
+        1305,
+        837,
+        1487
+      ],
+      "caption": "Werbung | Paid promotion for Higgsfield\n\nAlex works 80 to 90 hours a week on Higgsfield. In three months he found one full day with his son, with no emails and no talking to the team.\n\n#higgsfield #20vc #founder #worklifebalance #ad @higgsfield.ai @20vchq",
+      "title": "Higgsfield CEO on 80 to 90 hour weeks and finding one full day with his son",
+      "tags": [
+        "#higgsfield",
+        "#20vc",
+        "#founder",
+        "#worklifebalance",
+        "#ad",
+        "@higgsfield.ai",
+        "@20vchq"
+      ],
+      "disclosure": {
+        "label": "Werbung",
+        "brand": "Higgsfield",
+        "youtubePaidPromotion": true,
+        "tiktokBrandedContent": true,
+        "instagramPaidPartnership": true
+      }
+    },
+    {
+      "clip": "h22-yuri-milner",
+      "out": "out/2026-10-11-higgsfield-c/h22-yuri-milner-youtube.mp4",
+      "platform": "youtube",
+      "duration": 53.7,
+      "layout": "crop",
+      "words": 128,
+      "watermark": [
+        243,
+        1300,
+        837,
+        1482
+      ],
+      "caption": "Werbung | Paid promotion for Higgsfield\n\nAsked about his best VC meeting, Alex names Yuri Milner, who he says deeply understands how AI is changing content.\n\n#higgsfield #20vc #founder #venturecapital #ad @HiggsfieldAI @20VC",
+      "title": "Higgsfield CEO on his best VC meeting: Yuri Milner and the AI content shift",
+      "tags": [
+        "#higgsfield",
+        "#20vc",
+        "#founder",
+        "#venturecapital",
+        "#ad",
+        "@HiggsfieldAI",
+        "@20VC"
+      ],
+      "disclosure": {
+        "label": "Werbung",
+        "brand": "Higgsfield",
+        "youtubePaidPromotion": true,
+        "tiktokBrandedContent": true,
+        "instagramPaidPartnership": true
+      }
+    },
+    {
+      "clip": "h22-yuri-milner",
+      "out": "out/2026-10-11-higgsfield-c/h22-yuri-milner-instagram.mp4",
+      "platform": "instagram",
+      "duration": 53.7,
+      "layout": "crop",
+      "words": 128,
+      "watermark": [
+        243,
+        1305,
+        837,
+        1487
+      ],
+      "caption": "Werbung | Paid promotion for Higgsfield\n\nAsked about his best VC meeting, Alex names Yuri Milner, who he says deeply understands how AI is changing content.\n\n#higgsfield #20vc #founder #venturecapital #ad @higgsfield.ai @20vchq",
+      "title": "Higgsfield CEO on his best VC meeting: Yuri Milner and the AI content shift",
+      "tags": [
+        "#higgsfield",
+        "#20vc",
+        "#founder",
+        "#venturecapital",
+        "#ad",
+        "@higgsfield.ai",
+        "@20vchq"
+      ],
+      "disclosure": {
+        "label": "Werbung",
+        "brand": "Higgsfield",
+        "youtubePaidPromotion": true,
+        "tiktokBrandedContent": true,
+        "instagramPaidPartnership": true
+      }
+    },
+    {
+      "clip": "h23-micromanagement",
+      "out": "out/2026-10-11-higgsfield-c/h23-micromanagement-youtube.mp4",
+      "platform": "youtube",
+      "duration": 56.1,
+      "layout": "crop",
+      "words": 118,
+      "watermark": [
+        243,
+        1300,
+        837,
+        1482
+      ],
+      "caption": "Werbung | Paid promotion for Higgsfield\n\nAlex on the CEOs he learns from: Jensen, Elon and Nik skip soft feedback and go deep on the details. Corporate America would call it micromanagement.\n\n#higgsfield #20vc #founder #leadership #ad @HiggsfieldAI @20VC",
+      "title": "Higgsfield CEO on what he learns from watching Jensen Huang, Elon Musk and Nik",
+      "tags": [
+        "#higgsfield",
+        "#20vc",
+        "#founder",
+        "#leadership",
+        "#ad",
+        "@HiggsfieldAI",
+        "@20VC"
+      ],
+      "disclosure": {
+        "label": "Werbung",
+        "brand": "Higgsfield",
+        "youtubePaidPromotion": true,
+        "tiktokBrandedContent": true,
+        "instagramPaidPartnership": true
+      }
+    },
+    {
+      "clip": "h23-micromanagement",
+      "out": "out/2026-10-11-higgsfield-c/h23-micromanagement-instagram.mp4",
+      "platform": "instagram",
+      "duration": 56.1,
+      "layout": "crop",
+      "words": 118,
+      "watermark": [
+        243,
+        1305,
+        837,
+        1487
+      ],
+      "caption": "Werbung | Paid promotion for Higgsfield\n\nAlex on the CEOs he learns from: Jensen, Elon and Nik skip soft feedback and go deep on the details. Corporate America would call it micromanagement.\n\n#higgsfield #20vc #founder #leadership #ad @higgsfield.ai @20vchq",
+      "title": "Higgsfield CEO on what he learns from watching Jensen Huang, Elon Musk and Nik",
+      "tags": [
+        "#higgsfield",
+        "#20vc",
+        "#founder",
+        "#leadership",
+        "#ad",
+        "@higgsfield.ai",
+        "@20vchq"
+      ],
+      "disclosure": {
+        "label": "Werbung",
+        "brand": "Higgsfield",
+        "youtubePaidPromotion": true,
+        "tiktokBrandedContent": true,
+        "instagramPaidPartnership": true
+      }
+    }
+  ]
+}
