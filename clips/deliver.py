@@ -29,7 +29,11 @@ def albums(manifest):
         text = (f"Clip {clip} | {manifest.get('campaign', {}).get('name', manifest['id'])}\n"
                 f"Post on: {', '.join(LABEL[f['platform']] for f in files)}\n"
                 + (f"Turn on: {', '.join(toggles)}\n" if toggles else "")
-                + f"YouTube title: {first['title']}\n\n{first['caption']}")
+                + f"YouTube title: {first['title']}\n\n")
+        if len({f["caption"] for f in files}) == 1:
+            text += first["caption"]
+        else:  # campaigns that tag different handles per app: one caption per platform
+            text += "\n\n".join(f"{LABEL[f['platform']]}:\n{f['caption']}" for f in files)
         out.append({"clip": clip, "files": files, "text": text[:1024]})
     return out
 

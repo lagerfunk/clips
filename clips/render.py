@@ -9,6 +9,8 @@
   and encode), so no two uploads are the same file.
 - Optional overlays: a permanent "Werbung" label (German ad law), a lower-third naming the speaker, and an end card
   question over the last seconds. All of them stay inside the area the app buttons and labels leave free.
+- Optional brand watermark (a campaign image, alpha kept) over every frame, in a fixed spot per layout that no caption
+  or text overlay ever uses (watermark_box).
 """
 import argparse
 import bisect
@@ -40,6 +42,11 @@ LOW_TITLE, LOW_SUB, LOW_PAD, LOW_GAP = 52, 40, 12, 6
 LOW_BOX_W = OUT_W - SAFE["right"] - OV_LEFT  # 880: the lower-third box never reaches under the side buttons
 END_SIZE, END_PAD, END_RIM, END_TEXT_W, END_Y = 60, 24, 5, 730, 800
 NL = r"\N"  # ASS line break
+# Brand watermark (an image, whole clip): centred, as a share of the 1080 px width. 0.74 is 800 px, the widest a centred
+# image can be and still stay clear of the side buttons. "center-lower" sits just under the caption line, a strip no
+# text overlay uses; "center-upper" sits just under the hook box and pushes the end card down.
+WM_GAP, WM_MIN, WM_MAX, WM_UPPER_H = 20, 0.2, 0.74, 220
+WM_POSITIONS = ("center-lower", "center-upper")
 
 
 def _clean(text):
@@ -244,17 +251,53 @@ def hook_box(hook, variant):
     return variant["hook_y"] - HOOK_PAD, variant["hook_y"] + n * HOOK_SIZE + HOOK_PAD
 
 
+def _even(v):
+    """Round down to an even pixel count (never past a limit it was fitted to)."""
+    return max(2, int(v + 1e-6) // 2 * 2)
+
+
+def watermark_box(wm, hook, variant):
+    """(x0, y0, x1, y1) of the watermark image in the frame. wm = {"size": (width, height) of the image in pixels,
+    "width": share of 1080 px (default 0.55), "position": "center-lower" (default) or "center-upper"}.
+    The image keeps its proportions; a tall one is made smaller so it fits its strip."""
+    iw, ih = wm["size"]
+    frac = min(WM_MAX, max(WM_MIN, float(wm.get("width") or 0.55)))
+    pos = wm.get("position") or WM_POSITIONS[0]
+    if pos == "center-lower":  # between the caption line and the strip the app covers at the bottom
+        top = variant["cap_y"] + CAP_HALF + WM_GAP
+        max_h = OUT_H - SAFE["bottom"] - top
+    elif pos == "center-upper":  # under the hook box, or under the ad label when there is no hook
+        hb = hook_box(hook, variant)
+        top = (hb[1] if hb else AD_TOP + AD_SIZE + 2 * AD_PAD) + WM_GAP
+        max_h = WM_UPPER_H
+    else:
+        raise ValueError(f"watermark position must be one of {WM_POSITIONS}, not {pos!r}")
+    w = frac * OUT_W
+    h = w * ih / iw
+    if h > max_h:
+        h, w = max_h, max_h * iw / ih
+    w, h = _even(w), _even(h)
+    x = (OUT_W - w) // 2
+    return x, top, x + w, top + h
+
+
 def overlay_events(overlays, duration, hook, variant):
     """ASS events for the optional overlays, and the box each one covers ({name: (x0, y0, x1, y1, start, end)}).
 
     overlays = {"ad": "Werbung",
                 "lower": {"title": "...", "sub": "...", "start": 0.3, "end": 4.5},
-                "end": {"text": "...", "secs": 2.5}}; every key optional."""
+                "end": {"text": "...", "secs": 2.5},
+                "watermark": {"path": "...", "size": (w, h), "width": 0.55, "position": "center-lower"}};
+    every key optional. The watermark is an image laid over the finished frame by render(), not an ASS event; its box
+    is here so the end card keeps clear of it."""
     overlays = overlays or {}
     events, boxes = [], {}
     clip_end = _floor_cs(duration)
     hb = hook_box(hook, variant)
     cap_top = variant["cap_y"] - CAP_HALF
+    wm = overlays.get("watermark")
+    if wm and wm.get("size") and clip_end > 0:
+        boxes["watermark"] = (*watermark_box(wm, hook, variant), 0.0, clip_end)
 
     ad = overlays.get("ad")
     ad = _ov_text("Werbung" if ad is True else ad) if ad else ""
@@ -303,6 +346,13 @@ def overlay_events(overlays, duration, hook, variant):
         hi = cap_top - 30
         if "lower" in boxes and boxes["lower"][5] > start:
             hi = min(hi, boxes["lower"][1] - 30)
+        wmb = boxes.get("watermark")
+        if wmb and wmb[1] < cap_top:  # an upper watermark: the card goes below it
+            lo = max(lo, wmb[3] + 30)
+        if wmb and lo + h > hi:
+            # the watermark must never be covered: rather no end card than one on top of it
+            print(f"  end card left out: no room between the watermark and the text below it ({text!r})")
+            return events, boxes
         cy = min(max(END_Y, lo + h / 2), hi - h / 2) if lo + h <= hi else (lo + hi) / 2
         cy = int(round(cy))
         tags = f"\\an5\\pos({OUT_W // 2},{cy})\\fs{size}\\fad(250,0)\\fscx90\\fscy90\\t(0,250,\\fscx100\\fscy100)"
@@ -443,11 +493,27 @@ def crop_expr(steps):
     return expr
 
 
+def image_size(path):
+    """(width, height) of an image file."""
+    out = run(["ffprobe", "-v", "error", "-select_streams", "v:0", "-show_entries", "stream=width,height",
+               "-of", "json", str(path)])
+    s = (json.loads(out).get("streams") or [{}])[0]
+    if not s.get("width") or not s.get("height"):
+        raise ValueError(f"not an image: {path}")
+    return int(s["width"]), int(s["height"])
+
+
 def render(source, segments, words, hook, platform, out, layout="auto", workdir=None, overlays=None):
-    """overlays: optional {"ad": "Werbung", "lower": {"title", "sub", "start", "end"}, "end": {"text", "secs"}},
-    see overlay_events."""
+    """overlays: optional {"ad": "Werbung", "lower": {"title", "sub", "start", "end"}, "end": {"text", "secs"},
+    "watermark": {"path", "width", "position"}}, see overlay_events and watermark_box."""
     variant = VARIANTS[platform]
     info = probe(source)
+    wm = (overlays or {}).get("watermark")
+    if wm:
+        wm_path = Path(wm["path"])
+        if not wm_path.is_file():
+            raise FileNotFoundError(f"watermark image not found: {wm_path}")
+        overlays = {**overlays, "watermark": {**wm, "size": image_size(wm_path)}}
     segments = [(float(a), float(b)) for a, b in segments]
     for a, b in segments:
         if not (0 <= a < b <= info["duration"] + 0.01):
@@ -508,13 +574,26 @@ def render(source, segments, words, hook, platform, out, layout="auto", workdir=
     cap = dict(variant, cap_y=variant["cap_y"] if mode == "fill" else variant["cap_y_wide"])
     ass_path = work / f"{Path(out).stem}.ass"
     ass_path.write_text(build_ass(clip_words, duration, hook, cap, overlays), encoding="utf-8")
-    parts.append(f"[base]ass={ass_path}:fontsdir={FONT_DIR}[vout]")
+    wm_box = None
+    if wm:
+        # the brand image goes over the finished frame (captions and overlays included), for the whole clip, alpha kept;
+        # its box is one no text overlay uses, so nothing covers it and it covers nothing
+        wm_box = overlay_events(overlays, duration, hook, cap)[1]["watermark"][:4]
+        x0, y0, x1, y1 = (int(v) for v in wm_box)
+        parts.append(f"[base]ass={ass_path}:fontsdir={FONT_DIR}[subbed]")
+        parts.append(f"[1:v]format=rgba,scale={x1 - x0}:{y1 - y0}:flags=lanczos[wm]")
+        parts.append(f"[subbed][wm]overlay=x={x0}:y={y0}:eof_action=repeat:format=auto,format=yuv420p[vout]")
+    else:
+        parts.append(f"[base]ass={ass_path}:fontsdir={FONT_DIR}[vout]")
     if info["audio"]:
         parts.append("[ac]loudnorm=I=-14:TP=-1.5:LRA=11,aresample=48000[aout]")
     script = work / f"{Path(out).stem}.filter"
     script.write_text(";\n".join(parts), encoding="utf-8")
 
-    cmd = ["ffmpeg", "-y", "-v", "error", "-i", str(source), "-filter_complex_script", str(script), "-map", "[vout]"]
+    cmd = ["ffmpeg", "-y", "-v", "error", "-i", str(source)]
+    if wm:  # one still frame, repeated by the overlay; read as a single file even if its name holds a "%"
+        cmd += ["-f", "image2", "-pattern_type", "none", "-i", str(wm_path)]
+    cmd += ["-filter_complex_script", str(script), "-map", "[vout]"]
     if info["audio"]:
         cmd += ["-map", "[aout]", "-c:a", "aac", "-b:a", "160k"]
     cmd += ["-c:v", "libx264", "-preset", "medium", "-crf", str(variant["crf"]), "-pix_fmt", "yuv420p", "-r", "30",
@@ -524,7 +603,10 @@ def render(source, segments, words, hook, platform, out, layout="auto", workdir=
     got = probe(out)
     if (got["width"], got["height"]) != (OUT_W, OUT_H) or abs(got["duration"] - duration) > 0.6:
         raise RuntimeError(f"render check failed for {out}: {got}, expected {duration:.1f}s at {OUT_W}x{OUT_H}")
-    return {"out": str(out), "platform": platform, "duration": round(got["duration"], 2), "layout": mode, "words": len(clip_words)}
+    res = {"out": str(out), "platform": platform, "duration": round(got["duration"], 2), "layout": mode, "words": len(clip_words)}
+    if wm_box:
+        res["watermark"] = [int(v) for v in wm_box]
+    return res
 
 
 def main():

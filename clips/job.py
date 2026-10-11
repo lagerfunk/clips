@@ -12,7 +12,9 @@ Job file:
                "brand": "Topps", "adLabel": "Werbung", "disclosure": true, "mustInclude": ["@topps"], "rules": ["..."],
                "overlays": {"ad": true}},
   "overlays": {"ad": true},                       optional, job level wins over campaign level
-  "sources": [{"id": "s1", "url": "https://drive.google.com/...", "file": "optional name inside a folder"}],
+  "assets": {"watermark": {"url": "<Drive folder or file, image URL or local path>", "pick": "png",
+                           "width": 0.55, "position": "center-lower"}},   optional, see below
+  "sources": [{"id": "s1", "url": "https://drive.google.com/... or https://we.tl/...", "file": "optional name inside a folder or zip"}],
   "clips": [{"id": "01", "source": "s1", "segments": [[12.0, 31.5], [40.2, 47.0]], "hook": "...", "caption": "...",
              "hashtags": ["#cards"], "title": "optional YouTube title",
              "lower": {"title": "Name, 32 chars max", "sub": "Role, 40 chars max", "start": 0.5, "end": 4.0},
@@ -22,17 +24,27 @@ Job file:
 Paid campaigns (disclosure on, the default) are advertising under German law (UWG § 5a, Medienstaatsvertrag, Medienanstalten
 2025): the caption opens with "Werbung | Paid promotion for <brand>", the video carries the "Werbung" label on screen,
 and each app's own paid toggle is set (flags in the manifest). "#ad" alone does not count as a label.
+
+Campaign extras (Higgsfield x 20VC style briefs):
+- "tagsByPlatform": {"youtube": ["@HiggsfieldAI", "@20VC"], "instagram": ["@higgsfield.ai", "@20vchq"]}: each platform's
+  caption ends with its own tags (after the clip's hashtags, #ad and mustInclude).
+- "minSecs" / "maxSecs": clip length the campaign accepts. Number segments are checked before anything runs; text
+  segments after they are found in the transcript, and a clip that misses fails alone (manifest "failedClips").
+- assets.watermark: fetched once per job into the work dir (pick "png": the first PNG with transparency, else the first
+  image; any other value names the file) and laid over every frame of every clip, never under captions or text.
 """
 import argparse
+import os
 import re
 from pathlib import Path
 
 from . import candidates as cand
 from .common import PLATFORMS, probe, read_json, write_json
-from .fetch import fetch
-from .render import render
+from .fetch import fetch, fetch_asset, has_alpha
+from .render import WM_MAX, WM_MIN, WM_POSITIONS, render
 
 MIN_CLIP, MAX_CLIP = 8.0, 90.0
+TAG_RE = re.compile(r"[@#][\w.\-]{1,100}")
 AD_LABEL = "Werbung"  # first word of the caption; "Anzeige" also works, "#ad" alone does not
 AD_TAG = "#ad"        # kept among the hashtags for the campaign boards, never the only label
 LOWER_TITLE, LOWER_SUB, END_TEXT = 32, 40, 40
@@ -125,8 +137,9 @@ def end_card(end):
     return {"text": end} if isinstance(end, str) else {k: end[k] for k in ("text", "secs") if k in end}
 
 
-def overlays_for(job, clip):
-    """On-screen extras for one clip: the permanent ad label, a lower third, an end card. Empty when none apply."""
+def overlays_for(job, clip, watermark=None):
+    """On-screen extras for one clip: the permanent ad label, a lower third, an end card, the campaign watermark
+    (watermark = {"path", "width", "position"}, given when the job has one). Empty when none apply."""
     camp = job.get("campaign") or {}
     conf = {**(camp.get("overlays") or {}), **(job.get("overlays") or {})}
     d = disclosure(job)
@@ -137,7 +150,21 @@ def overlays_for(job, clip):
         ov["lower"] = {k: clip["lower"][k] for k in ("title", "sub", "start", "end") if k in clip["lower"]}
     if clip.get("end"):
         ov["end"] = end_card(clip["end"])
+    if watermark:
+        ov["watermark"] = dict(watermark)
     return ov
+
+
+def clip_limits(job):
+    """(shortest, longest) clip in seconds: the campaign's minSecs / maxSecs, else 8 to 90."""
+    camp = job.get("campaign") or {}
+    lo, hi = camp.get("minSecs", MIN_CLIP), camp.get("maxSecs", MAX_CLIP)
+    return (float(lo) if _num(lo) else MIN_CLIP), (float(hi) if _num(hi) else MAX_CLIP)
+
+
+def watermark_conf(job):
+    wm = (job.get("assets") or {}).get("watermark")
+    return wm if isinstance(wm, dict) else None
 
 
 def _num(x):
@@ -188,6 +215,45 @@ def check_campaign(job):
                             'for <brand>" (set "brand", or "disclosure": false if the post is not paid)')
         if "adLabel" in camp and not _text_ok(camp["adLabel"], 20):
             problems.append('campaign.adLabel must be a short word such as "Werbung" or "Anzeige"')
+    camp = camp or {}
+    tbp = camp.get("tagsByPlatform")
+    if tbp is not None:
+        if not isinstance(tbp, dict):
+            problems.append('campaign.tagsByPlatform must look like {"youtube": ["@brand"], "instagram": ["@brand.ig"]}')
+        else:
+            for p, tags in tbp.items():
+                if p not in PLATFORMS:
+                    problems.append(f"campaign.tagsByPlatform: unknown platform {p!r}, use {PLATFORMS}")
+                elif not isinstance(tags, list) or not all(isinstance(t, str) and TAG_RE.fullmatch(t) for t in tags):
+                    problems.append(f"campaign.tagsByPlatform.{p}: a list of @handles or #tags without spaces")
+            missing = [p for p in (camp.get("platforms") or PLATFORMS) if p in PLATFORMS and p not in tbp]
+            if missing:
+                problems.append(f"campaign.tagsByPlatform has no entry for {', '.join(missing)} "
+                                "(write [] when that platform needs no tags)")
+    for k in ("minSecs", "maxSecs"):
+        if k in camp and not (_num(camp[k]) and camp[k] >= 1):
+            problems.append(f"campaign.{k} must be seconds (a number, 1 or more)")
+    lo, hi = clip_limits(job)
+    if lo >= hi:
+        problems.append(f"campaign.minSecs ({lo:g}) must be below maxSecs ({hi:g})")
+    return problems
+
+
+def check_assets(job):
+    assets = job.get("assets")
+    if assets is None:
+        return []
+    if not isinstance(assets, dict) or set(assets) - {"watermark"}:
+        return ['assets must look like {"watermark": {"url": "...", "pick": "png"}}']
+    wm, problems = assets.get("watermark"), []
+    if not isinstance(wm, dict) or not isinstance(wm.get("url"), str) or not wm["url"].strip():
+        return ['assets.watermark needs a "url" (a Google Drive folder or file, an image URL or a local path)']
+    if "pick" in wm and not _text_ok(wm["pick"], 120):
+        problems.append('assets.watermark.pick: "png" or a file name')
+    if "width" in wm and not (_num(wm["width"]) and WM_MIN <= wm["width"] <= WM_MAX):
+        problems.append(f"assets.watermark.width: a share of the frame width from {WM_MIN} to {WM_MAX} (0.55 is 594 px)")
+    if "position" in wm and wm["position"] not in WM_POSITIONS:
+        problems.append(f"assets.watermark.position: one of {', '.join(WM_POSITIONS)}")
     return problems
 
 
@@ -200,7 +266,8 @@ def check_job(job):
         problems.append(f"platforms must be among {PLATFORMS}")
     if job.get("type") == "story":
         return problems + check_stories(job)
-    problems += check_campaign(job)
+    problems += check_campaign(job) + check_assets(job)
+    lo, hi = clip_limits(job)
     src_ids = {s["id"] for s in job.get("sources", [])}
     if not src_ids:
         problems.append("no sources")
@@ -222,8 +289,8 @@ def check_job(job):
             total = sum(b - a for a, b in segs)
         if not (c.get("segments")) or (segs and any(b <= a for a, b in segs)):
             problems.append(f"clip {cid}: segments must be [start, end] pairs with end > start, or from/to text")
-        elif total is not None and not MIN_CLIP <= total <= MAX_CLIP:
-            problems.append(f"clip {cid}: {total:.1f}s long, keep it between {MIN_CLIP:.0f} and {MAX_CLIP:.0f}s")
+        elif total is not None and not lo <= total <= hi:
+            problems.append(f"clip {cid}: {total:.1f}s long, keep it between {lo:g} and {hi:g}s")
         if not c.get("hook") or len(c["hook"]) > 90:
             problems.append(f"clip {cid}: hook missing or over 90 characters")
         if len(c.get("title") or c.get("hook", "")) > 100:
@@ -274,29 +341,53 @@ def run_stories(job, work, out, only=None):
         if only and st["id"] not in only:
             continue
         for res in render_story(st, Path(work) / jid, Path(out) / jid, job.get("voice", "am_michael"), job.get("speed", 1.05), plats):
-            rendered.append({"clip": st["id"], **res, **post_text(job, st)})
+            rendered.append({"clip": st["id"], **res, **post_text(job, st, res.get("platform"))})
     manifest = {"id": jid, "stage": "rendered", "campaign": job.get("campaign", {}), "files": rendered}
     write_json(Path(out) / jid / "manifest.json", manifest)
     return manifest
 
 
-def post_text(job, clip):
+def post_text(job, clip, platform=None):
     """Caption: "Werbung | Paid promotion for <brand>", blank line, the clip caption, blank line, hashtags.
     The label is the first line, seen before "more", because German law wants the ad clear at a glance; "#ad" stays
-    among the hashtags (after the clip's own, before the campaign's required ones) but never as the only label."""
+    among the hashtags (after the clip's own, before the campaign's required ones) but never as the only label.
+    With a platform, the campaign's tagsByPlatform for it come last (the same handle is spelled differently per app)."""
     camp = job.get("campaign", {})
     d = disclosure(job)
     own = list(dict.fromkeys(clip.get("hashtags", [])))
     must = list(camp.get("mustInclude", []))
-    if d and AD_TAG not in own + must:
+    per = list((camp.get("tagsByPlatform") or {}).get(platform) or []) if platform else []
+    if d and AD_TAG not in own + must + per:
         own.append(AD_TAG)
-    tags = list(dict.fromkeys(own + must))
+    tags = list(dict.fromkeys(own + must + per))
     head = [ad_line(d)] if d else []
     tail = [" ".join(tags)] if tags else []
     caption = (clip.get("caption") or clip["hook"]).strip()
     room = CAPTION_MAX - len("\n\n".join(head + [""] + tail))  # a long caption is cut, never the label or tags
     text = "\n\n".join(head + [caption[:max(0, room)].rstrip()] + tail)
     return {"caption": text[:CAPTION_MAX], "title": (clip.get("title") or clip["hook"])[:100], "tags": tags}
+
+
+def alarm(title, msg):
+    """A failure that must not go unseen: an error annotation on the GitHub run page, a plain ERROR line elsewhere."""
+    msg = " ".join(str(msg).split())
+    if os.environ.get("GITHUB_ACTIONS"):  # workflow-command escaping: % always, : and , inside the title
+        title = title.replace("%", "%25").replace(":", "%3A").replace(",", "%2C")
+        print(f"::error title={title}::{msg.replace('%', '%25')}")
+    else:
+        print(f"ERROR {title}: {msg}")
+
+
+def get_watermark(job, wdir):
+    """{"path", "width", "position"} for the renderer, fetched once into <work>/<job>/assets/watermark, or None."""
+    conf = watermark_conf(job)
+    if not conf:
+        return None
+    path = fetch_asset(conf["url"], Path(wdir) / "assets" / "watermark", conf.get("pick", "png"))
+    if not has_alpha(path):
+        alarm("watermark", f"{path.name} has no see-through pixels: it will show as a solid box (pick another file?)")
+    print(f"watermark: {path.name}")
+    return {"path": str(path), "width": conf.get("width", 0.55), "position": conf.get("position", WM_POSITIONS[0])}
 
 
 def run_job(job_path, work="work", out="out", only=None):
@@ -308,13 +399,22 @@ def run_job(job_path, work="work", out="out", only=None):
         return run_stories(job, work, out, only)
     jid = job["id"]
     wdir, odir = Path(work) / jid, Path(out) / jid
+    watermark = None
+    if job.get("clips") and watermark_conf(job):  # before the long source download: no clip may go out without it
+        try:
+            watermark = get_watermark(job, wdir)
+        except Exception as e:
+            why = str(e)[-500:]
+            alarm("watermark", f"could not fetch the campaign watermark: {why}")
+            write_json(odir / "manifest.json", {"id": jid, "stage": "failed", "failed": {"watermark": why}})
+            raise SystemExit(f"no clip rendered: the campaign watermark is required and could not be fetched: {why}")
     sources, failed = {}, {}
     for s in job["sources"]:
         try:
-            files = fetch(s["url"], wdir / s["id"])
+            files = fetch(s["url"], wdir / s["id"], want=s.get("file"))
         except Exception as e:  # one blocked source must not stop the others
-            failed[s["id"]] = str(e)[-300:]
-            print(f"source {s['id']} could not be fetched: {failed[s['id']]}")
+            failed[s["id"]] = str(e)[-500:]
+            alarm(f"source {s['id']}", f"could not be fetched: {failed[s['id']]}")
             continue
         media = next((f for f in files if s.get("file") and f.name == s["file"]), files[0])
         tr_path = wdir / f"{s['id']}.words.json"
@@ -341,7 +441,8 @@ def run_job(job_path, work="work", out="out", only=None):
 
     plats = job.get("campaign", {}).get("platforms") or list(PLATFORMS)
     d = disclosure(job)
-    rendered = []
+    lo, hi = clip_limits(job)
+    rendered, failed_clips = [], {}
     for c in job["clips"]:
         if only and c["id"] not in only:
             continue
@@ -349,22 +450,38 @@ def run_job(job_path, work="work", out="out", only=None):
             print(f"clip {c['id']}: source {c['source']} unavailable, skipped")
             continue
         s = sources[c["source"]]
-        segs = [resolve_segment(s["transcript"]["words"], x) for x in c["segments"]]
-        total = sum(b - a for a, b in segs)
-        if not MIN_CLIP <= total <= MAX_CLIP:
-            raise ValueError(f"clip {c['id']}: {total:.1f}s after resolving the text, keep {MIN_CLIP:.0f} to {MAX_CLIP:.0f}s")
-        cap_words = fix_words(fix_phrases(s["transcript"]["words"], job.get("fixPhrases")), job.get("fixWords"))
-        ov = overlays_for(job, c)
-        kw = {"overlays": ov} if ov else {}  # renders without overlays keep the plain call
-        for p in plats:
-            res = render(s["media"], segs, cap_words, c["hook"], p,
-                         odir / f"{c['id']}-{p}.mp4", c.get("layout", "auto"), wdir / "render", **kw)
-            entry = {"clip": c["id"], **res, **post_text(job, c)}
-            if d:
-                entry["disclosure"] = manifest_disclosure(d)
-            rendered.append(entry)
-    manifest = {"id": jid, "stage": "rendered", "campaign": job.get("campaign", {}), "files": rendered}
+        entries = []
+        try:  # a clip that cannot be cut or rendered fails alone, loudly; the others still go out
+            segs = [resolve_segment(s["transcript"]["words"], x) for x in c["segments"]]
+            total = sum(b - a for a, b in segs)
+            if not lo <= total <= hi:
+                raise ValueError(f"{total:.1f}s after finding the text in the transcript, the campaign takes {lo:g} to {hi:g}s")
+            cap_words = fix_words(fix_phrases(s["transcript"]["words"], job.get("fixPhrases")), job.get("fixWords"))
+            ov = overlays_for(job, c, watermark)
+            kw = {"overlays": ov} if ov else {}  # renders without overlays keep the plain call
+            for p in plats:
+                res = render(s["media"], segs, cap_words, c["hook"], p,
+                             odir / f"{c['id']}-{p}.mp4", c.get("layout", "auto"), wdir / "render", **kw)
+                entry = {"clip": c["id"], **res, **post_text(job, c, p)}
+                if d:
+                    entry["disclosure"] = manifest_disclosure(d)
+                entries.append(entry)
+        except Exception as e:
+            failed_clips[c["id"]] = str(e)[-500:]
+            alarm(f"clip {c['id']} failed", failed_clips[c["id"]])
+            for p in plats:  # no half-rendered clip reaches the media branch
+                (odir / f"{c['id']}-{p}.mp4").unlink(missing_ok=True)
+            continue
+        rendered += entries
+    stage = "failed" if failed_clips and not rendered else "rendered"
+    manifest = {"id": jid, "stage": stage, "campaign": job.get("campaign", {}), "files": rendered}
+    if failed_clips:
+        manifest["failedClips"] = failed_clips
+    if failed:
+        manifest["failed"] = failed
     write_json(odir / "manifest.json", manifest)
+    if stage == "failed":
+        raise SystemExit(f"no clip rendered, {len(failed_clips)} failed: {failed_clips}")
     return manifest
 
 
@@ -376,7 +493,7 @@ def main():
     ap.add_argument("--only", nargs="*")
     a = ap.parse_args()
     res = run_job(a.job, a.work, a.out, a.only)
-    print({k: v for k, v in res.items() if k != "files"}, len(res.get("files", [])), "files")
+    print({k: v for k, v in res.items() if k not in ("files", "campaign")}, len(res.get("files", [])), "files")
 
 
 if __name__ == "__main__":
