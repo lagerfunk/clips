@@ -1,0 +1,179 @@
+{
+  "id": "2026-10-11-stories",
+  "stage": "rendered",
+  "campaign": {
+    "name": "AI build stories (Lovable founders)",
+    "platforms": [
+      "youtube",
+      "tiktok",
+      "instagram"
+    ],
+    "mustInclude": [
+      "#lovable"
+    ]
+  },
+  "files": [
+    {
+      "clip": "01-rafael",
+      "out": "out/2026-10-11-stories/01-rafael-youtube.mp4",
+      "platform": "youtube",
+      "duration": 33.27,
+      "layout": "story",
+      "words": 78,
+      "caption": "Rafael built his AI education platform in 90 days on Lovable. No VC, 100% inbound. Source: Lovable founder stories.\n\n#ad #ai #startup #buildinpublic #nocode #lovable",
+      "title": "He built his AI platform in 90 days. Now it makes $5M a year.",
+      "tags": [
+        "#ad",
+        "#ai",
+        "#startup",
+        "#buildinpublic",
+        "#nocode",
+        "#lovable"
+      ]
+    },
+    {
+      "clip": "01-rafael",
+      "out": "out/2026-10-11-stories/01-rafael-tiktok.mp4",
+      "platform": "tiktok",
+      "duration": 33.27,
+      "layout": "story",
+      "words": 78,
+      "caption": "Rafael built his AI education platform in 90 days on Lovable. No VC, 100% inbound. Source: Lovable founder stories.\n\n#ad #ai #startup #buildinpublic #nocode #lovable",
+      "title": "He built his AI platform in 90 days. Now it makes $5M a year.",
+      "tags": [
+        "#ad",
+        "#ai",
+        "#startup",
+        "#buildinpublic",
+        "#nocode",
+        "#lovable"
+      ]
+    },
+    {
+      "clip": "01-rafael",
+      "out": "out/2026-10-11-stories/01-rafael-instagram.mp4",
+      "platform": "instagram",
+      "duration": 33.27,
+      "layout": "story",
+      "words": 78,
+      "caption": "Rafael built his AI education platform in 90 days on Lovable. No VC, 100% inbound. Source: Lovable founder stories.\n\n#ad #ai #startup #buildinpublic #nocode #lovable",
+      "title": "He built his AI platform in 90 days. Now it makes $5M a year.",
+      "tags": [
+        "#ad",
+        "#ai",
+        "#startup",
+        "#buildinpublic",
+        "#nocode",
+        "#lovable"
+      ]
+    },
+    {
+      "clip": "02-wanted",
+      "out": "out/2026-10-11-stories/02-wanted-youtube.mp4",
+      "platform": "youtube",
+      "duration": 28.7,
+      "layout": "story",
+      "words": 73,
+      "caption": "Lex Deak built Wanted, a fashion app with price drop alerts and virtual try on, on Lovable. Source: Lovable founder stories.\n\n#ad #ai #startup #fashiontech #nocode #lovable",
+      "title": "He built a fashion super app with AI and got 16,000 users",
+      "tags": [
+        "#ad",
+        "#ai",
+        "#startup",
+        "#fashiontech",
+        "#nocode",
+        "#lovable"
+      ]
+    },
+    {
+      "clip": "02-wanted",
+      "out": "out/2026-10-11-stories/02-wanted-tiktok.mp4",
+      "platform": "tiktok",
+      "duration": 28.7,
+      "layout": "story",
+      "words": 73,
+      "caption": "Lex Deak built Wanted, a fashion app with price drop alerts and virtual try on, on Lovable. Source: Lovable founder stories.\n\n#ad #ai #startup #fashiontech #nocode #lovable",
+      "title": "He built a fashion super app with AI and got 16,000 users",
+      "tags": [
+        "#ad",
+        "#ai",
+        "#startup",
+        "#fashiontech",
+        "#nocode",
+        "#lovable"
+      ]
+    },
+    {
+      "clip": "02-wanted",
+      "out": "out/2026-10-11-stories/02-wanted-instagram.mp4",
+      "platform": "instagram",
+      "duration": 28.7,
+      "layout": "story",
+      "words": 73,
+      "caption": "Lex Deak built Wanted, a fashion app with price drop alerts and virtual try on, on Lovable. Source: Lovable founder stories.\n\n#ad #ai #startup #fashiontech #nocode #lovable",
+      "title": "He built a fashion super app with AI and got 16,000 users",
+      "tags": [
+        "#ad",
+        "#ai",
+        "#startup",
+        "#fashiontech",
+        "#nocode",
+        "#lovable"
+      ]
+    },
+    {
+      "clip": "03-refine",
+      "out": "out/2026-10-11-stories/03-refine-youtube.mp4",
+      "platform": "youtube",
+      "duration": 28.27,
+      "layout": "story",
+      "words": 66,
+      "caption": "Alex turned company documents into 6 minute game-like lessons with Refine, built on Lovable. Source: Lovable founder stories.\n\n#ad #ai #startup #edtech #nocode #lovable",
+      "title": "A corporate trainer used AI to build a business with 27,000 users",
+      "tags": [
+        "#ad",
+        "#ai",
+        "#startup",
+        "#edtech",
+        "#nocode",
+        "#lovable"
+      ]
+    },
+    {
+      "clip": "03-refine",
+      "out": "out/2026-10-11-stories/03-refine-tiktok.mp4",
+      "platform": "tiktok",
+      "duration": 28.27,
+      "layout": "story",
+      "words": 66,
+      "caption": "Alex turned company documents into 6 minute game-like lessons with Refine, built on Lovable. Source: Lovable founder stories.\n\n#ad #ai #startup #edtech #nocode #lovable",
+      "title": "A corporate trainer used AI to build a business with 27,000 users",
+      "tags": [
+        "#ad",
+        "#ai",
+        "#startup",
+        "#edtech",
+        "#nocode",
+        "#lovable"
+      ]
+    },
+    {
+      "clip": "03-refine",
+      "out": "out/2026-10-11-stories/03-refine-instagram.mp4",
+      "platform": "instagram",
+      "duration": 28.27,
+      "layout": "story",
+      "words": 66,
+      "caption": "Alex turned company documents into 6 minute game-like lessons with Refine, built on Lovable. Source: Lovable founder stories.\n\n#ad #ai #startup #edtech #nocode #lovable",
+      "title": "A corporate trainer used AI to build a business with 27,000 users",
+      "tags": [
+        "#ad",
+        "#ai",
+        "#startup",
+        "#edtech",
+        "#nocode",
+        "#lovable"
+      ]
+    }
+  ]
+}
