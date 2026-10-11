@@ -12,7 +12,8 @@ from clips import job as jobmod
 from clips.common import probe, write_json
 from clips.buffer import post_input
 from clips.deliver import albums
-from clips.render import build_ass, groups, map_words, render, VARIANTS
+from clips import render as rendermod
+from clips.render import build_ass, groups, map_words, no_face_spans, render, VARIANTS
 
 TEXT = ("I wasted two years on this. Nobody tells you this about money? You can lose it all in one day. I did. "
         "Here is what I learned, and why it changed everything for me. Stop saving first. Start earning more. "
@@ -89,6 +90,21 @@ class Pipeline(unittest.TestCase):
         self.assertEqual(len(hashes), 3, "no two platforms get the same file")
         with self.assertRaises(ValueError):
             render(self.src, [(35.0, 60.0)], self.tr["words"], "x", "tiktok", self.tmp / "bad.mp4", "fit", self.tmp / "w")
+
+    def test_broll_without_a_face_is_shown_whole(self):
+        seen = [(t / 2, not (6 <= t / 2 < 9)) for t in range(0, 24)]  # face lost from 6 to 9 s
+        self.assertEqual(no_face_spans(seen, 12.0), [(6.0, 9.0)])
+        self.assertEqual(no_face_spans([(0, True), (0.5, False), (1, True)], 2.0), [], "one missed frame is not b-roll")
+        key = (str(self.src), ((1.0, 9.0),))
+        rendermod._TRACKS[key] = {"steps": [(0, 100.0), (4, 500.0)], "fit": [(2.0, 5.0)]}
+        try:
+            res = render(self.src, [(1.0, 9.0)], self.tr["words"], "Nobody tells you this", "youtube", self.tmp / "mix.mp4", "auto", self.tmp / "w")
+        finally:
+            rendermod._TRACKS.pop(key, None)
+        self.assertEqual(res["layout"], "crop+fit")
+        self.assertAlmostEqual(probe(self.tmp / "mix.mp4")["duration"], 8.0, delta=0.5)
+        y = int((self.tmp / "w" / "mix.ass").read_text().split(r"\pos(540,")[1].split(")")[0])
+        self.assertEqual(y, VARIANTS["youtube"]["cap_y_wide"], "landscape captions sit under the video")
 
     def test_fix_words(self):
         ws = [{"w": "Zeng,", "s": 0, "e": 1}, {"w": "this", "s": 1, "e": 2}, {"w": "ID", "s": 2, "e": 3}, {"w": "loveable.", "s": 3, "e": 4}]
