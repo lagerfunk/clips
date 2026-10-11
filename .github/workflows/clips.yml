@@ -1,7 +1,7 @@
 name: clips
 # A job file in jobs/ runs here: fetch, transcribe, then either candidates (no clips picked yet, committed back to
 # results/ for picking) or rendered clips. Every job file gets its own runner, so a push with many job files renders
-# them side by side. Rendered clips go to the "media" branch (last 10 days, read from raw.githubusercontent.com), to
+# them side by side. Rendered clips go to the "media" branch (last 21 days, read from raw.githubusercontent.com), to
 # the owner's private Telegram channel when that is set up, and with "autopost": true into the Buffer queue.
 on:
   push:
@@ -96,7 +96,7 @@ jobs:
           if [ -n "$TELEGRAM_BOT_TOKEN" ]; then python -m clips.deliver "$m"; else echo "No Telegram token: skipped delivery"; fi
           auto=$(python -c 'import json,sys; print(json.load(open(sys.argv[1])).get("autopost", False))' "$f")
           {
-            # The "media" branch is rebuilt each time with only the last 10 days, so the repo stays small. Several
+            # The "media" branch is rebuilt each time with only the last 21 days, so the repo stays small. Several
             # runners may finish at once: each one rebuilds on top of the newest media commit and pushes with a lease,
             # and starts again if another runner got there first, so nobody's files are lost.
             ok=""
@@ -109,7 +109,7 @@ jobs:
                 git --work-tree="$tmp/keep" checkout refs/remotes/origin/media -- . 2>/dev/null || true
                 git reset -q
               fi
-              cutoff=$(date -u -d '10 days ago' +%Y-%m-%d)
+              cutoff=$(date -u -d '21 days ago' +%Y-%m-%d)
               for d in "$tmp"/keep/*/; do
                 [ -d "$d" ] || continue
                 n=$(basename "$d"); day=${n:0:10}

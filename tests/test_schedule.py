@@ -275,3 +275,18 @@ class Schedule(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class NotifyPlatforms(unittest.TestCase):
+    def test_notify_platforms_are_loaded(self):
+        import tempfile, json
+        from clips.schedule import load_posts
+        d = tempfile.mkdtemp()
+        f = f"{d}/c.json"
+        json.dump({"timezone": "Europe/Berlin", "notify": ["tiktok"], "posts": [
+            {"at": "2026-10-13T20:00", "account": "nocode.founders", "platform": "tiktok", "job": "j", "clip": "c1"},
+            {"at": "2026-10-13T20:00", "account": "nocode.founders", "platform": "youtube", "job": "j", "clip": "c1"}]}, open(f, "w"))
+        posts, bad = load_posts([f])
+        self.assertEqual(bad, [])
+        self.assertEqual({p["platform"]: p["notify"] for p in posts}, {"tiktok": True, "youtube": False})
+

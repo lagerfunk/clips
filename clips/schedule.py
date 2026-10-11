@@ -176,7 +176,9 @@ def load_posts(files):
             if why:
                 invalid.append({"calendar": name, "post": i + 1, "why": why})
                 continue
+            notify = set(cal.get("notify", []))  # platforms Buffer hands to the phone, e.g. TikTok for its ad switch
             posts.append({**{k: p[k] for k in ("at", "account", "platform", "job", "clip")}, "timezone": tz,
+                          "notify": p["platform"] in notify,
                           "calendar": name, "due": to_utc(p["at"], tz),
                           "file": f"{p['job']}/{p['clip']}-{p['platform']}.mp4"})
     return posts, invalid
@@ -409,6 +411,10 @@ def run(calendars, horizon_hours=30, dry_run=False, now=None, results="results",
             continue
         inp = buffer.post_input(p["platform"], cid, url, caption, entry.get("title") or "")
         inp["mode"] = "customScheduled"  # exact time instead of the next queue slot (see the doc links at the top)
+        if p.get("notify"):
+            # schedulingType notification: Buffer sends it to the owner's phone at that time and he posts it in the
+            # app, where the paid-promotion switch Buffer's API cannot set is turned on (CreatePostInput.md)
+            inp["schedulingType"] = "notification"
         inp["dueAt"] = due_at
         if dry_run:
             record(p, cid, None, due_at)
