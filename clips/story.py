@@ -189,8 +189,10 @@ def stat_events(scenes, bounds):
     lines = []
     for sc, (a, b) in zip(scenes, bounds):
         if sc.get("label"):
+            label = _clean(sc["label"])
+            size = min(128, int(980 / (0.62 * max(1, len(label)))))  # long labels shrink so they never run off the frame
             lines.append(f"Dialogue: 2,{ass_time(a + 0.15)},{ass_time(b)},Stat,,0,0,0,,"
-                         f"{{\\pos(540,1430)\\fad(120,120)\\fscx70\\fscy70\\t(0,160,\\fscx100\\fscy100)}}{_clean(sc['label'])}")
+                         f"{{\\pos(540,1430)\\fs{size}\\fad(120,120)\\fscx70\\fscy70\\t(0,160,\\fscx100\\fscy100)}}{label}")
     return lines
 
 
