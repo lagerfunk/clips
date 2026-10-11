@@ -529,11 +529,14 @@ def render(source, segments, words, hook, platform, out, layout="auto", workdir=
     work = Path(workdir or tempfile.mkdtemp(prefix="clip-"))
     work.mkdir(parents=True, exist_ok=True)
 
-    parts, labels = [], []
+    # one input per moment, opened with a seek (-ss before -i): ffmpeg jumps to the moment instead of decoding the
+    # whole source up to it, which made long 4K podcasts take minutes per clip
+    parts, labels, inputs = [], [], []
     for k, (a, b) in enumerate(segments):
-        parts.append(f"[0:v]trim={a:.3f}:{b:.3f},setpts=PTS-STARTPTS,fps=30[v{k}]")
+        inputs += ["-ss", f"{a:.3f}", "-t", f"{b - a:.3f}", "-i", str(source)]
+        parts.append(f"[{k}:v]setpts=PTS-STARTPTS,fps=30[v{k}]")
         if info["audio"]:
-            parts.append(f"[0:a]atrim={a:.3f}:{b:.3f},asetpts=PTS-STARTPTS[a{k}]")
+            parts.append(f"[{k}:a]asetpts=PTS-STARTPTS[a{k}]")
             labels.append(f"[v{k}][a{k}]")
         else:
             labels.append(f"[v{k}]")
@@ -588,7 +591,7 @@ def render(source, segments, words, hook, platform, out, layout="auto", workdir=
         wm_box = overlay_events(overlays, duration, hook, cap)[1]["watermark"][:4]
         x0, y0, x1, y1 = (int(v) for v in wm_box)
         parts.append(f"[base]ass={ass_path}:fontsdir={FONT_DIR}[subbed]")
-        parts.append(f"[1:v]format=rgba,scale={x1 - x0}:{y1 - y0}:flags=lanczos[wm]")
+        parts.append(f"[{len(segments)}:v]format=rgba,scale={x1 - x0}:{y1 - y0}:flags=lanczos[wm]")
         parts.append(f"[subbed][wm]overlay=x={x0}:y={y0}:eof_action=repeat:format=auto,format=yuv420p[vout]")
     else:
         parts.append(f"[base]ass={ass_path}:fontsdir={FONT_DIR}[vout]")
@@ -597,7 +600,7 @@ def render(source, segments, words, hook, platform, out, layout="auto", workdir=
     script = work / f"{Path(out).stem}.filter"
     script.write_text(";\n".join(parts), encoding="utf-8")
 
-    cmd = ["ffmpeg", "-y", "-v", "error", "-i", str(source)]
+    cmd = ["ffmpeg", "-y", "-v", "error", *inputs]
     if wm:  # one still frame, repeated by the overlay; read as a single file even if its name holds a "%"
         cmd += ["-f", "image2", "-pattern_type", "none", "-i", str(wm_path)]
     cmd += ["-filter_complex_script", str(script), "-map", "[vout]"]
