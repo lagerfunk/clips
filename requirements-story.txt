@@ -1,0 +1,4 @@
+kokoro>=0.9.4
+soundfile>=0.12
+playwright>=1.48
+pillow>=10

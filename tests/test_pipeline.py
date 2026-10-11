@@ -123,6 +123,39 @@ class Pipeline(unittest.TestCase):
         self.assertLessEqual(len(al[0]["text"]), 1024)
 
 
+class Story(unittest.TestCase):
+    def test_story_job_renders_with_fake_voice(self):
+        import os
+        from PIL import Image
+        tmp = Path(tempfile.mkdtemp(prefix="storytest-"))
+        Image.new("RGB", (1075, 1900), (240, 240, 240)).save(tmp / "a.png")
+        Image.new("RGB", (1280, 720), (30, 90, 200)).save(tmp / "b.png")
+        job = {"id": "s-1", "type": "story", "campaign": {"name": "T", "platforms": ["tiktok", "youtube"]},
+               "stories": [{"id": "01", "hook": "Built in 90 days", "caption": "c", "hashtags": ["#ai"], "scenes": [
+                   {"say": "Rafael built his platform in ninety days with an AI app builder, no code at all.", "image": {"path": str(tmp / "a.png")}},
+                   {"say": "Last year it did around five million dollars and this year they aim for twenty.", "image": {"path": str(tmp / "b.png")}, "label": "$5,000,000"}]}]}
+        self.assertEqual(jobmod.check_job(job), [])
+        bad = {"id": "s-2", "type": "story", "stories": [{"id": "01", "hook": "", "scenes": [{"say": "x"}]}]}
+        self.assertGreaterEqual(len(jobmod.check_job(bad)), 3)
+        jp = tmp / "job.json"
+        jp.write_text(json.dumps(job))
+        os.environ["CLIPS_FAKE_TTS"] = "1"
+        try:
+            m = jobmod.run_job(jp, tmp / "work", tmp / "out")
+        finally:
+            del os.environ["CLIPS_FAKE_TTS"]
+        self.assertEqual([f["platform"] for f in m["files"]], ["tiktok", "youtube"])
+        for f in m["files"]:
+            info = probe(f["out"])
+            self.assertEqual((info["width"], info["height"]), (1080, 1920))
+            self.assertTrue(info["audio"])
+            self.assertIn("#ad", f["caption"])
+        ass = (tmp / "work" / "s-1" / "01-tiktok.ass").read_text()
+        self.assertIn("Style: Stat", ass)
+        self.assertIn("$5,000,000", ass)
+        shutil.rmtree(tmp, ignore_errors=True)
+
+
 class BufferInput(unittest.TestCase):
     def test_platform_metadata(self):
         yt = post_input("youtube", "c1", "https://x.test/a.mp4", "caption #ad", "T" * 150)

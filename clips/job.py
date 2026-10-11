@@ -35,6 +35,8 @@ def check_job(job):
     plats = job.get("campaign", {}).get("platforms") or list(PLATFORMS)
     if any(p not in PLATFORMS for p in plats):
         problems.append(f"platforms must be among {PLATFORMS}")
+    if job.get("type") == "story":
+        return problems + check_stories(job)
     src_ids = {s["id"] for s in job.get("sources", [])}
     if not src_ids:
         problems.append("no sources")
@@ -61,6 +63,47 @@ def check_job(job):
     return problems
 
 
+def check_stories(job):
+    problems, seen = [], set()
+    if not job.get("stories"):
+        problems.append("story job without stories")
+    for st in job.get("stories", []):
+        sid = st.get("id", "?")
+        if sid in seen:
+            problems.append(f"story {sid}: duplicate id")
+        seen.add(sid)
+        if not st.get("hook") or len(st["hook"]) > 90:
+            problems.append(f"story {sid}: hook missing or over 90 characters")
+        scenes = st.get("scenes") or []
+        if not 2 <= len(scenes) <= 12:
+            problems.append(f"story {sid}: 2 to 12 scenes")
+        words = sum(len(sc.get("say", "").split()) for sc in scenes)
+        if not 25 <= words <= 170:
+            problems.append(f"story {sid}: {words} spoken words, keep 25 to 170 (about 10 to 60 seconds)")
+        for sc in scenes:
+            if not sc.get("say") or not isinstance(sc.get("image"), dict):
+                problems.append(f"story {sid}: every scene needs 'say' and an 'image'")
+                break
+        if "\u2014" in (st.get("hook", "") + st.get("caption", "") + " ".join(sc.get("say", "") for sc in scenes)):
+            problems.append(f"story {sid}: no em dashes")
+    return problems
+
+
+def run_stories(job, work, out, only=None):
+    from .story import render_story
+    jid = job["id"]
+    plats = job.get("campaign", {}).get("platforms") or list(PLATFORMS)
+    rendered = []
+    for st in job["stories"]:
+        if only and st["id"] not in only:
+            continue
+        for res in render_story(st, Path(work) / jid, Path(out) / jid, job.get("voice", "am_michael"), job.get("speed", 1.05), plats):
+            rendered.append({"clip": st["id"], **res, **post_text(job, st)})
+    manifest = {"id": jid, "stage": "rendered", "campaign": job.get("campaign", {}), "files": rendered}
+    write_json(Path(out) / jid / "manifest.json", manifest)
+    return manifest
+
+
 def post_text(job, clip):
     camp = job.get("campaign", {})
     tags = list(dict.fromkeys(clip.get("hashtags", []) + camp.get("mustInclude", [])))
@@ -76,6 +119,8 @@ def run_job(job_path, work="work", out="out", only=None):
     problems = check_job(job)
     if problems:
         raise SystemExit("job not valid:\n- " + "\n- ".join(problems))
+    if job.get("type") == "story":
+        return run_stories(job, work, out, only)
     jid = job["id"]
     wdir, odir = Path(work) / jid, Path(out) / jid
     sources, failed = {}, {}

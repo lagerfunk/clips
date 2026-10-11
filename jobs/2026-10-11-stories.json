@@ -1,0 +1,165 @@
+{
+  "id": "2026-10-11-stories",
+  "type": "story",
+  "voice": "af_heart",
+  "speed": 1.08,
+  "campaign": {
+    "name": "AI build stories (Lovable founders)",
+    "platforms": [
+      "youtube",
+      "tiktok",
+      "instagram"
+    ],
+    "mustInclude": [
+      "#lovable"
+    ]
+  },
+  "autopost": false,
+  "stories": [
+    {
+      "id": "01-rafael",
+      "hook": "Built in 90 days. $5M last year.",
+      "title": "He built his AI platform in 90 days. Now it makes $5M a year.",
+      "caption": "Rafael built his AI education platform in 90 days on Lovable. No VC, 100% inbound. Source: Lovable founder stories.",
+      "hashtags": [
+        "#ai",
+        "#startup",
+        "#buildinpublic",
+        "#nocode"
+      ],
+      "scenes": [
+        {
+          "say": "Rafael built his AI education platform in just ninety days, using Lovable.",
+          "image": {
+            "url": "https://img.youtube.com/vi/FuGV4scUq8M/maxresdefault.jpg"
+          },
+          "label": "90 days"
+        },
+        {
+          "say": "Last year it made around five million dollars. This year, they are aiming for twenty million.",
+          "image": {
+            "screenshot": "https://founder-stories-showcase.lovable.app/"
+          },
+          "label": "$5M"
+        },
+        {
+          "say": "No venture capital. Three people on product, and forty in sales.",
+          "image": {
+            "screenshot": "https://lovable.dev/"
+          },
+          "label": "$0 VC"
+        },
+        {
+          "say": "They sell to two thousand companies in Brazil, and every single customer comes to them, from Instagram.",
+          "image": {
+            "url": "https://img.youtube.com/vi/FuGV4scUq8M/maxresdefault.jpg"
+          },
+          "label": "2,000 companies"
+        },
+        {
+          "say": "Customers even pay twelve months upfront. His biggest lesson? Distribution matters more than the product. Follow for one AI build story every day.",
+          "image": {
+            "screenshot": "https://founder-stories-showcase.lovable.app/"
+          },
+          "label": "12 months upfront"
+        }
+      ]
+    },
+    {
+      "id": "02-wanted",
+      "hook": "16,000 users in 3 months. Built with AI.",
+      "title": "He built a fashion super app with AI and got 16,000 users",
+      "caption": "Lex Deak built Wanted, a fashion app with price drop alerts and virtual try on, on Lovable. Source: Lovable founder stories.",
+      "hashtags": [
+        "#ai",
+        "#startup",
+        "#fashiontech",
+        "#nocode"
+      ],
+      "scenes": [
+        {
+          "say": "The online shopping cart has barely changed in thirty years.",
+          "image": {
+            "url": "https://img.youtube.com/vi/UREvY2dZLwM/maxresdefault.jpg"
+          },
+          "label": "30 years"
+        },
+        {
+          "say": "So serial entrepreneur Lex Deak built Wanted, a fashion super app, with Lovable.",
+          "image": {
+            "screenshot": "https://www.wntd.ai/"
+          }
+        },
+        {
+          "say": "It alerts you when the clothes you want drop in price, and lets you try them on virtually.",
+          "image": {
+            "screenshot": "https://www.wntd.ai/",
+            "scroll": 900
+          },
+          "label": "virtual try-on"
+        },
+        {
+          "say": "Three months after launch, it has sixteen thousand users, and investors are already talking to him.",
+          "image": {
+            "screenshot": "https://founder-stories-showcase.lovable.app/founder/lex"
+          },
+          "label": "16,000 users"
+        },
+        {
+          "say": "One founder, an AI builder, and an old problem nobody fixed. Follow for more AI builds.",
+          "image": {
+            "screenshot": "https://lovable.dev/"
+          }
+        }
+      ]
+    },
+    {
+      "id": "03-refine",
+      "hook": "A trainer built a 3.2M-a-year business with AI",
+      "title": "A corporate trainer used AI to build a business with 27,000 users",
+      "caption": "Alex turned company documents into 6 minute game-like lessons with Refine, built on Lovable. Source: Lovable founder stories.",
+      "hashtags": [
+        "#ai",
+        "#startup",
+        "#edtech",
+        "#nocode"
+      ],
+      "scenes": [
+        {
+          "say": "Alex was a corporate trainer with a PhD in psycholinguistics.",
+          "image": {
+            "url": "https://img.youtube.com/vi/KgE1Ekz8Odg/maxresdefault.jpg"
+          },
+          "label": "PhD"
+        },
+        {
+          "say": "He used Lovable to build Refine.",
+          "image": {
+            "screenshot": "https://refine-skills.com/"
+          }
+        },
+        {
+          "say": "It turns boring company documents into six minute, game-like lessons, with simulations and AI voice feedback.",
+          "image": {
+            "screenshot": "https://refine-skills.com/",
+            "scroll": 900
+          },
+          "label": "6-minute lessons"
+        },
+        {
+          "say": "Today it has twenty seven thousand users, and three point two million in contracted yearly revenue.",
+          "image": {
+            "url": "https://img.youtube.com/vi/KgE1Ekz8Odg/maxresdefault.jpg"
+          },
+          "label": "27,000 users"
+        },
+        {
+          "say": "The expert knew the problem. AI built the product. Follow for one AI build story every day.",
+          "image": {
+            "screenshot": "https://lovable.dev/"
+          }
+        }
+      ]
+    }
+  ]
+}

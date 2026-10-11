@@ -32,8 +32,10 @@ jobs:
       - name: Tools
         run: |
           sudo apt-get update -qq
-          sudo apt-get install -y -qq ffmpeg fonts-dejavu-core >/dev/null
-          pip install -q -r requirements.txt
+          sudo apt-get install -y -qq ffmpeg fonts-dejavu-core espeak-ng >/dev/null
+          pip install -q torch --index-url https://download.pytorch.org/whl/cpu
+          pip install -q -r requirements.txt -r requirements-story.txt
+          python -m playwright install --with-deps chromium >/dev/null
       - name: Pick job files
         id: pick
         env:
@@ -69,8 +71,8 @@ jobs:
             grep -q '"stage": "rendered"' "$m" || continue
             if [ -n "$TELEGRAM_BOT_TOKEN" ]; then python -m clips.deliver "$m"; else echo "No Telegram token: skipped delivery"; fi
             auto=$(python -c 'import json,sys; print(json.load(open(sys.argv[1])).get("autopost", False))' "$f")
-            if [ "$auto" = "True" ] && [ -n "$BUFFER_API_KEY" ]; then
-              # Buffer fetches each file from a public https URL until it has published it. The files live on the
+            if true; then
+              # Every render goes to the "media" branch: the review copies are read from there, and Buffer fetches each file from a public https URL until it has published it. The files live on the
               # "media" branch (rebuilt each run with only the last 10 days, so the repo stays small) and are read
               # from raw.githubusercontent.com, which serves them directly with no redirect and no setup.
               tmp=$(mktemp -d); mkdir -p "$tmp/keep"
@@ -96,7 +98,7 @@ jobs:
                 sleep 15
               done
               [ "$code" = "200" ] || { echo "Media file not reachable after 5 minutes"; exit 1; }
-              python -m clips.buffer queue "$m" --base-url "$MEDIA_BASE/$id"
+              if [ "$auto" = "True" ] && [ -n "$BUFFER_API_KEY" ]; then python -m clips.buffer queue "$m" --base-url "$MEDIA_BASE/$id"; fi
             fi
           done
       - name: Keep candidates and manifests
