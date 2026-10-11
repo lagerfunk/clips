@@ -9,11 +9,19 @@ Job file:
 {
   "id": "2026-10-12-topps",
   "campaign": {"name": "...", "board": "whop", "url": "...", "rate": "$1 per 1K", "platforms": ["tiktok", "instagram", "youtube"],
-               "mustInclude": ["#ad"], "rules": ["..."]},
+               "brand": "Topps", "adLabel": "Werbung", "disclosure": true, "mustInclude": ["@topps"], "rules": ["..."],
+               "overlays": {"ad": true}},
+  "overlays": {"ad": true},                       optional, job level wins over campaign level
   "sources": [{"id": "s1", "url": "https://drive.google.com/...", "file": "optional name inside a folder"}],
   "clips": [{"id": "01", "source": "s1", "segments": [[12.0, 31.5], [40.2, 47.0]], "hook": "...", "caption": "...",
-             "hashtags": ["#ad"], "title": "optional YouTube title"}]
+             "hashtags": ["#cards"], "title": "optional YouTube title",
+             "lower": {"title": "Name, 32 chars max", "sub": "Role, 40 chars max", "start": 0.5, "end": 4.0},
+             "end": "End card, 40 chars max"}]          or "end": {"text": "...", "secs": 2.5}
 }
+
+Paid campaigns (disclosure on, the default) are advertising under German law (UWG § 5a, Medienstaatsvertrag, Medienanstalten
+2025): the caption opens with "Werbung | Paid promotion for <brand>", the video carries the "Werbung" label on screen,
+and each app's own paid toggle is set (flags in the manifest). "#ad" alone does not count as a label.
 """
 import argparse
 import re
@@ -25,7 +33,10 @@ from .fetch import fetch
 from .render import render
 
 MIN_CLIP, MAX_CLIP = 8.0, 90.0
-DISCLOSURE = "#ad"  # paid per view by the brand: the post is advertising and must say so (UWG § 5a, platform rules)
+AD_LABEL = "Werbung"  # first word of the caption; "Anzeige" also works, "#ad" alone does not
+AD_TAG = "#ad"        # kept among the hashtags for the campaign boards, never the only label
+LOWER_TITLE, LOWER_SUB, END_TEXT = 32, 40, 40
+CAPTION_MAX = 2200
 
 
 def _norm(t):
@@ -68,6 +79,118 @@ def fix_words(words, fixes):
     return out
 
 
+def fix_phrases(words, fixes):
+    """Correct multi-word mishearings in the captions ("we'd love a wall" -> "Lovable"): the matched words become one
+    word spanning their time, keeping the last word's punctuation. Matching ignores case and punctuation."""
+    if not fixes:
+        return words
+    pats = sorted(((tuple(_norm(t) for t in k.split()), v) for k, v in fixes.items()), key=lambda x: -len(x[0]))
+    toks = [_norm(w["w"]) for w in words]
+    out, i = [], 0
+    while i < len(words):
+        for pat, rep in pats:
+            n = len(pat)
+            if n and tuple(toks[i:i + n]) == pat:
+                tail = re.match(r"^.*?([.,!?;:]*)$", words[i + n - 1]["w"]).group(1)
+                out.append({**words[i], "w": rep + tail, "e": words[i + n - 1]["e"]})
+                i += n
+                break
+        else:
+            out.append(words[i])
+            i += 1
+    return out
+
+
+def disclosure(job):
+    """The ad label for a paid campaign, or None when the campaign sets "disclosure": false."""
+    camp = job.get("campaign") or {}
+    if not camp.get("disclosure", True):
+        return None
+    brand = str(camp.get("brand") or "").strip()
+    return {"label": str(camp.get("adLabel") or AD_LABEL).strip(), "brand": brand or None}
+
+
+def ad_line(d):
+    """First caption line: "Werbung | Paid promotion for Lovable" (German label first, then the English reading)."""
+    return f"{d['label']} | Paid promotion" + (f" for {d['brand']}" if d["brand"] else "")
+
+
+def manifest_disclosure(d):
+    """What each app must be told; Buffer cannot set these (see buffer.post_input), so the owner toggles them."""
+    return {"label": d["label"], "brand": d["brand"], "youtubePaidPromotion": True,
+            "tiktokBrandedContent": True, "instagramPaidPartnership": True}
+
+
+def end_card(end):
+    return {"text": end} if isinstance(end, str) else {k: end[k] for k in ("text", "secs") if k in end}
+
+
+def overlays_for(job, clip):
+    """On-screen extras for one clip: the permanent ad label, a lower third, an end card. Empty when none apply."""
+    camp = job.get("campaign") or {}
+    conf = {**(camp.get("overlays") or {}), **(job.get("overlays") or {})}
+    d = disclosure(job)
+    ov = {}
+    if conf.get("ad", d is not None):
+        ov["ad"] = d["label"] if d else str(camp.get("adLabel") or AD_LABEL)
+    if clip.get("lower"):
+        ov["lower"] = {k: clip["lower"][k] for k in ("title", "sub", "start", "end") if k in clip["lower"]}
+    if clip.get("end"):
+        ov["end"] = end_card(clip["end"])
+    return ov
+
+
+def _num(x):
+    return isinstance(x, (int, float)) and not isinstance(x, bool) and x >= 0
+
+
+def _text_ok(x, limit):
+    return isinstance(x, str) and x.strip() and len(x) <= limit
+
+
+def check_overlays(c):
+    cid, problems = c.get("id", "?"), []
+    if "lower" in c:
+        lw = c["lower"]
+        if not isinstance(lw, dict):
+            problems.append(f"clip {cid}: lower must be {{\"title\", \"sub\"}}")
+        else:
+            if not _text_ok(lw.get("title"), LOWER_TITLE):
+                problems.append(f"clip {cid}: lower title missing or over {LOWER_TITLE} characters")
+            if not _text_ok(lw.get("sub"), LOWER_SUB):
+                problems.append(f"clip {cid}: lower sub missing or over {LOWER_SUB} characters")
+            for k in ("start", "end"):
+                if k in lw and not _num(lw[k]):
+                    problems.append(f"clip {cid}: lower {k} must be seconds (a number, 0 or more)")
+            if _num(lw.get("start")) and _num(lw.get("end")) and lw["end"] <= lw["start"]:
+                problems.append(f"clip {cid}: lower end must be after its start")
+    if "end" in c:
+        end = c["end"]
+        text = end if isinstance(end, str) else end.get("text") if isinstance(end, dict) else None
+        if not _text_ok(text, END_TEXT):
+            problems.append(f"clip {cid}: end card text missing or over {END_TEXT} characters")
+        if isinstance(end, dict) and "secs" in end and not (_num(end["secs"]) and end["secs"] > 0):
+            problems.append(f"clip {cid}: end card secs must be a number above 0")
+    return problems
+
+
+def check_campaign(job):
+    problems = []
+    camp = job.get("campaign")
+    if camp and not isinstance(camp.get("disclosure", True), bool):
+        problems.append("campaign.disclosure must be true or false")
+    for where, conf in (("campaign.overlays", (camp or {}).get("overlays")), ("overlays", job.get("overlays"))):
+        if conf is not None and not (isinstance(conf, dict) and isinstance(conf.get("ad", True), bool)):
+            problems.append(f'{where} must look like {{"ad": true}}')
+    if camp and camp.get("disclosure", True) is not False:
+        if not str(camp.get("brand") or "").strip():
+            problems.append('campaign.brand missing: paid campaigns open the caption with "Werbung | Paid promotion '
+                            'for <brand>" (set "brand", or "disclosure": false if the post is not paid)')
+        if "adLabel" in camp and not _text_ok(camp["adLabel"], 20):
+            problems.append('campaign.adLabel must be a short word such as "Werbung" or "Anzeige"')
+    return problems
+
+
 def check_job(job):
     problems = []
     if not re.fullmatch(r"[a-z0-9][a-z0-9-]{2,60}", job.get("id", "")):
@@ -77,6 +200,7 @@ def check_job(job):
         problems.append(f"platforms must be among {PLATFORMS}")
     if job.get("type") == "story":
         return problems + check_stories(job)
+    problems += check_campaign(job)
     src_ids = {s["id"] for s in job.get("sources", [])}
     if not src_ids:
         problems.append("no sources")
@@ -104,7 +228,10 @@ def check_job(job):
             problems.append(f"clip {cid}: hook missing or over 90 characters")
         if len(c.get("title") or c.get("hook", "")) > 100:
             problems.append(f"clip {cid}: YouTube title over 100 characters")
-        if "—" in (c.get("hook", "") + c.get("caption", "")):
+        problems += check_overlays(c)
+        lower, end = c.get("lower") if isinstance(c.get("lower"), dict) else {}, c.get("end")
+        on_screen = [lower.get("title"), lower.get("sub"), end.get("text") if isinstance(end, dict) else end]
+        if "—" in c.get("hook", "") + c.get("caption", "") + "".join(x for x in on_screen if isinstance(x, str)):
             problems.append(f"clip {cid}: no em dashes")
     return problems
 
@@ -154,16 +281,22 @@ def run_stories(job, work, out, only=None):
 
 
 def post_text(job, clip):
+    """Caption: "Werbung | Paid promotion for <brand>", blank line, the clip caption, blank line, hashtags.
+    The label is the first line, seen before "more", because German law wants the ad clear at a glance; "#ad" stays
+    among the hashtags (after the clip's own, before the campaign's required ones) but never as the only label."""
     camp = job.get("campaign", {})
-    tags = list(dict.fromkeys(clip.get("hashtags", []) + camp.get("mustInclude", [])))
-    if camp.get("disclosure", True) and DISCLOSURE not in tags:
-        tags.insert(0, DISCLOSURE)
+    d = disclosure(job)
+    own = list(dict.fromkeys(clip.get("hashtags", [])))
+    must = list(camp.get("mustInclude", []))
+    if d and AD_TAG not in own + must:
+        own.append(AD_TAG)
+    tags = list(dict.fromkeys(own + must))
+    head = [ad_line(d)] if d else []
+    tail = [" ".join(tags)] if tags else []
     caption = (clip.get("caption") or clip["hook"]).strip()
-    # the ad label goes first, where it is seen before "more": German law wants it clear at a glance
-    lead = f"{DISCLOSURE} " if DISCLOSURE in tags else ""
-    rest = [t for t in tags if t != DISCLOSURE]
-    text = f"{lead}{caption}\n\n{' '.join(rest)}".strip()
-    return {"caption": text[:2200], "title": (clip.get("title") or clip["hook"])[:100], "tags": tags}
+    room = CAPTION_MAX - len("\n\n".join(head + [""] + tail))  # a long caption is cut, never the label or tags
+    text = "\n\n".join(head + [caption[:max(0, room)].rstrip()] + tail)
+    return {"caption": text[:CAPTION_MAX], "title": (clip.get("title") or clip["hook"])[:100], "tags": tags}
 
 
 def run_job(job_path, work="work", out="out", only=None):
@@ -207,6 +340,7 @@ def run_job(job_path, work="work", out="out", only=None):
         return {"stage": "candidates", "candidates": summary, "failed": failed}
 
     plats = job.get("campaign", {}).get("platforms") or list(PLATFORMS)
+    d = disclosure(job)
     rendered = []
     for c in job["clips"]:
         if only and c["id"] not in only:
@@ -219,11 +353,16 @@ def run_job(job_path, work="work", out="out", only=None):
         total = sum(b - a for a, b in segs)
         if not MIN_CLIP <= total <= MAX_CLIP:
             raise ValueError(f"clip {c['id']}: {total:.1f}s after resolving the text, keep {MIN_CLIP:.0f} to {MAX_CLIP:.0f}s")
-        cap_words = fix_words(s["transcript"]["words"], job.get("fixWords"))
+        cap_words = fix_words(fix_phrases(s["transcript"]["words"], job.get("fixPhrases")), job.get("fixWords"))
+        ov = overlays_for(job, c)
+        kw = {"overlays": ov} if ov else {}  # renders without overlays keep the plain call
         for p in plats:
             res = render(s["media"], segs, cap_words, c["hook"], p,
-                         odir / f"{c['id']}-{p}.mp4", c.get("layout", "auto"), wdir / "render")
-            rendered.append({"clip": c["id"], **res, **post_text(job, c)})
+                         odir / f"{c['id']}-{p}.mp4", c.get("layout", "auto"), wdir / "render", **kw)
+            entry = {"clip": c["id"], **res, **post_text(job, c)}
+            if d:
+                entry["disclosure"] = manifest_disclosure(d)
+            rendered.append(entry)
     manifest = {"id": jid, "stage": "rendered", "campaign": job.get("campaign", {}), "files": rendered}
     write_json(odir / "manifest.json", manifest)
     return manifest

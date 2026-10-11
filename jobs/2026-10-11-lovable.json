@@ -4,13 +4,32 @@
     "name": "Lovable Clipping",
     "board": "contentrewards",
     "rate": "$1 per 1K views, min payout $0.99, max $1,000 per clip",
-    "platforms": ["youtube", "tiktok", "instagram"],
-    "mustInclude": ["@lovable"]
+    "platforms": [
+      "youtube",
+      "tiktok",
+      "instagram"
+    ],
+    "mustInclude": [
+      "@lovable"
+    ],
+    "brand": "Lovable"
   },
   "autopost": false,
   "sources": [
-    {"id": "s1", "url": "https://www.youtube.com/watch?v=FuGV4scUq8M", "title": "How He Bootstrapped a $5M ARR Education Platform (In 90 Days)"},
-    {"id": "s2", "url": "https://www.youtube.com/watch?v=UREvY2dZLwM", "title": "He Built an AI Shopping App to 15,000 Users in 2 Months"},
-    {"id": "s3", "url": "https://www.youtube.com/watch?v=oHYV6aaDBEQ", "title": "You're Wrong About Lovable"}
+    {
+      "id": "s1",
+      "url": "https://www.youtube.com/watch?v=FuGV4scUq8M",
+      "title": "How He Bootstrapped a $5M ARR Education Platform (In 90 Days)"
+    },
+    {
+      "id": "s2",
+      "url": "https://www.youtube.com/watch?v=UREvY2dZLwM",
+      "title": "He Built an AI Shopping App to 15,000 Users in 2 Months"
+    },
+    {
+      "id": "s3",
+      "url": "https://www.youtube.com/watch?v=oHYV6aaDBEQ",
+      "title": "You're Wrong About Lovable"
+    }
   ]
 }

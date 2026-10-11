@@ -1,0 +1,56 @@
+name: schedule
+# Every hour, hand the calendar posts due within the next 30 hours to Buffer, each scheduled for its exact time
+# (calendar/*.json, see calendar/README.md). Every queued post goes into results/_schedule/queued.json, which is
+# committed back, so a rerun never queues the same post twice. Without the BUFFER_API_KEY secret it does nothing.
+on:
+  schedule:
+    - cron: '17 * * * *'
+  push:
+    branches: [main]
+    paths: ['calendar/*.json']
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: only show what would be queued
+        type: boolean
+        default: false
+permissions:
+  contents: write
+concurrency:
+  group: schedule
+  cancel-in-progress: false
+jobs:
+  schedule:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: '3.12'
+      - name: Queue due posts in Buffer
+        env:
+          BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
+          DRY_RUN: ${{ inputs.dry_run }}
+        run: |
+          if [ -z "$BUFFER_API_KEY" ]; then
+            echo "::notice::BUFFER_API_KEY is not set, so nothing was scheduled. Add it under Settings, Secrets and variables, Actions."
+            exit 0
+          fi
+          args=(--calendar 'calendar/*.json' --horizon-hours 30)
+          if [ "$DRY_RUN" = "true" ]; then args+=(--dry-run); fi
+          python -m clips.schedule run "${args[@]}"
+      - name: Commit the ledger
+        if: always()
+        run: |
+          [ -f results/_schedule/queued.json ] || exit 0
+          git config user.name "clips-bot"
+          git config user.email "clips-bot@users.noreply.github.com"
+          git add results/_schedule/queued.json
+          git diff --cached --quiet && exit 0
+          git commit -q -m "schedule: ledger from run ${{ github.run_id }}"
+          for _ in 1 2 3 4 5 6; do
+            git pull -q --rebase && git push -q && exit 0
+            sleep $((RANDOM % 15 + 5))
+          done
+          exit 1

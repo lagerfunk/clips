@@ -1,0 +1,59 @@
+name: stats
+# Daily read-only report on our own posts from the official APIs (YouTube Data API with a plain key, Buffer's
+# GraphQL API). Nothing is scraped and nothing is posted. Writes results/stats/<date>.json and results/stats/latest.md
+# and sends latest.md to the private Telegram channel when that is set up. Every source is optional: a missing
+# secret skips that source.
+on:
+  schedule:
+    - cron: '41 6 * * *'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: stats
+  cancel-in-progress: false
+jobs:
+  stats:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: '3.12'
+      - name: Mask channel ids and chat id
+        env:
+          YT_CHANNEL_IDS: ${{ secrets.YT_CHANNEL_IDS }}
+          CLIPS_CHAT_ID: ${{ secrets.CLIPS_CHAT_ID }}
+        run: |
+          # Secrets are masked whole by GitHub; each single channel id from the comma list is masked here as well.
+          IFS=',' read -ra ids <<< "$YT_CHANNEL_IDS"
+          for id in "${ids[@]}"; do
+            id="${id//[[:space:]]/}"
+            if [ -n "$id" ]; then echo "::add-mask::$id"; fi
+          done
+          if [ -n "$CLIPS_CHAT_ID" ]; then echo "::add-mask::$CLIPS_CHAT_ID"; fi
+      - name: Report and commit
+        env:
+          YT_API_KEY: ${{ secrets.YT_API_KEY }}
+          YT_CHANNEL_IDS: ${{ secrets.YT_CHANNEL_IDS }}
+          BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          CLIPS_CHAT_ID: ${{ secrets.CLIPS_CHAT_ID }}
+          STATS_SINCE: ${{ vars.STATS_SINCE }}
+        run: |
+          rc=0
+          python -m clips.stats --out results/stats || rc=$?
+          git config user.name "clips-bot"
+          git config user.email "clips-bot@users.noreply.github.com"
+          git add results/stats 2>/dev/null || true
+          if ! git diff --cached --quiet; then
+            git commit -q -m "stats $(date -u +%Y-%m-%d)"
+            pushed=""
+            for _ in 1 2 3 4 5 6; do
+              if git pull -q --rebase && git push -q; then pushed=1; break; fi
+              sleep $((RANDOM % 15 + 5))
+            done
+            [ -n "$pushed" ] || { echo "Could not push the stats"; exit 1; }
+          fi
+          exit "$rc"

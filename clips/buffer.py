@@ -49,7 +49,24 @@ def channels(key=None):
     return out
 
 
+# Paid-post toggles each app wants on a paid clip. Buffer's API cannot set them (checked 2026-10-11, see post_input),
+# so a queued clip carries the reminder and the owner switches the toggle in the app.
+APP_TOGGLE = {"youtube": "YouTube Studio: Paid promotion", "tiktok": "TikTok: Content disclosure, Branded content",
+              "instagram": "Instagram: Paid partnership label"}
+
+
 def post_input(platform, channel_id, video_url, caption, title):
+    # Ad disclosure (checked 2026-10-11). Only documented fields are sent; none of them is a paid-post toggle:
+    # - YouTube: YoutubePostMetadataInput (https://developers.buffer.com/types/YoutubePostMetadataInput.md) has
+    #   categoryId, embeddable, isAiGenerated, license, madeForKids, notifySubscribers, privacy, title. No paid
+    #   promotion field, so "Paid promotion" is ticked in YouTube Studio.
+    # - TikTok: the API roadmap (https://developers.buffer.com/roadmap) lists "Add TikTok AI-Generated and Promotional
+    #   Content Disclosure Settings" as released, but the TikTokPostMetadataInput page with the field names could not
+    #   be read, so nothing is sent. Wire it only after reading the exact field names on that page.
+    # - Instagram: the posts guide (https://developers.buffer.com/guides/posts-and-scheduling.md) and the API help
+    #   article name post type, first comment and user tags only; no paid partnership field was found.
+    # The manifest keeps youtubePaidPromotion / tiktokBrandedContent / instagramPaidPartnership per file instead.
+    # The caption itself already opens with the "Werbung | Paid promotion for <brand>" label (job.post_text).
     inp = {
         "text": caption,
         "channelId": channel_id,
@@ -82,15 +99,16 @@ def queue(manifest_path, base_url, key=None, dry_run=False):
         plat = f["platform"]
         url = f"{base_url.rstrip('/')}/{os.path.basename(f['out'])}"
         inp = post_input(plat, chans.get(SERVICE[plat], {}).get("id", "dry-run"), url, f["caption"], f["title"])
+        todo = {"setInApp": APP_TOGGLE[plat]} if f.get("disclosure") else {}
         if dry_run:
-            results.append({"clip": f["clip"], "platform": plat, "input": inp})
+            results.append({"clip": f["clip"], "platform": plat, "input": inp, **todo})
             continue
         if SERVICE[plat] not in chans:
             results.append({"clip": f["clip"], "platform": plat, "error": "no Buffer channel connected for this platform"})
             continue
         res = gql(CREATE, {"input": inp}, key=key)["createPost"]
         if "post" in res:
-            results.append({"clip": f["clip"], "platform": plat, "post": res["post"]["id"], "due": res["post"].get("dueAt")})
+            results.append({"clip": f["clip"], "platform": plat, "post": res["post"]["id"], "due": res["post"].get("dueAt"), **todo})
         else:
             results.append({"clip": f["clip"], "platform": plat, "error": res.get("message", "unknown")})
     m["queued"] = results
@@ -114,7 +132,8 @@ def main():
     res = queue(a.manifest, a.base_url, dry_run=a.dry_run)
     bad = [r for r in res if "error" in r]
     for r in res:
-        print(r["clip"], r["platform"], "queued" if "post" in r else ("dry run" if a.dry_run else "FAILED: " + r["error"]))
+        print(r["clip"], r["platform"], "queued" if "post" in r else ("dry run" if a.dry_run else "FAILED: " + r["error"]),
+              f"| set by hand: {r['setInApp']}" if r.get("setInApp") and "error" not in r else "")
     if bad and not a.dry_run:
         raise SystemExit(f"{len(bad)} post(s) could not be queued")
 

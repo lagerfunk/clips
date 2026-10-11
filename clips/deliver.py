@@ -13,6 +13,7 @@ from pathlib import Path
 from .common import read_json
 
 LABEL = {"tiktok": "TikTok", "youtube": "YouTube Shorts", "instagram": "Instagram Reels"}
+TOGGLE = {"youtube": "YouTube Paid promotion", "tiktok": "TikTok Branded content", "instagram": "Instagram Paid partnership"}
 MAX_BYTES = 49 * 1024 * 1024  # Telegram bot upload limit is 50 MB
 
 
@@ -23,9 +24,12 @@ def albums(manifest):
     out = []
     for clip, files in by_clip.items():
         first = files[0]
+        # a paid clip: the caption already opens with "Werbung | Paid promotion for <brand>"; the app toggle is by hand
+        toggles = [TOGGLE[f["platform"]] for f in files if f.get("disclosure")]
         text = (f"Clip {clip} | {manifest.get('campaign', {}).get('name', manifest['id'])}\n"
                 f"Post on: {', '.join(LABEL[f['platform']] for f in files)}\n"
-                f"YouTube title: {first['title']}\n\n{first['caption']}")
+                + (f"Turn on: {', '.join(toggles)}\n" if toggles else "")
+                + f"YouTube title: {first['title']}\n\n{first['caption']}")
         out.append({"clip": clip, "files": files, "text": text[:1024]})
     return out
 

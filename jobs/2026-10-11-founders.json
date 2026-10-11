@@ -11,7 +11,8 @@
     ],
     "mustInclude": [
       "#lovable"
-    ]
+    ],
+    "brand": "Lovable"
   },
   "autopost": false,
   "sources": [
@@ -63,17 +64,22 @@
         },
         {
           "from": "We wanted to change how",
-          "to": "popped up on the screen."
+          "to": "we were live and running."
         }
       ],
-      "hook": "He turned down $250K at 23",
-      "title": "He turned down $250K at 23. Then AI built his idea in a day",
-      "caption": "Zain walked away from $250K to build Saath, a community fund for South Asia.",
+      "hook": "He turned down a quarter million at 23",
+      "title": "He turned down a quarter million at 23. Then AI built his idea in 24 hours",
+      "caption": "At 23, Zain turned down £250,000 in investor cash because he was working on the wrong thing. Later he rambled his idea at an AI app and it popped up on screen.",
       "hashtags": [
         "#startup",
         "#founder",
         "#ai"
-      ]
+      ],
+      "lower": {
+        "title": "Zain, co-founder of Saath",
+        "sub": "Turned down a quarter million in funding"
+      },
+      "end": "Would you turn down that money at 23?"
     },
     {
       "id": "02-klar",
@@ -88,15 +94,20 @@
           "to": "three friends to change it."
         }
       ],
-      "hook": "Universities tried to stop them. Now they want in.",
+      "hook": "Their university tried to stop them. Now it wants in.",
       "title": "3 students hit €130K ARR in month one. Their university tried to stop them",
-      "caption": "Andreas, Isabel and Eric built Klar, an AI learning app. 35,000 students later, the university wants in.",
+      "caption": "Isabel, Andreas and Eric hit €130,000 ARR in Klar's first month, all from word of mouth. The university that tried to stop them now wants to work with them.",
       "hashtags": [
         "#startup",
         "#students",
         "#ai",
         "#edtech"
-      ]
+      ],
+      "lower": {
+        "title": "Andreas, Isabel and Eric, Klar",
+        "sub": "€130,000 ARR in their first month"
+      },
+      "end": "Would you drop out of college for this?"
     },
     {
       "id": "03-quicktables",
@@ -107,19 +118,24 @@
           "to": "market their businesses."
         },
         {
-          "from": "Handle maybe 700,",
+          "from": "QuickTables is already",
           "to": "moral of the story."
         }
       ],
       "hook": "Why your favourite local restaurant closes",
       "title": "Big chains win on software. He built it for small restaurants",
-      "caption": "Jaleel built QuickTables so mom and pop restaurants can compete with the big chains.",
+      "caption": "Every year 30% of new local restaurants close, while big chains spend millions on software. Jaleel built QuickTables to give small restaurants the same tools.",
       "hashtags": [
         "#startup",
         "#restaurants",
         "#smallbusiness",
         "#ai"
-      ]
+      ],
+      "lower": {
+        "title": "Jaleel, QuickTables co-founder",
+        "sub": "30% of new restaurants close every year"
+      },
+      "end": "What problem do your local shops have?"
     },
     {
       "id": "04-weglow",
@@ -136,12 +152,17 @@
       ],
       "hook": "A candle for his dad became €1.3M for charity",
       "title": "A candle for his dad turned into €1.3 million for nonprofits",
-      "caption": "Quinten and Jef built WeGlow from a family tradition. 35,000 candles, more than €1.3M raised.",
+      "caption": "Before every hospital checkup, Quinten told his dad he was lighting a candle for him. That became WeGlow: more than 35,000 candles lit and more than €1.3 million raised.",
       "hashtags": [
         "#startup",
         "#charity",
         "#ai"
-      ]
+      ],
+      "lower": {
+        "title": "Quinten, co-founder of WeGlow",
+        "sub": "More than €1.3 million raised"
+      },
+      "end": "Who would you light a candle for?"
     },
     {
       "id": "05-lex",
@@ -156,32 +177,42 @@
           "to": "16,000 users"
         }
       ],
-      "hook": "His engineers were scared of AI. Then this happened",
-      "title": "His engineers were scared of AI. Here is what changed",
-      "caption": "Serial founder Lex Deak on how his team went from fear to shipping with AI.",
+      "hook": "His engineers resisted. 16,000 users in 3 months",
+      "title": "His engineers resisted the new tool. 16,000 users in 3 months",
+      "caption": "Lex Deak's engineers met Lovable with reluctance and fear. He gave them time to explore it, and about three months after launch WNTD has 15,000 to 16,000 users.",
       "hashtags": [
         "#startup",
         "#founder",
         "#ai"
-      ]
+      ],
+      "lower": {
+        "title": "Lex Deak, founder of WNTD",
+        "sub": "About 16,000 users in three months"
+      },
+      "end": "Was your team scared of AI at first?"
     },
     {
       "id": "06-avara",
       "source": "s4",
       "segments": [
         [
-          5.22,
+          3.7,
           38.7
         ]
       ],
-      "hook": "A cancelled flight on Valentine's Day started this",
-      "title": "A cancelled Valentine's flight became a travel startup",
-      "caption": "Nico's girlfriend got stranded in a snowstorm. Years later he built AVARA to fix travel.",
+      "hook": "His wife's flight got cancelled on Valentine's Day",
+      "title": "A cancelled Valentine's Day flight showed him what's broken in travel",
+      "caption": "On Valentine's Day, Nico's wife was stuck in a snowstorm 500 miles away and her flight got cancelled. Hundreds of travel apps, and none of them helped.",
       "hashtags": [
         "#startup",
         "#travel",
         "#ai"
-      ]
+      ],
+      "lower": {
+        "title": "Nico Wittenberg, AVARA founder",
+        "sub": "His wife was stuck 500 miles away"
+      },
+      "end": "Has a booking app ever saved your trip?"
     },
     {
       "id": "07-klar-1088",
@@ -193,52 +224,67 @@
         }
       ],
       "hook": "College hasn't changed since 1088",
-      "title": "College hasn't changed since 1088. These students are fixing it",
-      "caption": "Klar's founders on why one way of learning fails most students.",
+      "title": "College hasn't changed since 1088. Their AI tutor learns how you learn",
+      "caption": "The first university opened in Bologna in 1088 and the system hasn't changed. 40% of students drop out, and Klar's founders say learning has to adapt to every person.",
       "hashtags": [
         "#startup",
         "#students",
         "#ai",
         "#edtech"
-      ]
+      ],
+      "lower": {
+        "title": "Isabel, Andreas and Eric, Klar",
+        "sub": "40% of students drop out of their degree"
+      },
+      "end": "How do you learn best?"
     },
     {
       "id": "08-klar-tutor",
       "source": "s2",
       "segments": [
         {
-          "from": "If you need flashcards,",
+          "from": "Basically, it's your private",
           "to": "from an idea into reality."
         }
       ],
       "hook": "One AI that teaches you the way you learn",
       "title": "One AI tutor for flashcards, videos and quizzes",
-      "caption": "Klar adapts to where each student is.",
+      "caption": "Flashcards, videos, images, summaries, quizzes: Klar does all of it and always knows where you're at. Thousands of students were waiting to learn differently.",
       "hashtags": [
         "#startup",
         "#students",
         "#ai",
         "#edtech"
-      ]
+      ],
+      "lower": {
+        "title": "Isabel, Andreas and Eric, Klar",
+        "sub": "Thousands of students were waiting"
+      },
+      "end": "Flashcards or video: how do you study?"
     },
     {
       "id": "09-quicktables-500k",
       "source": "s3",
       "segments": [
         {
-          "from": "It's like, where did I get",
+          "from": "So Jalil tried to build",
           "to": "the marketing up to us."
         }
       ],
-      "hook": "He needed $500K to build it. He used AI instead.",
-      "title": "He needed $500K to build his startup. He used AI instead",
-      "caption": "QuickTables was built with Lovable instead of a big dev budget.",
+      "hook": "He was told he'd need $500K. He used AI instead.",
+      "title": "He was told he'd need $500K to build it. He used AI instead",
+      "caption": "Jaleel was told he'd need about $500,000 to build his restaurant software. Instead he built QuickTables with Lovable, so restaurants can focus on food and leave marketing to them.",
       "hashtags": [
         "#startup",
         "#restaurants",
         "#smallbusiness",
         "#ai"
-      ]
+      ],
+      "lower": {
+        "title": "Jaleel, QuickTables co-founder",
+        "sub": "Didn't have $500,000 to build it"
+      },
+      "end": "What would you build without $500K?"
     },
     {
       "id": "10-quicktables-pickup",
@@ -251,13 +297,18 @@
       ],
       "hook": "90% of restaurant owners don't want this",
       "title": "90% of restaurant owners don't want a ghost kitchen",
-      "caption": "QuickTables rewards customers for picking up food themselves.",
+      "caption": "90% of restaurant owners don't want to run a ghost kitchen. QuickTables gives customers points and discounts for picking up their food instead.",
       "hashtags": [
         "#startup",
         "#restaurants",
         "#smallbusiness",
         "#ai"
-      ]
+      ],
+      "lower": {
+        "title": "QuickTables founding team",
+        "sub": "90% of owners don't want ghost kitchens"
+      },
+      "end": "Would points get you to pick up food?"
     },
     {
       "id": "11-avara-google",
@@ -270,12 +321,17 @@
       ],
       "hook": "Google coworkers laughed. He built it anyway.",
       "title": "His Google coworkers laughed at his idea. He built it anyway",
-      "caption": "Nico waited 14 years, then built AVARA with AI.",
+      "caption": "Nico's coworkers at Google laughed at his idea: it would need millions in funding and a huge team. After waiting 14 years, he gave Lovable a chance.",
       "hashtags": [
         "#startup",
         "#travel",
         "#ai"
-      ]
+      ],
+      "lower": {
+        "title": "Nico Wittenberg, AVARA founder",
+        "sub": "Waited 14 years to build his idea"
+      },
+      "end": "Would you wait 14 years for an idea?"
     },
     {
       "id": "12-weglow-gym",
@@ -286,14 +342,19 @@
           "to": "the bigger the problem became."
         }
       ],
-      "hook": "They met in gym class. Then built this.",
-      "title": "They met in gym class. Now they help nonprofits raise millions",
-      "caption": "Quinten and Jef spent five years talking to every nonprofit in Belgium and the Netherlands.",
+      "hook": "They met in gym class, then built WeGlow",
+      "title": "They met in gym class. Then spent 5 years talking to nonprofits",
+      "caption": "Jef and Quinten first spoke in gym class. Together they built WeGlow and spent five years talking to every nonprofit in Belgium and the Netherlands.",
       "hashtags": [
         "#startup",
         "#charity",
         "#ai"
-      ]
+      ],
+      "lower": {
+        "title": "Jef, co-founder of WeGlow",
+        "sub": "5 years spent talking to nonprofits"
+      },
+      "end": "Tag the friend you'd build with"
     },
     {
       "id": "13-weglow-oneday",
@@ -306,12 +367,17 @@
       ],
       "hook": "Years of building. Rebuilt in one day.",
       "title": "They spent years building it. Then rebuilt it in one day",
-      "caption": "WeGlow's founders on rebuilding their platform with AI.",
+      "caption": "WeGlow's founders spent years and a lot of money trying to build their software without a developer team. Then in one day, they rebuilt everything they had.",
       "hashtags": [
         "#startup",
         "#charity",
         "#ai"
-      ]
+      ],
+      "lower": {
+        "title": "Quinten and Jef, WeGlow",
+        "sub": "Years of work rebuilt in 1 day"
+      },
+      "end": "What would you rebuild in one day?"
     },
     {
       "id": "14-saath-nepal",
@@ -322,14 +388,19 @@
           "to": "That was mind-blowing."
         }
       ],
-      "hook": "Two kids with a laptop funded a club in Nepal",
+      "hook": "Two kids with a laptop helped fund a club in Nepal",
       "title": "Two kids with a laptop helped fund a football club in Nepal",
-      "caption": "Saath lets donors choose the community projects they fund across South Asia.",
+      "caption": "From a girls' football club in Nepal to a craftswoman academy that turns old clothes into bags, Saath helps fund projects across South Asia built to last for years.",
       "hashtags": [
         "#startup",
         "#founder",
         "#ai"
-      ]
+      ],
+      "lower": {
+        "title": "Zain, co-founder of Saath",
+        "sub": "2 kids, 1 laptop, a club in Nepal"
+      },
+      "end": "Which project would you fund first?"
     },
     {
       "id": "15-saath-identity",
@@ -342,122 +413,41 @@
       ],
       "hook": "Cheering for England, eating biryani at home",
       "title": "Cheering for England, eating biryani at home",
-      "caption": "Zain and Habib built Saath for communities living between two homes.",
+      "caption": "Zain cheers for England but eats biryani at home. With his best friend Habib he built Saath, a community-led fund for locally-led projects across South Asia.",
       "hashtags": [
         "#startup",
         "#founder",
         "#ai"
-      ]
-    },
-    {
-      "id": "16-zain-ramble",
-      "source": "s6",
-      "segments": [
-        {
-          "from": "We wanted to change how",
-          "to": "popped up on the screen."
-        }
       ],
-      "hook": "He rambled at an AI. It built his app.",
-      "title": "He rambled at an AI for a minute. It built his app",
-      "caption": "Zain on building Saath with Lovable.",
-      "hashtags": [
-        "#startup",
-        "#founder",
-        "#ai"
-      ]
+      "lower": {
+        "title": "Zain, co-founder of Saath",
+        "sub": "Living between 2 identities"
+      },
+      "end": "Do you live between two cultures?"
     },
     {
       "id": "17-klar-students",
       "source": "s2",
       "segments": [
         {
-          "from": "That's 35,000 students.",
+          "from": "We now have a partnership",
           "to": "three friends to change it."
         }
       ],
-      "hook": "35,000 students. Built by 3 friends.",
-      "title": "35,000 students use an app built by 3 friends",
-      "caption": "Klar went from a 25 square meter flat to students across Sweden.",
+      "hook": "1,000 years of education. 3 friends changing it",
+      "title": "After 1,000 years of education, 3 friends are changing it",
+      "caption": "Klar's founders say a new partnership reaches 35,000 students, with all of Sweden next. The university that tried to stop them now wants to work with them.",
       "hashtags": [
         "#startup",
         "#students",
         "#ai",
         "#edtech"
-      ]
-    },
-    {
-      "id": "18-quicktables-advice",
-      "source": "s3",
-      "segments": [
-        {
-          "from": "But Julio isn't doing this",
-          "to": "moral of the story."
-        }
       ],
-      "hook": "The simplest startup advice you'll hear",
-      "title": "The simplest startup advice: ask people what their problems are",
-      "caption": "QuickTables founder Jaleel on how to find an idea.",
-      "hashtags": [
-        "#startup",
-        "#restaurants",
-        "#smallbusiness",
-        "#ai"
-      ]
-    },
-    {
-      "id": "19-weglow-proud",
-      "source": "s5",
-      "segments": [
-        {
-          "from": "We lighted more than",
-          "to": "he's super proud."
-        }
-      ],
-      "hook": "35,000 candles. One proud dad.",
-      "title": "35,000 candles and one very proud dad",
-      "caption": "WeGlow has raised more than €1.3M for nonprofits.",
-      "hashtags": [
-        "#startup",
-        "#charity",
-        "#ai"
-      ]
-    },
-    {
-      "id": "20-lex-sharktank",
-      "source": "s1",
-      "segments": [
-        {
-          "from": "what should the shopping cart",
-          "to": "exited multiple businesses."
-        }
-      ],
-      "hook": "From school-lunch deals to Shark Tank",
-      "title": "From selling tech at school lunches to Shark Tank",
-      "caption": "Lex Deak has built dozens of startups.",
-      "hashtags": [
-        "#startup",
-        "#founder",
-        "#ai"
-      ]
-    },
-    {
-      "id": "21-avara-apps",
-      "source": "s4",
-      "segments": [
-        {
-          "from": "This is every website and app",
-          "to": "almost purely transactional."
-        }
-      ],
-      "hook": "No travel app helps when your trip goes wrong",
-      "title": "Hundreds of travel apps, and none help when it goes wrong",
-      "caption": "Nico built AVARA so travellers have one place that looks after them.",
-      "hashtags": [
-        "#startup",
-        "#travel",
-        "#ai"
-      ]
+      "lower": {
+        "title": "Isabel, Andreas and Eric, Klar",
+        "sub": "35,000 students, all of Sweden next"
+      },
+      "end": "Did a bad teacher ever hold you back?"
     }
   ],
   "fixWords": {
@@ -472,5 +462,9 @@
     "chairing": "cheering",
     "Zanya": "Zanyar",
     "ID": "idea"
+  },
+  "fixPhrases": {
+    "we'd love a wall": "Lovable",
+    "build a tool": "builder tool"
   }
 }

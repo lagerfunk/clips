@@ -106,6 +106,14 @@ class Pipeline(unittest.TestCase):
         y = int((self.tmp / "w" / "mix.ass").read_text().split(r"\pos(540,")[1].split(")")[0])
         self.assertEqual(y, VARIANTS["youtube"]["cap_y_wide"], "landscape captions sit under the video")
 
+    def test_fix_phrases(self):
+        ws = [{"w": "try", "s": 0, "e": 1}, {"w": "we'd", "s": 1, "e": 2}, {"w": "love", "s": 2, "e": 3}, {"w": "a", "s": 3, "e": 4},
+              {"w": "wall.", "s": 4, "e": 5}, {"w": "now", "s": 5, "e": 6}]
+        out = jobmod.fix_phrases(ws, {"we'd love a wall": "Lovable"})
+        self.assertEqual([w["w"] for w in out], ["try", "Lovable.", "now"])
+        self.assertEqual((out[1]["s"], out[1]["e"]), (1, 5))
+        self.assertEqual(jobmod.fix_phrases(ws, None), ws)
+
     def test_fix_words(self):
         ws = [{"w": "Zeng,", "s": 0, "e": 1}, {"w": "this", "s": 1, "e": 2}, {"w": "ID", "s": 2, "e": 3}, {"w": "loveable.", "s": 3, "e": 4}]
         out = jobmod.fix_words(ws, {"Zeng": "Zain", "ID": "idea", "loveable": "Lovable"})
@@ -127,17 +135,18 @@ class Pipeline(unittest.TestCase):
         bad = {"id": "Bad ID", "sources": [], "clips": [{"id": "1", "source": "s9", "segments": [[5, 3]], "hook": "x" * 95}]}
         problems = jobmod.check_job(bad)
         self.assertGreaterEqual(len(problems), 4)
-        good = {"id": "t-1", "campaign": {"name": "Test", "mustInclude": ["@brand"]}, "sources": [{"id": "s1", "url": "x"}],
+        good = {"id": "t-1", "campaign": {"name": "Test", "brand": "Brand", "mustInclude": ["@brand"]}, "sources": [{"id": "s1", "url": "x"}],
                 "clips": [{"id": "01", "source": "s1", "segments": [[1, 12]], "hook": "Nobody tells you this", "hashtags": ["#money"]}]}
         self.assertEqual(jobmod.check_job(good), [])
         pt = jobmod.post_text(good, good["clips"][0])
-        self.assertTrue(pt["caption"].startswith("#ad Nobody tells you this"), pt["caption"])
-        self.assertTrue(pt["caption"].endswith("#money @brand"), pt["caption"])
+        self.assertTrue(pt["caption"].startswith("Werbung | Paid promotion for Brand\n\nNobody tells you this"), pt["caption"])
+        self.assertTrue(pt["caption"].endswith("#money #ad @brand"), pt["caption"])
         self.assertEqual(pt["title"], "Nobody tells you this")
 
     def test_job_end_to_end_candidates_then_render_then_album_text(self):
         work, out = self.tmp / "work", self.tmp / "out"
-        job = {"id": "e2e-1", "campaign": {"name": "Test campaign", "platforms": ["tiktok", "instagram"]},
+        job = {"id": "e2e-1", "campaign": {"name": "Test campaign", "brand": "Test", "platforms": ["tiktok", "instagram"]},
+               "overlays": {"ad": False},  # on-screen overlays are covered in test_disclosure with a stand-in renderer
                "sources": [{"id": "s1", "url": str(self.src)}]}
         write_json(work / "e2e-1" / "s1.words.json", self.tr)  # stands in for the speech model
         jp = self.tmp / "job.json"

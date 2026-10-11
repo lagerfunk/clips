@@ -7,10 +7,15 @@
 - A hook line at the top, written per clip.
 - Loudness normalised to -14 LUFS. Every platform gets its own render (slightly different framing, hook position
   and encode), so no two uploads are the same file.
+- Optional overlays: a permanent "Werbung" label (German ad law), a lower-third naming the speaker, and an end card
+  question over the last seconds. All of them stay inside the area the app buttons and labels leave free.
 """
 import argparse
+import bisect
+import json
 import math
 import re
+import struct
 import subprocess
 import tempfile
 from pathlib import Path
@@ -24,17 +29,40 @@ VARIANTS = {
 }
 ACTIVE = "&H0000E1FF&"  # warm yellow (ASS colours are BGR)
 MAX_WORDS, MAX_CHARS = 3, 16
+HOOK_SIZE, HOOK_PAD = 74, 18  # hook font size and the padding of its black box (libass: line height = font size)
+CAP_HALF = 60  # half the height a caption line takes at its pop-in scale, outline included
+
+# Strips of the 1080x1920 frame that TikTok, Reels and Shorts cover with their own buttons and labels.
+SAFE = {"top": 130, "right": 140, "bottom": 420}
+OV_LEFT = 60  # left edge of the ad label and the lower-third boxes
+AD_SIZE, AD_PAD, AD_TOP = 34, 10, SAFE["top"] + 10
+LOW_TITLE, LOW_SUB, LOW_PAD, LOW_GAP = 52, 40, 12, 6
+LOW_BOX_W = OUT_W - SAFE["right"] - OV_LEFT  # 880: the lower-third box never reaches under the side buttons
+END_SIZE, END_PAD, END_RIM, END_TEXT_W, END_Y = 60, 24, 5, 730, 800
+NL = r"\N"  # ASS line break
 
 
 def _clean(text):
     return re.sub(r"[{}\\]", "", text).strip()
 
 
+def _ov_text(text):
+    """User text for an overlay: one line, no ASS override codes, no em dashes."""
+    text = re.sub(r"\s*\u2014\s*", ", ", str(text or ""))
+    return re.sub(r"\s+", " ", _clean(text)).strip(" ,")
+
+
 def ass_time(t):
-    t = max(0.0, t)
-    h, rem = divmod(t, 3600)
-    m, s = divmod(rem, 60)
-    return f"{int(h)}:{int(m):02d}:{s:05.2f}"
+    cs = int(round(max(0.0, t) * 100))
+    h, cs = divmod(cs, 360000)
+    m, cs = divmod(cs, 6000)
+    s, cs = divmod(cs, 100)
+    return f"{h}:{m:02d}:{s:02d}.{cs:02d}"
+
+
+def _floor_cs(t):
+    """Round down to the 1/100 s an ASS time can hold, so an overlay never ends after the clip."""
+    return math.floor(t * 100 + 1e-6) / 100
 
 
 def wrap(text, width=18, max_lines=3):
@@ -83,7 +111,211 @@ def groups(words):
     return gs
 
 
-def build_ass(words, duration, hook, variant):
+def _font_file(path):
+    """(names, advance) for a .ttf/.otf file: names {1: family, 2: style, 16, 17}, advance(char) = glyph width per pixel
+    of libass font size (libass makes the line, Windows ascent plus descent, as tall as the font size). None when the
+    file cannot be read. Plain table reading, so the runners need no Pillow."""
+    try:
+        d = Path(path).read_bytes()
+        if d[:4] not in (b"\x00\x01\x00\x00", b"OTTO", b"true"):
+            return None
+        t = {}
+        for i in range(struct.unpack_from(">H", d, 4)[0]):
+            tag, _, off, _ = struct.unpack_from(">4sIII", d, 12 + 16 * i)
+            t[tag] = off
+        if b"OS/2" in t:
+            asc, desc = struct.unpack_from(">HH", d, t[b"OS/2"] + 74)
+        else:
+            asc, desc = struct.unpack_from(">hh", d, t[b"hhea"] + 4)
+            desc = -desc
+        names, nt = {}, t[b"name"]
+        count, base = struct.unpack_from(">HH", d, nt + 2)
+        for i in range(count):
+            pid, _, lid, nid, length, off = struct.unpack_from(">6H", d, nt + 6 + 12 * i)
+            if nid in (1, 2, 16, 17) and (pid, lid) in ((3, 0x409), (1, 0)) and (nid not in names or pid == 3):
+                raw = d[nt + base + off: nt + base + off + length]
+                names[nid] = raw.decode("utf-16-be" if pid == 3 else "latin-1", "replace")
+        n_metrics = struct.unpack_from(">H", d, t[b"hhea"] + 34)[0]
+        adv = struct.unpack_from(f">{2 * n_metrics}H", d, t[b"hmtx"])[0::2]
+        cm, sub = t[b"cmap"], None
+        for i in range(struct.unpack_from(">H", d, t[b"cmap"] + 2)[0]):
+            pid, _, off = struct.unpack_from(">HHI", d, cm + 4 + 8 * i)
+            if pid in (0, 3) and struct.unpack_from(">H", d, cm + off)[0] == 4:
+                sub = cm + off
+                break
+        seg2 = struct.unpack_from(">H", d, sub + 6)[0]
+        seg = seg2 // 2
+        ends = struct.unpack_from(f">{seg}H", d, sub + 14)
+        starts = struct.unpack_from(f">{seg}H", d, sub + 16 + seg2)
+        deltas = struct.unpack_from(f">{seg}h", d, sub + 16 + 2 * seg2)
+        ranges_at = sub + 16 + 3 * seg2
+        ranges = struct.unpack_from(f">{seg}H", d, ranges_at)
+    except (OSError, KeyError, TypeError, struct.error):
+        return None
+    line = float(asc + desc)
+    cache = {}
+
+    def advance(ch):
+        if ch not in cache:
+            c, g = ord(ch), 0
+            i = bisect.bisect_left(ends, c)
+            if c <= 0xFFFF and i < seg and starts[i] <= c:
+                if ranges[i] == 0:
+                    g = (c + deltas[i]) & 0xFFFF
+                else:
+                    g = struct.unpack_from(">H", d, ranges_at + 2 * i + ranges[i] + 2 * (c - starts[i]))[0]
+                    g = (g + deltas[i]) & 0xFFFF if g else 0
+            cache[ch] = adv[min(g, n_metrics - 1)] / line if g else 0.62
+        return cache[ch]
+    return names, advance
+
+
+_MEASURE = {}
+
+
+def _measure():
+    """advance(char) for the bold caption font, with a factor for libass's fake bold when only a regular face exists;
+    None when the font file is not found."""
+    if "m" not in _MEASURE:
+        found, regular = None, None
+        key = re.sub(r"\W", "", FONT_NAME).lower()
+        files = sorted((p for p in Path(FONT_DIR).rglob("*") if p.suffix.lower() in (".ttf", ".otf")),
+                       key=lambda p: (not re.sub(r"\W", "", p.stem).lower().startswith(key), str(p)))[:300]
+        for p in files:
+            info = _font_file(p)
+            if not info or FONT_NAME not in (info[0].get(1), info[0].get(16)):
+                continue
+            styles = (info[0].get(2), info[0].get(17))
+            if "Bold" in styles:
+                found = (info[1], 1.0)
+                break
+            if regular is None and "Regular" in styles:
+                regular = (info[1], 1.05)
+        _MEASURE["m"] = found or regular
+    return _MEASURE["m"]
+
+
+def text_width(text, size):
+    """Width in pixels of bold text as libass draws it at this font size, with 2% to spare (kerning is ignored)."""
+    m = _measure()
+    if m is None:
+        return 0.66 * size * len(text)
+    advance, bold = m
+    return sum(advance(ch) for ch in text) * size * bold * 1.02
+
+
+def _wrap_px(words, size, max_w):
+    lines, cur = [], ""
+    for w in words:
+        if cur and text_width(f"{cur} {w}", size) > max_w:
+            lines.append(cur)
+            cur = w
+        else:
+            cur = f"{cur} {w}".strip()
+    if cur:
+        lines.append(cur)
+    return lines
+
+
+def fit_text(text, size, min_size, max_w, max_lines):
+    """(size, lines) for text in at most max_lines lines no wider than max_w: one line at up to 20% smaller first,
+    then more lines, then down to min_size; text that still does not fit is cut with "..."."""
+    words = text.split()
+    for n in range(1, max_lines + 1):
+        floor = min_size if n == max_lines else max(min_size, int(size * 0.8))
+        for s in range(size, floor - 1, -2):
+            lines = _wrap_px(words, s, max_w)
+            if len(lines) <= n and all(text_width(x, s) <= max_w for x in lines):
+                return s, lines
+    s = min_size
+    lines = _wrap_px(words, s, max_w)[:max_lines]
+    last = lines[-1]
+    while len(last) > 1 and text_width(last + "...", s) > max_w:
+        last = last[:-1]
+    lines[-1] = last.rstrip(" .,;:") + "..."
+    return s, lines
+
+
+def hook_box(hook, variant):
+    """(top, bottom) of the hook's black box, or None without a hook."""
+    if not hook:
+        return None
+    n = wrap(hook).count(r"\N") + 1
+    return variant["hook_y"] - HOOK_PAD, variant["hook_y"] + n * HOOK_SIZE + HOOK_PAD
+
+
+def overlay_events(overlays, duration, hook, variant):
+    """ASS events for the optional overlays, and the box each one covers ({name: (x0, y0, x1, y1, start, end)}).
+
+    overlays = {"ad": "Werbung",
+                "lower": {"title": "...", "sub": "...", "start": 0.3, "end": 4.5},
+                "end": {"text": "...", "secs": 2.5}}; every key optional."""
+    overlays = overlays or {}
+    events, boxes = [], {}
+    clip_end = _floor_cs(duration)
+    hb = hook_box(hook, variant)
+    cap_top = variant["cap_y"] - CAP_HALF
+
+    ad = overlays.get("ad")
+    ad = _ov_text("Werbung" if ad is True else ad) if ad else ""
+    if ad and clip_end > 0:
+        size = AD_SIZE
+        if hb:  # the label sits between the hidden top strip and the hook box, with room to spare
+            size = max(22, min(AD_SIZE, hb[0] - 14 - AD_TOP - 2 * AD_PAD))
+        size, lines = fit_text(ad, size, 22, LOW_BOX_W - 2 * AD_PAD, 1)
+        x, y = OV_LEFT + AD_PAD, AD_TOP + AD_PAD
+        events.append(f"Dialogue: 3,{ass_time(0)},{ass_time(clip_end)},Ad,,0,0,0,,{{\\an7\\pos({x},{y})\\fs{size}}}{lines[0]}")
+        boxes["ad"] = (OV_LEFT, AD_TOP, x + text_width(lines[0], size) + AD_PAD, y + size + AD_PAD, 0.0, clip_end)
+
+    low = overlays.get("lower") or {}
+    title, sub = _ov_text(low.get("title")), _ov_text(low.get("sub"))
+    start = max(0.0, float(low.get("start", 0.3) if low.get("start") is not None else 0.3))
+    end = min(clip_end, float(low.get("end", 4.5) if low.get("end") is not None else 4.5))
+    if (title or sub) and end - start >= 0.2:
+        text_w = LOW_BOX_W - 2 * LOW_PAD
+        bottom = cap_top - 24  # just above the caption line
+        stack = []  # (style, size, lines), drawn bottom up
+        if sub:
+            stack.append(("LowerSub", *fit_text(sub, LOW_SUB, 30, text_w, 2)))
+        if title:
+            stack.append(("LowerTitle", *fit_text(title, LOW_TITLE, 38, text_w, 2)))
+        y_bottom = bottom
+        for i, (style, size, lines) in enumerate(stack):
+            y_bottom -= LOW_GAP if i else 0
+            x, y = OV_LEFT + LOW_PAD, y_bottom - LOW_PAD
+            # slides in 30 px from the left while it fades in, fades out at the end
+            events.append(f"Dialogue: 2,{ass_time(start)},{ass_time(end)},{style},,0,0,0,,"
+                          f"{{\\an1\\move({x - 30},{y},{x},{y},0,200)\\fad(150,150)\\fs{size}}}{NL.join(lines)}")
+            y_bottom -= len(lines) * size + 2 * LOW_PAD
+        width = max(text_width(t, s) for _, s, ls in stack for t in ls)
+        boxes["lower"] = (OV_LEFT, y_bottom, OV_LEFT + width + 2 * LOW_PAD, bottom, start, end)
+
+    card = overlays.get("end") or {}
+    if isinstance(card, str):
+        card = {"text": card}
+    text = _ov_text(card.get("text"))
+    secs = float(card.get("secs") or 2.5)
+    if text and secs > 0 and clip_end > 0:
+        start = max(0.0, clip_end - secs)
+        size, lines = fit_text(text, END_SIZE, 40, END_TEXT_W, 3)
+        h = len(lines) * size + 2 * (END_PAD + END_RIM)
+        lo = (hb[1] if hb else SAFE["top"]) + 30
+        hi = cap_top - 30
+        if "lower" in boxes and boxes["lower"][5] > start:
+            hi = min(hi, boxes["lower"][1] - 30)
+        cy = min(max(END_Y, lo + h / 2), hi - h / 2) if lo + h <= hi else (lo + hi) / 2
+        cy = int(round(cy))
+        tags = f"\\an5\\pos({OUT_W // 2},{cy})\\fs{size}\\fad(250,0)\\fscx90\\fscy90\\t(0,250,\\fscx100\\fscy100)"
+        # a black rim under the yellow card keeps it readable on yellow footage
+        events.append(f"Dialogue: 2,{ass_time(start)},{ass_time(clip_end)},End,,0,0,0,,"
+                      f"{{{tags}\\bord{END_PAD + END_RIM}\\3c&H000000&}}{NL.join(lines)}")
+        events.append(f"Dialogue: 3,{ass_time(start)},{ass_time(clip_end)},End,,0,0,0,,{{{tags}}}{NL.join(lines)}")
+        half_w = max(text_width(x, size) for x in lines) / 2 + END_PAD + END_RIM
+        boxes["end"] = (OUT_W / 2 - half_w, cy - h / 2, OUT_W / 2 + half_w, cy + h / 2, start, clip_end)
+    return events, boxes
+
+
+def build_ass(words, duration, hook, variant, overlays=None):
     head = f"""[Script Info]
 ScriptType: v4.00+
 PlayResX: {OUT_W}
@@ -94,7 +326,11 @@ ScaledBorderAndShadow: yes
 [V4+ Styles]
 Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
 Style: Cap,{FONT_NAME},92,&H00FFFFFF&,&H00FFFFFF&,&H00000000&,&H80000000&,-1,0,0,0,100,100,0,0,1,7,3,5,60,60,0,1
-Style: Hook,{FONT_NAME},74,{variant['hook_colour']},&H00FFFFFF&,&H00000000&,&HC8000000&,-1,0,0,0,100,100,0,0,3,18,0,8,80,80,{variant['hook_y']},1
+Style: Hook,{FONT_NAME},{HOOK_SIZE},{variant['hook_colour']},&H00FFFFFF&,&H00000000&,&HC8000000&,-1,0,0,0,100,100,0,0,3,{HOOK_PAD},0,8,80,80,{variant['hook_y']},1
+Style: Ad,{FONT_NAME},{AD_SIZE},&H00FFFFFF&,&H00FFFFFF&,&H40000000&,&H00000000&,-1,0,0,0,100,100,0,0,3,{AD_PAD},0,7,0,0,0,1
+Style: LowerTitle,{FONT_NAME},{LOW_TITLE},{ACTIVE},&H00FFFFFF&,&H00000000&,&H00000000&,-1,0,0,0,100,100,0,0,3,{LOW_PAD},0,1,0,0,0,1
+Style: LowerSub,{FONT_NAME},{LOW_SUB},&H00FFFFFF&,&H00FFFFFF&,&H00000000&,&H00000000&,-1,0,0,0,100,100,0,0,3,{LOW_PAD},0,1,0,0,0,1
+Style: End,{FONT_NAME},{END_SIZE},&H00000000&,&H00000000&,{ACTIVE},&H00000000&,-1,0,0,0,100,100,0,0,3,{END_PAD},0,5,0,0,0,1
 
 [Events]
 Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
@@ -102,6 +338,8 @@ Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
     lines = []
     if hook:
         lines.append(f"Dialogue: 1,{ass_time(0)},{ass_time(duration)},Hook,,0,0,0,,{wrap(hook)}")
+    if overlays:
+        lines += overlay_events(overlays, duration, hook, variant)[0]
     gs = groups(words)
     x, y = OUT_W // 2, variant["cap_y"]
     for gi, g in enumerate(gs):
@@ -205,7 +443,9 @@ def crop_expr(steps):
     return expr
 
 
-def render(source, segments, words, hook, platform, out, layout="auto", workdir=None):
+def render(source, segments, words, hook, platform, out, layout="auto", workdir=None, overlays=None):
+    """overlays: optional {"ad": "Werbung", "lower": {"title", "sub", "start", "end"}, "end": {"text", "secs"}},
+    see overlay_events."""
     variant = VARIANTS[platform]
     info = probe(source)
     segments = [(float(a), float(b)) for a, b in segments]
@@ -267,7 +507,7 @@ def render(source, segments, words, hook, platform, out, layout="auto", workdir=
     # landscape sources: captions sit just under the full-width video, so they never cover it
     cap = dict(variant, cap_y=variant["cap_y"] if mode == "fill" else variant["cap_y_wide"])
     ass_path = work / f"{Path(out).stem}.ass"
-    ass_path.write_text(build_ass(clip_words, duration, hook, cap), encoding="utf-8")
+    ass_path.write_text(build_ass(clip_words, duration, hook, cap, overlays), encoding="utf-8")
     parts.append(f"[base]ass={ass_path}:fontsdir={FONT_DIR}[vout]")
     if info["audio"]:
         parts.append("[ac]loudnorm=I=-14:TP=-1.5:LRA=11,aresample=48000[aout]")
@@ -296,9 +536,11 @@ def main():
     ap.add_argument("--hook", default="")
     ap.add_argument("--platform", default="tiktok", choices=list(VARIANTS))
     ap.add_argument("--layout", default="auto", choices=["auto", "fit", "crop", "fill"])
+    ap.add_argument("--overlays", help='JSON, e.g. {"ad": "Werbung", "end": {"text": "Would you?"}}')
     a = ap.parse_args()
     segs = [tuple(float(x) for x in s.split(":")) for s in a.seg]
-    res = render(a.source, segs, read_json(a.transcript)["words"], a.hook, a.platform, a.out, a.layout)
+    res = render(a.source, segs, read_json(a.transcript)["words"], a.hook, a.platform, a.out, a.layout,
+                 overlays=json.loads(a.overlays) if a.overlays else None)
     write_json(Path(a.out).with_suffix(".json"), res)
     print(res)
 
