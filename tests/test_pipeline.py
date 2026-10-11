@@ -131,7 +131,8 @@ class Pipeline(unittest.TestCase):
                 "clips": [{"id": "01", "source": "s1", "segments": [[1, 12]], "hook": "Nobody tells you this", "hashtags": ["#money"]}]}
         self.assertEqual(jobmod.check_job(good), [])
         pt = jobmod.post_text(good, good["clips"][0])
-        self.assertTrue(pt["caption"].endswith("#ad #money @brand"), pt["caption"])
+        self.assertTrue(pt["caption"].startswith("#ad Nobody tells you this"), pt["caption"])
+        self.assertTrue(pt["caption"].endswith("#money @brand"), pt["caption"])
         self.assertEqual(pt["title"], "Nobody tells you this")
 
     def test_job_end_to_end_candidates_then_render_then_album_text(self):

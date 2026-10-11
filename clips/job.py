@@ -159,7 +159,10 @@ def post_text(job, clip):
     if camp.get("disclosure", True) and DISCLOSURE not in tags:
         tags.insert(0, DISCLOSURE)
     caption = (clip.get("caption") or clip["hook"]).strip()
-    text = f"{caption}\n\n{' '.join(tags)}".strip()
+    # the ad label goes first, where it is seen before "more": German law wants it clear at a glance
+    lead = f"{DISCLOSURE} " if DISCLOSURE in tags else ""
+    rest = [t for t in tags if t != DISCLOSURE]
+    text = f"{lead}{caption}\n\n{' '.join(rest)}".strip()
     return {"caption": text[:2200], "title": (clip.get("title") or clip["hook"])[:100], "tags": tags}
 
 
