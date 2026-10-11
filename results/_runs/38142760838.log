@@ -1,0 +1,32 @@
+== jobs/2026-10-11-lovable.json
+[youtube] Extracting URL: https://www.youtube.com/watch?v=FuGV4scUq8M
+[youtube] FuGV4scUq8M: Downloading webpage
+[youtube] FuGV4scUq8M: Downloading tv simply player API JSON
+[youtube] FuGV4scUq8M: Downloading web safari client config
+[youtube] FuGV4scUq8M: Downloading web safari player API JSON
+[youtube] FuGV4scUq8M: Downloading mweb client config
+[youtube] FuGV4scUq8M: Downloading mweb player API JSON
+[youtube] FuGV4scUq8M: Downloading visionos player API JSON
+ERROR: [youtube] FuGV4scUq8M: Sign in to confirm you’re not a bot. Use --cookies-from-browser or --cookies for the authentication. See  https://github.com/yt-dlp/yt-dlp/wiki/FAQ#how-do-i-pass-cookies-to-yt-dlp  for how to manually pass cookies. Also see  https://github.com/yt-dlp/yt-dlp/wiki/Extractors#exporting-youtube-cookies  for tips on effectively exporting YouTube cookies
+[youtube] Extracting URL: https://www.youtube.com/watch?v=UREvY2dZLwM
+[youtube] UREvY2dZLwM: Downloading webpage
+[youtube] UREvY2dZLwM: Downloading tv simply player API JSON
+[youtube] UREvY2dZLwM: Downloading web safari client config
+[youtube] UREvY2dZLwM: Downloading web safari player API JSON
+[youtube] UREvY2dZLwM: Downloading mweb client config
+[youtube] UREvY2dZLwM: Downloading mweb player API JSON
+[youtube] UREvY2dZLwM: Downloading visionos player API JSON
+ERROR: [youtube] UREvY2dZLwM: Sign in to confirm you’re not a bot. Use --cookies-from-browser or --cookies for the authentication. See  https://github.com/yt-dlp/yt-dlp/wiki/FAQ#how-do-i-pass-cookies-to-yt-dlp  for how to manually pass cookies. Also see  https://github.com/yt-dlp/yt-dlp/wiki/Extractors#exporting-youtube-cookies  for tips on effectively exporting YouTube cookies
+[youtube] Extracting URL: https://www.youtube.com/watch?v=oHYV6aaDBEQ
+[youtube] oHYV6aaDBEQ: Downloading webpage
+[youtube] oHYV6aaDBEQ: Downloading tv simply player API JSON
+[youtube] oHYV6aaDBEQ: Downloading web safari client config
+[youtube] oHYV6aaDBEQ: Downloading web safari player API JSON
+[youtube] oHYV6aaDBEQ: Downloading mweb client config
+[youtube] oHYV6aaDBEQ: Downloading mweb player API JSON
+[youtube] oHYV6aaDBEQ: Downloading visionos player API JSON
+ERROR: [youtube] oHYV6aaDBEQ: Sign in to confirm you’re not a bot. Use --cookies-from-browser or --cookies for the authentication. See  https://github.com/yt-dlp/yt-dlp/wiki/FAQ#how-do-i-pass-cookies-to-yt-dlp  for how to manually pass cookies. Also see  https://github.com/yt-dlp/yt-dlp/wiki/Extractors#exporting-youtube-cookies  for tips on effectively exporting YouTube cookies
+no source could be fetched: {'s1': "ght<=1080]/b', '--merge-output-format', 'mp4', '--retries', '3', '--extractor-args', 'youtube:player_client=tv_simply,web_safari,mweb,default', '--js-runtimes', 'deno', '-o', 'work/2026-10-11-lovable/s1/%(id)s.%(ext)s', 'https://www.youtube.com/watch?v=FuGV4scUq8M']' returned non-zero exit status 1.", 's2': "ght<=1080]/b', '--merge-output-format', 'mp4', '--retries', '3', '--extractor-args', 'youtube:player_client=tv_simply,web_safari,mweb,default', '--js-runtimes', 'deno', '-o', 'work/2026-10-11-lovable/s2/%(id)s.%(ext)s', 'https://www.youtube.com/watch?v=UREvY2dZLwM']' returned non-zero exit status 1.", 's3': "ght<=1080]/b', '--merge-output-format', 'mp4', '--retries', '3', '--extractor-args', 'youtube:player_client=tv_simply,web_safari,mweb,default', '--js-runtimes', 'deno', '-o', 'work/2026-10-11-lovable/s3/%(id)s.%(ext)s', 'https://www.youtube.com/watch?v=oHYV6aaDBEQ']' returned non-zero exit status 1."}
+source s1 could not be fetched: ght<=1080]/b', '--merge-output-format', 'mp4', '--retries', '3', '--extractor-args', 'youtube:player_client=tv_simply,web_safari,mweb,default', '--js-runtimes', 'deno', '-o', 'work/2026-10-11-lovable/s1/%(id)s.%(ext)s', 'https://www.youtube.com/watch?v=FuGV4scUq8M']' returned non-zero exit status 1.
+source s2 could not be fetched: ght<=1080]/b', '--merge-output-format', 'mp4', '--retries', '3', '--extractor-args', 'youtube:player_client=tv_simply,web_safari,mweb,default', '--js-runtimes', 'deno', '-o', 'work/2026-10-11-lovable/s2/%(id)s.%(ext)s', 'https://www.youtube.com/watch?v=UREvY2dZLwM']' returned non-zero exit status 1.
+source s3 could not be fetched: ght<=1080]/b', '--merge-output-format', 'mp4', '--retries', '3', '--extractor-args', 'youtube:player_client=tv_simply,web_safari,mweb,default', '--js-runtimes', 'deno', '-o', 'work/2026-10-11-lovable/s3/%(id)s.%(ext)s', 'https://www.youtube.com/watch?v=oHYV6aaDBEQ']' returned non-zero exit status 1.
