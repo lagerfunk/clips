@@ -1,5 +1,8 @@
 {
   "timezone": "Europe/Berlin",
+  "notify": [
+    "tiktok"
+  ],
   "posts": [
     {
       "at": "2026-10-12T20:00",
@@ -9,14 +12,7 @@
       "clip": "01-zain"
     },
     {
-      "at": "2026-10-12T20:00",
-      "account": "nocode.founders",
-      "platform": "youtube",
-      "job": "2026-10-11-founders",
-      "clip": "01-zain"
-    },
-    {
-      "at": "2026-10-12T20:00",
+      "at": "2026-10-12T22:00",
       "account": "nocode.founders",
       "platform": "instagram",
       "job": "2026-10-11-founders",
@@ -34,58 +30,37 @@
       "account": "nocode.founders",
       "platform": "youtube",
       "job": "2026-10-11-founders",
+      "clip": "01-zain"
+    },
+    {
+      "at": "2026-10-13T20:00",
+      "account": "nocode.founders",
+      "platform": "tiktok",
+      "job": "2026-10-11-founders",
+      "clip": "04-weglow"
+    },
+    {
+      "at": "2026-10-13T22:00",
+      "account": "nocode.founders",
+      "platform": "instagram",
+      "job": "2026-10-11-founders",
       "clip": "02-klar"
     },
     {
-      "at": "2026-10-12T22:00",
+      "at": "2026-10-13T22:00",
       "account": "nocode.founders",
-      "platform": "instagram",
+      "platform": "tiktok",
+      "job": "2026-10-11-founders",
+      "clip": "09-quicktables-500k"
+    },
+    {
+      "at": "2026-10-13T22:00",
+      "account": "nocode.founders",
+      "platform": "youtube",
       "job": "2026-10-11-founders",
       "clip": "02-klar"
     },
     {
-      "at": "2026-10-13T20:00",
-      "account": "nocode.founders",
-      "platform": "tiktok",
-      "job": "2026-10-11-founders",
-      "clip": "04-weglow"
-    },
-    {
-      "at": "2026-10-13T20:00",
-      "account": "nocode.founders",
-      "platform": "youtube",
-      "job": "2026-10-11-founders",
-      "clip": "04-weglow"
-    },
-    {
-      "at": "2026-10-13T20:00",
-      "account": "nocode.founders",
-      "platform": "instagram",
-      "job": "2026-10-11-founders",
-      "clip": "04-weglow"
-    },
-    {
-      "at": "2026-10-13T22:00",
-      "account": "nocode.founders",
-      "platform": "tiktok",
-      "job": "2026-10-11-founders",
-      "clip": "09-quicktables-500k"
-    },
-    {
-      "at": "2026-10-13T22:00",
-      "account": "nocode.founders",
-      "platform": "youtube",
-      "job": "2026-10-11-founders",
-      "clip": "09-quicktables-500k"
-    },
-    {
-      "at": "2026-10-13T22:00",
-      "account": "nocode.founders",
-      "platform": "instagram",
-      "job": "2026-10-11-founders",
-      "clip": "09-quicktables-500k"
-    },
-    {
       "at": "2026-10-14T20:00",
       "account": "nocode.founders",
       "platform": "tiktok",
@@ -93,18 +68,11 @@
       "clip": "05-lex"
     },
     {
-      "at": "2026-10-14T20:00",
-      "account": "nocode.founders",
-      "platform": "youtube",
-      "job": "2026-10-11-founders",
-      "clip": "05-lex"
-    },
-    {
-      "at": "2026-10-14T20:00",
+      "at": "2026-10-14T22:00",
       "account": "nocode.founders",
       "platform": "instagram",
       "job": "2026-10-11-founders",
-      "clip": "05-lex"
+      "clip": "04-weglow"
     },
     {
       "at": "2026-10-14T22:00",
@@ -118,142 +86,93 @@
       "account": "nocode.founders",
       "platform": "youtube",
       "job": "2026-10-11-founders",
+      "clip": "04-weglow"
+    },
+    {
+      "at": "2026-10-15T20:00",
+      "account": "nocode.founders",
+      "platform": "tiktok",
+      "job": "2026-10-11-founders",
+      "clip": "06-avara"
+    },
+    {
+      "at": "2026-10-15T22:00",
+      "account": "nocode.founders",
+      "platform": "instagram",
+      "job": "2026-10-11-founders",
+      "clip": "09-quicktables-500k"
+    },
+    {
+      "at": "2026-10-15T22:00",
+      "account": "nocode.founders",
+      "platform": "tiktok",
+      "job": "2026-10-11-founders",
+      "clip": "03-quicktables"
+    },
+    {
+      "at": "2026-10-15T22:00",
+      "account": "nocode.founders",
+      "platform": "youtube",
+      "job": "2026-10-11-founders",
+      "clip": "09-quicktables-500k"
+    },
+    {
+      "at": "2026-10-16T20:00",
+      "account": "nocode.founders",
+      "platform": "tiktok",
+      "job": "2026-10-11-founders",
+      "clip": "13-weglow-oneday"
+    },
+    {
+      "at": "2026-10-16T22:00",
+      "account": "nocode.founders",
+      "platform": "instagram",
+      "job": "2026-10-11-founders",
+      "clip": "05-lex"
+    },
+    {
+      "at": "2026-10-16T22:00",
+      "account": "nocode.founders",
+      "platform": "tiktok",
+      "job": "2026-10-11-founders",
+      "clip": "17-klar-students"
+    },
+    {
+      "at": "2026-10-16T22:00",
+      "account": "nocode.founders",
+      "platform": "youtube",
+      "job": "2026-10-11-founders",
+      "clip": "05-lex"
+    },
+    {
+      "at": "2026-10-17T20:00",
+      "account": "nocode.founders",
+      "platform": "tiktok",
+      "job": "2026-10-11-founders",
+      "clip": "14-saath-nepal"
+    },
+    {
+      "at": "2026-10-17T22:00",
+      "account": "nocode.founders",
+      "platform": "instagram",
+      "job": "2026-10-11-founders",
       "clip": "11-avara-google"
     },
     {
-      "at": "2026-10-14T22:00",
+      "at": "2026-10-17T22:00",
       "account": "nocode.founders",
-      "platform": "instagram",
+      "platform": "tiktok",
+      "job": "2026-10-11-founders",
+      "clip": "07-klar-1088"
+    },
+    {
+      "at": "2026-10-17T22:00",
+      "account": "nocode.founders",
+      "platform": "youtube",
       "job": "2026-10-11-founders",
       "clip": "11-avara-google"
     },
     {
-      "at": "2026-10-15T20:00",
-      "account": "nocode.founders",
-      "platform": "tiktok",
-      "job": "2026-10-11-founders",
-      "clip": "06-avara"
-    },
-    {
-      "at": "2026-10-15T20:00",
-      "account": "nocode.founders",
-      "platform": "youtube",
-      "job": "2026-10-11-founders",
-      "clip": "06-avara"
-    },
-    {
-      "at": "2026-10-15T20:00",
-      "account": "nocode.founders",
-      "platform": "instagram",
-      "job": "2026-10-11-founders",
-      "clip": "06-avara"
-    },
-    {
-      "at": "2026-10-15T22:00",
-      "account": "nocode.founders",
-      "platform": "tiktok",
-      "job": "2026-10-11-founders",
-      "clip": "03-quicktables"
-    },
-    {
-      "at": "2026-10-15T22:00",
-      "account": "nocode.founders",
-      "platform": "youtube",
-      "job": "2026-10-11-founders",
-      "clip": "03-quicktables"
-    },
-    {
-      "at": "2026-10-15T22:00",
-      "account": "nocode.founders",
-      "platform": "instagram",
-      "job": "2026-10-11-founders",
-      "clip": "03-quicktables"
-    },
-    {
-      "at": "2026-10-16T20:00",
-      "account": "nocode.founders",
-      "platform": "tiktok",
-      "job": "2026-10-11-founders",
-      "clip": "13-weglow-oneday"
-    },
-    {
-      "at": "2026-10-16T20:00",
-      "account": "nocode.founders",
-      "platform": "youtube",
-      "job": "2026-10-11-founders",
-      "clip": "13-weglow-oneday"
-    },
-    {
-      "at": "2026-10-16T20:00",
-      "account": "nocode.founders",
-      "platform": "instagram",
-      "job": "2026-10-11-founders",
-      "clip": "13-weglow-oneday"
-    },
-    {
-      "at": "2026-10-16T22:00",
-      "account": "nocode.founders",
-      "platform": "tiktok",
-      "job": "2026-10-11-founders",
-      "clip": "17-klar-students"
-    },
-    {
-      "at": "2026-10-16T22:00",
-      "account": "nocode.founders",
-      "platform": "youtube",
-      "job": "2026-10-11-founders",
-      "clip": "17-klar-students"
-    },
-    {
-      "at": "2026-10-16T22:00",
-      "account": "nocode.founders",
-      "platform": "instagram",
-      "job": "2026-10-11-founders",
-      "clip": "17-klar-students"
-    },
-    {
-      "at": "2026-10-17T20:00",
-      "account": "nocode.founders",
-      "platform": "tiktok",
-      "job": "2026-10-11-founders",
-      "clip": "14-saath-nepal"
-    },
-    {
-      "at": "2026-10-17T20:00",
-      "account": "nocode.founders",
-      "platform": "youtube",
-      "job": "2026-10-11-founders",
-      "clip": "14-saath-nepal"
-    },
-    {
-      "at": "2026-10-17T20:00",
-      "account": "nocode.founders",
-      "platform": "instagram",
-      "job": "2026-10-11-founders",
-      "clip": "14-saath-nepal"
-    },
-    {
-      "at": "2026-10-17T22:00",
-      "account": "nocode.founders",
-      "platform": "tiktok",
-      "job": "2026-10-11-founders",
-      "clip": "07-klar-1088"
-    },
-    {
-      "at": "2026-10-17T22:00",
-      "account": "nocode.founders",
-      "platform": "youtube",
-      "job": "2026-10-11-founders",
-      "clip": "07-klar-1088"
-    },
-    {
-      "at": "2026-10-17T22:00",
-      "account": "nocode.founders",
-      "platform": "instagram",
-      "job": "2026-10-11-founders",
-      "clip": "07-klar-1088"
-    },
-    {
       "at": "2026-10-18T20:00",
       "account": "nocode.founders",
       "platform": "tiktok",
@@ -261,18 +180,11 @@
       "clip": "10-quicktables-pickup"
     },
     {
-      "at": "2026-10-18T20:00",
-      "account": "nocode.founders",
-      "platform": "youtube",
-      "job": "2026-10-11-founders",
-      "clip": "10-quicktables-pickup"
-    },
-    {
-      "at": "2026-10-18T20:00",
+      "at": "2026-10-18T22:00",
       "account": "nocode.founders",
       "platform": "instagram",
       "job": "2026-10-11-founders",
-      "clip": "10-quicktables-pickup"
+      "clip": "06-avara"
     },
     {
       "at": "2026-10-18T22:00",
@@ -286,14 +198,7 @@
       "account": "nocode.founders",
       "platform": "youtube",
       "job": "2026-10-11-founders",
-      "clip": "12-weglow-gym"
-    },
-    {
-      "at": "2026-10-18T22:00",
-      "account": "nocode.founders",
-      "platform": "instagram",
-      "job": "2026-10-11-founders",
-      "clip": "12-weglow-gym"
+      "clip": "06-avara"
     },
     {
       "at": "2026-10-19T20:00",
@@ -303,18 +208,11 @@
       "clip": "08-klar-tutor"
     },
     {
-      "at": "2026-10-19T20:00",
-      "account": "nocode.founders",
-      "platform": "youtube",
-      "job": "2026-10-11-founders",
-      "clip": "08-klar-tutor"
-    },
-    {
-      "at": "2026-10-19T20:00",
+      "at": "2026-10-19T22:00",
       "account": "nocode.founders",
       "platform": "instagram",
       "job": "2026-10-11-founders",
-      "clip": "08-klar-tutor"
+      "clip": "03-quicktables"
     },
     {
       "at": "2026-10-19T22:00",
@@ -328,17 +226,119 @@
       "account": "nocode.founders",
       "platform": "youtube",
       "job": "2026-10-11-founders",
+      "clip": "03-quicktables"
+    },
+    {
+      "at": "2026-10-20T22:00",
+      "account": "nocode.founders",
+      "platform": "instagram",
+      "job": "2026-10-11-founders",
+      "clip": "13-weglow-oneday"
+    },
+    {
+      "at": "2026-10-20T22:00",
+      "account": "nocode.founders",
+      "platform": "youtube",
+      "job": "2026-10-11-founders",
+      "clip": "13-weglow-oneday"
+    },
+    {
+      "at": "2026-10-21T22:00",
+      "account": "nocode.founders",
+      "platform": "instagram",
+      "job": "2026-10-11-founders",
+      "clip": "17-klar-students"
+    },
+    {
+      "at": "2026-10-21T22:00",
+      "account": "nocode.founders",
+      "platform": "youtube",
+      "job": "2026-10-11-founders",
+      "clip": "17-klar-students"
+    },
+    {
+      "at": "2026-10-22T22:00",
+      "account": "nocode.founders",
+      "platform": "instagram",
+      "job": "2026-10-11-founders",
+      "clip": "14-saath-nepal"
+    },
+    {
+      "at": "2026-10-22T22:00",
+      "account": "nocode.founders",
+      "platform": "youtube",
+      "job": "2026-10-11-founders",
+      "clip": "14-saath-nepal"
+    },
+    {
+      "at": "2026-10-23T22:00",
+      "account": "nocode.founders",
+      "platform": "instagram",
+      "job": "2026-10-11-founders",
+      "clip": "07-klar-1088"
+    },
+    {
+      "at": "2026-10-23T22:00",
+      "account": "nocode.founders",
+      "platform": "youtube",
+      "job": "2026-10-11-founders",
+      "clip": "07-klar-1088"
+    },
+    {
+      "at": "2026-10-24T22:00",
+      "account": "nocode.founders",
+      "platform": "instagram",
+      "job": "2026-10-11-founders",
+      "clip": "10-quicktables-pickup"
+    },
+    {
+      "at": "2026-10-24T22:00",
+      "account": "nocode.founders",
+      "platform": "youtube",
+      "job": "2026-10-11-founders",
+      "clip": "10-quicktables-pickup"
+    },
+    {
+      "at": "2026-10-25T22:00",
+      "account": "nocode.founders",
+      "platform": "instagram",
+      "job": "2026-10-11-founders",
+      "clip": "12-weglow-gym"
+    },
+    {
+      "at": "2026-10-25T22:00",
+      "account": "nocode.founders",
+      "platform": "youtube",
+      "job": "2026-10-11-founders",
+      "clip": "12-weglow-gym"
+    },
+    {
+      "at": "2026-10-26T22:00",
+      "account": "nocode.founders",
+      "platform": "instagram",
+      "job": "2026-10-11-founders",
+      "clip": "08-klar-tutor"
+    },
+    {
+      "at": "2026-10-26T22:00",
+      "account": "nocode.founders",
+      "platform": "youtube",
+      "job": "2026-10-11-founders",
+      "clip": "08-klar-tutor"
+    },
+    {
+      "at": "2026-10-27T22:00",
+      "account": "nocode.founders",
+      "platform": "instagram",
+      "job": "2026-10-11-founders",
       "clip": "15-saath-identity"
     },
     {
-      "at": "2026-10-19T22:00",
+      "at": "2026-10-27T22:00",
       "account": "nocode.founders",
-      "platform": "instagram",
+      "platform": "youtube",
       "job": "2026-10-11-founders",
       "clip": "15-saath-identity"
     }
-  ],
-  "notify": [
-    "tiktok"
   ]
 }
