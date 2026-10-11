@@ -112,6 +112,12 @@ def logo(path, w=600, h=150, b=16, clear=True):
 # ---------------------------------------------------------------- WeTransfer
 
 class WeTransferLinks(unittest.TestCase):
+    def test_wetransfer_preview_link_is_read_like_a_download_link(self):
+        from clips.fetch import parse_wetransfer
+        ids = parse_wetransfer("https://wetransfer.com/previews/ac6977b32e8cc893ee19e14dbec4787c20260929040256/a7bc2d?auto_preview=true")
+        self.assertEqual(ids["transfer_id"], "ac6977b32e8cc893ee19e14dbec4787c20260929040256")
+        self.assertEqual(ids["security_hash"], "a7bc2d")
+
     def test_kinds(self):
         self.assertEqual(kind_of(SHORT), "wetransfer")
         self.assertEqual(kind_of(DL), "wetransfer")

@@ -68,9 +68,10 @@ def parse_wetransfer(url):
     <security_hash> (transferwee's order); the security hash is the short one (6 characters), so a link written the
     other way round is read correctly too."""
     parts = [p for p in urllib.parse.urlparse(url).path.split("/") if p]
-    if "downloads" not in parts:
+    kind = next((k for k in ("downloads", "previews") if k in parts), None)  # WeTransfer now also sends /previews/
+    if not kind:
         raise WeTransferError(f"WeTransfer: not a download link: {url}")
-    parts = parts[parts.index("downloads") + 1:]
+    parts = parts[parts.index(kind) + 1:]
     if not all(re.fullmatch(r"[A-Za-z0-9_-]+", p) for p in parts) or len(parts) not in (2, 3):
         raise WeTransferError(f"WeTransfer: cannot read the transfer id and security hash from {url}")
     if len(parts) == 2:
