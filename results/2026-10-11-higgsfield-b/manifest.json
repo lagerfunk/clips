@@ -1,0 +1,541 @@
+{
+  "id": "2026-10-11-higgsfield-b",
+  "stage": "rendered",
+  "campaign": {
+    "name": "Higgsfield 20VC Clipping",
+    "board": "contentrewards",
+    "brand": "Higgsfield",
+    "rate": "$1 per 1K views, min payout $1, max $350 per clip",
+    "platforms": [
+      "youtube",
+      "instagram"
+    ],
+    "tagsByPlatform": {
+      "youtube": [
+        "@HiggsfieldAI",
+        "@20VC"
+      ],
+      "instagram": [
+        "@higgsfield.ai",
+        "@20vchq"
+      ]
+    },
+    "minSecs": 30,
+    "maxSecs": 60,
+    "rules": "Footage only from the WeTransfer link. Higgsfield watermark big on the whole clip. English captions. Own hook in the first seconds. 30 to 60 s. Never change or splice Alex's words. 40%+ views from US, UK, CA, AU. Likes visible, 0.20% engagement, keep 30 days. Submit link on Whop, then demographics and a ticket when the clip hits min payout."
+  },
+  "files": [
+    {
+      "clip": "h09-20-dollar-plans",
+      "out": "out/2026-10-11-higgsfield-b/h09-20-dollar-plans-youtube.mp4",
+      "platform": "youtube",
+      "duration": 44.5,
+      "layout": "crop",
+      "words": 110,
+      "watermark": [
+        243,
+        1300,
+        837,
+        1482
+      ],
+      "caption": "Werbung | Paid promotion for Higgsfield\n\nAlex Mashrabov says Higgsfield can never win on $20 a month subscriptions, because he expects Google and OpenAI to take that market.\n\n#higgsfield #20vc #ai #openai #ad @HiggsfieldAI @20VC",
+      "title": "Higgsfield CEO: Google and OpenAI will demolish $20 a month AI subscriptions",
+      "tags": [
+        "#higgsfield",
+        "#20vc",
+        "#ai",
+        "#openai",
+        "#ad",
+        "@HiggsfieldAI",
+        "@20VC"
+      ],
+      "disclosure": {
+        "label": "Werbung",
+        "brand": "Higgsfield",
+        "youtubePaidPromotion": true,
+        "tiktokBrandedContent": true,
+        "instagramPaidPartnership": true
+      }
+    },
+    {
+      "clip": "h09-20-dollar-plans",
+      "out": "out/2026-10-11-higgsfield-b/h09-20-dollar-plans-instagram.mp4",
+      "platform": "instagram",
+      "duration": 44.5,
+      "layout": "crop",
+      "words": 110,
+      "watermark": [
+        243,
+        1305,
+        837,
+        1487
+      ],
+      "caption": "Werbung | Paid promotion for Higgsfield\n\nAlex Mashrabov says Higgsfield can never win on $20 a month subscriptions, because he expects Google and OpenAI to take that market.\n\n#higgsfield #20vc #ai #openai #ad @higgsfield.ai @20vchq",
+      "title": "Higgsfield CEO: Google and OpenAI will demolish $20 a month AI subscriptions",
+      "tags": [
+        "#higgsfield",
+        "#20vc",
+        "#ai",
+        "#openai",
+        "#ad",
+        "@higgsfield.ai",
+        "@20vchq"
+      ],
+      "disclosure": {
+        "label": "Werbung",
+        "brand": "Higgsfield",
+        "youtubePaidPromotion": true,
+        "tiktokBrandedContent": true,
+        "instagramPaidPartnership": true
+      }
+    },
+    {
+      "clip": "h10-no-paid-ads",
+      "out": "out/2026-10-11-higgsfield-b/h10-no-paid-ads-youtube.mp4",
+      "platform": "youtube",
+      "duration": 50.83,
+      "layout": "crop+fit",
+      "words": 112,
+      "watermark": [
+        243,
+        1300,
+        837,
+        1482
+      ],
+      "caption": "Werbung | Paid promotion for Higgsfield\n\nHiggsfield says its consumer growth comes from its own content, not paid ads. Almost half the company is an in-house team of creatives.\n\n#higgsfield #20vc #ai #marketing #ad @HiggsfieldAI @20VC",
+      "title": "Higgsfield grows with zero paid ads and a 150-person in-house creative team",
+      "tags": [
+        "#higgsfield",
+        "#20vc",
+        "#ai",
+        "#marketing",
+        "#ad",
+        "@HiggsfieldAI",
+        "@20VC"
+      ],
+      "disclosure": {
+        "label": "Werbung",
+        "brand": "Higgsfield",
+        "youtubePaidPromotion": true,
+        "tiktokBrandedContent": true,
+        "instagramPaidPartnership": true
+      }
+    },
+    {
+      "clip": "h10-no-paid-ads",
+      "out": "out/2026-10-11-higgsfield-b/h10-no-paid-ads-instagram.mp4",
+      "platform": "instagram",
+      "duration": 50.83,
+      "layout": "crop+fit",
+      "words": 112,
+      "watermark": [
+        243,
+        1305,
+        837,
+        1487
+      ],
+      "caption": "Werbung | Paid promotion for Higgsfield\n\nHiggsfield says its consumer growth comes from its own content, not paid ads. Almost half the company is an in-house team of creatives.\n\n#higgsfield #20vc #ai #marketing #ad @higgsfield.ai @20vchq",
+      "title": "Higgsfield grows with zero paid ads and a 150-person in-house creative team",
+      "tags": [
+        "#higgsfield",
+        "#20vc",
+        "#ai",
+        "#marketing",
+        "#ad",
+        "@higgsfield.ai",
+        "@20vchq"
+      ],
+      "disclosure": {
+        "label": "Werbung",
+        "brand": "Higgsfield",
+        "youtubePaidPromotion": true,
+        "tiktokBrandedContent": true,
+        "instagramPaidPartnership": true
+      }
+    },
+    {
+      "clip": "h11-us-vs-china-models",
+      "out": "out/2026-10-11-higgsfield-b/h11-us-vs-china-models-youtube.mp4",
+      "platform": "youtube",
+      "duration": 35.4,
+      "layout": "crop+fit",
+      "words": 86,
+      "watermark": [
+        243,
+        1300,
+        837,
+        1482
+      ],
+      "caption": "Werbung | Paid promotion for Higgsfield\n\nAlex Mashrabov names Google and Nvidia as the US incumbents that figured out models, and Tencent, Xiaomi and Alibaba in China, with ByteDance catching up. He blames the tech bubble's obsession with benchmarks.\n\n#higgsfield #20vc #ai #nvidia #ad @HiggsfieldAI @20VC",
+      "title": "Higgsfield CEO: two US incumbents figured out AI models, China has three",
+      "tags": [
+        "#higgsfield",
+        "#20vc",
+        "#ai",
+        "#nvidia",
+        "#ad",
+        "@HiggsfieldAI",
+        "@20VC"
+      ],
+      "disclosure": {
+        "label": "Werbung",
+        "brand": "Higgsfield",
+        "youtubePaidPromotion": true,
+        "tiktokBrandedContent": true,
+        "instagramPaidPartnership": true
+      }
+    },
+    {
+      "clip": "h11-us-vs-china-models",
+      "out": "out/2026-10-11-higgsfield-b/h11-us-vs-china-models-instagram.mp4",
+      "platform": "instagram",
+      "duration": 35.4,
+      "layout": "crop+fit",
+      "words": 86,
+      "watermark": [
+        243,
+        1305,
+        837,
+        1487
+      ],
+      "caption": "Werbung | Paid promotion for Higgsfield\n\nAlex Mashrabov names Google and Nvidia as the US incumbents that figured out models, and Tencent, Xiaomi and Alibaba in China, with ByteDance catching up. He blames the tech bubble's obsession with benchmarks.\n\n#higgsfield #20vc #ai #nvidia #ad @higgsfield.ai @20vchq",
+      "title": "Higgsfield CEO: two US incumbents figured out AI models, China has three",
+      "tags": [
+        "#higgsfield",
+        "#20vc",
+        "#ai",
+        "#nvidia",
+        "#ad",
+        "@higgsfield.ai",
+        "@20vchq"
+      ],
+      "disclosure": {
+        "label": "Werbung",
+        "brand": "Higgsfield",
+        "youtubePaidPromotion": true,
+        "tiktokBrandedContent": true,
+        "instagramPaidPartnership": true
+      }
+    },
+    {
+      "clip": "h12-legal-support-mistake",
+      "out": "out/2026-10-11-higgsfield-b/h12-legal-support-mistake-youtube.mp4",
+      "platform": "youtube",
+      "duration": 53.33,
+      "layout": "crop",
+      "words": 133,
+      "watermark": [
+        243,
+        1300,
+        837,
+        1482
+      ],
+      "caption": "Werbung | Paid promotion for Higgsfield\n\nAlex Mashrabov expected AI to mostly replace legal and customer support, and calls not growing those teams a mistake. Higgsfield now has 10+ people in legal and 40+ in customer success, all using AI.\n\n#higgsfield #20vc #ai #customersupport #ad @HiggsfieldAI @20VC",
+      "title": "Higgsfield CEO: thinking AI would replace legal and support teams was a mistake",
+      "tags": [
+        "#higgsfield",
+        "#20vc",
+        "#ai",
+        "#customersupport",
+        "#ad",
+        "@HiggsfieldAI",
+        "@20VC"
+      ],
+      "disclosure": {
+        "label": "Werbung",
+        "brand": "Higgsfield",
+        "youtubePaidPromotion": true,
+        "tiktokBrandedContent": true,
+        "instagramPaidPartnership": true
+      }
+    },
+    {
+      "clip": "h12-legal-support-mistake",
+      "out": "out/2026-10-11-higgsfield-b/h12-legal-support-mistake-instagram.mp4",
+      "platform": "instagram",
+      "duration": 53.33,
+      "layout": "crop",
+      "words": 133,
+      "watermark": [
+        243,
+        1305,
+        837,
+        1487
+      ],
+      "caption": "Werbung | Paid promotion for Higgsfield\n\nAlex Mashrabov expected AI to mostly replace legal and customer support, and calls not growing those teams a mistake. Higgsfield now has 10+ people in legal and 40+ in customer success, all using AI.\n\n#higgsfield #20vc #ai #customersupport #ad @higgsfield.ai @20vchq",
+      "title": "Higgsfield CEO: thinking AI would replace legal and support teams was a mistake",
+      "tags": [
+        "#higgsfield",
+        "#20vc",
+        "#ai",
+        "#customersupport",
+        "#ad",
+        "@higgsfield.ai",
+        "@20vchq"
+      ],
+      "disclosure": {
+        "label": "Werbung",
+        "brand": "Higgsfield",
+        "youtubePaidPromotion": true,
+        "tiktokBrandedContent": true,
+        "instagramPaidPartnership": true
+      }
+    },
+    {
+      "clip": "h13-ship-fast-support",
+      "out": "out/2026-10-11-higgsfield-b/h13-ship-fast-support-youtube.mp4",
+      "platform": "youtube",
+      "duration": 34.0,
+      "layout": "crop",
+      "words": 82,
+      "watermark": [
+        243,
+        1300,
+        837,
+        1482
+      ],
+      "caption": "Werbung | Paid promotion for Higgsfield\n\nHiggsfield launches new products almost every week, so its support agents need new context and rules all the time. Alex Mashrabov says that is why a strong team still matters.\n\n#higgsfield #20vc #ai #aiagents #ad @HiggsfieldAI @20VC",
+      "title": "Why shipping every week makes AI customer support harder, says Higgsfield's CEO",
+      "tags": [
+        "#higgsfield",
+        "#20vc",
+        "#ai",
+        "#aiagents",
+        "#ad",
+        "@HiggsfieldAI",
+        "@20VC"
+      ],
+      "disclosure": {
+        "label": "Werbung",
+        "brand": "Higgsfield",
+        "youtubePaidPromotion": true,
+        "tiktokBrandedContent": true,
+        "instagramPaidPartnership": true
+      }
+    },
+    {
+      "clip": "h13-ship-fast-support",
+      "out": "out/2026-10-11-higgsfield-b/h13-ship-fast-support-instagram.mp4",
+      "platform": "instagram",
+      "duration": 34.0,
+      "layout": "crop",
+      "words": 82,
+      "watermark": [
+        243,
+        1305,
+        837,
+        1487
+      ],
+      "caption": "Werbung | Paid promotion for Higgsfield\n\nHiggsfield launches new products almost every week, so its support agents need new context and rules all the time. Alex Mashrabov says that is why a strong team still matters.\n\n#higgsfield #20vc #ai #aiagents #ad @higgsfield.ai @20vchq",
+      "title": "Why shipping every week makes AI customer support harder, says Higgsfield's CEO",
+      "tags": [
+        "#higgsfield",
+        "#20vc",
+        "#ai",
+        "#aiagents",
+        "#ad",
+        "@higgsfield.ai",
+        "@20vchq"
+      ],
+      "disclosure": {
+        "label": "Werbung",
+        "brand": "Higgsfield",
+        "youtubePaidPromotion": true,
+        "tiktokBrandedContent": true,
+        "instagramPaidPartnership": true
+      }
+    },
+    {
+      "clip": "h14-benchmark-bonuses",
+      "out": "out/2026-10-11-higgsfield-b/h14-benchmark-bonuses-youtube.mp4",
+      "platform": "youtube",
+      "duration": 44.6,
+      "layout": "crop",
+      "words": 132,
+      "watermark": [
+        243,
+        1300,
+        837,
+        1482
+      ],
+      "caption": "Werbung | Paid promotion for Higgsfield\n\nAlex Mashrabov says top researchers told him how teams at large labs game benchmarks to show progress and earn bonuses. This is his view, and he names no lab.\n\n#higgsfield #20vc #ai #benchmarks #ad @HiggsfieldAI @20VC",
+      "title": "Higgsfield CEO on why AI researchers game benchmarks: quarterly bonuses",
+      "tags": [
+        "#higgsfield",
+        "#20vc",
+        "#ai",
+        "#benchmarks",
+        "#ad",
+        "@HiggsfieldAI",
+        "@20VC"
+      ],
+      "disclosure": {
+        "label": "Werbung",
+        "brand": "Higgsfield",
+        "youtubePaidPromotion": true,
+        "tiktokBrandedContent": true,
+        "instagramPaidPartnership": true
+      }
+    },
+    {
+      "clip": "h14-benchmark-bonuses",
+      "out": "out/2026-10-11-higgsfield-b/h14-benchmark-bonuses-instagram.mp4",
+      "platform": "instagram",
+      "duration": 44.6,
+      "layout": "crop",
+      "words": 132,
+      "watermark": [
+        243,
+        1305,
+        837,
+        1487
+      ],
+      "caption": "Werbung | Paid promotion for Higgsfield\n\nAlex Mashrabov says top researchers told him how teams at large labs game benchmarks to show progress and earn bonuses. This is his view, and he names no lab.\n\n#higgsfield #20vc #ai #benchmarks #ad @higgsfield.ai @20vchq",
+      "title": "Higgsfield CEO on why AI researchers game benchmarks: quarterly bonuses",
+      "tags": [
+        "#higgsfield",
+        "#20vc",
+        "#ai",
+        "#benchmarks",
+        "#ad",
+        "@higgsfield.ai",
+        "@20vchq"
+      ],
+      "disclosure": {
+        "label": "Werbung",
+        "brand": "Higgsfield",
+        "youtubePaidPromotion": true,
+        "tiktokBrandedContent": true,
+        "instagramPaidPartnership": true
+      }
+    },
+    {
+      "clip": "h15-no-phd-ai",
+      "out": "out/2026-10-11-higgsfield-b/h15-no-phd-ai-youtube.mp4",
+      "platform": "youtube",
+      "duration": 45.0,
+      "layout": "crop",
+      "words": 95,
+      "watermark": [
+        243,
+        1300,
+        837,
+        1482
+      ],
+      "caption": "Werbung | Paid promotion for Higgsfield\n\nBrands making hundreds of ad creatives a week want cheaper, steerable models. Alex Mashrabov says running post-trained open source models brings 80%+ margins and costs customers less.\n\n#higgsfield #20vc #ai #opensource #ad @HiggsfieldAI @20VC",
+      "title": "Higgsfield CEO: you don't need PhD-level AI to make a viral social media video",
+      "tags": [
+        "#higgsfield",
+        "#20vc",
+        "#ai",
+        "#opensource",
+        "#ad",
+        "@HiggsfieldAI",
+        "@20VC"
+      ],
+      "disclosure": {
+        "label": "Werbung",
+        "brand": "Higgsfield",
+        "youtubePaidPromotion": true,
+        "tiktokBrandedContent": true,
+        "instagramPaidPartnership": true
+      }
+    },
+    {
+      "clip": "h15-no-phd-ai",
+      "out": "out/2026-10-11-higgsfield-b/h15-no-phd-ai-instagram.mp4",
+      "platform": "instagram",
+      "duration": 45.0,
+      "layout": "crop",
+      "words": 95,
+      "watermark": [
+        243,
+        1305,
+        837,
+        1487
+      ],
+      "caption": "Werbung | Paid promotion for Higgsfield\n\nBrands making hundreds of ad creatives a week want cheaper, steerable models. Alex Mashrabov says running post-trained open source models brings 80%+ margins and costs customers less.\n\n#higgsfield #20vc #ai #opensource #ad @higgsfield.ai @20vchq",
+      "title": "Higgsfield CEO: you don't need PhD-level AI to make a viral social media video",
+      "tags": [
+        "#higgsfield",
+        "#20vc",
+        "#ai",
+        "#opensource",
+        "#ad",
+        "@higgsfield.ai",
+        "@20vchq"
+      ],
+      "disclosure": {
+        "label": "Werbung",
+        "brand": "Higgsfield",
+        "youtubePaidPromotion": true,
+        "tiktokBrandedContent": true,
+        "instagramPaidPartnership": true
+      }
+    },
+    {
+      "clip": "h16-claude-to-codex",
+      "out": "out/2026-10-11-higgsfield-b/h16-claude-to-codex-youtube.mp4",
+      "platform": "youtube",
+      "duration": 46.0,
+      "layout": "crop",
+      "words": 101,
+      "watermark": [
+        243,
+        1300,
+        837,
+        1482
+      ],
+      "caption": "Werbung | Paid promotion for Higgsfield\n\nAt the time of recording, Alex Mashrabov said Higgsfield's coders had moved from Claude to Codex in mid June, with creatives following. He expects it to keep changing.\n\n#higgsfield #20vc #ai #vibecoding #ad @HiggsfieldAI @20VC",
+      "title": "Higgsfield CEO: our coders moved from Claude to Codex as of mid June",
+      "tags": [
+        "#higgsfield",
+        "#20vc",
+        "#ai",
+        "#vibecoding",
+        "#ad",
+        "@HiggsfieldAI",
+        "@20VC"
+      ],
+      "disclosure": {
+        "label": "Werbung",
+        "brand": "Higgsfield",
+        "youtubePaidPromotion": true,
+        "tiktokBrandedContent": true,
+        "instagramPaidPartnership": true
+      }
+    },
+    {
+      "clip": "h16-claude-to-codex",
+      "out": "out/2026-10-11-higgsfield-b/h16-claude-to-codex-instagram.mp4",
+      "platform": "instagram",
+      "duration": 46.0,
+      "layout": "crop",
+      "words": 101,
+      "watermark": [
+        243,
+        1305,
+        837,
+        1487
+      ],
+      "caption": "Werbung | Paid promotion for Higgsfield\n\nAt the time of recording, Alex Mashrabov said Higgsfield's coders had moved from Claude to Codex in mid June, with creatives following. He expects it to keep changing.\n\n#higgsfield #20vc #ai #vibecoding #ad @higgsfield.ai @20vchq",
+      "title": "Higgsfield CEO: our coders moved from Claude to Codex as of mid June",
+      "tags": [
+        "#higgsfield",
+        "#20vc",
+        "#ai",
+        "#vibecoding",
+        "#ad",
+        "@higgsfield.ai",
+        "@20vchq"
+      ],
+      "disclosure": {
+        "label": "Werbung",
+        "brand": "Higgsfield",
+        "youtubePaidPromotion": true,
+        "tiktokBrandedContent": true,
+        "instagramPaidPartnership": true
+      }
+    }
+  ]
+}
