@@ -300,6 +300,10 @@ def check_job(job):
         on_screen = [lower.get("title"), lower.get("sub"), end.get("text") if isinstance(end, dict) else end]
         if "—" in c.get("hook", "") + c.get("caption", "") + "".join(x for x in on_screen if isinstance(x, str)):
             problems.append(f"clip {cid}: no em dashes")
+    from .render import wrap
+    for c in job.get("clips", []) + job.get("stories", []):
+        if c.get("hook") and wrap(c["hook"]).endswith("..."):
+            problems.append(f"clip {c.get('id')}: hook is too long for 3 lines on screen, shorten it: {c['hook']!r}")
     return problems
 
 

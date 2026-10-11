@@ -152,7 +152,7 @@ class OverlayAss(unittest.TestCase):
                             self.assertLessEqual(b[2], right, msg)
                             self.assertLessEqual(b[3], bottom, msg)
                             self.assertFalse(overlap(b, cap), "covers the captions: " + msg)
-                            if hook_rect:
+                            if hook_rect and name != "end":  # the end card replaces the hook for the last seconds
                                 self.assertFalse(overlap(b, hook_rect), "covers the hook: " + msg)
                         self.assertLessEqual(boxes["lower"][3], v["cap_y"] - CAP_HALF - 10, "lower-third sits above the captions")
                         self.assertLessEqual(boxes["lower"][2] - boxes["lower"][0], 900)
@@ -160,6 +160,10 @@ class OverlayAss(unittest.TestCase):
                         self.assertFalse(overlap(boxes["end"], boxes["lower"]), "end card and lower-third meet: " + msg)
                         self.assertFalse(overlap(boxes["end"], boxes["ad"]))
                         self.assertLess(boxes["end"][1], OUT_H / 2, "end card sits in the upper middle")
+                        if hook:
+                            ass = build_ass([], 6.0, hook, v, ov)
+                            hook_line = next(x for x in ass.splitlines() if ",Hook,," in x and x.startswith("Dialogue"))
+                            self.assertEqual(hook_line.split(",")[2], ass_time(boxes["end"][4]), "hook gives way to the end card")
 
     def test_long_text_wraps_or_shrinks_to_fit(self):
         _, boxes = overlay_events({"lower": {"title": "W" * 40}}, 6.0, "", VARIANTS["tiktok"])

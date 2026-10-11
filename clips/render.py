@@ -353,7 +353,12 @@ def overlay_events(overlays, duration, hook, variant):
             # the watermark must never be covered: rather no end card than one on top of it
             print(f"  end card left out: no room between the watermark and the text below it ({text!r})")
             return events, boxes
-        cy = min(max(END_Y, lo + h / 2), hi - h / 2) if lo + h <= hi else (lo + hi) / 2
+        if hb and not (wmb and wmb[1] < cap_top):
+            # the closing question takes the hook's place for the last seconds, so faces stay clear
+            floor = boxes["ad"][3] if "ad" in boxes else SAFE["top"]
+            cy = max(floor + 10 + h / 2, (hb[0] + hb[1]) / 2)
+        else:
+            cy = min(max(END_Y, lo + h / 2), hi - h / 2) if lo + h <= hi else (lo + hi) / 2
         cy = int(round(cy))
         tags = f"\\an5\\pos({OUT_W // 2},{cy})\\fs{size}\\fad(250,0)\\fscx90\\fscy90\\t(0,250,\\fscx100\\fscy100)"
         # a black rim under the yellow card keeps it readable on yellow footage
@@ -385,11 +390,13 @@ Style: End,{FONT_NAME},{END_SIZE},&H00000000&,&H00000000&,{ACTIVE},&H00000000&,-
 [Events]
 Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
 """
-    lines = []
-    if hook:
-        lines.append(f"Dialogue: 1,{ass_time(0)},{ass_time(duration)},Hook,,0,0,0,,{wrap(hook)}")
+    lines, ov_events, boxes = [], [], {}
     if overlays:
-        lines += overlay_events(overlays, duration, hook, variant)[0]
+        ov_events, boxes = overlay_events(overlays, duration, hook, variant)
+    if hook:
+        hook_end = boxes["end"][4] if "end" in boxes else duration  # the end card replaces the hook
+        lines.append(f"Dialogue: 1,{ass_time(0)},{ass_time(hook_end)},Hook,,0,0,0,,{wrap(hook)}")
+    lines += ov_events
     gs = groups(words)
     x, y = OUT_W // 2, variant["cap_y"]
     for gi, g in enumerate(gs):
