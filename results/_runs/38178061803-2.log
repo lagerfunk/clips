@@ -1,0 +1,5 @@
+== jobs/2026-10-11-higgsfield.json
+no source could be fetched: {'p1': "WeTransfer: https://we.tl/t-pRMHaT4pEb3zn2QX led to https://wetransfer.com/previews/ac6977b32e8cc893ee19e14dbec4787c20260929040256/a7bc2d?auto_preview=true, not to a download page (expired or deleted?). The owner must download it in a browser and re-upload it to Google Drive (share: anyone with the link), then put the Drive link in the job's source url."}
+watermark: 20vc podcast higgsfield black.png
+  WeTransfer: asking for the download link of https://we.tl/t-pRMHaT4pEb3zn2QX
+::error title=source p1::could not be fetched: WeTransfer: https://we.tl/t-pRMHaT4pEb3zn2QX led to https://wetransfer.com/previews/ac6977b32e8cc893ee19e14dbec4787c20260929040256/a7bc2d?auto_preview=true, not to a download page (expired or deleted?). The owner must download it in a browser and re-upload it to Google Drive (share: anyone with the link), then put the Drive link in the job's source url.

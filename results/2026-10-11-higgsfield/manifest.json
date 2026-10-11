@@ -1,8 +1,7 @@
 {
   "id": "2026-10-11-higgsfield",
-  "stage": "candidates",
-  "candidates": {
-    "p1": 12
-  },
-  "failed": {}
+  "stage": "failed",
+  "failed": {
+    "p1": "WeTransfer: https://we.tl/t-pRMHaT4pEb3zn2QX led to https://wetransfer.com/previews/ac6977b32e8cc893ee19e14dbec4787c20260929040256/a7bc2d?auto_preview=true, not to a download page (expired or deleted?). The owner must download it in a browser and re-upload it to Google Drive (share: anyone with the link), then put the Drive link in the job's source url."
+  }
 }
