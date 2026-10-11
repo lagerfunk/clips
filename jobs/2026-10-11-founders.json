@@ -1,0 +1,55 @@
+{
+  "id": "2026-10-11-founders",
+  "campaign": {
+    "name": "Lovable Clipping",
+    "board": "contentrewards",
+    "rate": "$1 per 1K views, min payout $0.99",
+    "platforms": [
+      "youtube",
+      "tiktok",
+      "instagram"
+    ],
+    "mustInclude": [
+      "#lovable"
+    ]
+  },
+  "autopost": false,
+  "sources": [
+    {
+      "id": "s1",
+      "url": "https://founder-stories-showcase.lovable.app/__l5e/assets-v1/e109e88a-261d-4974-b146-8fe1db5aa058/lex-video.mp4",
+      "title": "Lex Deak, WNTD",
+      "language": "en"
+    },
+    {
+      "id": "s2",
+      "url": "https://founder-stories-showcase.lovable.app/__l5e/assets-v1/1c0bd498-6337-4e08-9f91-0fb042f28790/klar-compressed-2.mp4",
+      "title": "Klar: Andreas, Isabel and Eric",
+      "language": "en"
+    },
+    {
+      "id": "s3",
+      "url": "https://founder-stories-showcase.lovable.app/__l5e/assets-v1/879f80f9-29fd-44fb-881d-084ecaa690a9/quicktables.mp4",
+      "title": "QuickTables: Jaleel, Hussein, Morten, Zanyar",
+      "language": "en"
+    },
+    {
+      "id": "s4",
+      "url": "https://founder-stories-showcase.lovable.app/__l5e/assets-v1/1bef32a9-983f-47ef-9211-3ef2aa8fb157/avara.mp4",
+      "title": "Nico Wittenberg, AVARA",
+      "language": "en"
+    },
+    {
+      "id": "s5",
+      "url": "https://founder-stories-showcase.lovable.app/__l5e/assets-v1/0bea0d83-7033-41dd-b19b-e3f5eab5234d/weglow.mp4",
+      "title": "Quinten and Jef, WeGlow",
+      "language": "en"
+    },
+    {
+      "id": "s6",
+      "url": "https://founder-stories-showcase.lovable.app/__l5e/assets-v1/41785064-2500-4772-b2b5-38a0ce647f00/saath.mp4",
+      "title": "Zain Hussain, Saath",
+      "language": "en"
+    }
+  ]
+}

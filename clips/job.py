@@ -65,6 +65,9 @@ def check_job(job):
 
 def check_stories(job):
     problems, seen = [], set()
+    # Owner 2026-10-11: "this is just blatant AI videos". No AI-voice slideshows: a story job needs his own recording.
+    if not job.get("ownerVoice"):
+        problems.append("story jobs need the owner's own voice recording (ownerVoice); AI-voice videos are off (owner 2026-10-11)")
     if not job.get("stories"):
         problems.append("story job without stories")
     for st in job.get("stories", []):
