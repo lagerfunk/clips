@@ -45,7 +45,7 @@
         {
           "say": "No venture capital. Three people on product, and forty in sales.",
           "image": {
-            "screenshot": "https://lovable.dev/"
+            "screenshot": "https://founder-stories-showcase.lovable.app/"
           },
           "label": "$0 VC"
         },
@@ -66,49 +66,49 @@
       ]
     },
     {
-      "id": "02-wanted",
-      "hook": "16,000 users in 3 months. Built with AI.",
-      "title": "He built a fashion super app with AI and got 16,000 users",
-      "caption": "Lex Deak built Wanted, a fashion app with price drop alerts and virtual try on, on Lovable. Source: Lovable founder stories.",
+      "id": "02-lovable",
+      "hook": "$10M a year, 2 months after launch",
+      "title": "This AI app builder hit $10M a year in 2 months with 15 people",
+      "caption": "Lovable hit $4M ARR in its first four weeks and $10M in two months with 15 people. In 2026 it raised $400M at a $13.3B valuation. Source: Lovable.",
       "hashtags": [
         "#ai",
         "#startup",
-        "#fashiontech",
-        "#nocode"
+        "#nocode",
+        "#vibecoding"
       ],
       "scenes": [
         {
-          "say": "The online shopping cart has barely changed in thirty years.",
+          "say": "Lovable was making four million dollars a year within four weeks of launching.",
           "image": {
-            "url": "https://img.youtube.com/vi/UREvY2dZLwM/maxresdefault.jpg"
+            "url": "https://img.youtube.com/vi/DZtGxNs9AVg/maxresdefault.jpg"
           },
-          "label": "30 years"
+          "label": "$4M ARR"
         },
         {
-          "say": "So serial entrepreneur Lex Deak built Wanted, a fashion super app, with Lovable.",
+          "say": "Two months in, it was ten million. With a team of just fifteen people.",
           "image": {
-            "screenshot": "https://www.wntd.ai/"
-          }
-        },
-        {
-          "say": "It alerts you when the clothes you want drop in price, and lets you try them on virtually.",
-          "image": {
-            "screenshot": "https://www.wntd.ai/",
-            "scroll": 900
+            "url": "https://img.youtube.com/vi/DHLczPQj9rA/maxresdefault.jpg"
           },
-          "label": "virtual try-on"
+          "label": "15 people"
         },
         {
-          "say": "Three months after launch, it has sixteen thousand users, and investors are already talking to him.",
+          "say": "You describe an app in a chat, and the AI builds a working product. No coding.",
           "image": {
-            "screenshot": "https://founder-stories-showcase.lovable.app/founder/lex"
+            "screenshot": "https://founder-stories-showcase.lovable.app/"
           },
-          "label": "16,000 users"
+          "label": "no code"
         },
         {
-          "say": "One founder, an AI builder, and an old problem nobody fixed. Follow for more AI builds.",
+          "say": "This year it raised four hundred million dollars, at a thirteen point three billion dollar valuation.",
           "image": {
-            "screenshot": "https://lovable.dev/"
+            "url": "https://img.youtube.com/vi/oHYV6aaDBEQ/maxresdefault.jpg"
+          },
+          "label": "$13.3B"
+        },
+        {
+          "say": "And founders are now building real companies on it. Follow for one AI build story every day.",
+          "image": {
+            "screenshot": "https://founder-stories-showcase.lovable.app/"
           }
         }
       ]
@@ -156,7 +156,7 @@
         {
           "say": "The expert knew the problem. AI built the product. Follow for one AI build story every day.",
           "image": {
-            "screenshot": "https://lovable.dev/"
+            "screenshot": "https://founder-stories-showcase.lovable.app/"
           }
         }
       ]

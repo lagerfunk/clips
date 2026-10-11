@@ -87,7 +87,7 @@ jobs:
                 n=$(basename "$d"); day=${n:0:10}
                 if [[ "$day" =~ ^[0-9]{4}-[0-9]{2}-[0-9]{2}$ ]] && [[ "$day" < "$cutoff" ]]; then rm -rf "$d"; fi
               done
-              mkdir -p "$tmp/keep/$id" && cp out/"$id"/*.mp4 "$tmp/keep/$id/"
+              rm -rf "${tmp:?}/keep/$id" && mkdir -p "$tmp/keep/$id" && cp out/"$id"/*.mp4 "$tmp/keep/$id/"
               # one orphan commit built with this checkout's credentials (a separate repo would have none)
               GIT_INDEX_FILE="$tmp/index" git --work-tree="$tmp/keep" add -A .
               tree=$(GIT_INDEX_FILE="$tmp/index" git --work-tree="$tmp/keep" write-tree)

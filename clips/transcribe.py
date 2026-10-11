@@ -25,8 +25,14 @@ def transcribe(media, model_size=None, language=None):
         segments.append({"s": round(seg.start, 2), "e": round(seg.end, 2), "text": seg.text.strip()})
         for w in seg.words or []:
             text = w.word.strip()
-            if text:
-                words.append({"w": text, "s": round(w.start, 2), "e": round(w.end, 2)})
+            if not text:
+                continue
+            # Whisper splits "3.2" and "six-minute" into pieces without a leading space: join them back.
+            if words and not w.word.startswith(" ") and (text[0] in ".,-%'" or words[-1]["w"][-1] in "-$"):
+                words[-1]["w"] += text
+                words[-1]["e"] = round(w.end, 2)
+                continue
+            words.append({"w": text, "s": round(w.start, 2), "e": round(w.end, 2)})
     return {"language": info.language, "words": words, "segments": segments}
 
 
