@@ -1,13 +1,343 @@
 {
   "id": "2026-10-11-founders",
-  "stage": "candidates",
-  "candidates": {
-    "s1": 3,
-    "s2": 4,
-    "s3": 4,
-    "s4": 2,
-    "s5": 5,
-    "s6": 4
+  "stage": "rendered",
+  "campaign": {
+    "name": "Lovable Clipping",
+    "board": "contentrewards",
+    "rate": "$1 per 1K views, min payout $0.99",
+    "platforms": [
+      "youtube",
+      "tiktok",
+      "instagram"
+    ],
+    "mustInclude": [
+      "#lovable"
+    ]
   },
-  "failed": {}
+  "files": [
+    {
+      "clip": "01-zain",
+      "out": "out/2026-10-11-founders/01-zain-youtube.mp4",
+      "platform": "youtube",
+      "duration": 44.8,
+      "layout": "crop",
+      "words": 172,
+      "caption": "Zain walked away from $250K to build Saath, a community fund for South Asia, then rebuilt it with AI.\n\n#ad #startup #founder #ai #nocode #lovable",
+      "title": "He turned down $250K at 23. Then rebuilt 5 months of work in a day",
+      "tags": [
+        "#ad",
+        "#startup",
+        "#founder",
+        "#ai",
+        "#nocode",
+        "#lovable"
+      ]
+    },
+    {
+      "clip": "01-zain",
+      "out": "out/2026-10-11-founders/01-zain-tiktok.mp4",
+      "platform": "tiktok",
+      "duration": 44.8,
+      "layout": "crop",
+      "words": 172,
+      "caption": "Zain walked away from $250K to build Saath, a community fund for South Asia, then rebuilt it with AI.\n\n#ad #startup #founder #ai #nocode #lovable",
+      "title": "He turned down $250K at 23. Then rebuilt 5 months of work in a day",
+      "tags": [
+        "#ad",
+        "#startup",
+        "#founder",
+        "#ai",
+        "#nocode",
+        "#lovable"
+      ]
+    },
+    {
+      "clip": "01-zain",
+      "out": "out/2026-10-11-founders/01-zain-instagram.mp4",
+      "platform": "instagram",
+      "duration": 44.8,
+      "layout": "crop",
+      "words": 172,
+      "caption": "Zain walked away from $250K to build Saath, a community fund for South Asia, then rebuilt it with AI.\n\n#ad #startup #founder #ai #nocode #lovable",
+      "title": "He turned down $250K at 23. Then rebuilt 5 months of work in a day",
+      "tags": [
+        "#ad",
+        "#startup",
+        "#founder",
+        "#ai",
+        "#nocode",
+        "#lovable"
+      ]
+    },
+    {
+      "clip": "02-klar",
+      "out": "out/2026-10-11-founders/02-klar-youtube.mp4",
+      "platform": "youtube",
+      "duration": 54.6,
+      "layout": "fit",
+      "words": 173,
+      "caption": "Andreas, Isabel and Eric built Klar, an AI learning app, and hit €130K ARR in their first month.\n\n#ad #startup #students #ai #edtech #lovable",
+      "title": "3 students hit €130K ARR in month one. Their university tried to stop them",
+      "tags": [
+        "#ad",
+        "#startup",
+        "#students",
+        "#ai",
+        "#edtech",
+        "#lovable"
+      ]
+    },
+    {
+      "clip": "02-klar",
+      "out": "out/2026-10-11-founders/02-klar-tiktok.mp4",
+      "platform": "tiktok",
+      "duration": 54.6,
+      "layout": "fit",
+      "words": 173,
+      "caption": "Andreas, Isabel and Eric built Klar, an AI learning app, and hit €130K ARR in their first month.\n\n#ad #startup #students #ai #edtech #lovable",
+      "title": "3 students hit €130K ARR in month one. Their university tried to stop them",
+      "tags": [
+        "#ad",
+        "#startup",
+        "#students",
+        "#ai",
+        "#edtech",
+        "#lovable"
+      ]
+    },
+    {
+      "clip": "02-klar",
+      "out": "out/2026-10-11-founders/02-klar-instagram.mp4",
+      "platform": "instagram",
+      "duration": 54.6,
+      "layout": "fit",
+      "words": 173,
+      "caption": "Andreas, Isabel and Eric built Klar, an AI learning app, and hit €130K ARR in their first month.\n\n#ad #startup #students #ai #edtech #lovable",
+      "title": "3 students hit €130K ARR in month one. Their university tried to stop them",
+      "tags": [
+        "#ad",
+        "#startup",
+        "#students",
+        "#ai",
+        "#edtech",
+        "#lovable"
+      ]
+    },
+    {
+      "clip": "03-quicktables",
+      "out": "out/2026-10-11-founders/03-quicktables-youtube.mp4",
+      "platform": "youtube",
+      "duration": 45.5,
+      "layout": "fit",
+      "words": 138,
+      "caption": "Jaleel built QuickTables so mom and pop restaurants can compete with the big chains.\n\n#ad #startup #restaurants #smallbusiness #ai #lovable",
+      "title": "Big chains win on software. He built it for the small restaurants",
+      "tags": [
+        "#ad",
+        "#startup",
+        "#restaurants",
+        "#smallbusiness",
+        "#ai",
+        "#lovable"
+      ]
+    },
+    {
+      "clip": "03-quicktables",
+      "out": "out/2026-10-11-founders/03-quicktables-tiktok.mp4",
+      "platform": "tiktok",
+      "duration": 45.5,
+      "layout": "fit",
+      "words": 138,
+      "caption": "Jaleel built QuickTables so mom and pop restaurants can compete with the big chains.\n\n#ad #startup #restaurants #smallbusiness #ai #lovable",
+      "title": "Big chains win on software. He built it for the small restaurants",
+      "tags": [
+        "#ad",
+        "#startup",
+        "#restaurants",
+        "#smallbusiness",
+        "#ai",
+        "#lovable"
+      ]
+    },
+    {
+      "clip": "03-quicktables",
+      "out": "out/2026-10-11-founders/03-quicktables-instagram.mp4",
+      "platform": "instagram",
+      "duration": 45.5,
+      "layout": "fit",
+      "words": 138,
+      "caption": "Jaleel built QuickTables so mom and pop restaurants can compete with the big chains.\n\n#ad #startup #restaurants #smallbusiness #ai #lovable",
+      "title": "Big chains win on software. He built it for the small restaurants",
+      "tags": [
+        "#ad",
+        "#startup",
+        "#restaurants",
+        "#smallbusiness",
+        "#ai",
+        "#lovable"
+      ]
+    },
+    {
+      "clip": "04-weglow",
+      "out": "out/2026-10-11-founders/04-weglow-youtube.mp4",
+      "platform": "youtube",
+      "duration": 39.8,
+      "layout": "fit",
+      "words": 125,
+      "caption": "Quinten and Jef built WeGlow from a family tradition. 35,000 candles, more than €1.3M raised.\n\n#ad #startup #charity #founder #ai #lovable",
+      "title": "A candle for his dad turned into €1.3 million for nonprofits",
+      "tags": [
+        "#ad",
+        "#startup",
+        "#charity",
+        "#founder",
+        "#ai",
+        "#lovable"
+      ]
+    },
+    {
+      "clip": "04-weglow",
+      "out": "out/2026-10-11-founders/04-weglow-tiktok.mp4",
+      "platform": "tiktok",
+      "duration": 39.8,
+      "layout": "fit",
+      "words": 125,
+      "caption": "Quinten and Jef built WeGlow from a family tradition. 35,000 candles, more than €1.3M raised.\n\n#ad #startup #charity #founder #ai #lovable",
+      "title": "A candle for his dad turned into €1.3 million for nonprofits",
+      "tags": [
+        "#ad",
+        "#startup",
+        "#charity",
+        "#founder",
+        "#ai",
+        "#lovable"
+      ]
+    },
+    {
+      "clip": "04-weglow",
+      "out": "out/2026-10-11-founders/04-weglow-instagram.mp4",
+      "platform": "instagram",
+      "duration": 39.8,
+      "layout": "fit",
+      "words": 125,
+      "caption": "Quinten and Jef built WeGlow from a family tradition. 35,000 candles, more than €1.3M raised.\n\n#ad #startup #charity #founder #ai #lovable",
+      "title": "A candle for his dad turned into €1.3 million for nonprofits",
+      "tags": [
+        "#ad",
+        "#startup",
+        "#charity",
+        "#founder",
+        "#ai",
+        "#lovable"
+      ]
+    },
+    {
+      "clip": "05-lex",
+      "out": "out/2026-10-11-founders/05-lex-youtube.mp4",
+      "platform": "youtube",
+      "duration": 55.8,
+      "layout": "fit",
+      "words": 165,
+      "caption": "Serial founder Lex Deak on how his team went from fear to building with AI.\n\n#ad #startup #founder #ai #engineering #lovable",
+      "title": "His engineers were scared of AI. Here is what changed",
+      "tags": [
+        "#ad",
+        "#startup",
+        "#founder",
+        "#ai",
+        "#engineering",
+        "#lovable"
+      ]
+    },
+    {
+      "clip": "05-lex",
+      "out": "out/2026-10-11-founders/05-lex-tiktok.mp4",
+      "platform": "tiktok",
+      "duration": 55.8,
+      "layout": "fit",
+      "words": 165,
+      "caption": "Serial founder Lex Deak on how his team went from fear to building with AI.\n\n#ad #startup #founder #ai #engineering #lovable",
+      "title": "His engineers were scared of AI. Here is what changed",
+      "tags": [
+        "#ad",
+        "#startup",
+        "#founder",
+        "#ai",
+        "#engineering",
+        "#lovable"
+      ]
+    },
+    {
+      "clip": "05-lex",
+      "out": "out/2026-10-11-founders/05-lex-instagram.mp4",
+      "platform": "instagram",
+      "duration": 55.8,
+      "layout": "fit",
+      "words": 165,
+      "caption": "Serial founder Lex Deak on how his team went from fear to building with AI.\n\n#ad #startup #founder #ai #engineering #lovable",
+      "title": "His engineers were scared of AI. Here is what changed",
+      "tags": [
+        "#ad",
+        "#startup",
+        "#founder",
+        "#ai",
+        "#engineering",
+        "#lovable"
+      ]
+    },
+    {
+      "clip": "06-avara",
+      "out": "out/2026-10-11-founders/06-avara-youtube.mp4",
+      "platform": "youtube",
+      "duration": 33.53,
+      "layout": "fit",
+      "words": 118,
+      "caption": "Nico's girlfriend got stranded in a snowstorm. Years later he built AVARA to fix travel.\n\n#ad #startup #travel #founder #ai #lovable",
+      "title": "A cancelled Valentine's flight became a travel startup",
+      "tags": [
+        "#ad",
+        "#startup",
+        "#travel",
+        "#founder",
+        "#ai",
+        "#lovable"
+      ]
+    },
+    {
+      "clip": "06-avara",
+      "out": "out/2026-10-11-founders/06-avara-tiktok.mp4",
+      "platform": "tiktok",
+      "duration": 33.53,
+      "layout": "fit",
+      "words": 118,
+      "caption": "Nico's girlfriend got stranded in a snowstorm. Years later he built AVARA to fix travel.\n\n#ad #startup #travel #founder #ai #lovable",
+      "title": "A cancelled Valentine's flight became a travel startup",
+      "tags": [
+        "#ad",
+        "#startup",
+        "#travel",
+        "#founder",
+        "#ai",
+        "#lovable"
+      ]
+    },
+    {
+      "clip": "06-avara",
+      "out": "out/2026-10-11-founders/06-avara-instagram.mp4",
+      "platform": "instagram",
+      "duration": 33.53,
+      "layout": "fit",
+      "words": 118,
+      "caption": "Nico's girlfriend got stranded in a snowstorm. Years later he built AVARA to fix travel.\n\n#ad #startup #travel #founder #ai #lovable",
+      "title": "A cancelled Valentine's flight became a travel startup",
+      "tags": [
+        "#ad",
+        "#startup",
+        "#travel",
+        "#founder",
+        "#ai",
+        "#lovable"
+      ]
+    }
+  ]
 }

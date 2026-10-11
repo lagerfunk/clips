@@ -1,0 +1,4 @@
+== jobs/2026-10-11-founders.json
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[0;93m2026-10-11 15:21:47.043350062 [W:onnxruntime:Default, device_discovery.cc:95 GetPciBusId] Skipping pci_bus_id for PCI path at "/sys/devices/LNXSYSTM:00/LNXSYBUS:00/ACPI0004:00/MSFT1000:00/5620e0c7-8062-4dce-aeb7-520c7ef76171" because filename "5620e0c7-8062-4dce-aeb7-520c7ef76171" did not match expected pattern of [0-9a-f]+:[0-9a-f]+:[0-9a-f]+[.][0-9a-f]+[m
+{'id': '2026-10-11-founders', 'stage': 'rendered', 'campaign': {'name': 'Lovable Clipping', 'board': 'contentrewards', 'rate': '$1 per 1K views, min payout $0.99', 'platforms': ['youtube', 'tiktok', 'instagram'], 'mustInclude': ['#lovable']}} 18 files
