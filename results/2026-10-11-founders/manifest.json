@@ -12,59 +12,81 @@
     ],
     "mustInclude": [
       "#lovable"
-    ]
+    ],
+    "brand": "Lovable"
   },
   "files": [
     {
       "clip": "01-zain",
       "out": "out/2026-10-11-founders/01-zain-youtube.mp4",
       "platform": "youtube",
-      "duration": 45.5,
+      "duration": 48.3,
       "layout": "crop+fit",
-      "words": 174,
-      "caption": "Zain walked away from $250K to build Saath, a community fund for South Asia.\n\n#ad #startup #founder #ai #lovable",
-      "title": "He turned down $250K at 23. Then AI built his idea in a day",
+      "words": 177,
+      "caption": "Werbung | Paid promotion for Lovable\n\nAt 23, Zain turned down £250,000 in investor cash because he was working on the wrong thing. Later he rambled his idea at an AI app and it popped up on screen.\n\n#startup #founder #ai #ad #lovable",
+      "title": "He turned down a quarter million at 23. Then AI built his idea in 24 hours",
       "tags": [
-        "#ad",
         "#startup",
         "#founder",
         "#ai",
+        "#ad",
         "#lovable"
-      ]
+      ],
+      "disclosure": {
+        "label": "Werbung",
+        "brand": "Lovable",
+        "youtubePaidPromotion": true,
+        "tiktokBrandedContent": true,
+        "instagramPaidPartnership": true
+      }
     },
     {
       "clip": "01-zain",
       "out": "out/2026-10-11-founders/01-zain-tiktok.mp4",
       "platform": "tiktok",
-      "duration": 45.5,
+      "duration": 48.3,
       "layout": "crop+fit",
-      "words": 174,
-      "caption": "Zain walked away from $250K to build Saath, a community fund for South Asia.\n\n#ad #startup #founder #ai #lovable",
-      "title": "He turned down $250K at 23. Then AI built his idea in a day",
+      "words": 177,
+      "caption": "Werbung | Paid promotion for Lovable\n\nAt 23, Zain turned down £250,000 in investor cash because he was working on the wrong thing. Later he rambled his idea at an AI app and it popped up on screen.\n\n#startup #founder #ai #ad #lovable",
+      "title": "He turned down a quarter million at 23. Then AI built his idea in 24 hours",
       "tags": [
-        "#ad",
         "#startup",
         "#founder",
         "#ai",
+        "#ad",
         "#lovable"
-      ]
+      ],
+      "disclosure": {
+        "label": "Werbung",
+        "brand": "Lovable",
+        "youtubePaidPromotion": true,
+        "tiktokBrandedContent": true,
+        "instagramPaidPartnership": true
+      }
     },
     {
       "clip": "01-zain",
       "out": "out/2026-10-11-founders/01-zain-instagram.mp4",
       "platform": "instagram",
-      "duration": 45.5,
+      "duration": 48.3,
       "layout": "crop+fit",
-      "words": 174,
-      "caption": "Zain walked away from $250K to build Saath, a community fund for South Asia.\n\n#ad #startup #founder #ai #lovable",
-      "title": "He turned down $250K at 23. Then AI built his idea in a day",
+      "words": 177,
+      "caption": "Werbung | Paid promotion for Lovable\n\nAt 23, Zain turned down £250,000 in investor cash because he was working on the wrong thing. Later he rambled his idea at an AI app and it popped up on screen.\n\n#startup #founder #ai #ad #lovable",
+      "title": "He turned down a quarter million at 23. Then AI built his idea in 24 hours",
       "tags": [
-        "#ad",
         "#startup",
         "#founder",
         "#ai",
+        "#ad",
         "#lovable"
-      ]
+      ],
+      "disclosure": {
+        "label": "Werbung",
+        "brand": "Lovable",
+        "youtubePaidPromotion": true,
+        "tiktokBrandedContent": true,
+        "instagramPaidPartnership": true
+      }
     },
     {
       "clip": "02-klar",
@@ -73,16 +95,23 @@
       "duration": 31.6,
       "layout": "fit",
       "words": 104,
-      "caption": "Andreas, Isabel and Eric built Klar, an AI learning app. 35,000 students later, the university wants in.\n\n#ad #startup #students #ai #edtech #lovable",
+      "caption": "Werbung | Paid promotion for Lovable\n\nIsabel, Andreas and Eric hit €130,000 ARR in Klar's first month, all from word of mouth. The university that tried to stop them now wants to work with them.\n\n#startup #students #ai #edtech #ad #lovable",
       "title": "3 students hit €130K ARR in month one. Their university tried to stop them",
       "tags": [
-        "#ad",
         "#startup",
         "#students",
         "#ai",
         "#edtech",
+        "#ad",
         "#lovable"
-      ]
+      ],
+      "disclosure": {
+        "label": "Werbung",
+        "brand": "Lovable",
+        "youtubePaidPromotion": true,
+        "tiktokBrandedContent": true,
+        "instagramPaidPartnership": true
+      }
     },
     {
       "clip": "02-klar",
@@ -91,16 +120,23 @@
       "duration": 31.6,
       "layout": "fit",
       "words": 104,
-      "caption": "Andreas, Isabel and Eric built Klar, an AI learning app. 35,000 students later, the university wants in.\n\n#ad #startup #students #ai #edtech #lovable",
+      "caption": "Werbung | Paid promotion for Lovable\n\nIsabel, Andreas and Eric hit €130,000 ARR in Klar's first month, all from word of mouth. The university that tried to stop them now wants to work with them.\n\n#startup #students #ai #edtech #ad #lovable",
       "title": "3 students hit €130K ARR in month one. Their university tried to stop them",
       "tags": [
-        "#ad",
         "#startup",
         "#students",
         "#ai",
         "#edtech",
+        "#ad",
         "#lovable"
-      ]
+      ],
+      "disclosure": {
+        "label": "Werbung",
+        "brand": "Lovable",
+        "youtubePaidPromotion": true,
+        "tiktokBrandedContent": true,
+        "instagramPaidPartnership": true
+      }
     },
     {
       "clip": "02-klar",
@@ -109,70 +145,98 @@
       "duration": 31.6,
       "layout": "fit",
       "words": 104,
-      "caption": "Andreas, Isabel and Eric built Klar, an AI learning app. 35,000 students later, the university wants in.\n\n#ad #startup #students #ai #edtech #lovable",
+      "caption": "Werbung | Paid promotion for Lovable\n\nIsabel, Andreas and Eric hit €130,000 ARR in Klar's first month, all from word of mouth. The university that tried to stop them now wants to work with them.\n\n#startup #students #ai #edtech #ad #lovable",
       "title": "3 students hit €130K ARR in month one. Their university tried to stop them",
       "tags": [
-        "#ad",
         "#startup",
         "#students",
         "#ai",
         "#edtech",
+        "#ad",
         "#lovable"
-      ]
+      ],
+      "disclosure": {
+        "label": "Werbung",
+        "brand": "Lovable",
+        "youtubePaidPromotion": true,
+        "tiktokBrandedContent": true,
+        "instagramPaidPartnership": true
+      }
     },
     {
       "clip": "03-quicktables",
       "out": "out/2026-10-11-founders/03-quicktables-youtube.mp4",
       "platform": "youtube",
-      "duration": 42.8,
+      "duration": 45.4,
       "layout": "fit",
-      "words": 122,
-      "caption": "Jaleel built QuickTables so mom and pop restaurants can compete with the big chains.\n\n#ad #startup #restaurants #smallbusiness #ai #lovable",
+      "words": 129,
+      "caption": "Werbung | Paid promotion for Lovable\n\nEvery year 30% of new local restaurants close, while big chains spend millions on software. Jaleel built QuickTables to give small restaurants the same tools.\n\n#startup #restaurants #smallbusiness #ai #ad #lovable",
       "title": "Big chains win on software. He built it for small restaurants",
       "tags": [
-        "#ad",
         "#startup",
         "#restaurants",
         "#smallbusiness",
         "#ai",
+        "#ad",
         "#lovable"
-      ]
+      ],
+      "disclosure": {
+        "label": "Werbung",
+        "brand": "Lovable",
+        "youtubePaidPromotion": true,
+        "tiktokBrandedContent": true,
+        "instagramPaidPartnership": true
+      }
     },
     {
       "clip": "03-quicktables",
       "out": "out/2026-10-11-founders/03-quicktables-tiktok.mp4",
       "platform": "tiktok",
-      "duration": 42.8,
+      "duration": 45.4,
       "layout": "fit",
-      "words": 122,
-      "caption": "Jaleel built QuickTables so mom and pop restaurants can compete with the big chains.\n\n#ad #startup #restaurants #smallbusiness #ai #lovable",
+      "words": 129,
+      "caption": "Werbung | Paid promotion for Lovable\n\nEvery year 30% of new local restaurants close, while big chains spend millions on software. Jaleel built QuickTables to give small restaurants the same tools.\n\n#startup #restaurants #smallbusiness #ai #ad #lovable",
       "title": "Big chains win on software. He built it for small restaurants",
       "tags": [
-        "#ad",
         "#startup",
         "#restaurants",
         "#smallbusiness",
         "#ai",
+        "#ad",
         "#lovable"
-      ]
+      ],
+      "disclosure": {
+        "label": "Werbung",
+        "brand": "Lovable",
+        "youtubePaidPromotion": true,
+        "tiktokBrandedContent": true,
+        "instagramPaidPartnership": true
+      }
     },
     {
       "clip": "03-quicktables",
       "out": "out/2026-10-11-founders/03-quicktables-instagram.mp4",
       "platform": "instagram",
-      "duration": 42.8,
+      "duration": 45.4,
       "layout": "fit",
-      "words": 122,
-      "caption": "Jaleel built QuickTables so mom and pop restaurants can compete with the big chains.\n\n#ad #startup #restaurants #smallbusiness #ai #lovable",
+      "words": 129,
+      "caption": "Werbung | Paid promotion for Lovable\n\nEvery year 30% of new local restaurants close, while big chains spend millions on software. Jaleel built QuickTables to give small restaurants the same tools.\n\n#startup #restaurants #smallbusiness #ai #ad #lovable",
       "title": "Big chains win on software. He built it for small restaurants",
       "tags": [
-        "#ad",
         "#startup",
         "#restaurants",
         "#smallbusiness",
         "#ai",
+        "#ad",
         "#lovable"
-      ]
+      ],
+      "disclosure": {
+        "label": "Werbung",
+        "brand": "Lovable",
+        "youtubePaidPromotion": true,
+        "tiktokBrandedContent": true,
+        "instagramPaidPartnership": true
+      }
     },
     {
       "clip": "04-weglow",
@@ -181,15 +245,22 @@
       "duration": 34.4,
       "layout": "fit",
       "words": 110,
-      "caption": "Quinten and Jef built WeGlow from a family tradition. 35,000 candles, more than €1.3M raised.\n\n#ad #startup #charity #ai #lovable",
+      "caption": "Werbung | Paid promotion for Lovable\n\nBefore every hospital checkup, Quinten told his dad he was lighting a candle for him. That became WeGlow: more than 35,000 candles lit and more than €1.3 million raised.\n\n#startup #charity #ai #ad #lovable",
       "title": "A candle for his dad turned into €1.3 million for nonprofits",
       "tags": [
-        "#ad",
         "#startup",
         "#charity",
         "#ai",
+        "#ad",
         "#lovable"
-      ]
+      ],
+      "disclosure": {
+        "label": "Werbung",
+        "brand": "Lovable",
+        "youtubePaidPromotion": true,
+        "tiktokBrandedContent": true,
+        "instagramPaidPartnership": true
+      }
     },
     {
       "clip": "04-weglow",
@@ -198,15 +269,22 @@
       "duration": 34.4,
       "layout": "fit",
       "words": 110,
-      "caption": "Quinten and Jef built WeGlow from a family tradition. 35,000 candles, more than €1.3M raised.\n\n#ad #startup #charity #ai #lovable",
+      "caption": "Werbung | Paid promotion for Lovable\n\nBefore every hospital checkup, Quinten told his dad he was lighting a candle for him. That became WeGlow: more than 35,000 candles lit and more than €1.3 million raised.\n\n#startup #charity #ai #ad #lovable",
       "title": "A candle for his dad turned into €1.3 million for nonprofits",
       "tags": [
-        "#ad",
         "#startup",
         "#charity",
         "#ai",
+        "#ad",
         "#lovable"
-      ]
+      ],
+      "disclosure": {
+        "label": "Werbung",
+        "brand": "Lovable",
+        "youtubePaidPromotion": true,
+        "tiktokBrandedContent": true,
+        "instagramPaidPartnership": true
+      }
     },
     {
       "clip": "04-weglow",
@@ -215,15 +293,22 @@
       "duration": 34.4,
       "layout": "fit",
       "words": 110,
-      "caption": "Quinten and Jef built WeGlow from a family tradition. 35,000 candles, more than €1.3M raised.\n\n#ad #startup #charity #ai #lovable",
+      "caption": "Werbung | Paid promotion for Lovable\n\nBefore every hospital checkup, Quinten told his dad he was lighting a candle for him. That became WeGlow: more than 35,000 candles lit and more than €1.3 million raised.\n\n#startup #charity #ai #ad #lovable",
       "title": "A candle for his dad turned into €1.3 million for nonprofits",
       "tags": [
-        "#ad",
         "#startup",
         "#charity",
         "#ai",
+        "#ad",
         "#lovable"
-      ]
+      ],
+      "disclosure": {
+        "label": "Werbung",
+        "brand": "Lovable",
+        "youtubePaidPromotion": true,
+        "tiktokBrandedContent": true,
+        "instagramPaidPartnership": true
+      }
     },
     {
       "clip": "05-lex",
@@ -232,15 +317,22 @@
       "duration": 44.1,
       "layout": "fit",
       "words": 119,
-      "caption": "Serial founder Lex Deak on how his team went from fear to shipping with AI.\n\n#ad #startup #founder #ai #lovable",
-      "title": "His engineers were scared of AI. Here is what changed",
+      "caption": "Werbung | Paid promotion for Lovable\n\nLex Deak's engineers met Lovable with reluctance and fear. He gave them time to explore it, and about three months after launch WNTD has 15,000 to 16,000 users.\n\n#startup #founder #ai #ad #lovable",
+      "title": "His engineers resisted the new tool. 16,000 users in 3 months",
       "tags": [
-        "#ad",
         "#startup",
         "#founder",
         "#ai",
+        "#ad",
         "#lovable"
-      ]
+      ],
+      "disclosure": {
+        "label": "Werbung",
+        "brand": "Lovable",
+        "youtubePaidPromotion": true,
+        "tiktokBrandedContent": true,
+        "instagramPaidPartnership": true
+      }
     },
     {
       "clip": "05-lex",
@@ -249,15 +341,22 @@
       "duration": 44.1,
       "layout": "fit",
       "words": 119,
-      "caption": "Serial founder Lex Deak on how his team went from fear to shipping with AI.\n\n#ad #startup #founder #ai #lovable",
-      "title": "His engineers were scared of AI. Here is what changed",
+      "caption": "Werbung | Paid promotion for Lovable\n\nLex Deak's engineers met Lovable with reluctance and fear. He gave them time to explore it, and about three months after launch WNTD has 15,000 to 16,000 users.\n\n#startup #founder #ai #ad #lovable",
+      "title": "His engineers resisted the new tool. 16,000 users in 3 months",
       "tags": [
-        "#ad",
         "#startup",
         "#founder",
         "#ai",
+        "#ad",
         "#lovable"
-      ]
+      ],
+      "disclosure": {
+        "label": "Werbung",
+        "brand": "Lovable",
+        "youtubePaidPromotion": true,
+        "tiktokBrandedContent": true,
+        "instagramPaidPartnership": true
+      }
     },
     {
       "clip": "05-lex",
@@ -266,66 +365,94 @@
       "duration": 44.1,
       "layout": "fit",
       "words": 119,
-      "caption": "Serial founder Lex Deak on how his team went from fear to shipping with AI.\n\n#ad #startup #founder #ai #lovable",
-      "title": "His engineers were scared of AI. Here is what changed",
+      "caption": "Werbung | Paid promotion for Lovable\n\nLex Deak's engineers met Lovable with reluctance and fear. He gave them time to explore it, and about three months after launch WNTD has 15,000 to 16,000 users.\n\n#startup #founder #ai #ad #lovable",
+      "title": "His engineers resisted the new tool. 16,000 users in 3 months",
       "tags": [
-        "#ad",
         "#startup",
         "#founder",
         "#ai",
+        "#ad",
         "#lovable"
-      ]
+      ],
+      "disclosure": {
+        "label": "Werbung",
+        "brand": "Lovable",
+        "youtubePaidPromotion": true,
+        "tiktokBrandedContent": true,
+        "instagramPaidPartnership": true
+      }
     },
     {
       "clip": "06-avara",
       "out": "out/2026-10-11-founders/06-avara-youtube.mp4",
       "platform": "youtube",
-      "duration": 33.5,
+      "duration": 35.0,
       "layout": "fit",
-      "words": 118,
-      "caption": "Nico's girlfriend got stranded in a snowstorm. Years later he built AVARA to fix travel.\n\n#ad #startup #travel #ai #lovable",
-      "title": "A cancelled Valentine's flight became a travel startup",
+      "words": 126,
+      "caption": "Werbung | Paid promotion for Lovable\n\nOn Valentine's Day, Nico's wife was stuck in a snowstorm 500 miles away and her flight got cancelled. Hundreds of travel apps, and none of them helped.\n\n#startup #travel #ai #ad #lovable",
+      "title": "A cancelled Valentine's Day flight showed him what's broken in travel",
       "tags": [
-        "#ad",
         "#startup",
         "#travel",
         "#ai",
+        "#ad",
         "#lovable"
-      ]
+      ],
+      "disclosure": {
+        "label": "Werbung",
+        "brand": "Lovable",
+        "youtubePaidPromotion": true,
+        "tiktokBrandedContent": true,
+        "instagramPaidPartnership": true
+      }
     },
     {
       "clip": "06-avara",
       "out": "out/2026-10-11-founders/06-avara-tiktok.mp4",
       "platform": "tiktok",
-      "duration": 33.5,
+      "duration": 35.0,
       "layout": "fit",
-      "words": 118,
-      "caption": "Nico's girlfriend got stranded in a snowstorm. Years later he built AVARA to fix travel.\n\n#ad #startup #travel #ai #lovable",
-      "title": "A cancelled Valentine's flight became a travel startup",
+      "words": 126,
+      "caption": "Werbung | Paid promotion for Lovable\n\nOn Valentine's Day, Nico's wife was stuck in a snowstorm 500 miles away and her flight got cancelled. Hundreds of travel apps, and none of them helped.\n\n#startup #travel #ai #ad #lovable",
+      "title": "A cancelled Valentine's Day flight showed him what's broken in travel",
       "tags": [
-        "#ad",
         "#startup",
         "#travel",
         "#ai",
+        "#ad",
         "#lovable"
-      ]
+      ],
+      "disclosure": {
+        "label": "Werbung",
+        "brand": "Lovable",
+        "youtubePaidPromotion": true,
+        "tiktokBrandedContent": true,
+        "instagramPaidPartnership": true
+      }
     },
     {
       "clip": "06-avara",
       "out": "out/2026-10-11-founders/06-avara-instagram.mp4",
       "platform": "instagram",
-      "duration": 33.5,
+      "duration": 35.0,
       "layout": "fit",
-      "words": 118,
-      "caption": "Nico's girlfriend got stranded in a snowstorm. Years later he built AVARA to fix travel.\n\n#ad #startup #travel #ai #lovable",
-      "title": "A cancelled Valentine's flight became a travel startup",
+      "words": 126,
+      "caption": "Werbung | Paid promotion for Lovable\n\nOn Valentine's Day, Nico's wife was stuck in a snowstorm 500 miles away and her flight got cancelled. Hundreds of travel apps, and none of them helped.\n\n#startup #travel #ai #ad #lovable",
+      "title": "A cancelled Valentine's Day flight showed him what's broken in travel",
       "tags": [
-        "#ad",
         "#startup",
         "#travel",
         "#ai",
+        "#ad",
         "#lovable"
-      ]
+      ],
+      "disclosure": {
+        "label": "Werbung",
+        "brand": "Lovable",
+        "youtubePaidPromotion": true,
+        "tiktokBrandedContent": true,
+        "instagramPaidPartnership": true
+      }
     },
     {
       "clip": "07-klar-1088",
@@ -334,16 +461,23 @@
       "duration": 29.1,
       "layout": "fit",
       "words": 81,
-      "caption": "Klar's founders on why one way of learning fails most students.\n\n#ad #startup #students #ai #edtech #lovable",
-      "title": "College hasn't changed since 1088. These students are fixing it",
+      "caption": "Werbung | Paid promotion for Lovable\n\nThe first university opened in Bologna in 1088 and the system hasn't changed. 40% of students drop out, and Klar's founders say learning has to adapt to every person.\n\n#startup #students #ai #edtech #ad #lovable",
+      "title": "College hasn't changed since 1088. Their AI tutor learns how you learn",
       "tags": [
-        "#ad",
         "#startup",
         "#students",
         "#ai",
         "#edtech",
+        "#ad",
         "#lovable"
-      ]
+      ],
+      "disclosure": {
+        "label": "Werbung",
+        "brand": "Lovable",
+        "youtubePaidPromotion": true,
+        "tiktokBrandedContent": true,
+        "instagramPaidPartnership": true
+      }
     },
     {
       "clip": "07-klar-1088",
@@ -352,16 +486,23 @@
       "duration": 29.1,
       "layout": "fit",
       "words": 81,
-      "caption": "Klar's founders on why one way of learning fails most students.\n\n#ad #startup #students #ai #edtech #lovable",
-      "title": "College hasn't changed since 1088. These students are fixing it",
+      "caption": "Werbung | Paid promotion for Lovable\n\nThe first university opened in Bologna in 1088 and the system hasn't changed. 40% of students drop out, and Klar's founders say learning has to adapt to every person.\n\n#startup #students #ai #edtech #ad #lovable",
+      "title": "College hasn't changed since 1088. Their AI tutor learns how you learn",
       "tags": [
-        "#ad",
         "#startup",
         "#students",
         "#ai",
         "#edtech",
+        "#ad",
         "#lovable"
-      ]
+      ],
+      "disclosure": {
+        "label": "Werbung",
+        "brand": "Lovable",
+        "youtubePaidPromotion": true,
+        "tiktokBrandedContent": true,
+        "instagramPaidPartnership": true
+      }
     },
     {
       "clip": "07-klar-1088",
@@ -370,124 +511,173 @@
       "duration": 29.1,
       "layout": "fit",
       "words": 81,
-      "caption": "Klar's founders on why one way of learning fails most students.\n\n#ad #startup #students #ai #edtech #lovable",
-      "title": "College hasn't changed since 1088. These students are fixing it",
+      "caption": "Werbung | Paid promotion for Lovable\n\nThe first university opened in Bologna in 1088 and the system hasn't changed. 40% of students drop out, and Klar's founders say learning has to adapt to every person.\n\n#startup #students #ai #edtech #ad #lovable",
+      "title": "College hasn't changed since 1088. Their AI tutor learns how you learn",
       "tags": [
-        "#ad",
         "#startup",
         "#students",
         "#ai",
         "#edtech",
+        "#ad",
         "#lovable"
-      ]
+      ],
+      "disclosure": {
+        "label": "Werbung",
+        "brand": "Lovable",
+        "youtubePaidPromotion": true,
+        "tiktokBrandedContent": true,
+        "instagramPaidPartnership": true
+      }
     },
     {
       "clip": "08-klar-tutor",
       "out": "out/2026-10-11-founders/08-klar-tutor-youtube.mp4",
       "platform": "youtube",
-      "duration": 15.5,
+      "duration": 19.4,
       "layout": "crop+fit",
-      "words": 57,
-      "caption": "Klar adapts to where each student is.\n\n#ad #startup #students #ai #edtech #lovable",
+      "words": 70,
+      "caption": "Werbung | Paid promotion for Lovable\n\nFlashcards, videos, images, summaries, quizzes: Klar does all of it and always knows where you're at. Thousands of students were waiting to learn differently.\n\n#startup #students #ai #edtech #ad #lovable",
       "title": "One AI tutor for flashcards, videos and quizzes",
       "tags": [
-        "#ad",
         "#startup",
         "#students",
         "#ai",
         "#edtech",
+        "#ad",
         "#lovable"
-      ]
+      ],
+      "disclosure": {
+        "label": "Werbung",
+        "brand": "Lovable",
+        "youtubePaidPromotion": true,
+        "tiktokBrandedContent": true,
+        "instagramPaidPartnership": true
+      }
     },
     {
       "clip": "08-klar-tutor",
       "out": "out/2026-10-11-founders/08-klar-tutor-tiktok.mp4",
       "platform": "tiktok",
-      "duration": 15.5,
+      "duration": 19.4,
       "layout": "crop+fit",
-      "words": 57,
-      "caption": "Klar adapts to where each student is.\n\n#ad #startup #students #ai #edtech #lovable",
+      "words": 70,
+      "caption": "Werbung | Paid promotion for Lovable\n\nFlashcards, videos, images, summaries, quizzes: Klar does all of it and always knows where you're at. Thousands of students were waiting to learn differently.\n\n#startup #students #ai #edtech #ad #lovable",
       "title": "One AI tutor for flashcards, videos and quizzes",
       "tags": [
-        "#ad",
         "#startup",
         "#students",
         "#ai",
         "#edtech",
+        "#ad",
         "#lovable"
-      ]
+      ],
+      "disclosure": {
+        "label": "Werbung",
+        "brand": "Lovable",
+        "youtubePaidPromotion": true,
+        "tiktokBrandedContent": true,
+        "instagramPaidPartnership": true
+      }
     },
     {
       "clip": "08-klar-tutor",
       "out": "out/2026-10-11-founders/08-klar-tutor-instagram.mp4",
       "platform": "instagram",
-      "duration": 15.5,
+      "duration": 19.4,
       "layout": "crop+fit",
-      "words": 57,
-      "caption": "Klar adapts to where each student is.\n\n#ad #startup #students #ai #edtech #lovable",
+      "words": 70,
+      "caption": "Werbung | Paid promotion for Lovable\n\nFlashcards, videos, images, summaries, quizzes: Klar does all of it and always knows where you're at. Thousands of students were waiting to learn differently.\n\n#startup #students #ai #edtech #ad #lovable",
       "title": "One AI tutor for flashcards, videos and quizzes",
       "tags": [
-        "#ad",
         "#startup",
         "#students",
         "#ai",
         "#edtech",
+        "#ad",
         "#lovable"
-      ]
+      ],
+      "disclosure": {
+        "label": "Werbung",
+        "brand": "Lovable",
+        "youtubePaidPromotion": true,
+        "tiktokBrandedContent": true,
+        "instagramPaidPartnership": true
+      }
     },
     {
       "clip": "09-quicktables-500k",
       "out": "out/2026-10-11-founders/09-quicktables-500k-youtube.mp4",
       "platform": "youtube",
-      "duration": 38.5,
+      "duration": 44.8,
       "layout": "fit",
-      "words": 141,
-      "caption": "QuickTables was built with Lovable instead of a big dev budget.\n\n#ad #startup #restaurants #smallbusiness #ai #lovable",
-      "title": "He needed $500K to build his startup. He used AI instead",
+      "words": 160,
+      "caption": "Werbung | Paid promotion for Lovable\n\nJaleel was told he'd need about $500,000 to build his restaurant software. Instead he built QuickTables with Lovable, so restaurants can focus on food and leave marketing to them.\n\n#startup #restaurants #smallbusiness #ai #ad #lovable",
+      "title": "He was told he'd need $500K to build it. He used AI instead",
       "tags": [
-        "#ad",
         "#startup",
         "#restaurants",
         "#smallbusiness",
         "#ai",
+        "#ad",
         "#lovable"
-      ]
+      ],
+      "disclosure": {
+        "label": "Werbung",
+        "brand": "Lovable",
+        "youtubePaidPromotion": true,
+        "tiktokBrandedContent": true,
+        "instagramPaidPartnership": true
+      }
     },
     {
       "clip": "09-quicktables-500k",
       "out": "out/2026-10-11-founders/09-quicktables-500k-tiktok.mp4",
       "platform": "tiktok",
-      "duration": 38.5,
+      "duration": 44.8,
       "layout": "fit",
-      "words": 141,
-      "caption": "QuickTables was built with Lovable instead of a big dev budget.\n\n#ad #startup #restaurants #smallbusiness #ai #lovable",
-      "title": "He needed $500K to build his startup. He used AI instead",
+      "words": 160,
+      "caption": "Werbung | Paid promotion for Lovable\n\nJaleel was told he'd need about $500,000 to build his restaurant software. Instead he built QuickTables with Lovable, so restaurants can focus on food and leave marketing to them.\n\n#startup #restaurants #smallbusiness #ai #ad #lovable",
+      "title": "He was told he'd need $500K to build it. He used AI instead",
       "tags": [
-        "#ad",
         "#startup",
         "#restaurants",
         "#smallbusiness",
         "#ai",
+        "#ad",
         "#lovable"
-      ]
+      ],
+      "disclosure": {
+        "label": "Werbung",
+        "brand": "Lovable",
+        "youtubePaidPromotion": true,
+        "tiktokBrandedContent": true,
+        "instagramPaidPartnership": true
+      }
     },
     {
       "clip": "09-quicktables-500k",
       "out": "out/2026-10-11-founders/09-quicktables-500k-instagram.mp4",
       "platform": "instagram",
-      "duration": 38.5,
+      "duration": 44.8,
       "layout": "fit",
-      "words": 141,
-      "caption": "QuickTables was built with Lovable instead of a big dev budget.\n\n#ad #startup #restaurants #smallbusiness #ai #lovable",
-      "title": "He needed $500K to build his startup. He used AI instead",
+      "words": 160,
+      "caption": "Werbung | Paid promotion for Lovable\n\nJaleel was told he'd need about $500,000 to build his restaurant software. Instead he built QuickTables with Lovable, so restaurants can focus on food and leave marketing to them.\n\n#startup #restaurants #smallbusiness #ai #ad #lovable",
+      "title": "He was told he'd need $500K to build it. He used AI instead",
       "tags": [
-        "#ad",
         "#startup",
         "#restaurants",
         "#smallbusiness",
         "#ai",
+        "#ad",
         "#lovable"
-      ]
+      ],
+      "disclosure": {
+        "label": "Werbung",
+        "brand": "Lovable",
+        "youtubePaidPromotion": true,
+        "tiktokBrandedContent": true,
+        "instagramPaidPartnership": true
+      }
     },
     {
       "clip": "10-quicktables-pickup",
@@ -496,16 +686,23 @@
       "duration": 23.3,
       "layout": "fit",
       "words": 75,
-      "caption": "QuickTables rewards customers for picking up food themselves.\n\n#ad #startup #restaurants #smallbusiness #ai #lovable",
+      "caption": "Werbung | Paid promotion for Lovable\n\n90% of restaurant owners don't want to run a ghost kitchen. QuickTables gives customers points and discounts for picking up their food instead.\n\n#startup #restaurants #smallbusiness #ai #ad #lovable",
       "title": "90% of restaurant owners don't want a ghost kitchen",
       "tags": [
-        "#ad",
         "#startup",
         "#restaurants",
         "#smallbusiness",
         "#ai",
+        "#ad",
         "#lovable"
-      ]
+      ],
+      "disclosure": {
+        "label": "Werbung",
+        "brand": "Lovable",
+        "youtubePaidPromotion": true,
+        "tiktokBrandedContent": true,
+        "instagramPaidPartnership": true
+      }
     },
     {
       "clip": "10-quicktables-pickup",
@@ -514,16 +711,23 @@
       "duration": 23.3,
       "layout": "fit",
       "words": 75,
-      "caption": "QuickTables rewards customers for picking up food themselves.\n\n#ad #startup #restaurants #smallbusiness #ai #lovable",
+      "caption": "Werbung | Paid promotion for Lovable\n\n90% of restaurant owners don't want to run a ghost kitchen. QuickTables gives customers points and discounts for picking up their food instead.\n\n#startup #restaurants #smallbusiness #ai #ad #lovable",
       "title": "90% of restaurant owners don't want a ghost kitchen",
       "tags": [
-        "#ad",
         "#startup",
         "#restaurants",
         "#smallbusiness",
         "#ai",
+        "#ad",
         "#lovable"
-      ]
+      ],
+      "disclosure": {
+        "label": "Werbung",
+        "brand": "Lovable",
+        "youtubePaidPromotion": true,
+        "tiktokBrandedContent": true,
+        "instagramPaidPartnership": true
+      }
     },
     {
       "clip": "10-quicktables-pickup",
@@ -532,16 +736,23 @@
       "duration": 23.3,
       "layout": "fit",
       "words": 75,
-      "caption": "QuickTables rewards customers for picking up food themselves.\n\n#ad #startup #restaurants #smallbusiness #ai #lovable",
+      "caption": "Werbung | Paid promotion for Lovable\n\n90% of restaurant owners don't want to run a ghost kitchen. QuickTables gives customers points and discounts for picking up their food instead.\n\n#startup #restaurants #smallbusiness #ai #ad #lovable",
       "title": "90% of restaurant owners don't want a ghost kitchen",
       "tags": [
-        "#ad",
         "#startup",
         "#restaurants",
         "#smallbusiness",
         "#ai",
+        "#ad",
         "#lovable"
-      ]
+      ],
+      "disclosure": {
+        "label": "Werbung",
+        "brand": "Lovable",
+        "youtubePaidPromotion": true,
+        "tiktokBrandedContent": true,
+        "instagramPaidPartnership": true
+      }
     },
     {
       "clip": "11-avara-google",
@@ -550,15 +761,22 @@
       "duration": 22.4,
       "layout": "crop+fit",
       "words": 87,
-      "caption": "Nico waited 14 years, then built AVARA with AI.\n\n#ad #startup #travel #ai #lovable",
+      "caption": "Werbung | Paid promotion for Lovable\n\nNico's coworkers at Google laughed at his idea: it would need millions in funding and a huge team. After waiting 14 years, he gave Lovable a chance.\n\n#startup #travel #ai #ad #lovable",
       "title": "His Google coworkers laughed at his idea. He built it anyway",
       "tags": [
-        "#ad",
         "#startup",
         "#travel",
         "#ai",
+        "#ad",
         "#lovable"
-      ]
+      ],
+      "disclosure": {
+        "label": "Werbung",
+        "brand": "Lovable",
+        "youtubePaidPromotion": true,
+        "tiktokBrandedContent": true,
+        "instagramPaidPartnership": true
+      }
     },
     {
       "clip": "11-avara-google",
@@ -567,15 +785,22 @@
       "duration": 22.4,
       "layout": "crop+fit",
       "words": 87,
-      "caption": "Nico waited 14 years, then built AVARA with AI.\n\n#ad #startup #travel #ai #lovable",
+      "caption": "Werbung | Paid promotion for Lovable\n\nNico's coworkers at Google laughed at his idea: it would need millions in funding and a huge team. After waiting 14 years, he gave Lovable a chance.\n\n#startup #travel #ai #ad #lovable",
       "title": "His Google coworkers laughed at his idea. He built it anyway",
       "tags": [
-        "#ad",
         "#startup",
         "#travel",
         "#ai",
+        "#ad",
         "#lovable"
-      ]
+      ],
+      "disclosure": {
+        "label": "Werbung",
+        "brand": "Lovable",
+        "youtubePaidPromotion": true,
+        "tiktokBrandedContent": true,
+        "instagramPaidPartnership": true
+      }
     },
     {
       "clip": "11-avara-google",
@@ -584,15 +809,22 @@
       "duration": 22.4,
       "layout": "crop+fit",
       "words": 87,
-      "caption": "Nico waited 14 years, then built AVARA with AI.\n\n#ad #startup #travel #ai #lovable",
+      "caption": "Werbung | Paid promotion for Lovable\n\nNico's coworkers at Google laughed at his idea: it would need millions in funding and a huge team. After waiting 14 years, he gave Lovable a chance.\n\n#startup #travel #ai #ad #lovable",
       "title": "His Google coworkers laughed at his idea. He built it anyway",
       "tags": [
-        "#ad",
         "#startup",
         "#travel",
         "#ai",
+        "#ad",
         "#lovable"
-      ]
+      ],
+      "disclosure": {
+        "label": "Werbung",
+        "brand": "Lovable",
+        "youtubePaidPromotion": true,
+        "tiktokBrandedContent": true,
+        "instagramPaidPartnership": true
+      }
     },
     {
       "clip": "12-weglow-gym",
@@ -601,15 +833,22 @@
       "duration": 19.9,
       "layout": "crop+fit",
       "words": 68,
-      "caption": "Quinten and Jef spent five years talking to every nonprofit in Belgium and the Netherlands.\n\n#ad #startup #charity #ai #lovable",
-      "title": "They met in gym class. Now they help nonprofits raise millions",
+      "caption": "Werbung | Paid promotion for Lovable\n\nJef and Quinten first spoke in gym class. Together they built WeGlow and spent five years talking to every nonprofit in Belgium and the Netherlands.\n\n#startup #charity #ai #ad #lovable",
+      "title": "They met in gym class. Then spent 5 years talking to nonprofits",
       "tags": [
-        "#ad",
         "#startup",
         "#charity",
         "#ai",
+        "#ad",
         "#lovable"
-      ]
+      ],
+      "disclosure": {
+        "label": "Werbung",
+        "brand": "Lovable",
+        "youtubePaidPromotion": true,
+        "tiktokBrandedContent": true,
+        "instagramPaidPartnership": true
+      }
     },
     {
       "clip": "12-weglow-gym",
@@ -618,15 +857,22 @@
       "duration": 19.9,
       "layout": "crop+fit",
       "words": 68,
-      "caption": "Quinten and Jef spent five years talking to every nonprofit in Belgium and the Netherlands.\n\n#ad #startup #charity #ai #lovable",
-      "title": "They met in gym class. Now they help nonprofits raise millions",
+      "caption": "Werbung | Paid promotion for Lovable\n\nJef and Quinten first spoke in gym class. Together they built WeGlow and spent five years talking to every nonprofit in Belgium and the Netherlands.\n\n#startup #charity #ai #ad #lovable",
+      "title": "They met in gym class. Then spent 5 years talking to nonprofits",
       "tags": [
-        "#ad",
         "#startup",
         "#charity",
         "#ai",
+        "#ad",
         "#lovable"
-      ]
+      ],
+      "disclosure": {
+        "label": "Werbung",
+        "brand": "Lovable",
+        "youtubePaidPromotion": true,
+        "tiktokBrandedContent": true,
+        "instagramPaidPartnership": true
+      }
     },
     {
       "clip": "12-weglow-gym",
@@ -635,15 +881,22 @@
       "duration": 19.9,
       "layout": "crop+fit",
       "words": 68,
-      "caption": "Quinten and Jef spent five years talking to every nonprofit in Belgium and the Netherlands.\n\n#ad #startup #charity #ai #lovable",
-      "title": "They met in gym class. Now they help nonprofits raise millions",
+      "caption": "Werbung | Paid promotion for Lovable\n\nJef and Quinten first spoke in gym class. Together they built WeGlow and spent five years talking to every nonprofit in Belgium and the Netherlands.\n\n#startup #charity #ai #ad #lovable",
+      "title": "They met in gym class. Then spent 5 years talking to nonprofits",
       "tags": [
-        "#ad",
         "#startup",
         "#charity",
         "#ai",
+        "#ad",
         "#lovable"
-      ]
+      ],
+      "disclosure": {
+        "label": "Werbung",
+        "brand": "Lovable",
+        "youtubePaidPromotion": true,
+        "tiktokBrandedContent": true,
+        "instagramPaidPartnership": true
+      }
     },
     {
       "clip": "13-weglow-oneday",
@@ -652,15 +905,22 @@
       "duration": 23.3,
       "layout": "crop+fit",
       "words": 90,
-      "caption": "WeGlow's founders on rebuilding their platform with AI.\n\n#ad #startup #charity #ai #lovable",
+      "caption": "Werbung | Paid promotion for Lovable\n\nWeGlow's founders spent years and a lot of money trying to build their software without a developer team. Then in one day, they rebuilt everything they had.\n\n#startup #charity #ai #ad #lovable",
       "title": "They spent years building it. Then rebuilt it in one day",
       "tags": [
-        "#ad",
         "#startup",
         "#charity",
         "#ai",
+        "#ad",
         "#lovable"
-      ]
+      ],
+      "disclosure": {
+        "label": "Werbung",
+        "brand": "Lovable",
+        "youtubePaidPromotion": true,
+        "tiktokBrandedContent": true,
+        "instagramPaidPartnership": true
+      }
     },
     {
       "clip": "13-weglow-oneday",
@@ -669,15 +929,22 @@
       "duration": 23.3,
       "layout": "crop+fit",
       "words": 90,
-      "caption": "WeGlow's founders on rebuilding their platform with AI.\n\n#ad #startup #charity #ai #lovable",
+      "caption": "Werbung | Paid promotion for Lovable\n\nWeGlow's founders spent years and a lot of money trying to build their software without a developer team. Then in one day, they rebuilt everything they had.\n\n#startup #charity #ai #ad #lovable",
       "title": "They spent years building it. Then rebuilt it in one day",
       "tags": [
-        "#ad",
         "#startup",
         "#charity",
         "#ai",
+        "#ad",
         "#lovable"
-      ]
+      ],
+      "disclosure": {
+        "label": "Werbung",
+        "brand": "Lovable",
+        "youtubePaidPromotion": true,
+        "tiktokBrandedContent": true,
+        "instagramPaidPartnership": true
+      }
     },
     {
       "clip": "13-weglow-oneday",
@@ -686,15 +953,22 @@
       "duration": 23.3,
       "layout": "crop+fit",
       "words": 90,
-      "caption": "WeGlow's founders on rebuilding their platform with AI.\n\n#ad #startup #charity #ai #lovable",
+      "caption": "Werbung | Paid promotion for Lovable\n\nWeGlow's founders spent years and a lot of money trying to build their software without a developer team. Then in one day, they rebuilt everything they had.\n\n#startup #charity #ai #ad #lovable",
       "title": "They spent years building it. Then rebuilt it in one day",
       "tags": [
-        "#ad",
         "#startup",
         "#charity",
         "#ai",
+        "#ad",
         "#lovable"
-      ]
+      ],
+      "disclosure": {
+        "label": "Werbung",
+        "brand": "Lovable",
+        "youtubePaidPromotion": true,
+        "tiktokBrandedContent": true,
+        "instagramPaidPartnership": true
+      }
     },
     {
       "clip": "14-saath-nepal",
@@ -703,15 +977,22 @@
       "duration": 25.3,
       "layout": "fit",
       "words": 91,
-      "caption": "Saath lets donors choose the community projects they fund across South Asia.\n\n#ad #startup #founder #ai #lovable",
+      "caption": "Werbung | Paid promotion for Lovable\n\nFrom a girls' football club in Nepal to a craftswoman academy that turns old clothes into bags, Saath helps fund projects across South Asia built to last for years.\n\n#startup #founder #ai #ad #lovable",
       "title": "Two kids with a laptop helped fund a football club in Nepal",
       "tags": [
-        "#ad",
         "#startup",
         "#founder",
         "#ai",
+        "#ad",
         "#lovable"
-      ]
+      ],
+      "disclosure": {
+        "label": "Werbung",
+        "brand": "Lovable",
+        "youtubePaidPromotion": true,
+        "tiktokBrandedContent": true,
+        "instagramPaidPartnership": true
+      }
     },
     {
       "clip": "14-saath-nepal",
@@ -720,15 +1001,22 @@
       "duration": 25.3,
       "layout": "fit",
       "words": 91,
-      "caption": "Saath lets donors choose the community projects they fund across South Asia.\n\n#ad #startup #founder #ai #lovable",
+      "caption": "Werbung | Paid promotion for Lovable\n\nFrom a girls' football club in Nepal to a craftswoman academy that turns old clothes into bags, Saath helps fund projects across South Asia built to last for years.\n\n#startup #founder #ai #ad #lovable",
       "title": "Two kids with a laptop helped fund a football club in Nepal",
       "tags": [
-        "#ad",
         "#startup",
         "#founder",
         "#ai",
+        "#ad",
         "#lovable"
-      ]
+      ],
+      "disclosure": {
+        "label": "Werbung",
+        "brand": "Lovable",
+        "youtubePaidPromotion": true,
+        "tiktokBrandedContent": true,
+        "instagramPaidPartnership": true
+      }
     },
     {
       "clip": "14-saath-nepal",
@@ -737,15 +1025,22 @@
       "duration": 25.3,
       "layout": "fit",
       "words": 91,
-      "caption": "Saath lets donors choose the community projects they fund across South Asia.\n\n#ad #startup #founder #ai #lovable",
+      "caption": "Werbung | Paid promotion for Lovable\n\nFrom a girls' football club in Nepal to a craftswoman academy that turns old clothes into bags, Saath helps fund projects across South Asia built to last for years.\n\n#startup #founder #ai #ad #lovable",
       "title": "Two kids with a laptop helped fund a football club in Nepal",
       "tags": [
-        "#ad",
         "#startup",
         "#founder",
         "#ai",
+        "#ad",
         "#lovable"
-      ]
+      ],
+      "disclosure": {
+        "label": "Werbung",
+        "brand": "Lovable",
+        "youtubePaidPromotion": true,
+        "tiktokBrandedContent": true,
+        "instagramPaidPartnership": true
+      }
     },
     {
       "clip": "15-saath-identity",
@@ -754,15 +1049,22 @@
       "duration": 34.2,
       "layout": "fit",
       "words": 128,
-      "caption": "Zain and Habib built Saath for communities living between two homes.\n\n#ad #startup #founder #ai #lovable",
+      "caption": "Werbung | Paid promotion for Lovable\n\nZain cheers for England but eats biryani at home. With his best friend Habib he built Saath, a community-led fund for locally-led projects across South Asia.\n\n#startup #founder #ai #ad #lovable",
       "title": "Cheering for England, eating biryani at home",
       "tags": [
-        "#ad",
         "#startup",
         "#founder",
         "#ai",
+        "#ad",
         "#lovable"
-      ]
+      ],
+      "disclosure": {
+        "label": "Werbung",
+        "brand": "Lovable",
+        "youtubePaidPromotion": true,
+        "tiktokBrandedContent": true,
+        "instagramPaidPartnership": true
+      }
     },
     {
       "clip": "15-saath-identity",
@@ -771,15 +1073,22 @@
       "duration": 34.2,
       "layout": "fit",
       "words": 128,
-      "caption": "Zain and Habib built Saath for communities living between two homes.\n\n#ad #startup #founder #ai #lovable",
+      "caption": "Werbung | Paid promotion for Lovable\n\nZain cheers for England but eats biryani at home. With his best friend Habib he built Saath, a community-led fund for locally-led projects across South Asia.\n\n#startup #founder #ai #ad #lovable",
       "title": "Cheering for England, eating biryani at home",
       "tags": [
-        "#ad",
         "#startup",
         "#founder",
         "#ai",
+        "#ad",
         "#lovable"
-      ]
+      ],
+      "disclosure": {
+        "label": "Werbung",
+        "brand": "Lovable",
+        "youtubePaidPromotion": true,
+        "tiktokBrandedContent": true,
+        "instagramPaidPartnership": true
+      }
     },
     {
       "clip": "15-saath-identity",
@@ -788,327 +1097,97 @@
       "duration": 34.2,
       "layout": "fit",
       "words": 128,
-      "caption": "Zain and Habib built Saath for communities living between two homes.\n\n#ad #startup #founder #ai #lovable",
+      "caption": "Werbung | Paid promotion for Lovable\n\nZain cheers for England but eats biryani at home. With his best friend Habib he built Saath, a community-led fund for locally-led projects across South Asia.\n\n#startup #founder #ai #ad #lovable",
       "title": "Cheering for England, eating biryani at home",
       "tags": [
-        "#ad",
         "#startup",
         "#founder",
         "#ai",
-        "#lovable"
-      ]
-    },
-    {
-      "clip": "16-zain-ramble",
-      "out": "out/2026-10-11-founders/16-zain-ramble-youtube.mp4",
-      "platform": "youtube",
-      "duration": 23.2,
-      "layout": "crop+fit",
-      "words": 95,
-      "caption": "Zain on building Saath with Lovable.\n\n#ad #startup #founder #ai #lovable",
-      "title": "He rambled at an AI for a minute. It built his app",
-      "tags": [
         "#ad",
-        "#startup",
-        "#founder",
-        "#ai",
         "#lovable"
-      ]
-    },
-    {
-      "clip": "16-zain-ramble",
-      "out": "out/2026-10-11-founders/16-zain-ramble-tiktok.mp4",
-      "platform": "tiktok",
-      "duration": 23.2,
-      "layout": "crop+fit",
-      "words": 95,
-      "caption": "Zain on building Saath with Lovable.\n\n#ad #startup #founder #ai #lovable",
-      "title": "He rambled at an AI for a minute. It built his app",
-      "tags": [
-        "#ad",
-        "#startup",
-        "#founder",
-        "#ai",
-        "#lovable"
-      ]
-    },
-    {
-      "clip": "16-zain-ramble",
-      "out": "out/2026-10-11-founders/16-zain-ramble-instagram.mp4",
-      "platform": "instagram",
-      "duration": 23.2,
-      "layout": "crop+fit",
-      "words": 95,
-      "caption": "Zain on building Saath with Lovable.\n\n#ad #startup #founder #ai #lovable",
-      "title": "He rambled at an AI for a minute. It built his app",
-      "tags": [
-        "#ad",
-        "#startup",
-        "#founder",
-        "#ai",
-        "#lovable"
-      ]
+      ],
+      "disclosure": {
+        "label": "Werbung",
+        "brand": "Lovable",
+        "youtubePaidPromotion": true,
+        "tiktokBrandedContent": true,
+        "instagramPaidPartnership": true
+      }
     },
     {
       "clip": "17-klar-students",
       "out": "out/2026-10-11-founders/17-klar-students-youtube.mp4",
       "platform": "youtube",
-      "duration": 32.7,
+      "duration": 39.6,
       "layout": "fit",
-      "words": 101,
-      "caption": "Klar went from a 25 square meter flat to students across Sweden.\n\n#ad #startup #students #ai #edtech #lovable",
-      "title": "35,000 students use an app built by 3 friends",
+      "words": 117,
+      "caption": "Werbung | Paid promotion for Lovable\n\nKlar's founders say a new partnership reaches 35,000 students, with all of Sweden next. The university that tried to stop them now wants to work with them.\n\n#startup #students #ai #edtech #ad #lovable",
+      "title": "After 1,000 years of education, 3 friends are changing it",
       "tags": [
-        "#ad",
         "#startup",
         "#students",
         "#ai",
         "#edtech",
+        "#ad",
         "#lovable"
-      ]
+      ],
+      "disclosure": {
+        "label": "Werbung",
+        "brand": "Lovable",
+        "youtubePaidPromotion": true,
+        "tiktokBrandedContent": true,
+        "instagramPaidPartnership": true
+      }
     },
     {
       "clip": "17-klar-students",
       "out": "out/2026-10-11-founders/17-klar-students-tiktok.mp4",
       "platform": "tiktok",
-      "duration": 32.7,
+      "duration": 39.6,
       "layout": "fit",
-      "words": 101,
-      "caption": "Klar went from a 25 square meter flat to students across Sweden.\n\n#ad #startup #students #ai #edtech #lovable",
-      "title": "35,000 students use an app built by 3 friends",
+      "words": 117,
+      "caption": "Werbung | Paid promotion for Lovable\n\nKlar's founders say a new partnership reaches 35,000 students, with all of Sweden next. The university that tried to stop them now wants to work with them.\n\n#startup #students #ai #edtech #ad #lovable",
+      "title": "After 1,000 years of education, 3 friends are changing it",
       "tags": [
-        "#ad",
         "#startup",
         "#students",
         "#ai",
         "#edtech",
+        "#ad",
         "#lovable"
-      ]
+      ],
+      "disclosure": {
+        "label": "Werbung",
+        "brand": "Lovable",
+        "youtubePaidPromotion": true,
+        "tiktokBrandedContent": true,
+        "instagramPaidPartnership": true
+      }
     },
     {
       "clip": "17-klar-students",
       "out": "out/2026-10-11-founders/17-klar-students-instagram.mp4",
       "platform": "instagram",
-      "duration": 32.7,
+      "duration": 39.6,
       "layout": "fit",
-      "words": 101,
-      "caption": "Klar went from a 25 square meter flat to students across Sweden.\n\n#ad #startup #students #ai #edtech #lovable",
-      "title": "35,000 students use an app built by 3 friends",
+      "words": 117,
+      "caption": "Werbung | Paid promotion for Lovable\n\nKlar's founders say a new partnership reaches 35,000 students, with all of Sweden next. The university that tried to stop them now wants to work with them.\n\n#startup #students #ai #edtech #ad #lovable",
+      "title": "After 1,000 years of education, 3 friends are changing it",
       "tags": [
-        "#ad",
         "#startup",
         "#students",
         "#ai",
         "#edtech",
-        "#lovable"
-      ]
-    },
-    {
-      "clip": "18-quicktables-advice",
-      "out": "out/2026-10-11-founders/18-quicktables-advice-youtube.mp4",
-      "platform": "youtube",
-      "duration": 15.4,
-      "layout": "fit",
-      "words": 56,
-      "caption": "QuickTables founder Jaleel on how to find an idea.\n\n#ad #startup #restaurants #smallbusiness #ai #lovable",
-      "title": "The simplest startup advice: ask people what their problems are",
-      "tags": [
         "#ad",
-        "#startup",
-        "#restaurants",
-        "#smallbusiness",
-        "#ai",
         "#lovable"
-      ]
-    },
-    {
-      "clip": "18-quicktables-advice",
-      "out": "out/2026-10-11-founders/18-quicktables-advice-tiktok.mp4",
-      "platform": "tiktok",
-      "duration": 15.4,
-      "layout": "fit",
-      "words": 56,
-      "caption": "QuickTables founder Jaleel on how to find an idea.\n\n#ad #startup #restaurants #smallbusiness #ai #lovable",
-      "title": "The simplest startup advice: ask people what their problems are",
-      "tags": [
-        "#ad",
-        "#startup",
-        "#restaurants",
-        "#smallbusiness",
-        "#ai",
-        "#lovable"
-      ]
-    },
-    {
-      "clip": "18-quicktables-advice",
-      "out": "out/2026-10-11-founders/18-quicktables-advice-instagram.mp4",
-      "platform": "instagram",
-      "duration": 15.4,
-      "layout": "fit",
-      "words": 56,
-      "caption": "QuickTables founder Jaleel on how to find an idea.\n\n#ad #startup #restaurants #smallbusiness #ai #lovable",
-      "title": "The simplest startup advice: ask people what their problems are",
-      "tags": [
-        "#ad",
-        "#startup",
-        "#restaurants",
-        "#smallbusiness",
-        "#ai",
-        "#lovable"
-      ]
-    },
-    {
-      "clip": "19-weglow-proud",
-      "out": "out/2026-10-11-founders/19-weglow-proud-youtube.mp4",
-      "platform": "youtube",
-      "duration": 18.5,
-      "layout": "fit",
-      "words": 46,
-      "caption": "WeGlow has raised more than €1.3M for nonprofits.\n\n#ad #startup #charity #ai #lovable",
-      "title": "35,000 candles and one very proud dad",
-      "tags": [
-        "#ad",
-        "#startup",
-        "#charity",
-        "#ai",
-        "#lovable"
-      ]
-    },
-    {
-      "clip": "19-weglow-proud",
-      "out": "out/2026-10-11-founders/19-weglow-proud-tiktok.mp4",
-      "platform": "tiktok",
-      "duration": 18.5,
-      "layout": "fit",
-      "words": 46,
-      "caption": "WeGlow has raised more than €1.3M for nonprofits.\n\n#ad #startup #charity #ai #lovable",
-      "title": "35,000 candles and one very proud dad",
-      "tags": [
-        "#ad",
-        "#startup",
-        "#charity",
-        "#ai",
-        "#lovable"
-      ]
-    },
-    {
-      "clip": "19-weglow-proud",
-      "out": "out/2026-10-11-founders/19-weglow-proud-instagram.mp4",
-      "platform": "instagram",
-      "duration": 18.5,
-      "layout": "fit",
-      "words": 46,
-      "caption": "WeGlow has raised more than €1.3M for nonprofits.\n\n#ad #startup #charity #ai #lovable",
-      "title": "35,000 candles and one very proud dad",
-      "tags": [
-        "#ad",
-        "#startup",
-        "#charity",
-        "#ai",
-        "#lovable"
-      ]
-    },
-    {
-      "clip": "20-lex-sharktank",
-      "out": "out/2026-10-11-founders/20-lex-sharktank-youtube.mp4",
-      "platform": "youtube",
-      "duration": 16.4,
-      "layout": "fit",
-      "words": 52,
-      "caption": "Lex Deak has built dozens of startups.\n\n#ad #startup #founder #ai #lovable",
-      "title": "From selling tech at school lunches to Shark Tank",
-      "tags": [
-        "#ad",
-        "#startup",
-        "#founder",
-        "#ai",
-        "#lovable"
-      ]
-    },
-    {
-      "clip": "20-lex-sharktank",
-      "out": "out/2026-10-11-founders/20-lex-sharktank-tiktok.mp4",
-      "platform": "tiktok",
-      "duration": 16.4,
-      "layout": "fit",
-      "words": 52,
-      "caption": "Lex Deak has built dozens of startups.\n\n#ad #startup #founder #ai #lovable",
-      "title": "From selling tech at school lunches to Shark Tank",
-      "tags": [
-        "#ad",
-        "#startup",
-        "#founder",
-        "#ai",
-        "#lovable"
-      ]
-    },
-    {
-      "clip": "20-lex-sharktank",
-      "out": "out/2026-10-11-founders/20-lex-sharktank-instagram.mp4",
-      "platform": "instagram",
-      "duration": 16.4,
-      "layout": "fit",
-      "words": 52,
-      "caption": "Lex Deak has built dozens of startups.\n\n#ad #startup #founder #ai #lovable",
-      "title": "From selling tech at school lunches to Shark Tank",
-      "tags": [
-        "#ad",
-        "#startup",
-        "#founder",
-        "#ai",
-        "#lovable"
-      ]
-    },
-    {
-      "clip": "21-avara-apps",
-      "out": "out/2026-10-11-founders/21-avara-apps-youtube.mp4",
-      "platform": "youtube",
-      "duration": 17.6,
-      "layout": "fit",
-      "words": 60,
-      "caption": "Nico built AVARA so travellers have one place that looks after them.\n\n#ad #startup #travel #ai #lovable",
-      "title": "Hundreds of travel apps, and none help when it goes wrong",
-      "tags": [
-        "#ad",
-        "#startup",
-        "#travel",
-        "#ai",
-        "#lovable"
-      ]
-    },
-    {
-      "clip": "21-avara-apps",
-      "out": "out/2026-10-11-founders/21-avara-apps-tiktok.mp4",
-      "platform": "tiktok",
-      "duration": 17.6,
-      "layout": "fit",
-      "words": 60,
-      "caption": "Nico built AVARA so travellers have one place that looks after them.\n\n#ad #startup #travel #ai #lovable",
-      "title": "Hundreds of travel apps, and none help when it goes wrong",
-      "tags": [
-        "#ad",
-        "#startup",
-        "#travel",
-        "#ai",
-        "#lovable"
-      ]
-    },
-    {
-      "clip": "21-avara-apps",
-      "out": "out/2026-10-11-founders/21-avara-apps-instagram.mp4",
-      "platform": "instagram",
-      "duration": 17.6,
-      "layout": "fit",
-      "words": 60,
-      "caption": "Nico built AVARA so travellers have one place that looks after them.\n\n#ad #startup #travel #ai #lovable",
-      "title": "Hundreds of travel apps, and none help when it goes wrong",
-      "tags": [
-        "#ad",
-        "#startup",
-        "#travel",
-        "#ai",
-        "#lovable"
-      ]
+      ],
+      "disclosure": {
+        "label": "Werbung",
+        "brand": "Lovable",
+        "youtubePaidPromotion": true,
+        "tiktokBrandedContent": true,
+        "instagramPaidPartnership": true
+      }
     }
   ]
 }

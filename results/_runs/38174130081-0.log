@@ -1,0 +1,17 @@
+== jobs/2026-10-11-founders.json
+  01-zain-youtube.mp4: face crop, 3 position(s), 5 b-roll span(s) shown whole
+  01-zain-tiktok.mp4: face crop, 3 position(s), 5 b-roll span(s) shown whole
+  01-zain-instagram.mp4: face crop, 3 position(s), 5 b-roll span(s) shown whole
+  08-klar-tutor-youtube.mp4: face crop, 4 position(s), 1 b-roll span(s) shown whole
+  08-klar-tutor-tiktok.mp4: face crop, 4 position(s), 1 b-roll span(s) shown whole
+  08-klar-tutor-instagram.mp4: face crop, 4 position(s), 1 b-roll span(s) shown whole
+  11-avara-google-youtube.mp4: face crop, 6 position(s), 2 b-roll span(s) shown whole
+  11-avara-google-tiktok.mp4: face crop, 6 position(s), 2 b-roll span(s) shown whole
+  11-avara-google-instagram.mp4: face crop, 6 position(s), 2 b-roll span(s) shown whole
+  12-weglow-gym-youtube.mp4: face crop, 4 position(s), 3 b-roll span(s) shown whole
+  12-weglow-gym-tiktok.mp4: face crop, 4 position(s), 3 b-roll span(s) shown whole
+  12-weglow-gym-instagram.mp4: face crop, 4 position(s), 3 b-roll span(s) shown whole
+  13-weglow-oneday-youtube.mp4: face crop, 1 position(s), 2 b-roll span(s) shown whole
+  13-weglow-oneday-tiktok.mp4: face crop, 1 position(s), 2 b-roll span(s) shown whole
+  13-weglow-oneday-instagram.mp4: face crop, 1 position(s), 2 b-roll span(s) shown whole
+{'id': '2026-10-11-founders', 'stage': 'rendered', 'campaign': {'name': 'Lovable Clipping', 'board': 'contentrewards', 'rate': '$1 per 1K views, min payout $0.99', 'platforms': ['youtube', 'tiktok', 'instagram'], 'mustInclude': ['#lovable'], 'brand': 'Lovable'}} 48 files
