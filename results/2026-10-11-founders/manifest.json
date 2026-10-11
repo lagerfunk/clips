@@ -1,0 +1,13 @@
+{
+  "id": "2026-10-11-founders",
+  "stage": "candidates",
+  "candidates": {
+    "s1": 3,
+    "s2": 4,
+    "s3": 4,
+    "s4": 2,
+    "s5": 5,
+    "s6": 4
+  },
+  "failed": {}
+}
