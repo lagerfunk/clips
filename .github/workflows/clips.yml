@@ -111,6 +111,7 @@ jobs:
             [ -d "$d" ] || continue
             id=$(basename "$d"); mkdir -p "results/$id"
             cp "$d"/*.json "results/$id/" 2>/dev/null || true
+            cp work/"$id"/*.words.json "results/$id/" 2>/dev/null || true
           done
           mkdir -p results/_runs
           [ -f run.log ] && tail -n 150 run.log > "results/_runs/${{ github.run_id }}.log"

@@ -90,6 +90,23 @@ class Pipeline(unittest.TestCase):
         with self.assertRaises(ValueError):
             render(self.src, [(35.0, 60.0)], self.tr["words"], "x", "tiktok", self.tmp / "bad.mp4", "fit", self.tmp / "w")
 
+    def test_fix_words(self):
+        ws = [{"w": "Zeng,", "s": 0, "e": 1}, {"w": "this", "s": 1, "e": 2}, {"w": "ID", "s": 2, "e": 3}, {"w": "loveable.", "s": 3, "e": 4}]
+        out = jobmod.fix_words(ws, {"Zeng": "Zain", "ID": "idea", "loveable": "Lovable"})
+        self.assertEqual([w["w"] for w in out], ["Zain,", "this", "idea", "Lovable."])
+
+    def test_text_anchored_segments(self):
+        words = self.tr["words"]
+        a, b = jobmod.resolve_segment(words, {"from": "Nobody tells you", "to": "lose it all in one day."})
+        self.assertLess(a, b)
+        self.assertAlmostEqual(a, next(w["s"] for w in words if w["w"] == "Nobody") - 0.12, places=2)
+        self.assertGreater(b, next(w["e"] for w in words if w["w"] == "day."))
+        with self.assertRaises(ValueError):
+            jobmod.resolve_segment(words, {"from": "not in the text", "to": "day."})
+        job = {"id": "t-2", "sources": [{"id": "s1", "url": "x"}], "clips": [{"id": "01", "source": "s1", "hook": "h",
+               "segments": [{"from": "Nobody tells you", "to": "one day."}]}]}
+        self.assertEqual(jobmod.check_job(job), [])
+
     def test_job_checks_and_post_text(self):
         bad = {"id": "Bad ID", "sources": [], "clips": [{"id": "1", "source": "s9", "segments": [[5, 3]], "hook": "x" * 95}]}
         problems = jobmod.check_job(bad)

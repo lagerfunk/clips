@@ -11,6 +11,7 @@
 import argparse
 import math
 import re
+import subprocess
 import tempfile
 from pathlib import Path
 
@@ -119,34 +120,46 @@ Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
     return head + "\n".join(lines) + "\n"
 
 
+_TRACKS = {}
+
+
 def face_track(source, segments, info, every=0.5):
-    """Piecewise crop centre (source pixels) on the clip timeline, or None when faces are not reliable."""
+    """Piecewise crop centre (source pixels) on the clip timeline, or None when faces are not reliable.
+    Cached per source and moments: every platform render of a clip reuses the same track."""
+    key = (str(source), tuple(tuple(x) for x in segments))
+    if key not in _TRACKS:
+        _TRACKS[key] = _face_track(source, segments, info, every)
+    return _TRACKS[key]
+
+
+def _face_track(source, segments, info, every=0.5):
     try:
         import cv2
+        import numpy as np
     except ImportError:
         return None
     cascade_path = Path(getattr(cv2, "data", None).haarcascades if hasattr(cv2, "data") else "") / "haarcascade_frontalface_default.xml"
     if not cascade_path.exists():
         return None
     det = cv2.CascadeClassifier(str(cascade_path))
-    cap = cv2.VideoCapture(str(source))
+    sw = 640
+    sh = int(round(sw * info["height"] / info["width"] / 2)) * 2
     samples, offset, hits, total = [], 0.0, 0, 0
     for a, b in segments:
-        t = a
-        while t < b:
-            cap.set(cv2.CAP_PROP_POS_MSEC, t * 1000)
-            ok, frame = cap.read()
+        # decode only the moment, at 2 frames a second and 640 px wide: far faster than seeking frame by frame
+        raw = subprocess.run(["ffmpeg", "-v", "error", "-ss", f"{a:.3f}", "-to", f"{b:.3f}", "-i", str(source),
+                              "-vf", f"fps={1 / every:.3f},scale={sw}:{sh}", "-f", "rawvideo", "-pix_fmt", "gray", "-"],
+                             capture_output=True).stdout
+        n = len(raw) // (sw * sh)
+        frames = np.frombuffer(raw[: n * sw * sh], dtype=np.uint8).reshape(n, sh, sw) if n else []
+        for k, frame in enumerate(frames):
             total += 1
-            if ok:
-                small = cv2.resize(frame, (640, int(640 * frame.shape[0] / frame.shape[1])))
-                faces = det.detectMultiScale(cv2.cvtColor(small, cv2.COLOR_BGR2GRAY), 1.1, 5, minSize=(40, 40))
-                if len(faces):
-                    fx, fy, fw, fh = max(faces, key=lambda f: f[2] * f[3])
-                    samples.append((t - a + offset, (fx + fw / 2) * frame.shape[1] / 640))
-                    hits += 1
-            t += every
+            faces = det.detectMultiScale(frame, 1.1, 5, minSize=(40, 40))
+            if len(faces):
+                fx, fy, fw, fh = max(faces, key=lambda f: f[2] * f[3])
+                samples.append((k * every + offset, (fx + fw / 2) * info["width"] / sw))
+                hits += 1
         offset += b - a
-    cap.release()
     if total == 0 or hits / total < 0.4:
         return None
     crop_w = info["height"] * 9 / 16
@@ -202,6 +215,7 @@ def render(source, segments, words, hook, platform, out, layout="auto", workdir=
         mode = "fill" if portrait else ("crop" if face_track(source, segments, info) else "fit")
     if mode == "crop":
         steps = face_track(source, segments, info) or [(0, (info["width"] - info["height"] * 9 / 16) / 2)]
+        print(f"  {Path(out).name}: face crop, {len(steps)} position(s)")
         cw = int(info["height"] * 9 / 16) // 2 * 2
         parts.append(f"[vc]crop={cw}:ih:x='{crop_expr(steps)}':y=0,scale={math.ceil(OUT_W * z / 2) * 2}:{math.ceil(OUT_H * z / 2) * 2},crop={OUT_W}:{OUT_H},setsar=1[base]")
     elif mode == "fill":

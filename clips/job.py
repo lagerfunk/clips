@@ -28,6 +28,46 @@ MIN_CLIP, MAX_CLIP = 8.0, 90.0
 DISCLOSURE = "#ad"  # paid per view by the brand: the post is advertising and must say so (UWG § 5a, platform rules)
 
 
+def _norm(t):
+    return re.sub(r"[^a-z0-9$€%]+", "", t.lower())
+
+
+def resolve_segment(words, seg):
+    """[start, end] in seconds, or {"from": "first words", "to": "last words"} resolved against the transcript,
+    so a clip can be written by quoting what is said and still cut on the exact word."""
+    if isinstance(seg, (list, tuple)):
+        return float(seg[0]), float(seg[1])
+    toks = [_norm(w["w"]) for w in words]
+    def find(phrase, start=0, last=False):
+        p = [x for x in (_norm(t) for t in phrase.split()) if x]
+        for i in range(start, len(toks) - len(p) + 1):
+            if toks[i:i + len(p)] == p:
+                return i + len(p) - 1 if last else i
+        return None
+    i = find(seg["from"])
+    if i is None:
+        raise ValueError(f"start text not found in the transcript: {seg['from']!r}")
+    j = find(seg["to"], i, last=True)
+    if j is None:
+        raise ValueError(f"end text not found after the start: {seg['to']!r}")
+    return max(0.0, words[i]["s"] - 0.12), words[j]["e"] + 0.3
+
+
+def fix_words(words, fixes):
+    """Correct names the speech model got wrong ("Zeng" -> "Zain") in the captions only, keeping punctuation."""
+    if not fixes:
+        return words
+    low = {k.lower(): v for k, v in fixes.items() if k != k.upper() or len(k) < 2}
+    exact = {k: v for k, v in fixes.items() if k == k.upper() and len(k) >= 2}  # all-caps keys ("ID") match exactly
+    out = []
+    for w in words:
+        m = re.match(r"^(.*?)([.,!?;:]*)$", w["w"])
+        core, tail = m.group(1), m.group(2)
+        new = exact.get(core) or low.get(core.lower())
+        out.append({**w, "w": (new + tail) if new else w["w"]})
+    return out
+
+
 def check_job(job):
     problems = []
     if not re.fullmatch(r"[a-z0-9][a-z0-9-]{2,60}", job.get("id", "")):
@@ -49,10 +89,16 @@ def check_job(job):
         if c.get("source") not in src_ids:
             problems.append(f"clip {cid}: unknown source {c.get('source')}")
         segs = c.get("segments") or []
-        total = sum(b - a for a, b in segs)
-        if not segs or any(b <= a for a, b in segs):
-            problems.append(f"clip {cid}: segments must be [start, end] pairs with end > start")
-        elif not MIN_CLIP <= total <= MAX_CLIP:
+        if any(isinstance(x, dict) for x in segs):
+            if not all(isinstance(x, dict) and x.get("from") and x.get("to") or isinstance(x, list) for x in segs):
+                problems.append(f"clip {cid}: text segments need 'from' and 'to'")
+            segs = []  # checked against the transcript at render time
+            total = None
+        else:
+            total = sum(b - a for a, b in segs)
+        if not (c.get("segments")) or (segs and any(b <= a for a, b in segs)):
+            problems.append(f"clip {cid}: segments must be [start, end] pairs with end > start, or from/to text")
+        elif total is not None and not MIN_CLIP <= total <= MAX_CLIP:
             problems.append(f"clip {cid}: {total:.1f}s long, keep it between {MIN_CLIP:.0f} and {MAX_CLIP:.0f}s")
         if not c.get("hook") or len(c["hook"]) > 90:
             problems.append(f"clip {cid}: hook missing or over 90 characters")
@@ -136,6 +182,10 @@ def run_job(job_path, work="work", out="out", only=None):
             continue
         media = next((f for f in files if s.get("file") and f.name == s["file"]), files[0])
         tr_path = wdir / f"{s['id']}.words.json"
+        saved = Path("results") / jid / f"{s['id']}.words.json"
+        if not tr_path.exists() and saved.exists():
+            tr_path.parent.mkdir(parents=True, exist_ok=True)
+            tr_path.write_text(saved.read_text())
         if not tr_path.exists():
             from .transcribe import transcribe
             write_json(tr_path, transcribe(media, language=s.get("language")))
@@ -162,8 +212,13 @@ def run_job(job_path, work="work", out="out", only=None):
             print(f"clip {c['id']}: source {c['source']} unavailable, skipped")
             continue
         s = sources[c["source"]]
+        segs = [resolve_segment(s["transcript"]["words"], x) for x in c["segments"]]
+        total = sum(b - a for a, b in segs)
+        if not MIN_CLIP <= total <= MAX_CLIP:
+            raise ValueError(f"clip {c['id']}: {total:.1f}s after resolving the text, keep {MIN_CLIP:.0f} to {MAX_CLIP:.0f}s")
+        cap_words = fix_words(s["transcript"]["words"], job.get("fixWords"))
         for p in plats:
-            res = render(s["media"], c["segments"], s["transcript"]["words"], c["hook"], p,
+            res = render(s["media"], segs, cap_words, c["hook"], p,
                          odir / f"{c['id']}-{p}.mp4", c.get("layout", "auto"), wdir / "render")
             rendered.append({"clip": c["id"], **res, **post_text(job, c)})
     manifest = {"id": jid, "stage": "rendered", "campaign": job.get("campaign", {}), "files": rendered}
