@@ -67,6 +67,7 @@ def narration(scenes, voice, speed):
             words += [{"w": w["w"], "s": w["s"] + t, "e": w["e"] + t} for w in ws]
         else:
             audio = tts(sc["say"], voice, speed)
+            words += estimate_words(sc["say"], t, len(audio) / SR)
         dur = len(audio) / SR
         bounds.append((t, t + dur + GAP))
         chunks += [audio, np.zeros(int(SR * GAP), dtype=np.float32)]
@@ -74,6 +75,18 @@ def narration(scenes, voice, speed):
     chunks.append(np.zeros(int(SR * 0.6), dtype=np.float32))
     bounds[-1] = (bounds[-1][0], bounds[-1][1] + 0.6)
     return np.concatenate(chunks), bounds, words
+
+
+def estimate_words(text, start, dur):
+    """Word timings spread over the scene by word length: the fallback when the speech model is not available."""
+    ws = text.split()
+    total = sum(len(w) + 2 for w in ws) or 1
+    out, t = [], start + 0.05
+    for w in ws:
+        d = (dur - 0.1) * (len(w) + 2) / total
+        out.append({"w": w, "s": round(t, 2), "e": round(t + d * 0.9, 2)})
+        t += d
+    return out
 
 
 def word_times(wav_path, language="en"):
@@ -177,7 +190,12 @@ def render_story(story, work, out_dir, voice="am_michael", speed=1.05, platforms
     audio, bounds, fake_words = narration(story["scenes"], story.get("voice", voice), story.get("speed", speed))
     wav = work / f"{sid}.wav"
     write_wav(wav, audio)
-    words = fake_words if os.environ.get("CLIPS_FAKE_TTS") else word_times(wav)
+    words = fake_words
+    if not os.environ.get("CLIPS_FAKE_TTS"):
+        try:
+            words = word_times(wav) or fake_words
+        except Exception as e:  # captions still work with estimated timings
+            print(f"word timings from the speech model failed ({e}); using estimated timings")
     clips = []
     for i, (sc, (a, b)) in enumerate(zip(story["scenes"], bounds)):
         img = fetch_image(sc["image"], work / f"{sid}-img{i}.png")

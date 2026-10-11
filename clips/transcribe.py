@@ -4,6 +4,9 @@ Output: {"language", "words": [{"w", "s", "e"}], "segments": [{"s", "e", "text"}
 """
 import argparse
 import os
+import subprocess
+
+import numpy as np
 
 from .common import write_json
 
@@ -12,7 +15,11 @@ def transcribe(media, model_size=None, language=None):
     from faster_whisper import WhisperModel  # imported here so the rest of the pipeline works without it
 
     model = WhisperModel(model_size or os.environ.get("CLIPS_WHISPER", "small"), device="cpu", compute_type="int8")
-    segs, info = model.transcribe(str(media), word_timestamps=True, vad_filter=True, language=language)
+    # Decode with ffmpeg into 16 kHz mono samples ourselves: faster-whisper's own decoder breaks with newer PyAV.
+    raw = subprocess.run(["ffmpeg", "-v", "error", "-i", str(media), "-ac", "1", "-ar", "16000", "-f", "f32le", "-"],
+                         capture_output=True, check=True).stdout
+    audio = np.frombuffer(raw, dtype=np.float32)
+    segs, info = model.transcribe(audio, word_timestamps=True, vad_filter=True, language=language)
     words, segments = [], []
     for seg in segs:
         segments.append({"s": round(seg.start, 2), "e": round(seg.end, 2), "text": seg.text.strip()})
