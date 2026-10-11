@@ -111,8 +111,8 @@ def fetch_image(spec, dest):
             b = p.chromium.launch()
             page = b.new_page(viewport={"width": 430, "height": 760}, device_scale_factor=2.5, is_mobile=True,
                               user_agent="Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148")
-            page.goto(spec["screenshot"], wait_until="networkidle", timeout=60000)
-            page.wait_for_timeout(int(spec.get("wait", 1500)))
+            page.goto(spec["screenshot"], wait_until="domcontentloaded", timeout=45000)
+            page.wait_for_timeout(int(spec.get("wait", 3000)))
             if spec.get("scroll"):
                 page.mouse.wheel(0, int(spec["scroll"]))
                 page.wait_for_timeout(800)
@@ -120,6 +120,29 @@ def fetch_image(spec, dest):
             b.close()
         return dest
     raise ValueError(f"scene picture needs url, screenshot or path: {spec}")
+
+
+def plain_picture(text, dest):
+    """A clean gradient card with a short text, used when a scene picture cannot be fetched."""
+    from PIL import Image, ImageDraw, ImageFont
+    w, h = 1200, 900
+    im = Image.new("RGB", (w, h))
+    px = im.load()
+    for y in range(h):
+        for x in range(0, w, 4):
+            c = (int(20 + 40 * x / w), int(24 + 30 * y / h), int(60 + 120 * (x + y) / (w + h)))
+            for k in range(4):
+                if x + k < w:
+                    px[x + k, y] = c
+    d = ImageDraw.Draw(im)
+    try:
+        font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", 96)
+    except OSError:
+        font = ImageFont.load_default()
+    box = d.textbbox((0, 0), text, font=font)
+    d.text(((w - box[2]) / 2, (h - box[3]) / 2), text, font=font, fill=(255, 255, 255))
+    im.save(dest)
+    return Path(dest)
 
 
 def card(img_path, out_png):
@@ -198,7 +221,11 @@ def render_story(story, work, out_dir, voice="am_michael", speed=1.05, platforms
             print(f"word timings from the speech model failed ({e}); using estimated timings")
     clips = []
     for i, (sc, (a, b)) in enumerate(zip(story["scenes"], bounds)):
-        img = fetch_image(sc["image"], work / f"{sid}-img{i}.png")
+        try:
+            img = fetch_image(sc["image"], work / f"{sid}-img{i}.png")
+        except Exception as e:  # one missing picture must not stop the video
+            print(f"scene {i} picture failed ({str(e)[:160]}); using a plain card")
+            img = plain_picture(sc.get("label") or story["hook"][:22], work / f"{sid}-img{i}.png")
         png = card(img, work / f"{sid}-card{i}.png")
         clips.append(scene_clip(png, b - a, work / f"{sid}-scene{i}.mp4", zoom_in=i % 2 == 0))
     lst = work / f"{sid}-scenes.txt"
