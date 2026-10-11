@@ -5,15 +5,278 @@
     "board": "contentrewards",
     "brand": "Higgsfield",
     "rate": "$1 per 1K views, min payout $1, max $350 per clip",
-    "platforms": ["youtube", "instagram"],
-    "tagsByPlatform": {"youtube": ["@HiggsfieldAI", "@20VC"], "instagram": ["@higgsfield.ai", "@20vchq"]},
+    "platforms": [
+      "youtube",
+      "instagram"
+    ],
+    "tagsByPlatform": {
+      "youtube": [
+        "@HiggsfieldAI",
+        "@20VC"
+      ],
+      "instagram": [
+        "@higgsfield.ai",
+        "@20vchq"
+      ]
+    },
     "minSecs": 30,
     "maxSecs": 60,
     "rules": "Footage only from the WeTransfer link. Higgsfield watermark big on the whole clip. English captions. Own hook in the first seconds. 30 to 60 s. Never change or splice Alex's words. 40%+ views from US, UK, CA, AU. Likes visible, 0.20% engagement, keep 30 days. Submit link on Whop, then demographics and a ticket when the clip hits min payout."
   },
-  "assets": {"watermark": {"url": "https://drive.google.com/drive/folders/186sFKTq8ZNAHdpduLFoguY0YB88eEfES", "pick": "png"}},
+  "assets": {
+    "watermark": {
+      "url": "https://drive.google.com/drive/folders/186sFKTq8ZNAHdpduLFoguY0YB88eEfES",
+      "pick": "png"
+    }
+  },
   "sources": [
-    {"id": "p1", "url": "https://we.tl/t-pRMHaT4pEb3zn2QX", "language": "en"}
+    {
+      "id": "p1",
+      "url": "https://we.tl/t-pRMHaT4pEb3zn2QX",
+      "language": "en"
+    }
   ],
-  "autopost": false
+  "autopost": false,
+  "fixWords": {
+    "Hicksfield": "Higgsfield",
+    "Sarah": "SaaS",
+    "Applevin": "AppLovin",
+    "yet-generated": "AI-generated",
+    "Enthropic": "Anthropic",
+    "OpenEA": "OpenAI",
+    "OpenEI": "OpenAI",
+    "Hicksville": "Higgsfield",
+    "Cloud": "Claude",
+    "colors": "coders",
+    "cursor": "Cursor",
+    "codex": "Codex",
+    "codecs": "Codex",
+    "Revolute": "Revolut",
+    "Shaiyomi": "Xiaomi",
+    "Biden's": "ByteDance's",
+    "intact": "tech",
+    "gain": "game",
+    "Nick": "Nik",
+    "Clor": "Claude",
+    "Anthropi": "Anthropic",
+    "Fuham": "Fulham",
+    "Nurbius": "Nebius",
+    "Iran": "IREN",
+    "mistral": "Mistral",
+    "Stamp": "Snap"
+  },
+  "fixPhrases": {
+    "Higgs field": "Higgsfield",
+    "a yet-generated": "AI-generated",
+    "I genetic": "agentic",
+    "80 months old": "18 months old",
+    "net passive": "net positive",
+    "this band": "this spend",
+    "inference band": "inference spend",
+    "or encoding": "or coding",
+    "the intact bubble": "the tech bubble",
+    "opening an anthropic seal": "OpenAI and Anthropic still",
+    "opening the Enthropic": "OpenAI and Anthropic",
+    "code code": "Claude Code",
+    "11 Labs": "ElevenLabs",
+    "mass Olympiads": "math Olympiads",
+    "Australia and scale": "Australia, Nscale",
+    "AF Factory": "AI Factory"
+  },
+  "clips": [
+    {
+      "id": "h01-4m-a-month",
+      "source": "p1",
+      "segments": [
+        {
+          "from": "And we were chatting about that",
+          "to": "definitely over $10,000 per person."
+        }
+      ],
+      "hook": "$4M+ a month on AI for close to 400 people",
+      "title": "Higgsfield spends over $4M a month on AI models, with close to 400 people",
+      "caption": "Alex Mashrabov says Higgsfield's internal AI model usage is over $4M a month with close to 400 people. That is over $10,000 per person.",
+      "hashtags": [
+        "#higgsfield",
+        "#20vc",
+        "#ai",
+        "#startups"
+      ],
+      "lower": {
+        "title": "Alex Mashrabov, Higgsfield CEO",
+        "sub": "Over 150 of them are in-house creatives"
+      },
+      "end": "Is $10K per person on AI worth it?"
+    },
+    {
+      "id": "h02-30k-in-a-week",
+      "source": "p1",
+      "segments": [
+        {
+          "from": "What actually started to happen is the creative team",
+          "to": "production ready, but we learned a lot."
+        }
+      ],
+      "hook": "One person spent over $30K on AI in a week",
+      "title": "Alex Mashrabov caught one employee spending $30,000 on AI in a week",
+      "caption": "One person on the team spent over $30,000 in a week on an AI model, trying to fix a workflow himself. Alex says it was not production ready, but they learned a lot.",
+      "hashtags": [
+        "#higgsfield",
+        "#20vc",
+        "#ai",
+        "#vibecoding"
+      ],
+      "lower": {
+        "title": "Alex Mashrabov, Higgsfield CEO",
+        "sub": "Team spends $4M+ a month on AI models"
+      },
+      "end": "Would you approve a $30K AI week?"
+    },
+    {
+      "id": "h03-100k-a-month",
+      "source": "p1",
+      "segments": [
+        {
+          "from": "Okay, so the internal spend",
+          "to": "just gonna correlate at some point."
+        }
+      ],
+      "hook": "Top creatives could spend $100K a month on AI",
+      "title": "Could top creatives spend $100K a month on AI? Alex Mashrabov's prediction",
+      "caption": "Harry asks what $10,000 per head on AI becomes in 12 months. Alex expects $50K to $100K a month for 10X engineers and creatives, with salaries rising too.",
+      "hashtags": [
+        "#higgsfield",
+        "#20vc",
+        "#ai",
+        "#futureofwork"
+      ],
+      "lower": {
+        "title": "Harry Stebbings, 20VC",
+        "sub": "With Higgsfield CEO Alex Mashrabov"
+      },
+      "end": "Would you pay $100K a month for AI?"
+    },
+    {
+      "id": "h04-30-percent-lower",
+      "source": "p1",
+      "segments": [
+        {
+          "from": "It's all gonna be substantially disrupted",
+          "to": "it didn't happen with Yuri."
+        }
+      ],
+      "hook": "Investors shook hands. Next day: 30% lower",
+      "title": "Investors shook hands on a price, then pushed a 30% lower valuation",
+      "caption": "Alex on AI video reshaping advertising, then on investors who shook hands and came back at a 30% lower valuation. He says that did not happen with Yuri Milner.",
+      "hashtags": [
+        "#higgsfield",
+        "#20vc",
+        "#ai",
+        "#fundraising"
+      ],
+      "lower": {
+        "title": "Alex Mashrabov, Higgsfield CEO",
+        "sub": "On 20VC with Harry Stebbings"
+      },
+      "end": "Ever had a deal change overnight?"
+    },
+    {
+      "id": "h05-open-vs-closed-margins",
+      "source": "p1",
+      "segments": [
+        {
+          "from": "The margin on all models",
+          "to": "use in over than 40% cases."
+        }
+      ],
+      "hook": "Open models: 80%+ margins. Closed: 20-30%",
+      "title": "Open-weight AI models: 80%+ margins. Closed models: 20-30% | Alex Mashrabov",
+      "caption": "Alex compares margins on open-weight models, over 80%, with closed models at 20 to 30%, and explains why choosing the model for each job matters.",
+      "hashtags": [
+        "#higgsfield",
+        "#20vc",
+        "#ai",
+        "#opensource"
+      ],
+      "lower": {
+        "title": "Alex Mashrabov, Higgsfield CEO",
+        "sub": "Helps businesses sell more with AI ads"
+      },
+      "end": "Open or closed models for your work?"
+    },
+    {
+      "id": "h06-churn-vs-nrr",
+      "source": "p1",
+      "segments": [
+        {
+          "from": "Is it like a half? No, it's maybe like 30% drop.",
+          "to": "never happens in B2B SaaS, right?"
+        }
+      ],
+      "hook": "30% drop in month one. Business NRR over 300%",
+      "title": "Higgsfield: 30% drop in month one, but business NRR over 300%",
+      "caption": "Consumers drop about 30% in the first month, then it stays flat. Business customers show NRR over 300% at month 12.",
+      "hashtags": [
+        "#higgsfield",
+        "#20vc",
+        "#ai",
+        "#saas"
+      ],
+      "lower": {
+        "title": "Alex Mashrabov, Higgsfield CEO",
+        "sub": "Team of close to 400 people",
+        "start": 1.6,
+        "end": 5.0
+      },
+      "end": "Which number matters more to you?"
+    },
+    {
+      "id": "h07-100-hours-for-90-minutes",
+      "source": "p1",
+      "segments": [
+        {
+          "from": "And we have an in-house team",
+          "to": "the right piece, is still very important."
+        }
+      ],
+      "hook": "90 minutes of film took 100+ hours of AI footage",
+      "title": "Making a 90-minute AI film took over 100 hours of AI-generated footage",
+      "caption": "For 90 minutes of TV-quality film, Higgsfield generated over 100 hours of AI footage. Alex says picking the right piece is still very important.",
+      "hashtags": [
+        "#higgsfield",
+        "#20vc",
+        "#ai",
+        "#aifilm"
+      ],
+      "lower": {
+        "title": "Alex Mashrabov, Higgsfield CEO",
+        "sub": "On 20VC with Harry Stebbings"
+      },
+      "end": "Would you watch a fully AI film?"
+    },
+    {
+      "id": "h08-3000-word-prompts",
+      "source": "p1",
+      "segments": [
+        {
+          "from": "And it's virtually impossible to really define",
+          "to": "Benchmarks just don't represent that."
+        }
+      ],
+      "hook": "Our film prompts average 3,000+ words",
+      "title": "Why Higgsfield's AI film prompts average over 3,000 words",
+      "caption": "Alex says text alone cannot direct AI video. Their open-source film used 3,000+ word prompts and at least 10 image references per scene.",
+      "hashtags": [
+        "#higgsfield",
+        "#20vc",
+        "#ai",
+        "#prompting"
+      ],
+      "lower": {
+        "title": "Alex Mashrabov, Higgsfield CEO",
+        "sub": "Community: 10,000+ open-source projects"
+      },
+      "end": "Longest prompt you've ever written?"
+    }
+  ]
 }

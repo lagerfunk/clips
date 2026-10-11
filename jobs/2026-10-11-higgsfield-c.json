@@ -1,0 +1,256 @@
+{
+  "id": "2026-10-11-higgsfield-c",
+  "campaign": {
+    "name": "Higgsfield 20VC Clipping",
+    "board": "contentrewards",
+    "brand": "Higgsfield",
+    "rate": "$1 per 1K views, min payout $1, max $350 per clip",
+    "platforms": [
+      "youtube",
+      "instagram"
+    ],
+    "tagsByPlatform": {
+      "youtube": [
+        "@HiggsfieldAI",
+        "@20VC"
+      ],
+      "instagram": [
+        "@higgsfield.ai",
+        "@20vchq"
+      ]
+    },
+    "minSecs": 30,
+    "maxSecs": 60,
+    "rules": "Footage only from the WeTransfer link. Higgsfield watermark big on the whole clip. English captions. Own hook in the first seconds. 30 to 60 s. Never change or splice Alex's words. 40%+ views from US, UK, CA, AU. Likes visible, 0.20% engagement, keep 30 days. Submit link on Whop, then demographics and a ticket when the clip hits min payout."
+  },
+  "assets": {
+    "watermark": {
+      "url": "https://drive.google.com/drive/folders/186sFKTq8ZNAHdpduLFoguY0YB88eEfES",
+      "pick": "png"
+    }
+  },
+  "sources": [
+    {
+      "id": "p1",
+      "url": "https://we.tl/t-pRMHaT4pEb3zn2QX",
+      "language": "en"
+    }
+  ],
+  "autopost": false,
+  "fixWords": {
+    "Hicksfield": "Higgsfield",
+    "Sarah": "SaaS",
+    "Applevin": "AppLovin",
+    "yet-generated": "AI-generated",
+    "Enthropic": "Anthropic",
+    "OpenEA": "OpenAI",
+    "OpenEI": "OpenAI",
+    "Hicksville": "Higgsfield",
+    "Cloud": "Claude",
+    "colors": "coders",
+    "cursor": "Cursor",
+    "codex": "Codex",
+    "codecs": "Codex",
+    "Revolute": "Revolut",
+    "Shaiyomi": "Xiaomi",
+    "Biden's": "ByteDance's",
+    "intact": "tech",
+    "gain": "game",
+    "Nick": "Nik",
+    "Clor": "Claude",
+    "Anthropi": "Anthropic",
+    "Fuham": "Fulham",
+    "Nurbius": "Nebius",
+    "Iran": "IREN",
+    "mistral": "Mistral",
+    "Stamp": "Snap"
+  },
+  "fixPhrases": {
+    "Higgs field": "Higgsfield",
+    "a yet-generated": "AI-generated",
+    "I genetic": "agentic",
+    "80 months old": "18 months old",
+    "net passive": "net positive",
+    "this band": "this spend",
+    "inference band": "inference spend",
+    "or encoding": "or coding",
+    "the intact bubble": "the tech bubble",
+    "opening an anthropic seal": "OpenAI and Anthropic still",
+    "opening the Enthropic": "OpenAI and Anthropic",
+    "code code": "Claude Code",
+    "11 Labs": "ElevenLabs",
+    "mass Olympiads": "math Olympiads",
+    "Australia and scale": "Australia, Nscale",
+    "AF Factory": "AI Factory"
+  },
+  "clips": [
+    {
+      "id": "h17-europe-competitive",
+      "source": "p1",
+      "segments": [
+        {
+          "from": "Let's talk about the companies",
+          "to": "that's above my pay grade, right?"
+        }
+      ],
+      "hook": "Europe is extremely competitive in AI",
+      "title": "Higgsfield CEO Alex Mashrabov on why Europe is extremely competitive in AI",
+      "caption": "Alex points to Legora, ElevenLabs, Lovable and ASML: outside the model layer, he says Europe is extremely competitive. Energy is the open question.",
+      "hashtags": [
+        "#higgsfield",
+        "#20vc",
+        "#founder",
+        "#europe"
+      ],
+      "lower": {
+        "title": "Alex Mashrabov, Higgsfield CEO",
+        "sub": "On 20VC with Harry Stebbings"
+      },
+      "end": "Can Europe win in AI?"
+    },
+    {
+      "id": "h18-job-hopping",
+      "source": "p1",
+      "segments": [
+        {
+          "from": "And another thing about hiring",
+          "to": "start conversation, you know?"
+        }
+      ],
+      "hook": "Silicon Valley: people jump jobs every 2 years",
+      "title": "Higgsfield CEO: Silicon Valley job-hopping vs European loyalty when building teams",
+      "caption": "Alex sees people in Silicon Valley switch jobs every two years. For building a strong team, he thinks loyalty is where Europe can compete.",
+      "hashtags": [
+        "#higgsfield",
+        "#20vc",
+        "#founder",
+        "#hiring"
+      ],
+      "lower": {
+        "title": "Alex Mashrabov, Higgsfield CEO",
+        "sub": "Team: ~50 in CA, 300+ in Kazakhstan"
+      },
+      "end": "Loyalty or job-hopping: which wins?"
+    },
+    {
+      "id": "h19-three-jobs",
+      "source": "p1",
+      "segments": [
+        {
+          "from": "Do you think you one day",
+          "to": "deeply personal, obviously."
+        }
+      ],
+      "hook": "My mother had to work three jobs",
+      "title": "Higgsfield CEO Alex Mashrabov on his mother's three jobs and his father's sacrifice",
+      "caption": "Alex on growing up: his mother worked three jobs and his father dedicated his life to him. He says capital and exits can't fully change things.",
+      "hashtags": [
+        "#higgsfield",
+        "#20vc",
+        "#founder",
+        "#family"
+      ],
+      "lower": {
+        "title": "Harry Stebbings, 20VC",
+        "sub": "With Higgsfield CEO Alex Mashrabov"
+      },
+      "end": "Who sacrificed the most for you?"
+    },
+    {
+      "id": "h20-owns-no-property",
+      "source": "p1",
+      "segments": [
+        {
+          "from": "I don't own any property.",
+          "to": "with Lamborghini or Porsche."
+        }
+      ],
+      "hook": "I made $1M+ and bought family homes. I own none.",
+      "title": "Higgsfield CEO made over $1M, bought apartments for his family, and owns no property",
+      "caption": "After selling his first company, Alex spent the money on apartments for his parents and relatives. He owns no property himself and drives a Tesla Model 3.",
+      "hashtags": [
+        "#higgsfield",
+        "#20vc",
+        "#founder",
+        "#family"
+      ],
+      "lower": {
+        "title": "Alex Mashrabov, Higgsfield CEO",
+        "sub": "Sold AI Factory to Snap for $166M"
+      },
+      "end": "Would you have done the same?"
+    },
+    {
+      "id": "h21-day-with-son",
+      "source": "p1",
+      "segments": [
+        {
+          "from": "Do you invest? We mentioned",
+          "to": "talking to the team members."
+        }
+      ],
+      "hook": "One work-free day with my son in 3 months",
+      "title": "Higgsfield CEO on 80 to 90 hour weeks and finding one full day with his son",
+      "caption": "Alex works 80 to 90 hours a week on Higgsfield. In three months he found one full day with his son, with no emails and no talking to the team.",
+      "hashtags": [
+        "#higgsfield",
+        "#20vc",
+        "#founder",
+        "#worklifebalance"
+      ],
+      "lower": {
+        "title": "Harry Stebbings, 20VC",
+        "sub": "With Higgsfield CEO Alex Mashrabov"
+      },
+      "end": "Is a 90-hour week worth it?"
+    },
+    {
+      "id": "h22-yuri-milner",
+      "source": "p1",
+      "segments": [
+        {
+          "from": "What was the best VC meeting",
+          "to": "AI assisted or AI generated."
+        }
+      ],
+      "hook": "My best VC meeting was Yuri Milner",
+      "title": "Higgsfield CEO on his best VC meeting: Yuri Milner and the AI content shift",
+      "caption": "Asked about his best VC meeting, Alex names Yuri Milner, who he says deeply understands how AI is changing content.",
+      "hashtags": [
+        "#higgsfield",
+        "#20vc",
+        "#founder",
+        "#venturecapital"
+      ],
+      "lower": {
+        "title": "Harry Stebbings, 20VC",
+        "sub": "With Higgsfield CEO Alex Mashrabov"
+      },
+      "end": "Will most content be AI generated?"
+    },
+    {
+      "id": "h23-micromanagement",
+      "source": "p1",
+      "segments": [
+        {
+          "from": "When you think about your own",
+          "to": "something like micromanagement."
+        }
+      ],
+      "hook": "What I learn from Jensen, Elon and Nik",
+      "title": "Higgsfield CEO on what he learns from watching Jensen Huang, Elon Musk and Nik",
+      "caption": "Alex on the CEOs he learns from: Jensen, Elon and Nik skip soft feedback and go deep on the details. Corporate America would call it micromanagement.",
+      "hashtags": [
+        "#higgsfield",
+        "#20vc",
+        "#founder",
+        "#leadership"
+      ],
+      "lower": {
+        "title": "Harry Stebbings, 20VC",
+        "sub": "With Higgsfield CEO Alex Mashrabov"
+      },
+      "end": "Micromanagement or knowing the details?"
+    }
+  ]
+}
