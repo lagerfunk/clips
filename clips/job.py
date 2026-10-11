@@ -78,15 +78,23 @@ def run_job(job_path, work="work", out="out", only=None):
         raise SystemExit("job not valid:\n- " + "\n- ".join(problems))
     jid = job["id"]
     wdir, odir = Path(work) / jid, Path(out) / jid
-    sources = {}
+    sources, failed = {}, {}
     for s in job["sources"]:
-        files = fetch(s["url"], wdir / s["id"])
+        try:
+            files = fetch(s["url"], wdir / s["id"])
+        except Exception as e:  # one blocked source must not stop the others
+            failed[s["id"]] = str(e)[-300:]
+            print(f"source {s['id']} could not be fetched: {failed[s['id']]}")
+            continue
         media = next((f for f in files if s.get("file") and f.name == s["file"]), files[0])
         tr_path = wdir / f"{s['id']}.words.json"
         if not tr_path.exists():
             from .transcribe import transcribe
             write_json(tr_path, transcribe(media, language=s.get("language")))
         sources[s["id"]] = {"media": media, "transcript": read_json(tr_path), "info": probe(media)}
+    if not sources:
+        write_json(odir / "manifest.json", {"id": jid, "stage": "failed", "failed": failed})
+        raise SystemExit(f"no source could be fetched: {failed}")
 
     if not job.get("clips"):
         summary = {}
@@ -94,13 +102,16 @@ def run_job(job_path, work="work", out="out", only=None):
             found = cand.find(s["transcript"], s["media"])
             write_json(odir / f"candidates-{sid}.json", found)
             summary[sid] = len(found)
-        write_json(odir / "manifest.json", {"id": jid, "stage": "candidates", "candidates": summary})
-        return {"stage": "candidates", "candidates": summary}
+        write_json(odir / "manifest.json", {"id": jid, "stage": "candidates", "candidates": summary, "failed": failed})
+        return {"stage": "candidates", "candidates": summary, "failed": failed}
 
     plats = job.get("campaign", {}).get("platforms") or list(PLATFORMS)
     rendered = []
     for c in job["clips"]:
         if only and c["id"] not in only:
+            continue
+        if c["source"] not in sources:
+            print(f"clip {c['id']}: source {c['source']} unavailable, skipped")
             continue
         s = sources[c["source"]]
         for p in plats:

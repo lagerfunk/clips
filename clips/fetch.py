@@ -36,8 +36,11 @@ def fetch(url, dest_dir):
     elif kind == "drive-folder":
         subprocess.run(["gdown", "--folder", url, "-O", str(dest)], check=True)
     elif kind == "page":
-        subprocess.run(["yt-dlp", "-f", "bv*[height<=1080]+ba/b[height<=1080]/b", "--merge-output-format", "mp4",
-                        "-o", str(dest / "%(id)s.%(ext)s"), url], check=True)
+        cmd = ["yt-dlp", "-f", "bv*[height<=1080]+ba/b[height<=1080]/b", "--merge-output-format", "mp4",
+               "--retries", "3", "--extractor-args", "youtube:player_client=tv_simply,web_safari,mweb,default"]
+        if shutil.which("deno"):
+            cmd += ["--js-runtimes", "deno"]
+        subprocess.run(cmd + ["-o", str(dest / "%(id)s.%(ext)s"), url], check=True)
     else:
         name = Path(url.split("?")[0]).name or "source.mp4"
         req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
