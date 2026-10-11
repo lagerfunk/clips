@@ -1,7 +1,541 @@
 {
   "id": "2026-10-11-higgsfield",
-  "stage": "failed",
-  "failed": {
-    "p1": "WeTransfer: https://we.tl/t-pRMHaT4pEb3zn2QX led to https://wetransfer.com/previews/ac6977b32e8cc893ee19e14dbec4787c20260929040256/a7bc2d?auto_preview=true, not to a download page (expired or deleted?). The owner must download it in a browser and re-upload it to Google Drive (share: anyone with the link), then put the Drive link in the job's source url."
-  }
+  "stage": "rendered",
+  "campaign": {
+    "name": "Higgsfield 20VC Clipping",
+    "board": "contentrewards",
+    "brand": "Higgsfield",
+    "rate": "$1 per 1K views, min payout $1, max $350 per clip",
+    "platforms": [
+      "youtube",
+      "instagram"
+    ],
+    "tagsByPlatform": {
+      "youtube": [
+        "@HiggsfieldAI",
+        "@20VC"
+      ],
+      "instagram": [
+        "@higgsfield.ai",
+        "@20vchq"
+      ]
+    },
+    "minSecs": 30,
+    "maxSecs": 60,
+    "rules": "Footage only from the WeTransfer link. Higgsfield watermark big on the whole clip. English captions. Own hook in the first seconds. 30 to 60 s. Never change or splice Alex's words. 40%+ views from US, UK, CA, AU. Likes visible, 0.20% engagement, keep 30 days. Submit link on Whop, then demographics and a ticket when the clip hits min payout."
+  },
+  "files": [
+    {
+      "clip": "h01-4m-a-month",
+      "out": "out/2026-10-11-higgsfield/h01-4m-a-month-youtube.mp4",
+      "platform": "youtube",
+      "duration": 37.8,
+      "layout": "crop+fit",
+      "words": 85,
+      "watermark": [
+        243,
+        1300,
+        837,
+        1482
+      ],
+      "caption": "Werbung | Paid promotion for Higgsfield\n\nAlex Mashrabov says Higgsfield's internal AI model usage is over $4M a month with close to 400 people. That is over $10,000 per person.\n\n#higgsfield #20vc #ai #startups #ad @HiggsfieldAI @20VC",
+      "title": "Higgsfield spends over $4M a month on AI models, with close to 400 people",
+      "tags": [
+        "#higgsfield",
+        "#20vc",
+        "#ai",
+        "#startups",
+        "#ad",
+        "@HiggsfieldAI",
+        "@20VC"
+      ],
+      "disclosure": {
+        "label": "Werbung",
+        "brand": "Higgsfield",
+        "youtubePaidPromotion": true,
+        "tiktokBrandedContent": true,
+        "instagramPaidPartnership": true
+      }
+    },
+    {
+      "clip": "h01-4m-a-month",
+      "out": "out/2026-10-11-higgsfield/h01-4m-a-month-instagram.mp4",
+      "platform": "instagram",
+      "duration": 37.8,
+      "layout": "crop+fit",
+      "words": 85,
+      "watermark": [
+        243,
+        1305,
+        837,
+        1487
+      ],
+      "caption": "Werbung | Paid promotion for Higgsfield\n\nAlex Mashrabov says Higgsfield's internal AI model usage is over $4M a month with close to 400 people. That is over $10,000 per person.\n\n#higgsfield #20vc #ai #startups #ad @higgsfield.ai @20vchq",
+      "title": "Higgsfield spends over $4M a month on AI models, with close to 400 people",
+      "tags": [
+        "#higgsfield",
+        "#20vc",
+        "#ai",
+        "#startups",
+        "#ad",
+        "@higgsfield.ai",
+        "@20vchq"
+      ],
+      "disclosure": {
+        "label": "Werbung",
+        "brand": "Higgsfield",
+        "youtubePaidPromotion": true,
+        "tiktokBrandedContent": true,
+        "instagramPaidPartnership": true
+      }
+    },
+    {
+      "clip": "h02-30k-in-a-week",
+      "out": "out/2026-10-11-higgsfield/h02-30k-in-a-week-youtube.mp4",
+      "platform": "youtube",
+      "duration": 44.6,
+      "layout": "crop+fit",
+      "words": 94,
+      "watermark": [
+        243,
+        1300,
+        837,
+        1482
+      ],
+      "caption": "Werbung | Paid promotion for Higgsfield\n\nOne person on the team spent over $30,000 in a week on an AI model, trying to fix a workflow himself. Alex says it was not production ready, but they learned a lot.\n\n#higgsfield #20vc #ai #vibecoding #ad @HiggsfieldAI @20VC",
+      "title": "Alex Mashrabov caught one employee spending $30,000 on AI in a week",
+      "tags": [
+        "#higgsfield",
+        "#20vc",
+        "#ai",
+        "#vibecoding",
+        "#ad",
+        "@HiggsfieldAI",
+        "@20VC"
+      ],
+      "disclosure": {
+        "label": "Werbung",
+        "brand": "Higgsfield",
+        "youtubePaidPromotion": true,
+        "tiktokBrandedContent": true,
+        "instagramPaidPartnership": true
+      }
+    },
+    {
+      "clip": "h02-30k-in-a-week",
+      "out": "out/2026-10-11-higgsfield/h02-30k-in-a-week-instagram.mp4",
+      "platform": "instagram",
+      "duration": 44.6,
+      "layout": "crop+fit",
+      "words": 94,
+      "watermark": [
+        243,
+        1305,
+        837,
+        1487
+      ],
+      "caption": "Werbung | Paid promotion for Higgsfield\n\nOne person on the team spent over $30,000 in a week on an AI model, trying to fix a workflow himself. Alex says it was not production ready, but they learned a lot.\n\n#higgsfield #20vc #ai #vibecoding #ad @higgsfield.ai @20vchq",
+      "title": "Alex Mashrabov caught one employee spending $30,000 on AI in a week",
+      "tags": [
+        "#higgsfield",
+        "#20vc",
+        "#ai",
+        "#vibecoding",
+        "#ad",
+        "@higgsfield.ai",
+        "@20vchq"
+      ],
+      "disclosure": {
+        "label": "Werbung",
+        "brand": "Higgsfield",
+        "youtubePaidPromotion": true,
+        "tiktokBrandedContent": true,
+        "instagramPaidPartnership": true
+      }
+    },
+    {
+      "clip": "h03-100k-a-month",
+      "out": "out/2026-10-11-higgsfield/h03-100k-a-month-youtube.mp4",
+      "platform": "youtube",
+      "duration": 37.0,
+      "layout": "crop",
+      "words": 92,
+      "watermark": [
+        243,
+        1300,
+        837,
+        1482
+      ],
+      "caption": "Werbung | Paid promotion for Higgsfield\n\nHarry asks what $10,000 per head on AI becomes in 12 months. Alex expects $50K to $100K a month for 10X engineers and creatives, with salaries rising too.\n\n#higgsfield #20vc #ai #futureofwork #ad @HiggsfieldAI @20VC",
+      "title": "Could top creatives spend $100K a month on AI? Alex Mashrabov's prediction",
+      "tags": [
+        "#higgsfield",
+        "#20vc",
+        "#ai",
+        "#futureofwork",
+        "#ad",
+        "@HiggsfieldAI",
+        "@20VC"
+      ],
+      "disclosure": {
+        "label": "Werbung",
+        "brand": "Higgsfield",
+        "youtubePaidPromotion": true,
+        "tiktokBrandedContent": true,
+        "instagramPaidPartnership": true
+      }
+    },
+    {
+      "clip": "h03-100k-a-month",
+      "out": "out/2026-10-11-higgsfield/h03-100k-a-month-instagram.mp4",
+      "platform": "instagram",
+      "duration": 37.0,
+      "layout": "crop",
+      "words": 92,
+      "watermark": [
+        243,
+        1305,
+        837,
+        1487
+      ],
+      "caption": "Werbung | Paid promotion for Higgsfield\n\nHarry asks what $10,000 per head on AI becomes in 12 months. Alex expects $50K to $100K a month for 10X engineers and creatives, with salaries rising too.\n\n#higgsfield #20vc #ai #futureofwork #ad @higgsfield.ai @20vchq",
+      "title": "Could top creatives spend $100K a month on AI? Alex Mashrabov's prediction",
+      "tags": [
+        "#higgsfield",
+        "#20vc",
+        "#ai",
+        "#futureofwork",
+        "#ad",
+        "@higgsfield.ai",
+        "@20vchq"
+      ],
+      "disclosure": {
+        "label": "Werbung",
+        "brand": "Higgsfield",
+        "youtubePaidPromotion": true,
+        "tiktokBrandedContent": true,
+        "instagramPaidPartnership": true
+      }
+    },
+    {
+      "clip": "h04-30-percent-lower",
+      "out": "out/2026-10-11-higgsfield/h04-30-percent-lower-youtube.mp4",
+      "platform": "youtube",
+      "duration": 34.7,
+      "layout": "crop+fit",
+      "words": 112,
+      "watermark": [
+        243,
+        1300,
+        837,
+        1482
+      ],
+      "caption": "Werbung | Paid promotion for Higgsfield\n\nAlex on AI video reshaping advertising, then on investors who shook hands and came back at a 30% lower valuation. He says that did not happen with Yuri Milner.\n\n#higgsfield #20vc #ai #fundraising #ad @HiggsfieldAI @20VC",
+      "title": "Investors shook hands on a price, then pushed a 30% lower valuation",
+      "tags": [
+        "#higgsfield",
+        "#20vc",
+        "#ai",
+        "#fundraising",
+        "#ad",
+        "@HiggsfieldAI",
+        "@20VC"
+      ],
+      "disclosure": {
+        "label": "Werbung",
+        "brand": "Higgsfield",
+        "youtubePaidPromotion": true,
+        "tiktokBrandedContent": true,
+        "instagramPaidPartnership": true
+      }
+    },
+    {
+      "clip": "h04-30-percent-lower",
+      "out": "out/2026-10-11-higgsfield/h04-30-percent-lower-instagram.mp4",
+      "platform": "instagram",
+      "duration": 34.7,
+      "layout": "crop+fit",
+      "words": 112,
+      "watermark": [
+        243,
+        1305,
+        837,
+        1487
+      ],
+      "caption": "Werbung | Paid promotion for Higgsfield\n\nAlex on AI video reshaping advertising, then on investors who shook hands and came back at a 30% lower valuation. He says that did not happen with Yuri Milner.\n\n#higgsfield #20vc #ai #fundraising #ad @higgsfield.ai @20vchq",
+      "title": "Investors shook hands on a price, then pushed a 30% lower valuation",
+      "tags": [
+        "#higgsfield",
+        "#20vc",
+        "#ai",
+        "#fundraising",
+        "#ad",
+        "@higgsfield.ai",
+        "@20vchq"
+      ],
+      "disclosure": {
+        "label": "Werbung",
+        "brand": "Higgsfield",
+        "youtubePaidPromotion": true,
+        "tiktokBrandedContent": true,
+        "instagramPaidPartnership": true
+      }
+    },
+    {
+      "clip": "h05-open-vs-closed-margins",
+      "out": "out/2026-10-11-higgsfield/h05-open-vs-closed-margins-youtube.mp4",
+      "platform": "youtube",
+      "duration": 42.33,
+      "layout": "crop",
+      "words": 90,
+      "watermark": [
+        243,
+        1300,
+        837,
+        1482
+      ],
+      "caption": "Werbung | Paid promotion for Higgsfield\n\nAlex compares margins on open-weight models, over 80%, with closed models at 20 to 30%, and explains why choosing the model for each job matters.\n\n#higgsfield #20vc #ai #opensource #ad @HiggsfieldAI @20VC",
+      "title": "Open-weight AI models: 80%+ margins. Closed models: 20-30% | Alex Mashrabov",
+      "tags": [
+        "#higgsfield",
+        "#20vc",
+        "#ai",
+        "#opensource",
+        "#ad",
+        "@HiggsfieldAI",
+        "@20VC"
+      ],
+      "disclosure": {
+        "label": "Werbung",
+        "brand": "Higgsfield",
+        "youtubePaidPromotion": true,
+        "tiktokBrandedContent": true,
+        "instagramPaidPartnership": true
+      }
+    },
+    {
+      "clip": "h05-open-vs-closed-margins",
+      "out": "out/2026-10-11-higgsfield/h05-open-vs-closed-margins-instagram.mp4",
+      "platform": "instagram",
+      "duration": 42.33,
+      "layout": "crop",
+      "words": 90,
+      "watermark": [
+        243,
+        1305,
+        837,
+        1487
+      ],
+      "caption": "Werbung | Paid promotion for Higgsfield\n\nAlex compares margins on open-weight models, over 80%, with closed models at 20 to 30%, and explains why choosing the model for each job matters.\n\n#higgsfield #20vc #ai #opensource #ad @higgsfield.ai @20vchq",
+      "title": "Open-weight AI models: 80%+ margins. Closed models: 20-30% | Alex Mashrabov",
+      "tags": [
+        "#higgsfield",
+        "#20vc",
+        "#ai",
+        "#opensource",
+        "#ad",
+        "@higgsfield.ai",
+        "@20vchq"
+      ],
+      "disclosure": {
+        "label": "Werbung",
+        "brand": "Higgsfield",
+        "youtubePaidPromotion": true,
+        "tiktokBrandedContent": true,
+        "instagramPaidPartnership": true
+      }
+    },
+    {
+      "clip": "h06-churn-vs-nrr",
+      "out": "out/2026-10-11-higgsfield/h06-churn-vs-nrr-youtube.mp4",
+      "platform": "youtube",
+      "duration": 50.8,
+      "layout": "crop",
+      "words": 134,
+      "watermark": [
+        243,
+        1300,
+        837,
+        1482
+      ],
+      "caption": "Werbung | Paid promotion for Higgsfield\n\nConsumers drop about 30% in the first month, then it stays flat. Business customers show NRR over 300% at month 12.\n\n#higgsfield #20vc #ai #saas #ad @HiggsfieldAI @20VC",
+      "title": "Higgsfield: 30% drop in month one, but business NRR over 300%",
+      "tags": [
+        "#higgsfield",
+        "#20vc",
+        "#ai",
+        "#saas",
+        "#ad",
+        "@HiggsfieldAI",
+        "@20VC"
+      ],
+      "disclosure": {
+        "label": "Werbung",
+        "brand": "Higgsfield",
+        "youtubePaidPromotion": true,
+        "tiktokBrandedContent": true,
+        "instagramPaidPartnership": true
+      }
+    },
+    {
+      "clip": "h06-churn-vs-nrr",
+      "out": "out/2026-10-11-higgsfield/h06-churn-vs-nrr-instagram.mp4",
+      "platform": "instagram",
+      "duration": 50.8,
+      "layout": "crop",
+      "words": 134,
+      "watermark": [
+        243,
+        1305,
+        837,
+        1487
+      ],
+      "caption": "Werbung | Paid promotion for Higgsfield\n\nConsumers drop about 30% in the first month, then it stays flat. Business customers show NRR over 300% at month 12.\n\n#higgsfield #20vc #ai #saas #ad @higgsfield.ai @20vchq",
+      "title": "Higgsfield: 30% drop in month one, but business NRR over 300%",
+      "tags": [
+        "#higgsfield",
+        "#20vc",
+        "#ai",
+        "#saas",
+        "#ad",
+        "@higgsfield.ai",
+        "@20vchq"
+      ],
+      "disclosure": {
+        "label": "Werbung",
+        "brand": "Higgsfield",
+        "youtubePaidPromotion": true,
+        "tiktokBrandedContent": true,
+        "instagramPaidPartnership": true
+      }
+    },
+    {
+      "clip": "h07-100-hours-for-90-minutes",
+      "out": "out/2026-10-11-higgsfield/h07-100-hours-for-90-minutes-youtube.mp4",
+      "platform": "youtube",
+      "duration": 47.5,
+      "layout": "crop+fit",
+      "words": 93,
+      "watermark": [
+        243,
+        1300,
+        837,
+        1482
+      ],
+      "caption": "Werbung | Paid promotion for Higgsfield\n\nFor 90 minutes of TV-quality film, Higgsfield generated over 100 hours of AI footage. Alex says picking the right piece is still very important.\n\n#higgsfield #20vc #ai #aifilm #ad @HiggsfieldAI @20VC",
+      "title": "Making a 90-minute AI film took over 100 hours of AI-generated footage",
+      "tags": [
+        "#higgsfield",
+        "#20vc",
+        "#ai",
+        "#aifilm",
+        "#ad",
+        "@HiggsfieldAI",
+        "@20VC"
+      ],
+      "disclosure": {
+        "label": "Werbung",
+        "brand": "Higgsfield",
+        "youtubePaidPromotion": true,
+        "tiktokBrandedContent": true,
+        "instagramPaidPartnership": true
+      }
+    },
+    {
+      "clip": "h07-100-hours-for-90-minutes",
+      "out": "out/2026-10-11-higgsfield/h07-100-hours-for-90-minutes-instagram.mp4",
+      "platform": "instagram",
+      "duration": 47.5,
+      "layout": "crop+fit",
+      "words": 93,
+      "watermark": [
+        243,
+        1305,
+        837,
+        1487
+      ],
+      "caption": "Werbung | Paid promotion for Higgsfield\n\nFor 90 minutes of TV-quality film, Higgsfield generated over 100 hours of AI footage. Alex says picking the right piece is still very important.\n\n#higgsfield #20vc #ai #aifilm #ad @higgsfield.ai @20vchq",
+      "title": "Making a 90-minute AI film took over 100 hours of AI-generated footage",
+      "tags": [
+        "#higgsfield",
+        "#20vc",
+        "#ai",
+        "#aifilm",
+        "#ad",
+        "@higgsfield.ai",
+        "@20vchq"
+      ],
+      "disclosure": {
+        "label": "Werbung",
+        "brand": "Higgsfield",
+        "youtubePaidPromotion": true,
+        "tiktokBrandedContent": true,
+        "instagramPaidPartnership": true
+      }
+    },
+    {
+      "clip": "h08-3000-word-prompts",
+      "out": "out/2026-10-11-higgsfield/h08-3000-word-prompts-youtube.mp4",
+      "platform": "youtube",
+      "duration": 57.7,
+      "layout": "crop",
+      "words": 147,
+      "watermark": [
+        243,
+        1300,
+        837,
+        1482
+      ],
+      "caption": "Werbung | Paid promotion for Higgsfield\n\nAlex says text alone cannot direct AI video. Their open-source film used 3,000+ word prompts and at least 10 image references per scene.\n\n#higgsfield #20vc #ai #prompting #ad @HiggsfieldAI @20VC",
+      "title": "Why Higgsfield's AI film prompts average over 3,000 words",
+      "tags": [
+        "#higgsfield",
+        "#20vc",
+        "#ai",
+        "#prompting",
+        "#ad",
+        "@HiggsfieldAI",
+        "@20VC"
+      ],
+      "disclosure": {
+        "label": "Werbung",
+        "brand": "Higgsfield",
+        "youtubePaidPromotion": true,
+        "tiktokBrandedContent": true,
+        "instagramPaidPartnership": true
+      }
+    },
+    {
+      "clip": "h08-3000-word-prompts",
+      "out": "out/2026-10-11-higgsfield/h08-3000-word-prompts-instagram.mp4",
+      "platform": "instagram",
+      "duration": 57.7,
+      "layout": "crop",
+      "words": 147,
+      "watermark": [
+        243,
+        1305,
+        837,
+        1487
+      ],
+      "caption": "Werbung | Paid promotion for Higgsfield\n\nAlex says text alone cannot direct AI video. Their open-source film used 3,000+ word prompts and at least 10 image references per scene.\n\n#higgsfield #20vc #ai #prompting #ad @higgsfield.ai @20vchq",
+      "title": "Why Higgsfield's AI film prompts average over 3,000 words",
+      "tags": [
+        "#higgsfield",
+        "#20vc",
+        "#ai",
+        "#prompting",
+        "#ad",
+        "@higgsfield.ai",
+        "@20vchq"
+      ],
+      "disclosure": {
+        "label": "Werbung",
+        "brand": "Higgsfield",
+        "youtubePaidPromotion": true,
+        "tiktokBrandedContent": true,
+        "instagramPaidPartnership": true
+      }
+    }
+  ]
 }
