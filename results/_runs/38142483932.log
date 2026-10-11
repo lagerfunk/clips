@@ -1,0 +1,23 @@
+== jobs/2026-10-11-lovable.json
+[youtube] Extracting URL: https://www.youtube.com/watch?v=FuGV4scUq8M
+[youtube] FuGV4scUq8M: Downloading webpage
+WARNING: [youtube] No supported JavaScript runtime could be found. Only deno is enabled by default; to use another runtime add  --js-runtimes RUNTIME[:PATH]  to your command/config. YouTube extraction without a JS runtime has been deprecated, and some formats may be missing. See  https://github.com/yt-dlp/yt-dlp/wiki/EJS  for details on installing one
+[youtube] FuGV4scUq8M: Downloading visionos player API JSON
+WARNING: [youtube] No title found in player responses; falling back to title from initial data. Other metadata may also be missing
+ERROR: [youtube] FuGV4scUq8M: Sign in to confirm you’re not a bot. Use --cookies-from-browser or --cookies for the authentication. See  https://github.com/yt-dlp/yt-dlp/wiki/FAQ#how-do-i-pass-cookies-to-yt-dlp  for how to manually pass cookies. Also see  https://github.com/yt-dlp/yt-dlp/wiki/Extractors#exporting-youtube-cookies  for tips on effectively exporting YouTube cookies
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/runner/work/clips/clips/clips/job.py", line 127, in <module>
+    main()
+  File "/home/runner/work/clips/clips/clips/job.py", line 122, in main
+    res = run_job(a.job, a.work, a.out, a.only)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/clips/clips/clips/job.py", line 83, in run_job
+    files = fetch(s["url"], wdir / s["id"])
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/clips/clips/clips/fetch.py", line 39, in fetch
+    subprocess.run(["yt-dlp", "-f", "bv*[height<=1080]+ba/b[height<=1080]/b", "--merge-output-format", "mp4",
+  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['yt-dlp', '-f', 'bv*[height<=1080]+ba/b[height<=1080]/b', '--merge-output-format', 'mp4', '-o', 'work/2026-10-11-lovable/s1/%(id)s.%(ext)s', 'https://www.youtube.com/watch?v=FuGV4scUq8M']' returned non-zero exit status 1.
