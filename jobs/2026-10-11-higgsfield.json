@@ -20,19 +20,18 @@
       ]
     },
     "minSecs": 30,
-    "maxSecs": 60,
-    "rules": "Footage only from the WeTransfer link. Higgsfield watermark big on the whole clip. English captions. Own hook in the first seconds. 30 to 60 s. Never change or splice Alex's words. 40%+ views from US, UK, CA, AU. Likes visible, 0.20% engagement, keep 30 days. Submit link on Whop, then demographics and a ticket when the clip hits min payout."
+    "maxSecs": 60
   },
   "assets": {
     "watermark": {
-      "url": "https://drive.google.com/drive/folders/186sFKTq8ZNAHdpduLFoguY0YB88eEfES",
+      "url": "private:2026-10-11-higgsfield:asset-watermark",
       "pick": "png"
     }
   },
   "sources": [
     {
       "id": "p1",
-      "url": "https://we.tl/t-pRMHaT4pEb3zn2QX",
+      "url": "private:2026-10-11-higgsfield:p1",
       "language": "en"
     }
   ],

@@ -32,7 +32,7 @@ TID = "4f9c2e1d7a8b6c5d3e2f1a0b9c8d7e6f20261011093000"
 RID = "9a8b7c6d5e4f3a2b1c0d9e8f7a6b5c4d20261011093001"
 HASH = "a1b2c3"
 DL = f"https://wetransfer.com/downloads/{TID}/{HASH}"
-SHORT = "https://we.tl/t-pRMHaT4pEb3zn2QX"
+SHORT = "https://we.tl/t-EXAMPLE12345"
 DIRECT = "https://download.wetransfer.com/eugv/abc/def/20VC_Alex_Mashrabov_full.zip?token=xyz"
 PAGE = b'<html><head><meta name="csrf-token" content="tok123=="></head><body>download</body></html>'
 
@@ -122,7 +122,7 @@ class WeTransferLinks(unittest.TestCase):
         self.assertEqual(kind_of(SHORT), "wetransfer")
         self.assertEqual(kind_of(DL), "wetransfer")
         self.assertEqual(kind_of(f"https://acme.wetransfer.com/downloads/{TID}/{HASH}"), "wetransfer")
-        self.assertEqual(kind_of("https://drive.google.com/drive/folders/186sFKTq8ZNAHdpduLFoguY0YB88eEfES"), "drive-folder")
+        self.assertEqual(kind_of("https://drive.google.com/drive/folders/1EXAMPLEfolderIdForTests0000000000"), "drive-folder")
         self.assertEqual(kind_of("https://wetransfer.com.evil.test/downloads/x/y"), "direct")
         self.assertEqual(kind_of("https://example.test/we.tl/a.mp4"), "direct")
 
@@ -337,7 +337,7 @@ class WatermarkAsset(unittest.TestCase):
             logo(output, 60, 20, 4)
             return output
         fake = types.SimpleNamespace(download_folder=download_folder, download=download)
-        url = "https://drive.google.com/drive/folders/186sFKTq8ZNAHdpduLFoguY0YB88eEfES"
+        url = "https://drive.google.com/drive/folders/1EXAMPLEfolderIdForTests0000000000"
         with mock.patch.dict(sys.modules, {"gdown": fake}):
             got = fetch_asset(url, self.tmp / "wm")
             self.assertEqual(got.name, "Higgsfield_watermark.png")
@@ -479,9 +479,9 @@ def hf_job(**camp):
             "campaign": {"name": "Higgsfield 20VC Clipping", "brand": "Higgsfield", "platforms": ["youtube", "instagram"],
                          "tagsByPlatform": {"youtube": ["@HiggsfieldAI", "@20VC"], "instagram": ["@higgsfield.ai", "@20vchq"]},
                          "minSecs": 30, "maxSecs": 60, **camp},
-            "assets": {"watermark": {"url": "https://drive.google.com/drive/folders/186sFKTq8ZNAHdpduLFoguY0YB88eEfES",
+            "assets": {"watermark": {"url": "https://drive.google.com/drive/folders/1EXAMPLEfolderIdForTests0000000000",
                                      "pick": "png"}},
-            "sources": [{"id": "s1", "url": "https://we.tl/t-pRMHaT4pEb3zn2QX"}],
+            "sources": [{"id": "s1", "url": "https://we.tl/t-EXAMPLE12345"}],
             "clips": [{"id": "01", "source": "s1", "segments": [[10, 55]], "hook": "Snap paid $166M for his first startup",
                        "caption": "Alex Mashrabov on starting over after Snap.", "hashtags": ["#ai", "#founders"]}]}
 

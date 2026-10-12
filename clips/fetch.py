@@ -14,6 +14,7 @@ import argparse
 import email.message
 import http.cookiejar
 import json
+import os
 import re
 import shutil
 import subprocess
@@ -41,6 +42,40 @@ _sleep = time.sleep  # tests replace it
 class WeTransferError(RuntimeError):
     """A WeTransfer link that cannot be downloaded; the message says what the owner has to do."""
 
+
+
+# ---------------------------------------------------------------- private sources
+
+PRIVATE_HOSTS = ("we.tl", "wetransfer.com", "drive.google.com", "docs.google.com")
+
+
+def is_private_host(url):
+    host = (urllib.parse.urlparse(str(url)).hostname or "").lower()
+    return any(host == h or host.endswith("." + h) for h in PRIVATE_HOSTS)
+
+
+def resolve(url):
+    """A public job names gated campaign material as "private:<key>"; the real link comes from the
+    CLIP_PRIVATE_SOURCES secret (a JSON object key -> url), so it never appears in the public repo or its logs."""
+    url = str(url)
+    if not url.startswith("private:"):
+        return url
+    key = url[len("private:"):]
+    try:
+        table = json.loads(os.environ.get("CLIP_PRIVATE_SOURCES") or "{}")
+    except ValueError as e:
+        raise RuntimeError("CLIP_PRIVATE_SOURCES is not valid JSON") from e
+    if key not in table:
+        raise RuntimeError(f"private source {key!r} is not configured: add it to the CLIP_PRIVATE_SOURCES secret")
+    return table[key]
+
+
+def shown(url):
+    """What a log line may say about a link: the host only for gated material."""
+    url = str(url)
+    if url.startswith("private:") or is_private_host(url):
+        return (urllib.parse.urlparse(url).hostname or "private source")
+    return url
 
 def is_wetransfer(url):
     host = (urllib.parse.urlparse(str(url)).hostname or "").lower()
@@ -247,7 +282,7 @@ def fetch_wetransfer(url, dest, want=None, opener=None):
         if done.get("url") == url and (dest / done.get("file", "")).is_file():
             return dest / done["file"]
     opener = opener or make_opener()
-    print(f"  WeTransfer: asking for the download link of {url}")
+    print(f"  WeTransfer: asking for the download link of {shown(url)}")
     got = stream_download(direct_link(url, opener), dest, opener)
     if zipfile.is_zipfile(got):
         got = extract_video(got, dest, want)
@@ -262,6 +297,7 @@ def fetch_wetransfer(url, dest, want=None, opener=None):
 def fetch(url, dest_dir, want=None):
     """Returns the list of video files fetched (a Drive folder can hold several). want: a file name inside a folder or
     a WeTransfer zip."""
+    url = resolve(url)
     dest = Path(dest_dir)
     dest.mkdir(parents=True, exist_ok=True)
     kind = kind_of(url)
@@ -289,7 +325,7 @@ def fetch(url, dest_dir, want=None):
             shutil.copyfileobj(r, f)
     files = sorted(p for p in dest.rglob("*") if p.suffix.lower() in VIDEO_EXT)
     if not files:
-        raise RuntimeError(f"no video found at {url}")
+        raise RuntimeError(f"no video found at {shown(url)}")
     return files
 
 
@@ -339,6 +375,7 @@ def _drive_folder_images(url, dest):
 
 def fetch_asset(url, dest_dir, pick="png"):
     """One image for a job (a watermark), fetched once: a later call with the same url reuses the stored file."""
+    url = resolve(url)
     dest = Path(dest_dir)
     dest.mkdir(parents=True, exist_ok=True)
     marker = dest / ".asset-url"
