@@ -33,6 +33,8 @@ ACTIVE = "&H0000E1FF&"  # warm yellow (ASS colours are BGR)
 MAX_WORDS, MAX_CHARS = 3, 16
 HOOK_SIZE, HOOK_PAD = 74, 18  # hook font size and the padding of its black box (libass: line height = font size)
 CAP_HALF = 60  # half the height a caption line takes at its pop-in scale, outline included
+FADE = 0.04  # seconds of audio fade at each cut
+CAP_SIZE, CAP_MIN, CAP_BORD = 92, 56, 7  # word caption font size (smallest for a long line) and outline in pixels
 
 # Strips of the 1080x1920 frame that TikTok, Reels and Shorts cover with their own buttons and labels.
 SAFE = {"top": 130, "right": 140, "bottom": 420}
@@ -40,6 +42,7 @@ OV_LEFT = 60  # left edge of the ad label and the lower-third boxes
 AD_SIZE, AD_PAD, AD_TOP = 34, 10, SAFE["top"] + 10
 LOW_TITLE, LOW_SUB, LOW_PAD, LOW_GAP = 52, 40, 12, 6
 LOW_BOX_W = OUT_W - SAFE["right"] - OV_LEFT  # 880: the lower-third box never reaches under the side buttons
+CAP_MAX_W = OUT_W - 2 * SAFE["right"]  # 800: centred word captions end where the right-hand buttons begin
 END_SIZE, END_PAD, END_RIM, END_TEXT_W, END_Y = 60, 24, 5, 730, 800
 NL = r"\N"  # ASS line break
 # Brand watermark (an image, whole clip): centred, as a share of the 1080 px width. 0.74 is 800 px, the widest a centred
@@ -89,11 +92,12 @@ def wrap(text, width=18, max_lines=3):
 
 
 def map_words(words, segments):
-    """Words inside the chosen moments, moved onto the clip's own timeline."""
+    """Words inside the chosen moments, moved onto the clip's own timeline. A word that starts at or after a cut
+    belongs to what comes next and is left out."""
     out, offset = [], 0.0
     for a, b in segments:
         for w in words:
-            if w["s"] >= a - 0.05 and w["e"] <= b + 0.05:
+            if w["s"] >= a - 0.05 and w["e"] <= b + 0.05 and w["s"] < b - 0.02 and w["e"] > a + 0.02:
                 out.append({"w": w["w"], "s": max(0.0, w["s"] - a) + offset, "e": min(b, w["e"]) - a + offset})
         offset += b - a
     return out, offset
@@ -380,7 +384,7 @@ ScaledBorderAndShadow: yes
 
 [V4+ Styles]
 Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
-Style: Cap,{FONT_NAME},92,&H00FFFFFF&,&H00FFFFFF&,&H00000000&,&H80000000&,-1,0,0,0,100,100,0,0,1,7,3,5,60,60,0,1
+Style: Cap,{FONT_NAME},{CAP_SIZE},&H00FFFFFF&,&H00FFFFFF&,&H00000000&,&H80000000&,-1,0,0,0,100,100,0,0,1,{CAP_BORD},3,5,60,60,0,1
 Style: Hook,{FONT_NAME},{HOOK_SIZE},{variant['hook_colour']},&H00FFFFFF&,&H00000000&,&HC8000000&,-1,0,0,0,100,100,0,0,3,{HOOK_PAD},0,8,80,80,{variant['hook_y']},1
 Style: Ad,{FONT_NAME},{AD_SIZE},&H00FFFFFF&,&H00FFFFFF&,&H40000000&,&H00000000&,-1,0,0,0,100,100,0,0,3,{AD_PAD},0,7,0,0,0,1
 Style: LowerTitle,{FONT_NAME},{LOW_TITLE},{ACTIVE},&H00FFFFFF&,&H00000000&,&H00000000&,-1,0,0,0,100,100,0,0,3,{LOW_PAD},0,1,0,0,0,1
@@ -400,34 +404,124 @@ Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
     gs = groups(words)
     x, y = OUT_W // 2, variant["cap_y"]
     for gi, g in enumerate(gs):
-        g_end = g[-1]["e"] + 0.25
-        if gi + 1 < len(gs):
+        g_end = max(g[-1]["e"] + 0.25, g[-1]["s"] + 0.12)
+        if gi + 1 < len(gs):  # last: two caption lines never share a frame
             g_end = min(g_end, gs[gi + 1][0]["s"])
-        g_end = max(g_end, g[-1]["s"] + 0.12)
+        size, pop_scale = cap_fit(" ".join(x2["t"].upper() for x2 in g))
+        fs = f"\\fs{size}" if size != CAP_SIZE else ""
         for wi, w in enumerate(g):
             start = w["s"] if wi else min(w["s"], g[0]["s"])
             end = g[wi + 1]["s"] if wi + 1 < len(g) else g_end
             if end <= start:
+                if wi + 1 == len(g) and gi + 1 < len(gs):
+                    continue  # no time left before the next line: this word's highlight is skipped, not drawn over it
                 end = start + 0.08
             parts = [(f"{{\\c{ACTIVE}}}{x2['t'].upper()}{{\\c&H00FFFFFF&}}" if k == wi else x2["t"].upper()) for k, x2 in enumerate(g)]
-            pop = r"\fscx112\fscy112\t(0,90,\fscx100\fscy100)" if wi == 0 else ""
-            lines.append(f"Dialogue: 0,{ass_time(start)},{ass_time(end)},Cap,,0,0,0,,{{\\pos({x},{y}){pop}}}{' '.join(parts)}")
+            pop = (f"\\fscx{pop_scale}\\fscy{pop_scale}\\t(0,90,\\fscx100\\fscy100)" if wi == 0 and pop_scale > 100 else "")
+            lines.append(f"Dialogue: 0,{ass_time(start)},{ass_time(end)},Cap,,0,0,0,,{{\\pos({x},{y}){fs}{pop}}}{' '.join(parts)}")
     return head + "\n".join(lines) + "\n"
+
+
+def cap_fit(text):
+    """(font size, pop-in scale %) for one caption line: as big as CAP_SIZE allows while the line, outline included,
+    stays inside the CAP_MAX_W centre strip (never under the like and comment buttons on the right), also at the
+    moment it pops in."""
+    size = CAP_SIZE
+    while size > CAP_MIN and text_width(text, size) + 2 * CAP_BORD > CAP_MAX_W:
+        size -= 2
+    width = text_width(text, size) + 2 * CAP_BORD
+    pop = max(100, min(112, int(100 * CAP_MAX_W / max(width, 1))))
+    return size, pop
 
 
 _TRACKS = {}
 
 
-def face_track(source, segments, info, every=0.5):
-    """{"steps": piecewise crop left edge (source pixels) on the clip timeline, "fit": spans with no face}, or None when
-    faces are not reliable. Cached per source and moments: every platform render of a clip reuses the same track."""
+def face_track(source, segments, info, every=None):
+    """{"steps": piecewise crop left edge (source pixels) on the clip timeline, "fit": spans shown whole}, or None when
+    faces are not reliable. Shot by shot (camera cuts found from frame differences): a shot with the speaker's face is
+    cropped around it, a shot without one is shown whole. Cached per source and moments: every platform render of a
+    clip reuses the same track."""
     key = (str(source), tuple(tuple(x) for x in segments))
     if key not in _TRACKS:
         _TRACKS[key] = _face_track(source, segments, info, every)
     return _TRACKS[key]
 
 
-def _face_track(source, segments, info, every=0.5):
+FPS = 30
+CUT_DIFF, CUT_RATIO, CUT_FLOOR = 10.0, 3.0, 1.5  # a camera cut: one frame-to-frame jump this big and this many times its neighbours
+MIN_SHOT = 6        # frames (0.2 s): a shorter "shot" is a flash or a false cut and joins the one before it
+FACE_EVERY = 3      # look for faces on every 3rd frame (10 a second) and on the first frame of every shot
+FACE_SHARE = 0.34   # a shot is cropped around a face found in at least a third of its samples (side views are missed often)
+
+
+def find_cuts(diffs):
+    """Frame indexes where a new camera shot starts. diffs[k] is the mean difference between frame k-1 and k (None
+    for k = 0) on a small grey thumbnail. A cut is a single-frame jump: big, and several times the frame-to-frame
+    change just before and after it (a hand or head moving fast spreads its change over several frames)."""
+    cuts = []
+    for k in range(1, len(diffs)):
+        d = diffs[k] or 0.0
+        around = max(diffs[k - 1] or 0.0, (diffs[k + 1] or 0.0) if k + 1 < len(diffs) else 0.0, CUT_FLOOR)
+        if d >= CUT_DIFF and d >= CUT_RATIO * around:
+            cuts.append(k)
+    return cuts
+
+
+def shots_from_cuts(n, cuts, min_frames=MIN_SHOT):
+    """[(k0, k1)] frame ranges of the shots of a moment n frames long; shots under min_frames join the one before."""
+    bounds = [0] + [k for k in sorted(set(cuts)) if 0 < k < n] + [n]
+    shots = []
+    for k0, k1 in zip(bounds, bounds[1:]):
+        if shots and (k1 - k0 < min_frames or shots[-1][1] - shots[-1][0] < min_frames):
+            shots[-1] = (shots[-1][0], k1)
+        else:
+            shots.append((k0, k1))
+    return [s for s in shots if s[1] > s[0]]
+
+
+def plan_track(shots, samples, width, crop_w, fps=FPS, move=0.08, hold=2.0):
+    """Crop plan for a landscape source from its shots and face samples, all on the clip timeline in frames.
+
+    shots: [(k0, k1)]; samples: {frame: face centre x in source pixels, or None when no face was found}.
+    A shot where a face shows in at least a third of the samples is cropped around that face (the median position, moving
+    only when the face moves more than 8% of the width for 2 s or more); any other shot (a wide two-shot, b-roll, a
+    text card) is shown whole, however short, so a crop never lands on an empty desk.
+    Returns {"steps": [(seconds, crop left edge)], "fit": [(start, end) seconds shown whole]}."""
+    lo, hi = crop_w / 2, width - crop_w / 2
+    steps, fit = [], []
+    for k0, k1 in shots:
+        got = [(k, samples[k]) for k in sorted(samples) if k0 <= k < k1]
+        xs = [(k, x) for k, x in got if x is not None]
+        t0, t1 = k0 / fps, k1 / fps
+        if not got or len(xs) < FACE_SHARE * len(got):
+            # frames k0..k1-1 sit at k/fps; the window ends half a frame before the next shot's first frame
+            fit.append((max(0.0, t0 - 0.5 / fps), t1 - 0.5 / fps))
+            continue
+        def med(vals):
+            vals = sorted(vals)
+            return min(hi, max(lo, vals[len(vals) // 2]))
+        first = med([x for k, x in xs if k < k0 + hold * fps] or [x for _, x in xs])
+        shot_steps = [(max(0.0, t0 - 0.5 / fps), first)]  # half a frame early: frame k0 itself gets the new position
+        bins = {}
+        for k, x in xs:
+            bins.setdefault(int((k - k0) / fps), []).append(x)
+        for sec in sorted(bins):
+            x, t = med(bins[sec]), t0 + sec
+            if abs(x - shot_steps[-1][1]) > move * width and t - shot_steps[-1][0] >= hold:
+                shot_steps.append((t, x))
+        steps += shot_steps
+    if not steps:
+        return {"steps": [], "fit": fit}
+    steps[0] = (0.0, steps[0][1])
+    merged = [steps[0]]
+    for t, x in steps[1:]:
+        if abs(x - merged[-1][1]) >= 1:
+            merged.append((t, x))
+    return {"steps": [(round(t, 3), x - crop_w / 2) for t, x in merged], "fit": [(round(a, 3), round(b, 3)) for a, b in fit]}
+
+
+def _face_track(source, segments, info, every=None):
     try:
         import cv2
         import numpy as np
@@ -439,38 +533,41 @@ def _face_track(source, segments, info, every=0.5):
     det = cv2.CascadeClassifier(str(cascade_path))
     sw = 640
     sh = int(round(sw * info["height"] / info["width"] / 2)) * 2
-    samples, seen, offset, hits, total = [], [], 0.0, 0, 0
+    size = sw * sh
+    shots, samples, base, hits, total = [], {}, 0, 0, 0
     for a, b in segments:
-        # decode only the moment, at 2 frames a second and 640 px wide: far faster than seeking frame by frame
-        raw = subprocess.run(["ffmpeg", "-v", "error", "-ss", f"{a:.3f}", "-to", f"{b:.3f}", "-i", str(source),
-                              "-vf", f"fps={1 / every:.3f},scale={sw}:{sh}", "-f", "rawvideo", "-pix_fmt", "gray", "-"],
-                             capture_output=True).stdout
-        n = len(raw) // (sw * sh)
-        frames = np.frombuffer(raw[: n * sw * sh], dtype=np.uint8).reshape(n, sh, sw) if n else []
-        for k, frame in enumerate(frames):
-            total += 1
-            faces = det.detectMultiScale(frame, 1.1, 5, minSize=(40, 40))
-            seen.append((k * every + offset, bool(len(faces))))
-            if len(faces):
-                fx, fy, fw, fh = max(faces, key=lambda f: f[2] * f[3])
-                samples.append((k * every + offset, (fx + fw / 2) * info["width"] / sw))
-                hits += 1
-        offset += b - a
+        # the moment decoded exactly as render() cuts it (same seek, same 30 fps), 640 px wide and grey, read frame by
+        # frame: every frame for the cut finder, every 3rd frame (and each cut) for the face finder
+        proc = subprocess.Popen(["ffmpeg", "-v", "error", "-ss", f"{a:.3f}", "-t", f"{b - a:.3f}", "-i", str(source),
+                                 "-vf", f"setpts=PTS-STARTPTS,fps={FPS},scale={sw}:{sh}", "-f", "rawvideo",
+                                 "-pix_fmt", "gray", "-"], stdout=subprocess.PIPE, stderr=subprocess.DEVNULL)
+        diffs, prev, k = [], None, 0
+        while True:
+            buf = proc.stdout.read(size)
+            if len(buf) < size:
+                break
+            frame = np.frombuffer(buf, dtype=np.uint8).reshape(sh, sw)
+            small = cv2.resize(frame, (64, 36), interpolation=cv2.INTER_AREA).astype(np.float32)
+            d = float(np.mean(np.abs(small - prev))) if prev is not None else None
+            diffs.append(d)
+            prev = small
+            if k % FACE_EVERY == 0 or (d or 0) >= CUT_DIFF:
+                total += 1
+                faces = det.detectMultiScale(frame, 1.1, 5, minSize=(40, 40))
+                if len(faces):
+                    fx, fy, fw, fh = max(faces, key=lambda f: f[2] * f[3])
+                    samples[base + k] = (fx + fw / 2) * info["width"] / sw
+                    hits += 1
+                else:
+                    samples[base + k] = None
+            k += 1
+        proc.stdout.close()
+        proc.wait()
+        shots += [(base + k0, base + k1) for k0, k1 in shots_from_cuts(k, find_cuts(diffs))]
+        base += k  # the next moment starts where this one's frames end, as in the joined clip
     if total == 0 or hits / total < 0.4:
         return None
-    crop_w = info["height"] * 9 / 16
-    lo, hi = crop_w / 2, info["width"] - crop_w / 2
-    # one-second medians, then hold a position until the face moves more than 8% of the width (looks like a camera cut)
-    bins = {}
-    for t, x in samples:
-        bins.setdefault(int(t), []).append(x)
-    steps = []
-    for sec in sorted(bins):
-        x = sorted(bins[sec])[len(bins[sec]) // 2]
-        x = min(hi, max(lo, x))
-        if not steps or (abs(x - steps[-1][1]) > 0.08 * info["width"] and sec - steps[-1][0] >= 2):
-            steps.append((sec, x))
-    return {"steps": [(t, x - crop_w / 2) for t, x in steps], "fit": no_face_spans(seen, offset)}
+    return plan_track(shots, samples, info["width"], info["height"] * 9 / 16)
 
 
 def no_face_spans(seen, duration, min_len=2):
@@ -498,6 +595,28 @@ def crop_expr(steps):
     for i in range(len(steps) - 1, 0, -1):
         expr = f"if(lt(t,{steps[i][0]}),{steps[i - 1][1]:.0f},{expr})"
     return expr
+
+
+def audio_levels(source, a, b, hop=0.01, win=0.03):
+    """[(seconds in the source, level in dBFS)] every hop seconds from a to b: the RMS of a win-second window around
+    each point, from the source's sound mixed down to 16 kHz mono. Empty without sound."""
+    import numpy as np
+    a = max(0.0, a)
+    if b <= a:
+        return []
+    raw = subprocess.run(["ffmpeg", "-v", "error", "-ss", f"{a:.3f}", "-t", f"{b - a:.3f}", "-i", str(source), "-vn",
+                          "-ac", "1", "-ar", "16000", "-f", "s16le", "-"], capture_output=True).stdout
+    x = np.frombuffer(raw[: len(raw) // 2 * 2], dtype=np.int16).astype(np.float64) / 32768.0
+    if not len(x):
+        return []
+    sr = 16000
+    step, half = max(1, int(sr * hop)), max(1, int(sr * win / 2))
+    sq = np.concatenate([[0.0], np.cumsum(x * x)])
+    out = []
+    for c in range(0, len(x), step):
+        i0, i1 = max(0, c - half), min(len(x), c + half)
+        out.append((a + c / sr, float(10 * np.log10((sq[i1] - sq[i0]) / max(1, i1 - i0) + 1e-12))))
+    return out
 
 
 def image_size(path):
@@ -536,7 +655,10 @@ def render(source, segments, words, hook, platform, out, layout="auto", workdir=
         inputs += ["-ss", f"{a:.3f}", "-t", f"{b - a:.3f}", "-i", str(source)]
         parts.append(f"[{k}:v]setpts=PTS-STARTPTS,fps=30[v{k}]")
         if info["audio"]:
-            parts.append(f"[{k}:a]asetpts=PTS-STARTPTS[a{k}]")
+            # a 40 ms fade in and out at every cut, so no cut clicks or chops a sound
+            fd = min(FADE, (b - a) / 4)
+            parts.append(f"[{k}:a]asetpts=PTS-STARTPTS,afade=t=in:st=0:d={fd:.3f},"
+                         f"afade=t=out:st={max(0.0, b - a - fd):.3f}:d={fd:.3f}[a{k}]")
             labels.append(f"[v{k}][a{k}]")
         else:
             labels.append(f"[v{k}]")

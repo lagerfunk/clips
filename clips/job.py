@@ -55,11 +55,8 @@ def _norm(t):
     return re.sub(r"[^a-z0-9$€%]+", "", t.lower())
 
 
-def resolve_segment(words, seg):
-    """[start, end] in seconds, or {"from": "first words", "to": "last words"} resolved against the transcript,
-    so a clip can be written by quoting what is said and still cut on the exact word."""
-    if isinstance(seg, (list, tuple)):
-        return float(seg[0]), float(seg[1])
+def find_span(words, seg):
+    """(i, j): indexes of the first and last transcript word of a {"from", "to"} segment."""
     toks = [_norm(w["w"]) for w in words]
     def find(phrase, start=0, last=False):
         p = [x for x in (_norm(t) for t in phrase.split()) if x]
@@ -73,7 +70,100 @@ def resolve_segment(words, seg):
     j = find(seg["to"], i, last=True)
     if j is None:
         raise ValueError(f"end text not found after the start: {seg['to']!r}")
-    return max(0.0, words[i]["s"] - 0.12), words[j]["e"] + 0.3
+    return i, j
+
+
+def resolve_segment(words, seg):
+    """[start, end] in seconds, or {"from": "first words", "to": "last words"} resolved against the transcript,
+    so a clip can be written by quoting what is said and still cut on the exact word. The cut starts 0.12 s before the
+    first word and ends 0.3 s after the last, but never reaches into the word before or after (30 ms from it), so
+    fast speech does not leak the next word into the clip."""
+    if isinstance(seg, (list, tuple)):
+        return float(seg[0]), float(seg[1])
+    return _plain(words, *find_span(words, seg))
+
+
+CLOSE_GAP = 0.35  # a word this close before the start or after the end: cut in the quietest moment between the two
+DIP_DB = 6.0      # ... but only where it is clearly quieter than around it
+LOUD_DB = 25.0    # sound within this many dB of the moment's speech level counts as speech
+
+
+def tighten(media, words, i, j, a, b):
+    """Move the cut points of the moment words[i..j] (already cut at a, b by resolve_segment) onto the sound itself:
+    - next or previous word close by: cut at the quietest 10 ms between the two words (if there is a clear dip);
+    - a pause instead: keep at most 0.2 s of it after the last sound and 0.12 s before the first, so a moment
+      never starts or ends on dead air (the speech model often stretches a word over the pause next to it).
+    Returns (a, b); unchanged when the source has no readable sound."""
+    from .render import audio_levels
+    lv = audio_levels(media, a - 0.2, b + 0.2)
+    if len(lv) < 20:
+        return a, b
+    dbs = sorted(db for _, db in lv)
+    loud = dbs[int(0.9 * (len(dbs) - 1))] - LOUD_DB
+
+    def win(lo, hi):
+        return [(t, db) for t, db in lv if lo <= t <= hi]
+
+    def dip(lo, hi):
+        w = win(lo, hi)
+        if len(w) < 3:
+            return None
+        t, db = min(w, key=lambda p: p[1])
+        mid = sorted(x for _, x in w)[len(w) // 2]
+        return t if db <= mid - DIP_DB else None
+
+    e_j, nxt = words[j]["e"], (words[j + 1]["s"] if j + 1 < len(words) else None)
+    if nxt is not None and nxt - e_j < CLOSE_GAP:
+        t = dip(e_j - 0.1, nxt)
+        if t is not None:
+            b = t
+    else:
+        last = [t for t, db in win(words[j]["s"], b) if db > loud]
+        if last:
+            b = min(b, last[-1] + 0.2)
+    s_i, prv = words[i]["s"], (words[i - 1]["e"] if i > 0 else None)
+    if prv is not None and s_i - prv < CLOSE_GAP:
+        t = dip(prv, s_i + 0.1)
+        if t is not None:
+            a = t
+    else:
+        first = [t for t, db in win(a, words[i]["e"]) if db > loud]
+        if first:
+            a = max(a, first[0] - 0.12)
+    if b - a < 0.5:  # never let a bad reading swallow the moment
+        return _plain(words, i, j)
+    return max(0.0, a), b
+
+
+def _plain(words, i, j):
+    a = words[i]["s"] - 0.12
+    if i > 0:
+        a = max(a, min(words[i]["s"], words[i - 1]["e"] + 0.03))
+    b = words[j]["e"] + 0.3
+    if j + 1 < len(words):
+        b = min(b, max(words[j]["e"], words[j + 1]["s"] - 0.03))
+    return max(0.0, a), b
+
+
+def cut_clip(words, segments, media=None):
+    """Resolve a clip's segments to [(a, b)] and return the caption words to go with them: the first and last word
+    of each text segment keep their time inside the cut when the cut was tightened onto the sound."""
+    segs, words2 = [], None
+    for x in segments:
+        a, b = resolve_segment(words, x)
+        if isinstance(x, dict) and media is not None:
+            i, j = find_span(words, x)
+            a, b = tighten(media, words, i, j, a, b)
+            if words2 is None:
+                words2 = list(words)
+            wi, wj = dict(words2[i]), None
+            wi["s"] = min(max(wi["s"], a + 0.01), wi["e"] - 0.02)
+            words2[i] = wi
+            wj = dict(words2[j])
+            wj["e"] = max(min(wj["e"], b - 0.01), wj["s"] + 0.02)
+            words2[j] = wj
+        segs.append((a, b))
+    return segs, (words2 if words2 is not None else words)
 
 
 def fix_words(words, fixes):
@@ -456,11 +546,11 @@ def run_job(job_path, work="work", out="out", only=None):
         s = sources[c["source"]]
         entries = []
         try:  # a clip that cannot be cut or rendered fails alone, loudly; the others still go out
-            segs = [resolve_segment(s["transcript"]["words"], x) for x in c["segments"]]
+            segs, words = cut_clip(s["transcript"]["words"], c["segments"], s["media"] if s["info"].get("audio") else None)
             total = sum(b - a for a, b in segs)
             if not lo <= total <= hi:
                 raise ValueError(f"{total:.1f}s after finding the text in the transcript, the campaign takes {lo:g} to {hi:g}s")
-            cap_words = fix_words(fix_phrases(s["transcript"]["words"], job.get("fixPhrases")), job.get("fixWords"))
+            cap_words = fix_words(fix_phrases(words, job.get("fixPhrases")), job.get("fixWords"))
             ov = overlays_for(job, c, watermark)
             kw = {"overlays": ov} if ov else {}  # renders without overlays keep the plain call
             for p in plats:

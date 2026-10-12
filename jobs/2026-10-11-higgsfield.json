@@ -90,6 +90,10 @@
       "segments": [
         {
           "from": "And we were chatting about that",
+          "to": "a month is over 4 million."
+        },
+        {
+          "from": "Wow, how many people do you have?",
           "to": "definitely over $10,000 per person."
         }
       ],
@@ -114,6 +118,14 @@
       "segments": [
         {
           "from": "What actually started to happen is the creative team",
+          "to": "started to do vibe coding."
+        },
+        {
+          "from": "Like this month, I just caught a guy",
+          "to": "in a week on Astra model."
+        },
+        {
+          "from": "Because he was frankly frustrated",
           "to": "production ready, but we learned a lot."
         }
       ],
@@ -161,7 +173,11 @@
       "source": "p1",
       "segments": [
         {
-          "from": "It's all gonna be substantially disrupted",
+          "from": "And like this multi trillion advertisement",
+          "to": "this multi trillion advertisement"
+        },
+        {
+          "from": "industry and you know like contextual advertisement",
           "to": "it didn't happen with Yuri."
         }
       ],
@@ -179,30 +195,6 @@
         "sub": "On 20VC with Harry Stebbings"
       },
       "end": "Ever had a deal change overnight?"
-    },
-    {
-      "id": "h05-open-vs-closed-margins",
-      "source": "p1",
-      "segments": [
-        {
-          "from": "The margin on all models",
-          "to": "use in over than 40% cases."
-        }
-      ],
-      "hook": "Open models: 80%+ margins. Closed: 20-30%",
-      "title": "Open-weight AI models: 80%+ margins. Closed models: 20-30% | Alex Mashrabov",
-      "caption": "Alex compares margins on open-weight models, over 80%, with closed models at 20 to 30%, and explains why choosing the model for each job matters.",
-      "hashtags": [
-        "#higgsfield",
-        "#20vc",
-        "#ai",
-        "#opensource"
-      ],
-      "lower": {
-        "title": "Alex Mashrabov, Higgsfield CEO",
-        "sub": "Helps businesses sell more with AI ads"
-      },
-      "end": "Open or closed models for your work?"
     },
     {
       "id": "h06-churn-vs-nrr",
@@ -235,8 +227,8 @@
       "source": "p1",
       "segments": [
         {
-          "from": "And we have an in-house team",
-          "to": "the right piece, is still very important."
+          "from": "Like, for example, we made the first",
+          "to": "that's what's driving most of the revenue."
         }
       ],
       "hook": "90 minutes of film took 100+ hours of AI footage",
@@ -278,5 +270,8 @@
       },
       "end": "Longest prompt you've ever written?"
     }
-  ]
+  ],
+  "dropped": {
+    "h05-open-vs-closed-margins": "2026-10-12 M-C4: the opening line is not clearly 'open models' (Whisper: 'all models', Parakeet and Moonshine: 'own models'); C3 rule: drop unless it clearly says 'open'. Never post."
+  }
 }

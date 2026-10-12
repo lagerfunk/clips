@@ -91,11 +91,15 @@
         {
           "from": "But we also are fully cognizant",
           "to": "gonna happen over the time."
+        },
+        {
+          "from": "I know this is a very contrarian bet",
+          "to": "but at least we can see some of that."
         }
       ],
       "hook": "Google and OpenAI will kill $20 AI plans",
       "title": "Higgsfield CEO: Google and OpenAI will demolish $20 a month AI subscriptions",
-      "caption": "Alex Mashrabov says Higgsfield can never win on $20 a month subscriptions, because he expects Google and OpenAI to take that market.",
+      "caption": "Alex Mashrabov says Higgsfield can never win on $20 a month subscriptions, because he expects Google and OpenAI to take that market. He calls it a contrarian bet.",
       "hashtags": [
         "#higgsfield",
         "#20vc",
@@ -118,11 +122,11 @@
         },
         {
           "from": "First and foremost, like the",
-          "to": "we open sourced all of it."
+          "to": "they make product launch videos, they make tutorials."
         }
       ],
       "hook": "No paid ads. 150 in-house creatives instead",
-      "title": "Higgsfield grows with zero paid ads and a 150-person in-house creative team",
+      "title": "Higgsfield CEO: consumer growth comes from own content, not paid ads",
       "caption": "Higgsfield says its consumer growth comes from its own content, not paid ads. Almost half the company is an in-house team of creatives.",
       "hashtags": [
         "#higgsfield",
@@ -247,7 +251,7 @@
       ],
       "hook": "You don't need PhD-level AI for viral videos",
       "title": "Higgsfield CEO: you don't need PhD-level AI to make a viral social media video",
-      "caption": "Brands making hundreds of ad creatives a week want cheaper, steerable models. Alex Mashrabov says running post-trained open source models brings 80%+ margins and costs customers less.",
+      "caption": "Brands making hundreds of ad creatives a week want cheaper, steerable models. Alex Mashrabov says post-trained open source models give 80%+ margins and cost customers less. That is the margin on those models, not Higgsfield's overall margin.",
       "hashtags": [
         "#higgsfield",
         "#20vc",
@@ -256,7 +260,7 @@
       ],
       "lower": {
         "title": "Alex Mashrabov, Higgsfield CEO",
-        "sub": "Open model share on OpenRouter: 60%+"
+        "sub": "On 20VC with Harry Stebbings"
       },
       "end": "Open or closed models for your ads?"
     },
