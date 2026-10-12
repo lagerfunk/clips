@@ -84,52 +84,66 @@ def resolve_segment(words, seg):
 
 
 CLOSE_GAP = 0.35  # a word this close before the start or after the end: cut in the quietest moment between the two
-DIP_DB = 6.0      # ... but only where it is clearly quieter than around it
-LOUD_DB = 25.0    # sound within this many dB of the moment's speech level counts as speech
+LOUD_DB = 25.0    # sound within this many dB of the moment's speech level counts as speech (for trimming pauses)
+SOFT_DB = 18.0    # a dip this far below the speech level is a gap between words (for cutting between words)
+EXTEND = 0.6      # seconds a cut may move past the stamped word end (or before its start) to finish the word
 
 
 def tighten(media, words, i, j, a, b):
     """Move the cut points of the moment words[i..j] (already cut at a, b by resolve_segment) onto the sound itself:
-    - next or previous word close by: cut at the quietest 10 ms between the two words (if there is a clear dip);
+    - next or previous word close by: cut at the quietest 10 ms between the two words when it is a real gap;
     - a pause instead: keep at most 0.2 s of it after the last sound and 0.12 s before the first, so a moment
-      never starts or ends on dead air (the speech model often stretches a word over the pause next to it).
+      never starts or ends on dead air (the speech model often stretches a word over the pause next to it);
+    - still mid-word at the cut (the speech model stamped the word too early or too late): move the cut on to the
+      next gap between words, at most 0.6 s.
     Returns (a, b); unchanged when the source has no readable sound."""
     from .render import audio_levels
-    lv = audio_levels(media, a - 0.2, b + 0.2)
+    lv = audio_levels(media, a - EXTEND - 0.2, b + EXTEND + 0.2)
     if len(lv) < 20:
         return a, b
-    dbs = sorted(db for _, db in lv)
-    loud = dbs[int(0.9 * (len(dbs) - 1))] - LOUD_DB
+    dbs = sorted(db for t, db in lv if a <= t <= b) or sorted(db for _, db in lv)
+    ref = dbs[int(0.9 * (len(dbs) - 1))]
+    loud, soft = ref - LOUD_DB, ref - SOFT_DB
 
     def win(lo, hi):
         return [(t, db) for t, db in lv if lo <= t <= hi]
 
-    def dip(lo, hi):
+    def level(t):
+        return min(lv, key=lambda p: abs(p[0] - t))[1]
+
+    def gap(lo, hi):
         w = win(lo, hi)
-        if len(w) < 3:
+        if not w:
             return None
         t, db = min(w, key=lambda p: p[1])
-        mid = sorted(x for _, x in w)[len(w) // 2]
-        return t if db <= mid - DIP_DB else None
+        return t if db <= soft else None
 
     e_j, nxt = words[j]["e"], (words[j + 1]["s"] if j + 1 < len(words) else None)
     if nxt is not None and nxt - e_j < CLOSE_GAP:
-        t = dip(e_j - 0.1, nxt)
+        t = gap(e_j - 0.1, nxt + 0.05)
         if t is not None:
             b = t
     else:
         last = [t for t, db in win(words[j]["s"], b) if db > loud]
         if last:
             b = min(b, last[-1] + 0.2)
+    if level(b) > soft:
+        later = [t for t, db in win(b, b + EXTEND) if db <= soft]
+        if later:
+            b = later[0] + 0.02
     s_i, prv = words[i]["s"], (words[i - 1]["e"] if i > 0 else None)
     if prv is not None and s_i - prv < CLOSE_GAP:
-        t = dip(prv, s_i + 0.1)
+        t = gap(prv - 0.05, s_i + 0.1)
         if t is not None:
             a = t
     else:
         first = [t for t, db in win(a, words[i]["e"]) if db > loud]
         if first:
             a = max(a, first[0] - 0.12)
+    if level(a) > soft:
+        earlier = [t for t, db in win(a - EXTEND, a) if db <= soft]
+        if earlier:
+            a = earlier[-1] - 0.02
     if b - a < 0.5:  # never let a bad reading swallow the moment
         return _plain(words, i, j)
     return max(0.0, a), b
@@ -156,12 +170,17 @@ def cut_clip(words, segments, media=None):
             a, b = tighten(media, words, i, j, a, b)
             if words2 is None:
                 words2 = list(words)
-            wi, wj = dict(words2[i]), None
+            wi = dict(words2[i])
             wi["s"] = min(max(wi["s"], a + 0.01), wi["e"] - 0.02)
             words2[i] = wi
             wj = dict(words2[j])
             wj["e"] = max(min(wj["e"], b - 0.01), wj["s"] + 0.02)
             words2[j] = wj
+            # the words just outside stay outside, even when the cut moved past their stamped time
+            if j + 1 < len(words2) and words2[j + 1]["s"] < b:
+                words2[j + 1] = {**words2[j + 1], "s": b, "e": max(words2[j + 1]["e"], b + 0.1)}
+            if i > 0 and words2[i - 1]["e"] > a:
+                words2[i - 1] = {**words2[i - 1], "e": a, "s": min(words2[i - 1]["s"], a - 0.1)}
         segs.append((a, b))
     return segs, (words2 if words2 is not None else words)
 

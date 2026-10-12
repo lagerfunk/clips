@@ -76,6 +76,16 @@ class Tighten(unittest.TestCase):
         clip, _ = map_words(cap, segs)
         self.assertEqual([w["w"] for w in clip], ["one.", "two", "three."], "tightened words keep their captions")
 
+    def test_cut_finishes_a_word_stamped_too_early(self):
+        # the speech model ends "said." at 1.5 s and starts the next speaker at 1.55 s; the sound runs to 2.0 s
+        words = [{"w": "we", "s": 1.0, "e": 1.2}, {"w": "said.", "s": 1.2, "e": 1.5}, {"w": "Early", "s": 1.55, "e": 1.6},
+                 {"w": "on.", "s": 4.0, "e": 4.6}]
+        segs, cap = jobmod.cut_clip(words, [{"from": "we", "to": "said."}], self.src)
+        (a, b), = segs
+        self.assertAlmostEqual(b, 2.0, delta=0.05, msg="the cut waits for the end of the sound")
+        clip, _ = map_words(cap, segs)
+        self.assertEqual([w["w"] for w in clip], ["we", "said."], "the next speaker's word stays out of the captions")
+
     def test_no_sound_reading_keeps_the_stamped_cut(self):
         words = [{"w": "a", "s": 1.0, "e": 1.5}, {"w": "b.", "s": 1.6, "e": 1.9}]
         segs, cap = jobmod.cut_clip(words, [{"from": "a", "to": "b."}], None)
