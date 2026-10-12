@@ -29,7 +29,7 @@
       "clip": "h17-europe-competitive",
       "out": "out/2026-10-11-higgsfield-c/h17-europe-competitive-youtube.mp4",
       "platform": "youtube",
-      "duration": 48.7,
+      "duration": 48.5,
       "layout": "crop",
       "words": 125,
       "watermark": [
@@ -61,7 +61,7 @@
       "clip": "h17-europe-competitive",
       "out": "out/2026-10-11-higgsfield-c/h17-europe-competitive-instagram.mp4",
       "platform": "instagram",
-      "duration": 48.7,
+      "duration": 48.5,
       "layout": "crop",
       "words": 125,
       "watermark": [
@@ -93,8 +93,8 @@
       "clip": "h18-job-hopping",
       "out": "out/2026-10-11-higgsfield-c/h18-job-hopping-youtube.mp4",
       "platform": "youtube",
-      "duration": 41.93,
-      "layout": "crop+fit",
+      "duration": 41.5,
+      "layout": "crop",
       "words": 113,
       "watermark": [
         243,
@@ -125,8 +125,8 @@
       "clip": "h18-job-hopping",
       "out": "out/2026-10-11-higgsfield-c/h18-job-hopping-instagram.mp4",
       "platform": "instagram",
-      "duration": 41.93,
-      "layout": "crop+fit",
+      "duration": 41.5,
+      "layout": "crop",
       "words": 113,
       "watermark": [
         243,
@@ -157,8 +157,8 @@
       "clip": "h19-three-jobs",
       "out": "out/2026-10-11-higgsfield-c/h19-three-jobs-youtube.mp4",
       "platform": "youtube",
-      "duration": 58.2,
-      "layout": "crop+fit",
+      "duration": 58.1,
+      "layout": "crop",
       "words": 145,
       "watermark": [
         243,
@@ -189,8 +189,8 @@
       "clip": "h19-three-jobs",
       "out": "out/2026-10-11-higgsfield-c/h19-three-jobs-instagram.mp4",
       "platform": "instagram",
-      "duration": 58.2,
-      "layout": "crop+fit",
+      "duration": 58.1,
+      "layout": "crop",
       "words": 145,
       "watermark": [
         243,
@@ -221,16 +221,16 @@
       "clip": "h20-owns-no-property",
       "out": "out/2026-10-11-higgsfield-c/h20-owns-no-property-youtube.mp4",
       "platform": "youtube",
-      "duration": 49.4,
+      "duration": 40.3,
       "layout": "crop",
-      "words": 132,
+      "words": 106,
       "watermark": [
         243,
         1300,
         837,
         1482
       ],
-      "caption": "Werbung | Paid promotion for Higgsfield\n\nAfter selling his first company, Alex spent the money on apartments for his parents and relatives. He owns no property himself and drives a Tesla Model 3.\n\n#higgsfield #20vc #founder #family #ad @HiggsfieldAI @20VC",
+      "caption": "Werbung | Paid promotion for Higgsfield\n\nAfter selling a company, Alex spent the money on apartments for his parents and relatives. He owns no property himself.\n\n#higgsfield #20vc #founder #family #ad @HiggsfieldAI @20VC",
       "title": "Higgsfield CEO made over $1M, bought apartments for his family, and owns no property",
       "tags": [
         "#higgsfield",
@@ -253,16 +253,16 @@
       "clip": "h20-owns-no-property",
       "out": "out/2026-10-11-higgsfield-c/h20-owns-no-property-instagram.mp4",
       "platform": "instagram",
-      "duration": 49.4,
+      "duration": 40.3,
       "layout": "crop",
-      "words": 132,
+      "words": 106,
       "watermark": [
         243,
         1305,
         837,
         1487
       ],
-      "caption": "Werbung | Paid promotion for Higgsfield\n\nAfter selling his first company, Alex spent the money on apartments for his parents and relatives. He owns no property himself and drives a Tesla Model 3.\n\n#higgsfield #20vc #founder #family #ad @higgsfield.ai @20vchq",
+      "caption": "Werbung | Paid promotion for Higgsfield\n\nAfter selling a company, Alex spent the money on apartments for his parents and relatives. He owns no property himself.\n\n#higgsfield #20vc #founder #family #ad @higgsfield.ai @20vchq",
       "title": "Higgsfield CEO made over $1M, bought apartments for his family, and owns no property",
       "tags": [
         "#higgsfield",
@@ -285,8 +285,8 @@
       "clip": "h21-day-with-son",
       "out": "out/2026-10-11-higgsfield-c/h21-day-with-son-youtube.mp4",
       "platform": "youtube",
-      "duration": 45.93,
-      "layout": "crop+fit",
+      "duration": 45.9,
+      "layout": "crop",
       "words": 117,
       "watermark": [
         243,
@@ -317,8 +317,8 @@
       "clip": "h21-day-with-son",
       "out": "out/2026-10-11-higgsfield-c/h21-day-with-son-instagram.mp4",
       "platform": "instagram",
-      "duration": 45.93,
-      "layout": "crop+fit",
+      "duration": 45.9,
+      "layout": "crop",
       "words": 117,
       "watermark": [
         243,
@@ -349,7 +349,7 @@
       "clip": "h22-yuri-milner",
       "out": "out/2026-10-11-higgsfield-c/h22-yuri-milner-youtube.mp4",
       "platform": "youtube",
-      "duration": 53.7,
+      "duration": 53.3,
       "layout": "crop",
       "words": 128,
       "watermark": [
@@ -381,7 +381,7 @@
       "clip": "h22-yuri-milner",
       "out": "out/2026-10-11-higgsfield-c/h22-yuri-milner-instagram.mp4",
       "platform": "instagram",
-      "duration": 53.7,
+      "duration": 53.3,
       "layout": "crop",
       "words": 128,
       "watermark": [
@@ -413,16 +413,16 @@
       "clip": "h23-micromanagement",
       "out": "out/2026-10-11-higgsfield-c/h23-micromanagement-youtube.mp4",
       "platform": "youtube",
-      "duration": 56.1,
+      "duration": 55.9,
       "layout": "crop",
-      "words": 118,
+      "words": 117,
       "watermark": [
         243,
         1300,
         837,
         1482
       ],
-      "caption": "Werbung | Paid promotion for Higgsfield\n\nAlex on the CEOs he learns from: Jensen, Elon and Nik skip soft feedback and go deep on the details. Corporate America would call it micromanagement.\n\n#higgsfield #20vc #founder #leadership #ad @HiggsfieldAI @20VC",
+      "caption": "Werbung | Paid promotion for Higgsfield\n\nAlex on what he learns from watching Jensen, Elon and Nik: he says they are not big on one-on-ones and soft feedback, and they know the details. Corporate America would call it micromanagement.\n\n#higgsfield #20vc #founder #leadership #ad @HiggsfieldAI @20VC",
       "title": "Higgsfield CEO on what he learns from watching Jensen Huang, Elon Musk and Nik",
       "tags": [
         "#higgsfield",
@@ -445,16 +445,16 @@
       "clip": "h23-micromanagement",
       "out": "out/2026-10-11-higgsfield-c/h23-micromanagement-instagram.mp4",
       "platform": "instagram",
-      "duration": 56.1,
+      "duration": 55.9,
       "layout": "crop",
-      "words": 118,
+      "words": 117,
       "watermark": [
         243,
         1305,
         837,
         1487
       ],
-      "caption": "Werbung | Paid promotion for Higgsfield\n\nAlex on the CEOs he learns from: Jensen, Elon and Nik skip soft feedback and go deep on the details. Corporate America would call it micromanagement.\n\n#higgsfield #20vc #founder #leadership #ad @higgsfield.ai @20vchq",
+      "caption": "Werbung | Paid promotion for Higgsfield\n\nAlex on what he learns from watching Jensen, Elon and Nik: he says they are not big on one-on-ones and soft feedback, and they know the details. Corporate America would call it micromanagement.\n\n#higgsfield #20vc #founder #leadership #ad @higgsfield.ai @20vchq",
       "title": "Higgsfield CEO on what he learns from watching Jensen Huang, Elon Musk and Nik",
       "tags": [
         "#higgsfield",
