@@ -349,9 +349,9 @@
       "clip": "h14-benchmark-bonuses",
       "out": "out/2026-10-11-higgsfield-b/h14-benchmark-bonuses-youtube.mp4",
       "platform": "youtube",
-      "duration": 44.6,
+      "duration": 44.7,
       "layout": "crop",
-      "words": 131,
+      "words": 132,
       "watermark": [
         243,
         1300,
@@ -381,9 +381,9 @@
       "clip": "h14-benchmark-bonuses",
       "out": "out/2026-10-11-higgsfield-b/h14-benchmark-bonuses-instagram.mp4",
       "platform": "instagram",
-      "duration": 44.6,
+      "duration": 44.7,
       "layout": "crop",
-      "words": 131,
+      "words": 132,
       "watermark": [
         243,
         1305,
