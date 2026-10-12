@@ -184,7 +184,14 @@ class OverlayRender(unittest.TestCase):
         cls.src = cls.tmp / "src.mp4"
         subprocess.run(["ffmpeg", "-v", "error", "-y", "-f", "lavfi", "-i", "testsrc2=size=1280x720:rate=30:duration=7",
                         "-f", "lavfi", "-i", "sine=frequency=220:duration=7", "-c:v", "libx264", "-preset", "ultrafast",
-                        "-c:a", "aac", str(cls.src)], check=True)
+                        "-c:a", "aac", str(cls.tmp / "plain.mp4")], check=True)
+        # the source carries chapters (like the 20VC podcast file); a clip must never inherit them
+        meta = cls.tmp / "chapters.txt"
+        meta.write_text(";FFMETADATA1\ntitle=Long podcast\n[CHAPTER]\nTIMEBASE=1/1000\nSTART=0\nEND=3000\ntitle=Intro\n"
+                        "[CHAPTER]\nTIMEBASE=1/1000\nSTART=3000\nEND=3370000\ntitle=Rest of the episode\n", encoding="utf-8")
+        subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", str(cls.tmp / "plain.mp4"), "-i", str(meta), "-map", "0",
+                        "-map_metadata", "1", "-map_chapters", "1", "-c", "copy", str(cls.src)], check=True)
+        assert probe(cls.src)["chapters"] == 2
 
     @classmethod
     def tearDownClass(cls):
@@ -196,6 +203,7 @@ class OverlayRender(unittest.TestCase):
         info = probe(out)
         self.assertEqual((info["width"], info["height"]), (OUT_W, OUT_H))
         self.assertAlmostEqual(info["duration"], 4.0, delta=0.5)
+        self.assertEqual((info["chapters"], info["extra_streams"]), (0, 0), "no chapters or data track from the source")
         return out, res
 
     def test_overlays_show_up_in_the_frame(self):

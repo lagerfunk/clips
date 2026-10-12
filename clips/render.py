@@ -729,10 +729,13 @@ def render(source, segments, words, hook, platform, out, layout="auto", workdir=
     if info["audio"]:
         cmd += ["-map", "[aout]", "-c:a", "aac", "-b:a", "160k"]
     cmd += ["-c:v", "libx264", "-preset", "medium", "-crf", str(variant["crf"]), "-pix_fmt", "yuv420p", "-r", "30",
+            "-map_chapters", "-1", "-map_metadata", "-1", "-dn", "-sn",  # never carry the source's chapters or data track
             "-movflags", "+faststart", "-metadata", f"comment=clip-{platform}", str(out)]
     Path(out).parent.mkdir(parents=True, exist_ok=True)
     run(cmd)
     got = probe(out)
+    if got.get("chapters") or got.get("extra_streams"):
+        raise RuntimeError(f"render check failed for {out}: source chapters or data streams leaked into the clip: {got}")
     if (got["width"], got["height"]) != (OUT_W, OUT_H) or abs(got["duration"] - duration) > 0.6:
         raise RuntimeError(f"render check failed for {out}: {got}, expected {duration:.1f}s at {OUT_W}x{OUT_H}")
     res = {"out": str(out), "platform": platform, "duration": round(got["duration"], 2), "layout": mode, "words": len(clip_words)}

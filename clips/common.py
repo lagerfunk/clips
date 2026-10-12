@@ -22,7 +22,7 @@ def run(cmd, quiet=True):
 
 def probe(path):
     """Duration, size and whether the file has audio."""
-    out = run(["ffprobe", "-v", "error", "-print_format", "json", "-show_streams", "-show_format", str(path)])
+    out = run(["ffprobe", "-v", "error", "-print_format", "json", "-show_streams", "-show_format", "-show_chapters", str(path)])
     info = json.loads(out)
     v = next((s for s in info["streams"] if s["codec_type"] == "video"), None)
     a = next((s for s in info["streams"] if s["codec_type"] == "audio"), None)
@@ -33,6 +33,8 @@ def probe(path):
         "width": int(v["width"]),
         "height": int(v["height"]),
         "audio": a is not None,
+        "extra_streams": sum(1 for s in info["streams"] if s["codec_type"] not in ("video", "audio")),
+        "chapters": len(info.get("chapters", [])),
     }
 
 
