@@ -93,7 +93,7 @@
       "clip": "h02-30k-in-a-week",
       "out": "out/2026-10-11-higgsfield/h02-30k-in-a-week-youtube.mp4",
       "platform": "youtube",
-      "duration": 40.4,
+      "duration": 40.43,
       "layout": "crop",
       "words": 94,
       "watermark": [
@@ -125,7 +125,7 @@
       "clip": "h02-30k-in-a-week",
       "out": "out/2026-10-11-higgsfield/h02-30k-in-a-week-instagram.mp4",
       "platform": "instagram",
-      "duration": 40.4,
+      "duration": 40.43,
       "layout": "crop",
       "words": 94,
       "watermark": [
@@ -221,9 +221,9 @@
       "clip": "h04-30-percent-lower",
       "out": "out/2026-10-11-higgsfield/h04-30-percent-lower-youtube.mp4",
       "platform": "youtube",
-      "duration": 44.8,
+      "duration": 34.5,
       "layout": "crop",
-      "words": 133,
+      "words": 112,
       "watermark": [
         243,
         1300,
@@ -253,9 +253,9 @@
       "clip": "h04-30-percent-lower",
       "out": "out/2026-10-11-higgsfield/h04-30-percent-lower-instagram.mp4",
       "platform": "instagram",
-      "duration": 44.8,
+      "duration": 34.5,
       "layout": "crop",
-      "words": 133,
+      "words": 112,
       "watermark": [
         243,
         1305,
