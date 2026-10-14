@@ -158,3 +158,33 @@ class CaptionLines(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class EdgeFlash(unittest.TestCase):
+    """2026-10-14: a camera cut a few frames from a clip's start or end showed as a flash of the other shot."""
+
+    @classmethod
+    def setUpClass(cls):
+        cls.tmp = Path(tempfile.mkdtemp(prefix="flashtest-"))
+        cls.src = cls.tmp / "flash.mp4"
+        # red 0.1 s, blue 3 s, green 0.2 s: one cut 3 frames in, one 6 frames before the end
+        subprocess.run(["ffmpeg", "-v", "error", "-y",
+                        "-f", "lavfi", "-i", "color=red:s=320x180:r=30:d=0.1",
+                        "-f", "lavfi", "-i", "color=blue:s=320x180:r=30:d=3",
+                        "-f", "lavfi", "-i", "color=green:s=320x180:r=30:d=0.2",
+                        "-filter_complex", "[0:v][1:v][2:v]concat=n=3:v=1:a=0[v]", "-map", "[v]",
+                        "-c:v", "libx264", "-pix_fmt", "yuv420p", str(cls.src)], check=True)
+
+    @classmethod
+    def tearDownClass(cls):
+        shutil.rmtree(cls.tmp, ignore_errors=True)
+
+    def test_flashes_at_both_edges_are_trimmed(self):
+        (a, b), = rendermod.trim_edge_flashes(self.src, [(0.0, 3.3)])
+        self.assertAlmostEqual(a, 0.1, delta=0.04, msg="starts on the cut, not on the red flash")
+        self.assertAlmostEqual(b, 3.1, delta=0.04, msg="ends on the cut, before the green flash")
+
+    def test_cut_far_from_the_edges_is_left_alone(self):
+        (a, b), = rendermod.trim_edge_flashes(self.src, [(0.0, 2.0)])
+        self.assertAlmostEqual(a, 0.1, delta=0.04)
+        self.assertEqual(b, 2.0, "no cut near the end, end unchanged")

@@ -570,6 +570,42 @@ def _face_track(source, segments, info, every=None):
     return plan_track(shots, samples, info["width"], info["height"] * 9 / 16)
 
 
+EDGE_FLASH = 0.35  # seconds: a camera cut this close to a moment's start or end leaves a flash of the other shot
+
+
+def edge_diffs(source, a, b):
+    """Frame-to-frame differences (64x36 grey, 30 fps) over [a, b) of the source, decoded the way render() cuts it."""
+    import numpy as np
+    w, h = 64, 36
+    raw = subprocess.run(["ffmpeg", "-v", "error", "-ss", f"{a:.3f}", "-t", f"{b - a:.3f}", "-i", str(source),
+                          "-vf", f"setpts=PTS-STARTPTS,fps={FPS},scale={w}:{h}:flags=area", "-f", "rawvideo",
+                          "-pix_fmt", "gray", "-"], capture_output=True).stdout
+    n = len(raw) // (w * h)
+    frames = np.frombuffer(raw[: n * w * h], dtype=np.uint8).reshape(n, h, w).astype(np.float32)
+    return [None] + [float(np.mean(np.abs(frames[k] - frames[k - 1]))) for k in range(1, n)]
+
+
+def trim_edge_flashes(source, segments, edge=EDGE_FLASH):
+    """Move a moment's start or end onto a camera cut that sits within `edge` seconds of it, so no clip opens or closes
+    on a few frames of a different shot (found 2026-10-14: h01, h02, h07, h08, h16, h23 flashed at the start or end)."""
+    try:
+        import numpy  # noqa: F401
+    except ImportError:
+        return segments
+    out = []
+    for a, b in segments:
+        win = min(edge + 0.1, (b - a) / 3)
+        head = find_cuts(edge_diffs(source, a, a + win))
+        early = [k for k in head if k / FPS <= edge]
+        tail_start = b - win
+        tail = find_cuts(edge_diffs(source, tail_start, b))
+        late = [k for k in tail if (b - (tail_start + k / FPS)) <= edge]
+        na = a + max(early) / FPS if early else a
+        nb = tail_start + min(late) / FPS if late else b
+        out.append((round(na, 3), round(nb, 3)) if nb - na >= 1.0 else (a, b))
+    return out
+
+
 def no_face_spans(seen, duration, min_len=2):
     """Seconds with no face (b-roll, screenshots, text cards) as (start, end) spans of at least min_len seconds.
     Those spans are shown whole on the blurred background instead of being cropped around a face that is not there."""
@@ -644,6 +680,7 @@ def render(source, segments, words, hook, platform, out, layout="auto", workdir=
     for a, b in segments:
         if not (0 <= a < b <= info["duration"] + 0.01):
             raise ValueError(f"moment {a}-{b} is outside the source (0-{info['duration']:.1f})")
+    segments = trim_edge_flashes(source, segments)
     clip_words, duration = map_words(words, segments)
     work = Path(workdir or tempfile.mkdtemp(prefix="clip-"))
     work.mkdir(parents=True, exist_ok=True)
