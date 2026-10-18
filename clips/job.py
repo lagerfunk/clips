@@ -185,6 +185,27 @@ def cut_clip(words, segments, media=None):
     return segs, (words2 if words2 is not None else words)
 
 
+def tighten_render(out, res, lo):
+    """Open on speech and cut dead air (clips/recut.py, owner 2026-10-18: "the start of the clip is inaudible so
+    people will just scroll"). Keeps the plain render when tightening would take the clip under the campaign minimum."""
+    from .recut import recut
+    if not out.is_file() or out.stat().st_size == 0:
+        return res
+    tmp = out.with_name(out.stem + ".tight.mp4")
+    try:
+        info = recut(out, tmp, min_dur=lo)
+    except Exception as e:  # too short, no sound, ffmpeg trouble: the plain render still goes out
+        print(f"{out.name}: kept as rendered ({str(e)[-200:]})")
+        tmp.unlink(missing_ok=True)
+        return res
+    tmp.replace(out)
+    return {**res, "duration": info["duration"], "tightened": info}
+
+
+# a clip whose first words are one of these opens on nothing; viewers decide in the first second
+FILLER_OPENERS = {"and", "so", "but", "okay", "ok", "like", "um", "uh", "yeah", "well", "anyway", "basically"}
+
+
 def fix_words(words, fixes):
     """Correct names the speech model got wrong ("Zeng" -> "Zain") in the captions only, keeping punctuation."""
     if not fixes:
@@ -402,6 +423,11 @@ def check_job(job):
             problems.append(f"clip {cid}: {total:.1f}s long, keep it between {lo:g} and {hi:g}s")
         if not c.get("hook") or len(c["hook"]) > 90:
             problems.append(f"clip {cid}: hook missing or over 90 characters")
+        s0 = (c.get("segments") or [None])[0]
+        if isinstance(s0, dict) and str(s0.get("from") or "").split():
+            w0 = re.sub(r"[^a-z']", "", str(s0["from"]).split()[0].lower())
+            if w0 in FILLER_OPENERS:
+                problems.append(f"clip {cid}: opens on the filler word '{w0}', start on the line that carries the point")
         if len(c.get("title") or c.get("hook", "")) > 100:
             problems.append(f"clip {cid}: YouTube title over 100 characters")
         problems += check_overlays(c)
@@ -575,6 +601,7 @@ def run_job(job_path, work="work", out="out", only=None):
             for p in plats:
                 res = render(s["media"], segs, cap_words, c["hook"], p,
                              odir / f"{c['id']}-{p}.mp4", c.get("layout", "auto"), wdir / "render", **kw)
+                res = tighten_render(odir / f"{c['id']}-{p}.mp4", res, lo)
                 entry = {"clip": c["id"], **res, **post_text(job, c, p)}
                 if d:
                     entry["disclosure"] = manifest_disclosure(d)
