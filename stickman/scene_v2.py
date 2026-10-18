@@ -935,7 +935,7 @@ key_hide(cop["root"], 392, False)
 walk(cop, 392, 440, (15.0, PY + 1.0), (16.3, STOP_Y - 1.6), 0)
 stand(cop, 446)
 face_mood(cop, 446, "stern")
-key(cop["root"], 452, rot=(0, 0, math.radians(-70)))
+key(cop["root"], 452, rot=(0, 0, math.radians(-100)))
 # cop explains: points at the car (fuel), then writes
 pose(cop, 456, shR=(80, 0, -35), elR=(5, 0, 0))
 pose(cop, 470, shR=(80, 0, -50), elR=(5, 0, 0))
