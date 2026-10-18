@@ -1,0 +1,13 @@
+{
+  "hdri_res": "2k",
+  "hdris": ["kloofendal_48d_partly_cloudy_puresky", "kloofendal_43d_clear_puresky"],
+  "tex_res": "2k",
+  "textures": ["asphalt_01", "asphalt_track", "clean_asphalt", "aerial_grass_rock"],
+  "texture_categories": ["grass", "ground", "metal"],
+  "model_res": "1k",
+  "models": ["fir_tree_01", "grass_medium_01", "grass_medium_02", "fir_sapling_medium", "dandelion_01"],
+  "direct": [
+    ["cars/CarConcept.glb", "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/main/Models/CarConcept/glTF-Binary/CarConcept.glb", "CC-BY 4.0, Eric Chadwick / Darmstadt Graphics Group, from a CC0 model by Unity Fan (Khronos glTF Sample Assets). Khronos logos are trademarks: not shown."],
+    ["cars/kenney_car-kit.zip", "https://kenney.nl/media/pages/assets/car-kit/1a312ec241-1775131960/kenney_car-kit.zip", "CC0, Kenney (kenney.nl)"]
+  ]
+}

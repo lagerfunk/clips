@@ -1,0 +1,118 @@
+name: stickman
+# Stick Facts animated shorts. "assets": a change to stickman/assets.json downloads the CC0 / CC-BY assets (Poly
+# Haven, Kenney, Khronos samples) to the orphan branch "stickman-assets". "render": a change to stickman/render.json
+# renders the frames on parallel runners (Blender as a Python module, Cycles on CPU) and puts the joined video on the
+# branch "stickman-renders". No secrets are used.
+on:
+  push:
+    branches: [main]
+    paths: ['stickman/assets.json', 'stickman/render.json']
+permissions:
+  contents: write
+jobs:
+  plan:
+    runs-on: ubuntu-24.04
+    outputs:
+      assets: ${{ steps.p.outputs.assets }}
+      render: ${{ steps.p.outputs.render }}
+      chunks: ${{ steps.p.outputs.chunks }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 2
+      - id: p
+        run: |
+          ch=$(git diff --name-only HEAD~1 HEAD -- stickman/ || true)
+          echo "assets=$(echo "$ch" | grep -q assets.json && echo true || echo false)" >> "$GITHUB_OUTPUT"
+          en=$(python3 -c 'import json; print(str(json.load(open("stickman/render.json")).get("enabled", False)).lower())')
+          echo "render=$(echo "$ch" | grep -q render.json && [ "$en" = true ] && echo true || echo false)" >> "$GITHUB_OUTPUT"
+          python3 - >> "$GITHUB_OUTPUT" <<'PY'
+          import json
+          r = json.load(open("stickman/render.json"))
+          a, b, n = r["first"], r["last"], r["chunks"]
+          step = -(-(b - a + 1) // n)
+          chunks = [f"{s}-{min(b, s + step - 1)}" for s in range(a, b + 1, step)]
+          print("chunks=" + json.dumps(chunks))
+          PY
+  assets:
+    needs: plan
+    if: needs.plan.outputs.assets == 'true'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - run: python3 stickman/fetch_assets.py
+      - run: (cd assets/cars && unzip -q -o kenney_car-kit.zip -d kenney && find kenney -maxdepth 3 | head -80)
+      - name: Push to stickman-assets
+        run: |
+          cd assets
+          git init -q -b stickman-assets
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          find . -size +95M -print -delete
+          git add -A
+          git commit -q -m "stickman assets from ${GITHUB_SHA}"
+          git push -q -f "https://x-access-token:${{ github.token }}@github.com/${GITHUB_REPOSITORY}.git" stickman-assets
+  render:
+    needs: plan
+    if: needs.plan.outputs.render == 'true'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 120
+    strategy:
+      fail-fast: false
+      max-parallel: 20
+      matrix:
+        chunk: ${{ fromJSON(needs.plan.outputs.chunks) }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: stickman-assets
+          path: assets
+      - name: Blender as a Python module
+        run: |
+          sudo apt-get -qq update && sudo apt-get -qq install -y ffmpeg libxi6 libxkbcommon0 libsm6 libgl1 > /dev/null
+          pip install -q uv
+          uv python install 3.11
+          uv venv -q -p 3.11 /tmp/bpy
+          VIRTUAL_ENV=/tmp/bpy uv pip install -q bpy numpy
+      - name: Render ${{ matrix.chunk }}
+        run: |
+          scene=$(python3 -c 'import json; print(json.load(open("stickman/render.json"))["scene"])')
+          res=$(python3 -c 'import json; print(json.load(open("stickman/render.json"))["res"])')
+          samples=$(python3 -c 'import json; print(json.load(open("stickman/render.json"))["samples"])')
+          /tmp/bpy/bin/python "stickman/$scene" frames --frames "${{ matrix.chunk }}" --res "$res" --samples "$samples" --assets assets 2>&1 | grep -E "Saved|RENDER_DONE|Error|Traceback" | tail -40
+          find frames -name '*.png' | wc -l
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: frames-${{ matrix.chunk }}
+          path: frames/*.png
+          retention-days: 3
+          compression-level: 0
+  join:
+    needs: [plan, render]
+    if: needs.plan.outputs.render == 'true'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
+        with:
+          pattern: frames-*
+          path: frames
+          merge-multiple: true
+      - name: Join and push
+        run: |
+          sudo apt-get -qq update && sudo apt-get -qq install -y ffmpeg > /dev/null
+          find frames -name '*.png' | wc -l
+          name=$(python3 -c 'import json; print(json.load(open("stickman/render.json"))["name"])')
+          first=$(python3 -c 'import json; print(json.load(open("stickman/render.json"))["first"])')
+          ffmpeg -v error -framerate 30 -start_number "$first" -i frames/f_%04d.png -c:v libx264 -crf 14 -preset slow -pix_fmt yuv420p "$name.mp4"
+          mkdir out && mv "$name.mp4" out/ && cd out
+          git init -q -b stickman-renders
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git fetch -q "https://github.com/${GITHUB_REPOSITORY}.git" stickman-renders && git reset -q FETCH_HEAD || true
+          git add "$name.mp4"
+          git commit -q -m "render $name from ${GITHUB_SHA}"
+          git push -q "https://x-access-token:${{ github.token }}@github.com/${GITHUB_REPOSITORY}.git" HEAD:stickman-renders
