@@ -155,7 +155,7 @@ frames = list(range(1, N + 1))
 times = [(f - 1) / FPS for f in frames]
 
 
-def animate(obj, state_fn, flip=False):
+def animate(obj, state_fn, flip=False, max_yaw=0.2):
     locs, rots = [], []
     prev = None
     for t in times:
@@ -168,7 +168,7 @@ def animate(obj, state_fn, flip=False):
         yaw_off = 0.0
         if abs(ds) + abs(dx) > 1e-4:
             yaw_off = -math.atan2(dx, max(abs(ds), 1e-4)) * (1 if not flip else -1)
-            yaw_off = max(-0.28, min(0.28, yaw_off))
+            yaw_off = max(-max_yaw, min(max_yaw, yaw_off))
         prev = (s_, x_)
         l_, r_ = pose(s_, x_, yaw_off, flip)
         locs.append(l_)
@@ -185,7 +185,7 @@ for v in jam:
     e.instance_type = "COLLECTION"
     e.instance_collection = fleet_all[v["key"]]
     traffic.objects.link(e)
-    animate(e, lambda t, v=v: jam_state(v, t))
+    animate(e, lambda t, v=v: jam_state(v, t), max_yaw=min(0.2, 0.9 / v["L"]))
 print("jam vehicles", len(jam))
 
 # opposite carriageway: free flow the other way
