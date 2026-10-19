@@ -1,13 +1,49 @@
 {
   "hdri_res": "2k",
-  "hdris": ["kloofendal_48d_partly_cloudy_puresky", "kloofendal_43d_clear_puresky"],
+  "hdris": [
+    "kloofendal_48d_partly_cloudy_puresky",
+    "kloofendal_43d_clear_puresky"
+  ],
   "tex_res": "2k",
-  "textures": ["asphalt_01", "asphalt_track", "clean_asphalt", "aerial_grass_rock"],
-  "texture_categories": ["grass", "ground", "metal"],
+  "textures": [
+    "asphalt_01",
+    "asphalt_track",
+    "clean_asphalt",
+    "aerial_grass_rock"
+  ],
+  "texture_categories": [
+    "grass",
+    "ground",
+    "metal"
+  ],
   "model_res": "1k",
-  "models": ["fir_tree_01", "grass_medium_01", "grass_medium_02", "fir_sapling_medium", "dandelion_01"],
+  "models": [
+    "fir_tree_01",
+    "grass_medium_01",
+    "grass_medium_02",
+    "fir_sapling_medium",
+    "dandelion_01"
+  ],
   "direct": [
-    ["cars/CarConcept.glb", "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/main/Models/CarConcept/glTF-Binary/CarConcept.glb", "CC-BY 4.0, Eric Chadwick / Darmstadt Graphics Group, from a CC0 model by Unity Fan (Khronos glTF Sample Assets). Khronos logos are trademarks: not shown."],
-    ["cars/kenney_car-kit.zip", "https://kenney.nl/media/pages/assets/car-kit/1a312ec241-1775131960/kenney_car-kit.zip", "CC0, Kenney (kenney.nl)"]
+    [
+      "cars/CarConcept.glb",
+      "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/main/Models/CarConcept/glTF-Binary/CarConcept.glb",
+      "CC-BY 4.0, Eric Chadwick / Darmstadt Graphics Group, from a CC0 model by Unity Fan (Khronos glTF Sample Assets). Khronos logos are trademarks: not shown."
+    ],
+    [
+      "cars/kenney_car-kit.zip",
+      "https://kenney.nl/media/pages/assets/car-kit/1a312ec241-1775131960/kenney_car-kit.zip",
+      "CC0, Kenney (kenney.nl)"
+    ],
+    [
+      "fonts/u-din-1451-mittelschrift.zip",
+      "https://fontlibrary.org/assets/downloads/u-din-1451-mittelschrift/9006e17601d5aa474dfedaa2ffa69380/u-din-1451-mittelschrift.zip",
+      "OFL, u_DIN 1451 Mittelschrift (Ludwig Goller, based on Alte DIN 1451 by Peter Wiegel), fontlibrary.org"
+    ],
+    [
+      "nature/kenney_nature-kit.zip",
+      "https://kenney.nl/media/pages/assets/nature-kit/37ac38a37b-1677698939/kenney_nature-kit.zip",
+      "CC0, Kenney Nature Kit (kenney.nl)"
+    ]
   ]
 }

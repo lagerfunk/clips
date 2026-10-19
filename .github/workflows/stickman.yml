@@ -43,6 +43,8 @@ jobs:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - run: python3 stickman/fetch_assets.py
       - run: (cd assets/cars && unzip -q -o kenney_car-kit.zip -d kenney && find kenney -maxdepth 3 | head -80)
+      - run: (cd assets/nature && unzip -q -o kenney_nature-kit.zip -d kenney && rm kenney_nature-kit.zip && find kenney -maxdepth 2 | head -40)
+      - run: (cd assets/fonts && unzip -q -o u-din-1451-mittelschrift.zip -d udin && find udin | head -20)
       - name: Push to stickman-assets
         run: |
           cd assets
