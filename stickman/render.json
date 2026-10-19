@@ -1,1 +1,1 @@
-{"enabled": true, "name": "stickfacts-autobahn-v2-fix316b", "scene": "scene_v2.py", "first": 316, "last": 465, "chunks": 10, "res": 720, "samples": 24}
+{"enabled": true, "name": "dlal-01-rettungsgasse-v1", "scene": "ep01_rettungsgasse.py", "first": 1, "last": 840, "chunks": 20, "res": 720, "samples": 16}
