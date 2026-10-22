@@ -69,7 +69,7 @@ a1 = jx.kinematics(STOP_A - 11.6 - 8.3 * 3.4, 8.3, [(0, "cruise", 8.3), (3.4, "s
                    seg1, a_acc=1.8)
 c1 = jx.kinematics(95.0 - 1.5 - 8.3 * 8.05, 8.3, [(0, "cruise", 8.3)], seg1)
 seg2 = int(round(5.6 * FPS))
-a2 = jx.kinematics(STOP_A - 9.5, 5.5, [(0, "cruise", 5.5), (0.2, "stop", STOP_A), (4.8, "cruise", 5.0)], seg2, a_acc=1.8)
+a2 = jx.kinematics(STOP_A - 6.5, 4.5, [(0, "cruise", 4.5), (0.2, "stop", STOP_A), (4.8, "cruise", 5.0)], seg2, a_acc=1.8)
 c2 = jx.kinematics(95.0 - 1.5 - 8.3 * 4.0, 8.3, [(0, "cruise", 8.3)], seg2)
 seg3 = N - seg1 - seg2
 a3 = jx.kinematics(STOP_A, 0.0, [(0, "hold", None), (2.0, "cruise", 5.0)], seg3, a_acc=1.8)
