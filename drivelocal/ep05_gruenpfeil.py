@@ -92,7 +92,7 @@ jx.ribbon(PA, STOP_A + A["L"] / 2 + 0.6, STOP_A + 24.0, jx.BADGE_COLOURS["A"], S
 jx.ribbon(PC, 95.0 - 12.0, 95.0 + 10.0, jx.BADGE_COLOURS["C"], S["env"], 4.3, 8.8, name="ribC")
 
 # red light and green arrow plate as a flat icon beside A's signal for the top view
-jx.signal_callout(S["T"], lib, S["env"], "call_sig", (6.6, -10.2), 3.3, 9.6)
+jx.signal_callout(S["T"], lib, S["env"], "call_sig", (7.0, -11.0), 3.3, 9.6, scale=3.1)
 
 shots = jx.Shots(N)
 UP = Vector((0, 1, 0))

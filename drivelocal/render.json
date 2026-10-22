@@ -1,3 +1,5 @@
 {"enabled": true, "jobs": [
-  {"name": "dlal-03-three-cars", "scene": "ep03_three_cars.py", "frames": "1-768", "chunks": 20, "res": 720, "samples": 16}
+  {"name": "dlal-02-rechts-vor-links", "scene": "ep02_rechts_vor_links.py", "frames": "1-735", "chunks": 20, "res": 720, "samples": 16},
+  {"name": "dlal-04-priority-road", "scene": "ep04_priority_road.py", "frames": "1-735", "chunks": 20, "res": 720, "samples": 16},
+  {"name": "dlal-05-gruenpfeil", "scene": "ep05_gruenpfeil.py", "frames": "1-774", "chunks": 20, "res": 720, "samples": 16}
 ]}
