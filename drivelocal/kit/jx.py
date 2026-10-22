@@ -292,6 +292,8 @@ def badge(letter, car, c, font, t_on, t_off, size=1.9, color=None):
     t = W.text_obj("badge_txt", letter, size * 0.86, dark, c, "CENTER", "CENTER", 0.0, font=font)
     t.location = (0, -size * 0.03, 0.02)
     t.parent = root
+    for o in root.children:
+        o.visible_shadow = False
     # follow the car (location only), pop in and out
     track = car["track"]
     z = car["roof"] + 0.9
@@ -352,6 +354,7 @@ def ribbon(path, s0, s1, color, c, t_on, t_off, width=1.0, z=0.035, name="ribbon
     for poly in o.data.polygons:
         if poly.normal.z < 0:
             poly.flip()
+    o.visible_shadow = False
     return o
 
 
@@ -423,10 +426,13 @@ def callout_from(sign_coll, name, c, loc, t_on, t_off, scale=2.6, height=2.3, z=
     for o in list(lib.objects):
         if o.name.startswith("post"):
             bpy.data.objects.remove(o)
+    for o in lib.all_objects:
+        o.visible_shadow = False
     e = bpy.data.objects.new(name, None)
     e.instance_type = "COLLECTION"
     e.instance_collection = lib
     c.objects.link(e)
+    e.visible_shadow = False
     e.rotation_euler = (-math.pi / 2, 0, 0)
     base = Vector((loc[0], loc[1] - height * scale, z))
     f_on, f_off = int(t_on * FPS) + 1, int(t_off * FPS) + 1

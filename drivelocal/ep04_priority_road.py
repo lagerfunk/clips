@@ -86,8 +86,8 @@ jx.ribbon(PB, STOP_B + B["L"] / 2 + 0.6, STOP_B + 17.0, jx.BADGE_COLOURS["B"], S
 
 # the signs, laid flat and big for the top view (the real ones stand on the footway)
 import town as TN  # noqa: E402
-jx.callout_from(TN.sign_306(S["T"], lib), "call306", S["env"], (6.4, -12.0), 0.6, 9.6)
-jx.callout_from(TN.sign_205(S["T"], lib), "call205", S["env"], (9.6, 6.2), 0.9, 9.6)
+jx.callout_from(TN.sign_306(S["T"], lib), "call306", S["env"], (6.6, -12.0), 0.6, 9.6, scale=3.6)
+jx.callout_from(TN.sign_205(S["T"], lib), "call205", S["env"], (9.4, 6.4), 0.9, 9.6, scale=2.9)
 
 shots = jx.Shots(N)
 UP = Vector((0, 1, 0))

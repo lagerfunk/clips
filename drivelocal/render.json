@@ -1,1 +1,3 @@
-{"enabled": false, "jobs": []}
+{"enabled": true, "jobs": [
+  {"name": "dlal-03-three-cars", "scene": "ep03_three_cars.py", "frames": "1-768", "chunks": 20, "res": 720, "samples": 16}
+]}
