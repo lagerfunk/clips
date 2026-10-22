@@ -1,0 +1,121 @@
+name: drivelocal
+# Drive Like a Local episodes. A change to drivelocal/render.json renders every listed job on parallel runners
+# (Blender as a Python module, Cycles on CPU) and puts each joined video on the branch "drivelocal-renders".
+# Assets (HDRI sky, sign font) come from the branch "stickman-assets". No secrets are used.
+on:
+  push:
+    branches: [main]
+    paths: ['drivelocal/render.json']
+permissions:
+  contents: write
+concurrency:
+  group: drivelocal
+  cancel-in-progress: false
+jobs:
+  plan:
+    runs-on: ubuntu-24.04
+    outputs:
+      chunks: ${{ steps.p.outputs.chunks }}
+      names: ${{ steps.p.outputs.names }}
+      enabled: ${{ steps.p.outputs.enabled }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - id: p
+        run: |
+          python3 - >> "$GITHUB_OUTPUT" <<'PY'
+          import json
+          r = json.load(open("drivelocal/render.json"))
+          chunks, names = [], []
+          for j in r.get("jobs", []):
+              a, b = (int(x) for x in j["frames"].split("-"))
+              n = j["chunks"]
+              step = -(-(b - a + 1) // n)
+              names.append(j["name"])
+              for s in range(a, b + 1, step):
+                  chunks.append({"name": j["name"], "scene": j["scene"], "range": f"{s}-{min(b, s + step - 1)}",
+                                 "res": j["res"], "samples": j["samples"]})
+          print("enabled=" + str(bool(r.get("enabled")) and bool(chunks)).lower())
+          print("chunks=" + json.dumps({"include": chunks}))
+          print("names=" + json.dumps(names))
+          PY
+  render:
+    needs: plan
+    if: needs.plan.outputs.enabled == 'true'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 150
+    strategy:
+      fail-fast: false
+      max-parallel: 20
+      matrix: ${{ fromJSON(needs.plan.outputs.chunks) }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: stickman-assets
+          path: assets
+          sparse-checkout: |
+            hdri
+            fonts/udin
+      - name: Blender as a Python module
+        run: |
+          sudo apt-get -qq update && sudo apt-get -qq install -y libxi6 libxkbcommon0 libsm6 libgl1 > /dev/null
+          pip install -q uv
+          uv python install 3.11
+          uv venv -q -p 3.11 /tmp/bpy
+          VIRTUAL_ENV=/tmp/bpy uv pip install -q bpy numpy
+      - name: Render ${{ matrix.name }} ${{ matrix.range }}
+        env:
+          SCENE: ${{ matrix.scene }}
+          RANGE: ${{ matrix.range }}
+          RES: ${{ matrix.res }}
+          SAMPLES: ${{ matrix.samples }}
+        run: |
+          /tmp/bpy/bin/python "drivelocal/$SCENE" frames --frames "$RANGE" --res "$RES" --samples "$SAMPLES" \
+            --assets assets 2>&1 | grep -E "Saved /|RENDER_DONE|Error|Traceback|line [0-9]+" | tail -60
+          n=$(find frames -name '*.png' | wc -l)
+          echo "frames: $n"
+          test "$n" -gt 0
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: frames-${{ matrix.name }}-${{ matrix.range }}
+          path: frames/*.png
+          retention-days: 3
+          compression-level: 0
+  join:
+    needs: [plan, render]
+    if: always() && needs.plan.outputs.enabled == 'true'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      max-parallel: 1
+      matrix:
+        name: ${{ fromJSON(needs.plan.outputs.names) }}
+    steps:
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
+        with:
+          pattern: frames-${{ matrix.name }}-*
+          path: frames
+          merge-multiple: true
+      - name: Join and push
+        env:
+          NAME: ${{ matrix.name }}
+        run: |
+          sudo apt-get -qq update && sudo apt-get -qq install -y ffmpeg > /dev/null
+          n=$(find frames -name '*.png' | wc -l)
+          first=$(find frames -name 'f_*.png' | sed 's/.*f_0*//; s/\.png//' | sort -n | head -1)
+          echo "$NAME: $n frames from $first"
+          ffmpeg -v error -framerate 30 -start_number "$first" -i frames/f_%04d.png -c:v libx264 -crf 14 \
+            -preset slow -pix_fmt yuv420p "$NAME.mp4"
+          mkdir out && mv "$NAME.mp4" out/ && cd out
+          git init -q -b drivelocal-renders
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git fetch -q "https://github.com/${GITHUB_REPOSITORY}.git" drivelocal-renders && git reset -q FETCH_HEAD || true
+          git add "$NAME.mp4"
+          git commit -q -m "render $NAME ($n frames) from ${GITHUB_SHA}"
+          for _ in 1 2 3; do
+            git push -q "https://x-access-token:${{ github.token }}@github.com/${GITHUB_REPOSITORY}.git" \
+              HEAD:drivelocal-renders && break
+            git fetch -q "https://github.com/${GITHUB_REPOSITORY}.git" drivelocal-renders && git rebase -q FETCH_HEAD
+          done
