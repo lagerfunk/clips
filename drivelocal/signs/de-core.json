@@ -329,11 +329,8 @@
    "search": "Zusatzzeichen 1004-30"
   },
   {
-   "id": "113",
-   "search": "Zeichen 113",
-   "require": [
-    "Schnee"
-   ]
+   "id": "101-51",
+   "search": "Zeichen 101-51"
   }
  ],
  "rev": 2
