@@ -1,0 +1,19 @@
+job trackc2-roundabout stills 60,150,250,360,500,600,700,940 res 720 samples 32 args '--pilot 2 --half roundabout': 8 png
+09:23.079  cycles           | WARNING CUEW initialization failed: Error opening the library
+10:06.815  render           | Saved: 'frames/f_0060.png'
+Saved frames/f_0060.png
+10:57.584  render           | Saved: 'frames/f_0150.png'
+Saved frames/f_0150.png
+11:37.896  render           | Saved: 'frames/f_0250.png'
+Saved frames/f_0250.png
+12:28.814  render           | Saved: 'frames/f_0360.png'
+Saved frames/f_0360.png
+13:19.707  render           | Saved: 'frames/f_0500.png'
+Saved frames/f_0500.png
+14:11.174  render           | Saved: 'frames/f_0600.png'
+Saved frames/f_0600.png
+14:50.402  render           | Saved: 'frames/f_0700.png'
+Saved frames/f_0700.png
+15:40.995  render           | Saved: 'frames/f_0940.png'
+Saved frames/f_0940.png
+RENDER_DONE None

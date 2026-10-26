@@ -1,0 +1,14 @@
+job trackc-wide stills 40,640 res 720 samples 48 args '': 2 png
+/home/runner/work/clips/clips/drivelocal/lookdev/ld_trackc.py:4706: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  m.use_nodes = True
+/home/runner/work/clips/clips/drivelocal/lookdev/ld_trackc.py:4913: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  m.use_nodes = True
+/home/runner/work/clips/clips/drivelocal/lookdev/ld_trackc.py:4956: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  m.use_nodes = True
+00:46.988  cycles           | WARNING CUEW initialization failed: Error opening the library
+02:04.637  render           | Saved: 'frames/f_0040.png'
+vegetation 16021 10898 2 14
+Saved frames/f_0040.png
+03:31.459  render           | Saved: 'frames/f_0640.png'
+Saved frames/f_0640.png
+RENDER_DONE None

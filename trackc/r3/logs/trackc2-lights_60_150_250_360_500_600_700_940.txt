@@ -1,0 +1,19 @@
+job trackc2-lights stills 60,150,250,360,500,600,700,940 res 720 samples 32 args '--pilot 2 --half lights': 8 png
+10:26.753  cycles           | WARNING CUEW initialization failed: Error opening the library
+11:11.507  render           | Saved: 'frames/f_0060.png'
+Saved frames/f_0060.png
+12:04.993  render           | Saved: 'frames/f_0150.png'
+Saved frames/f_0150.png
+12:45.612  render           | Saved: 'frames/f_0250.png'
+Saved frames/f_0250.png
+13:39.092  render           | Saved: 'frames/f_0360.png'
+Saved frames/f_0360.png
+14:32.188  render           | Saved: 'frames/f_0500.png'
+Saved frames/f_0500.png
+15:26.939  render           | Saved: 'frames/f_0600.png'
+Saved frames/f_0600.png
+16:10.544  render           | Saved: 'frames/f_0700.png'
+Saved frames/f_0700.png
+17:03.161  render           | Saved: 'frames/f_0940.png'
+Saved frames/f_0940.png
+RENDER_DONE None
