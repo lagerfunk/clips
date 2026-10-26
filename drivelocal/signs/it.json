@@ -1,12 +1,17 @@
 {
  "set": "it",
- "rev": 2,
+ "rev": 3,
  "note": "Episode 2 Italy ZTL: entry sign, end sign, no-entry and pedestrian-zone signs (GPS-trap street). Entries with a 'title' are exact Commons file names taken from the runner's DISCOVER.txt (run of 2026-10-26); fetch_signs.py accepts only that exact title. Licences from sources.json (retrieved 2026-10-26): all four public domain. 'ztl' is the 1992-1996 drawing of figura II 322; DISCOVER.txt also lists the current 'zona traffico limitato (figura II 322-a).svg' if a newer look is wanted.",
  "signs": [
   {
    "id": "ztl",
    "title": "File:Italian traffic signs - zona a traffico limitato (figura II 322, 1992-1996).svg",
    "need": "ZTL start sign (figura II 322)"
+  },
+  {
+   "id": "ztl-a",
+   "title": "File:Italian traffic signs - zona traffico limitato (figura II 322-a).svg",
+   "need": "ZTL start sign, current Codice drawing (figura II 322-a); B02 prefers it over the 1992-1996 file once fetched"
   },
   {
    "id": "ztl-end",
