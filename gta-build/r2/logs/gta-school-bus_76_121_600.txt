@@ -1,0 +1,9 @@
+job gta-school-bus stills 76,121,600 res 720 samples 16 args '': 3 png
+03:03.459  cycles           | WARNING CUEW initialization failed: Error opening the library
+03:35.492  render           | Saved: 'frames/f_0076.png'
+Saved frames/f_0076.png
+04:01.628  render           | Saved: 'frames/f_0121.png'
+Saved frames/f_0121.png
+04:22.228  render           | Saved: 'frames/f_0600.png'
+Saved frames/f_0600.png
+RENDER_DONE None

@@ -1,0 +1,7 @@
+job gta-speed-bands-b stills 700,1000 res 720 samples 16 args '': 2 png
+02:33.697  cycles           | WARNING CUEW initialization failed: Error opening the library
+03:08.531  render           | Saved: 'frames/f_0700.png'
+Saved frames/f_0700.png
+03:31.912  render           | Saved: 'frames/f_1000.png'
+Saved frames/f_1000.png
+RENDER_DONE None

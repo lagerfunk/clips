@@ -1,0 +1,11 @@
+job gta-move-over-b stills 380,500,680,770 res 720 samples 16 args '': 4 png
+02:38.571  cycles           | WARNING CUEW initialization failed: Error opening the library
+03:15.235  render           | Saved: 'frames/f_0380.png'
+Saved frames/f_0380.png
+03:52.937  render           | Saved: 'frames/f_0500.png'
+Saved frames/f_0500.png
+04:20.548  render           | Saved: 'frames/f_0680.png'
+Saved frames/f_0680.png
+04:54.280  render           | Saved: 'frames/f_0770.png'
+Saved frames/f_0770.png
+RENDER_DONE None
