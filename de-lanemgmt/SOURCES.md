@@ -1,0 +1,13 @@
+# Sign sources, set de-lanemgmt
+
+Wikimedia Commons files, used unaltered (German signs: section 5(1) and 5(2) UrhG). Name the source in every video description.
+
+- 1004-35: [Zusatzzeichen 1004-35 - nach 2 km, StVO 1992.svg](https://commons.wikimedia.org/wiki/File:Zusatzzeichen_1004-35_-_nach_2_km,_StVO_1992.svg), Public domain, Andreas 06, authentische Bemaßung und Gestaltung des Schildrahmens: Mediatus, retrieved 2026-10-26
+- 1004-800: [Zusatzschild 741 - nach 800 m, StVO 1970.svg](https://commons.wikimedia.org/wiki/File:Zusatzschild_741_-_nach_800_m,_StVO_1970.svg), Public domain, nach den historischen Vorgaben interpretiert und digital umgesetzt durch Mediatus, retrieved 2026-10-26
+- 124: [Zeichen 124 - Stau, StVO 1992.svg](https://commons.wikimedia.org/wiki/File:Zeichen_124_-_Stau,_StVO_1992.svg), Public domain, vectorized by, retrieved 2026-10-26
+- 223.1-51: [Zeichen 223.1-51 - Seitenstreifen befahrbar, 3 Fahrstreifen u. Seitenstreifen, StVO 2017.svg](https://commons.wikimedia.org/wiki/File:Zeichen_223.1-51_-_Seitenstreifen_befahrbar,_3_Fahrstreifen_u._Seitenstreifen,_StVO_2017.svg), Public domain, Nach den amtlichen Vorgaben digital umgesetzt durch: Mediatus, retrieved 2026-10-26
+- 223.3-51: [Zeichen 223.3-51 - Seitenstreifen räumen, 3 Fahrstreifen u. Seitenstreifen, StVO 2017.svg](https://commons.wikimedia.org/wiki/File:Zeichen_223.3-51_-_Seitenstreifen_r%C3%A4umen,_3_Fahrstreifen_u._Seitenstreifen,_StVO_2017.svg), Public domain, Nach den amtlichen Vorgaben digital umgesetzt durch: Mediatus, retrieved 2026-10-26
+- 274-40: [Zeichen 274-40 - Zulässige Höchstgeschwindigkeit, StVO 2017.svg](https://commons.wikimedia.org/wiki/File:Zeichen_274-40_-_Zul%C3%A4ssige_H%C3%B6chstgeschwindigkeit,_StVO_2017.svg), Public domain, Nach den amtlichen Vorgaben digital umgesetzt durch: Mediatus, retrieved 2026-10-26
+- 328: [Zeichen 328 - Nothalte- und Pannenbucht, StVO 2006.svg](https://commons.wikimedia.org/wiki/File:Zeichen_328_-_Nothalte-_und_Pannenbucht,_StVO_2006.svg), Public domain, Andreas06 and Mediatus, retrieved 2026-10-26
+- 531-11: [Zeichen 531-11 - Einengungstafel, Darstellung ohne Gegenverkehr- noch zwei Fahrstreifen links in Fahrtrichtung, StVO 1992.svg](https://commons.wikimedia.org/wiki/File:Zeichen_531-11_-_Einengungstafel,_Darstellung_ohne_Gegenverkehr-_noch_zwei_Fahrstreifen_links_in_Fahrtrichtung,_StVO_1992.svg), Public domain, Federal Highway Research Institute (Germany), retrieved 2026-10-26
+- 605-20: [Zeichen 605-20 - Leitbake (Aufstellung links), 1000x250; StVO 1992.svg](https://commons.wikimedia.org/wiki/File:Zeichen_605-20_-_Leitbake_(Aufstellung_links),_1000x250;_StVO_1992.svg), Public domain, Mediatus, retrieved 2026-10-26

@@ -1,12 +1,12 @@
-## Swiss road sign Autobahn (65)
+## Swiss road sign Autobahn (66)
   File:Swiss Autobahn Sign.jpg
   File:Km 42 sign on Autobahn A2 in Switzerland, 2017.jpg
   File:Autobahn A9 Verzweigung Brig-Gils.jpg
   File:CH-Autobahn 18.png
-  File:Autobahn A51 exit Opfikon Wallisellen Oerlikon 5472 - 20180619 (48402670167).jpg
   File:Autobahn-Signalisationstafeln im Verkehrshaus.jpg
-  File:Verzweigung Bern-Weyermannshaus (Autobahn A1 A12), directional signs in 2013.jpg
+  File:Autobahn A51 exit Opfikon Wallisellen Oerlikon 5472 - 20180619 (48402670167).jpg
   File:Verzweigung Hagnau (Autobahn A2 and A18) on A2 northbound, 2013.jpg
+  File:Verzweigung Bern-Weyermannshaus (Autobahn A1 A12), directional signs in 2013.jpg
   File:Raischibe Autobahn-Tunnel, Blick Richtung Chur.jpg
   File:Autobahn A7 beginnt in Kreuzlingen TG (2023).jpg
   File:Verzweigung Reichenburg, interchange 42 with Autobahn A3, 2018.jpg
@@ -42,10 +42,10 @@
   File:Uster-autobahn01.jpg
   File:20180619 WalenseeHwy 5640 (48402798431).jpg
   File:20170711 OltenHwy 0804 (36125566793).jpg
-  File:Raststätte Pratteln g.JPG
   File:CH HighwayPictures AG 58.jpg
-  File:CH HighwayPictures AG 51.jpg
+  File:Raststätte Pratteln g.JPG
   File:CH HighwayPictures AG 50.jpg
+  File:CH HighwayPictures AG 51.jpg
   File:Polizeiauto der Luzerner Polizei.jpg
   File:CH HighwayPictures AG 55.jpg
   File:Seelisbergtunnel Nordportal.jpg
@@ -57,6 +57,7 @@
   File:AB-Tunnel.svg
   File:Bremgartenwald - panoramio (12).jpg
   File:Gigafactory Logistics in Space and Time - Tesla’s Fourth Gigafactory and Its Rivals.pdf
+  File:OJ C 65 of 2013 - EN English.pdf
   File:State 1990-01- Iss 329 (IA sim state-magazine 1990-01 329).pdf
   File:26March2008.pdf
   File:The best of both worlds (with notes).pdf
@@ -70,16 +71,16 @@
   File:Swiss Signal ETCS Shunting End.svg
   File:CH-symbole-signal-9a.svg
   File:Swiss Signal Shunting Evacuation Allowed 1.svg
-  File:ERTMS trackside board 10 - GSM-R network border marker - EN 16494 (CH).svg
   File:Swiss Signal Shunting Evacuation Allowed 2.svg
   File:Swiss Signal Shunting Evacuation Forbidden 1.svg
+  File:ERTMS trackside board 10 - GSM-R network border marker - EN 16494 (CH).svg
   File:Swiss Signal Shunting Evacuation Forbidden 2.svg
-  File:Swiss Signal CAB End.svg
   File:Swiss Signal CAB Start.svg
-  File:Swiss Signal Station announce.svg
-  File:CH-Vorschriftssignal-Verbot für Motorräder.svg
   File:Swiss Signal Station Begin.svg
+  File:Swiss Signal Station announce.svg
+  File:Swiss Signal CAB End.svg
   File:Swiss Signal Station End.svg
+  File:CH-Vorschriftssignal-Verbot für Motorräder.svg
   File:Swiss Signal Stop.svg
   File:Swiss Signal ETCS Shunting Stop.svg
   File:Swiss Signal ETCS Shunting Back.svg
@@ -89,82 +90,82 @@
   File:Swiss Signal Raise Pantograph.svg
   File:Swiss Signal Lower Pantograph.svg
   File:Swiss Signal ETCS Shunting Proceed with caution.svg
-  File:CH-Vortrittssignal-Wechselblinklicht.svg
   File:CH-Gefahrensymbol-Rechtskurve.svg
+  File:CH-Vortrittssignal-Wechselblinklicht.svg
   File:Swiss Signal Distant Lower Pantograph.svg
   File:Swiss Signal Level Crossing Announce.svg
   File:CH-Vortrittssignal-Einfaches Blinklicht.svg
   File:CH-Gefahrensignale-Distanzbaken.svg
   File:CH-Gefahrensignal-Steinschlag (1).svg
+  File:CH-Vorschriftssignal-Zonensignal-6.svg
   File:CH-Gefahrensignal-Steinschlag (2).svg
+  File:CH-Vorschriftssignal-Zonensignal-5.svg
   File:CH-Vorschriftssignal-Zonensignal-3.svg
   File:CH-Vortrittssignal-Einfaches Andreaskreuz 2.svg
-  File:CH-Vorschriftssignal-Zonensignal-6.svg
-  File:CH-Vorschriftssignal-Zonensignal-5.svg
   File:CH-Vorschriftssignal-Zonensignal-2.svg
-  File:CH-Vorschriftssignal-Fussgängerzone-2.svg
-  File:CH-Vorschriftssignal-Begegnungszone-1.svg
-  File:CH-Vorschriftssignal-Ende-Zonensignal-6.svg
-  File:CH-Vorschriftssignal-Ende-Zonensignal-3.svg
   File:CH-Vorschriftssignal-Begegnungszone-2.svg
+  File:CH-Vorschriftssignal-Ende-Zonensignal-6.svg
   File:CH-Vorschriftssignal-Fussgängerzone-1.svg
-  File:CH-Vortrittssignal-Doppeltes Andreaskreuz 2.svg
+  File:CH-Vorschriftssignal-Ende-Zonensignal-3.svg
+  File:CH-Vorschriftssignal-Fussgängerzone-2.svg
   File:CH-Vorschriftssignal-Ende-Zonensignal-5.svg
+  File:CH-Vorschriftssignal-Begegnungszone-1.svg
+  File:CH-Vortrittssignal-Doppeltes Andreaskreuz 2.svg
   File:CH-Gefahrensignal-Steinschlag(2).svg
   File:CH-Vorschriftssignal-Zonensignal-1.svg
   File:CH-Vorschriftssignal-Zollhaltestelle-2.svg
+  File:CH-Vorschriftssignal-Ende-Zonensignal-2.svg
   File:CH-Hinweissignal-Bestätigungstafel (3).svg
+  File:CH-Vorschriftssignal-Höchstgeschwindigkeit 50 generell-2.svg
+  File:CH-Hinweissignal-Ausfahrtstafel (2).svg
   File:CH-Hinweissignal-Standort eines Fussgängerstreifens (gespiegelt).svg
   File:CH-Hinweissignal-Ausfahrtstafel (3).svg
-  File:CH-Vorschriftssignal-Ende-Zonensignal-2.svg
-  File:CH-Vorschriftssignal-Höchstgeschwindigkeit 50 generell-3.svg
-  File:CH-Hinweissignal-Ausfahrtstafel (2).svg
-  File:CH-Vorschriftssignal-Höchstgeschwindigkeit 50 generell-2.svg
   File:CH-Vorschriftssignal-Ende der Begegnungszone-2.svg
+  File:CH-Vorschriftssignal-Höchstgeschwindigkeit 50 generell-3.svg
+  File:CH-Vorschriftssignal-Polizei-2.svg
+  File:CH-Hinweissignal-Ausfahrtstafel (1).svg
+  File:CH-Vorschriftssignal-Ende der Fussgängerzone-2.svg
   File:CH-Vorschriftssignal-Ende-Zonensignal-1.svg
   File:CH-Vorschriftssignal-Zollhaltestelle-1.svg
-  File:CH-Hinweissignal-Ausfahrtstafel (1).svg
+  File:CH-Vorschriftssignal-Ende der Begegnungszone-1.svg
+  File:CH-Gefahrsignal 7 - Vortrittsrecht, SSV 1932.svg
+  File:CH-Hinweissignal-Fussgänger-Überführung (gespiegelt).svg
   File:CH-Vorschriftssignal-Polizei-1.svg
   File:CH-Hinweissignal-Fussgänger-Unterführung (gespiegelt).svg
-  File:CH-Hinweissignal-Fussgänger-Überführung (gespiegelt).svg
-  File:CH-Vorschriftssignal-Ende der Fussgängerzone-2.svg
-  File:CH-Vorschriftssignal-Ende der Begegnungszone-1.svg
-  File:CH-Vorschriftssignal-Polizei-2.svg
-  File:CH-Gefahrsignal 7 - Vortrittsrecht, SSV 1932.svg
-  File:CH-Vorschriftssignal-Zonensignal-4.svg
-  File:CH-Gefahrsignal 6 - Andere Gefahren, SSV 1932.svg
   File:CH-Vorschriftssignal-Ende der Fussgängerzone-1.svg
-  File:CH-Zusatztafel-Panzer.svg
-  File:CH-Gefahrensignal-Tiere.svg
-  File:CH-Vorschriftssignal-Kreisverkehrsplatz.svg
-  File:CH-Gefahrensignal-Wildwechsel.svg
+  File:CH-Gefahrsignal 6 - Andere Gefahren, SSV 1932.svg
+  File:CH-Vorschriftssignal-Zonensignal-4.svg
+  File:CH-Gefahrensignal-Baustelle.svg
+  File:CH-Gefahrensignal-Rollsplitt.svg
   File:CH-Vortrittssignal-Hauptstrasse.svg
   File:CH-Vorschriftssignal-Rechtsabbiegen.svg
   File:CH-Vorschriftssignal-Achsdruck.svg
-  File:CH-Vorschriftssignal-Ende-Zonensignal-4.svg
-  File:CH-Gefahrensignal-Gegenverkehr.svg
-  File:CH-Vorschriftssignal-Radweg.svg
-  File:CH-Vorschriftssignal-Busfahrbahn.svg
-  File:CH-Vorschriftssignal-Höchstgewicht.svg
-  File:CH-Vorschriftssignal-Linksabbiegen.svg
-  File:CH-Gefahrensignal-Seitenwind.svg
-  File:CH-Zusatztafel-Richtungstafel.svg
   File:CH-Gefahrensignal-Stau.svg
-  File:CH-Zusatztafel-Streckenlänge.svg
-  File:CH-Gefahrensignal-Rollsplitt.svg
-  File:CH-Hinweissignal-Hinweis auf Polizeistützpunkte (3).svg
-  File:CH-Gefahrensignal-Baustelle.svg
-  File:CH-Vorschriftssignal-Höchstgeschwindigkeit 50 generell-4.svg
-  File:CH-Gefahrensignal-Strassenbahn.svg
-  File:CH-Zusatztafel-Schiesslärm.svg
-  File:CH-Vorschriftssignal-Geradeausfahren.svg
-  File:CH-Vorschriftssignal-Reitweg.svg
+  File:CH-Vorschriftssignal-Ende-Zonensignal-4.svg
   File:CH-Hinweissignal-Hinweis auf Polizeistützpunkte (2).svg
-  File:CH-Gefahrensignal-Schranken.svg
-  File:CH-Vorschriftssignal-Höchstbreite.svg
+  File:CH-Zusatztafel-Panzer.svg
+  File:CH-Vorschriftssignal-Geradeausfahren.svg
+  File:CH-Hinweissignal-Hinweis auf Polizeistützpunkte (1).svg
   File:CH-Vorschriftssignal-Ende der Höchstgeschwindigkeit 50 generell-2.svg
+  File:CH-Vorschriftssignal-Kreisverkehrsplatz.svg
   File:CH-Gefahrensignal-Radfahrer.svg
+  File:CH-Vorschriftssignal-Höchstgewicht.svg
+  File:CH-Vorschriftssignal-Busfahrbahn.svg
+  File:CH-Vorschriftssignal-Linksabbiegen.svg
+  File:CH-Gefahrensignal-Tiere.svg
+  File:CH-Gefahrensignal-Flugzeuge.svg
+  File:CH-Zusatztafel-Streckenlänge.svg
+  File:CH-Gefahrensignal-Wildwechsel.svg
+  File:CH-Vorschriftssignal-Ende der Höchstgeschwindigkeit 50 generell-4.svg
+  File:CH-Gefahrensignal-Engpass.svg
+  File:CH-Vorschriftssignal-Ende der Höchstgeschwindigkeit 50 generell-1.svg
+  File:CH-Gefahrensignal-Seitenwind.svg
+  File:CH-Vorschriftssignal-Höchsthöhe.svg
+  File:CH-Vorschriftssignal-Höchstgeschwindigkeit 50 generell-4.svg
+  File:CH-Zusatztafel-Schiesslärm.svg
+  File:CH-Gefahrensignal-Strassenbahn.svg
   File:CH-Zusatztafel-Wegweiser «Route für fahrzeugähnliche Geräte».svg
+  File:CH-Gefahrensignal-Fussgaengerstreifen.svg
 ## Schweizer Signal Autobahn (0)
 ## Swiss road sign 4.01 (100)
   File:No vehicles road sign in Switzerland.jpg
@@ -176,8 +177,8 @@
   File:Panneau 4.01 début autoroute A1 Bardonnex.jpg
   File:Swiss Museum of Transportation(Verkehrshaus der Schweiz) Lucerne, Switzerland (Ank Kumar, Infosys Limited) 01.jpg
   File:Turning on red signal for cyclists road sign, Switzerland, Onex-01.jpg
-  File:Turning on red signal for cyclists road sign, Switzerland, PontRouge-01.jpg
   File:No stopping sign near Sentiero di Gandria Switzerland.jpg
+  File:Turning on red signal for cyclists road sign, Switzerland, PontRouge-01.jpg
   File:Val Medel road toll sign.jpg
   File:Turning on red signal for cyclists road sign, Switzerland, Acacias-02.jpg
   File:Km 65.2 sign on highway in Switzerland, 2020.jpg
@@ -214,56 +215,56 @@
   File:Panneau suisse 4.54 orange.jpg
   File:Street sign Liselotte Spreng 01.jpg
   File:Panneau 1.01 attention virage à droite, route de Saint-Cergue 01.jpg
-  File:Panneau 4.92 extincteur sur la Jaunestrasse.jpg
   File:Bellevue panneau suisse 3.01.jpg
+  File:Panneau 4.92 extincteur sur la Jaunestrasse.jpg
   File:Cantilever sign Fleur de Lys Fribourg 01.jpg
-  File:Gotthard-Strassentunnel Nord-Süd-8889.jpg
   File:CH-symbole-signal-9.01.svg
-  File:Cantilever inn sign Fleur de Lys Fribourg 01.jpg
+  File:Gotthard-Strassentunnel Nord-Süd-8889.jpg
   File:Panneau 4.77 de 3 à 2 voies à 200 m.jpg
-  File:(Velo)Wegweiser in Schaffhausen.jpg
+  File:Cantilever inn sign Fleur de Lys Fribourg 01.jpg
   File:Panneaux 2.16 2.17 5.01 et feu vert.jpg
+  File:(Velo)Wegweiser in Schaffhausen.jpg
   File:Praille panneau 4.02.jpg
-  File:Panneaux 2.36 et 3.01, chemin du Vieux-Châtel.jpg
   File:CH HighwayPictures AG 08.jpg
+  File:Panneaux 2.36 et 3.01, chemin du Vieux-Châtel.jpg
   File:Panneaux 2.16 2.17 5.01 et feu rouge.jpg
-  File:Panneau 1.01 attention virage à droite, route de Saint-Cergue 02.jpg
   File:Rue des Grottes-01-Zone 20.jpg
   File:Panneau 1.01 attention virage à droite, route de Saint-Cergue 03.jpg
   File:Pont Sierre-Chippis 01.jpg
+  File:Panneau 1.01 attention virage à droite, route de Saint-Cergue 02.jpg
   File:Cara Panneaux suisses 1.06 5.01.jpg
+  File:Veyrier panneaux 2.11 5.01.jpg
   File:Panneau suisse 4.21 4.33.jpg
   File:Street sign Planche-Supérieure Fribourg 01.jpg
-  File:Veyrier panneaux 2.11 5.01.jpg
-  File:Panneau 3.05 route de Genolier (1).jpg
   File:Street sign rue d'Or Fribourg 01.jpg
   File:Carouge - Rue du Marché - travaux 01.jpg
+  File:Panneau 3.05 route de Genolier (1).jpg
   File:Street sign Grand-Rue Fribourg 01.jpg
   File:Panneaux suisses 4.81 et 4.92 au tunnel de Collombey 01.jpg
   File:Signal routier suisse 4.77.1 largeur max 2 m.jpg
   File:Panneaux indicateur de direction au Brassus 01.jpg
   File:Autobahn A9 Verzweigung Brig-Gils.jpg
   File:Aspwald, 380 m, tunnel sign, 2010.jpg
-  File:Panneaux 2.07 5.01 et feu piéton rouge.jpg
   File:Muttenz, Switzerland - panoramio.jpg
+  File:Panneaux 2.07 5.01 et feu piéton rouge.jpg
   File:Panneaux suisses 4.33 et militaire jaune.jpg
   File:Grengiols Ze Hyschere 01.jpg
   File:TWW 10634 Niederwiler Stierenberg Wanderweg gesperrt.jpg
+  File:Bodenseeradwegschildschweiz.jpg
   File:Bernex panneaux suisses 2.41.1 5.01.jpg
   File:3 Cartelli Cavigliano 220919.jpg
   File:Miex Panneau 4.06.jpg
-  File:Gotthard-Strassentunnel Nord-Süd-8915.jpg
   File:Passage piétons suisse 4.11 2.34.jpg
-  File:Bodenseeradwegschildschweiz.jpg
   File:Hinterrhein uscita A13 071114.jpg
-  File:Grenzverkehr über B33n und A7.jpg
+  File:Gotthard-Strassentunnel Nord-Süd-8915.jpg
   File:Panneau suisse 4.33 Téléskis avec idéogramme 9.10 téléski 01.jpg
+  File:Grenzverkehr über B33n und A7.jpg
+  File:CH-Hinweissignal-Autobahn.svg
   File:Praille panneaux 4.21 4.33.jpg
   File:Fin provisoire autoroute suisse A9 à Gampel-Steg.jpg
-  File:CH-Hinweissignal-Autobahn.svg
-  File:Panneaux 4.07a Genève Vignoble de qualité.jpg
   File:Sankt Gallen-Kubel-wooden bridge near power plant Kubel-06ASD.jpg
+  File:Panneaux 4.07a Genève Vignoble de qualité.jpg
   File:Street signs Fribourg Rue des Epouses 01.jpg
-  File:Baerenwil.jpg
+  File:2013-04-04 Fribourg 0567.JPG
   File:Panneau français Service fiscal et paneau suisse 2.01 à Cara.jpg
-  File:Panneau suisse 4.33 avec 9.36.jpg
+  File:Baerenwil.jpg
