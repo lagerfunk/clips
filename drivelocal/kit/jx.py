@@ -398,12 +398,31 @@ class Shots:
         return cam
 
 
+def badge_roots():
+    return [o for o in bpy.data.objects
+            if o.type == "EMPTY" and o.parent is None and o.name.startswith("badge_")]
+
+
+def face_camera(objs, cam, f):
+    """Turn quiz badges so the disc faces the active camera and the letter reads upright on screen in every shot
+    (drone and chase views too, not only the top view). Keyed at frame f so the render evaluates the new value."""
+    rot = cam.matrix_world.to_quaternion().to_euler("XYZ")
+    for o in objs:
+        o.rotation_mode = "XYZ"
+        o.rotation_euler = rot
+        o.keyframe_insert("rotation_euler", frame=f)
+
+
 def render_frames(shots, out, todo):
     sc = bpy.context.scene
     os.makedirs(out, exist_ok=True)
+    badges = badge_roots()
     for f in todo:
         sc.frame_set(f)
         sc.camera = shots.camera_at(f) or sc.camera
+        if badges and sc.camera:
+            face_camera(badges, sc.camera, f)
+            sc.frame_set(f)
         sc.render.filepath = os.path.join(out, f"f_{f:04d}.png")
         bpy.ops.render.render(write_still=True)
         print("Saved", sc.render.filepath, flush=True)

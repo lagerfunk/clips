@@ -81,6 +81,26 @@ def wrap(text, max_chars):
     return out
 
 
+CHIP_X, CHIP_Y, CHIP_H = 100, 302, 48
+
+
+def chip_events(ev, T, number, country, flag_cols, flag_vertical=False):
+    """Append the series chip to a list of ASS events. Flag box x 100..164, text box from x 166, y 302..350.
+    flag_cols: three ASS colours, top to bottom (or left to right when flag_vertical)."""
+    x, y, h = CHIP_X, CHIP_Y, CHIP_H
+    for k, col in enumerate(flag_cols):
+        if flag_vertical:
+            shape = f"m 0 0 l 21 0 21 {h} 0 {h}"
+            px, py = x + k * 21, y
+        else:
+            shape = f"m 0 0 l 64 0 64 16 0 16"
+            px, py = x, y + k * 16
+        ev.append(f"Dialogue: 2,{ts(0)},{ts(T)},Box,,0,0,0,,{{\\pos({px},{py})\\an7\\bord0\\shad0"
+                  f"\\1c{col}\\fad(200,0)\\p1}}{shape}{{\\p0}}")
+    ev.append(f"Dialogue: 1,{ts(0)},{ts(T)},Box,,0,0,0,,{{\\pos({x + 76},{y + 10})\\an7\\fs28\\fad(200,0)}}"
+              f"DRIVE LIKE A LOCAL  {{\\c&H0000C8FF&}}#{number}  {country}")
+
+
 class Overlay:
     def __init__(self, number, country, footer, T):
         self.ev = []
@@ -92,14 +112,11 @@ class Overlay:
                        f"{{\\pos({x},{y})\\fs{size}{extra}}}{text}")
 
     def chip(self):
-        T = self.T
-        self.add(0, T, "Box", 60, 236, "DRIVE LIKE A LOCAL", 34, "\\fad(200,0)")
-        self.add(0, T, "Box", 162, 300, f"#{self.number}  {self.country}", 30, "\\fad(200,0)\\c&H0000C8FF&")
-        for k, col in enumerate(("&H00000000&", "&H000000DD&", "&H0000CEFF&")):
-            self.ev.append(f"Dialogue: 2,{ts(0)},{ts(T)},Box,,0,0,0,,{{\\pos(50,{291 + k * 18})\\an7\\bord0\\shad0"
-                           f"\\1c{col}\\fad(200,0)\\p1}}m 0 0 l 92 0 92 18 0 18{{\\p0}}")
-        self.ev.append(f"Dialogue: 1,{ts(0)},{ts(T)},Box,,0,0,0,,{{\\pos(46,287)\\an7\\bord0\\shad0\\1c&H00FFFFFF&"
-                       f"\\fad(200,0)\\p1}}m 0 0 l 100 0 100 62 0 62{{\\p0}}")
+        """Series chip, one line, inside the safe zone (x >= 95, y >= 300): flag, then the series name and episode.
+        Captions below start at y 360 or lower, so the chip never touches them."""
+        chip_events(self.ev, self.T, self.number, self.country, self.flag)
+
+    flag = ("&H00000000&", "&H000000DD&", "&H0000CEFF&")
 
     def block(self, t0, t1, lines, y_top, size=74, step=1.16, style="Cap", anim=POP, stagger=0.1, room=None,
               max_size=None):
@@ -138,7 +155,7 @@ class Overlay:
         return y
 
     def foot(self, t0, t1, y=1470):
-        self.add(t0, t1, "Foot", X0, y, self.footer, fit(30, self.footer, 860, 0.6), "\\fad(200,0)")
+        self.add(t0, t1, "Foot", X0, y, self.footer, fit(36, self.footer, 860, 0.6), "\\fad(200,0)")
 
     def text(self):
         return HEAD + "\n".join(self.ev) + "\n"
