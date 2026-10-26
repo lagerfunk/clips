@@ -1,0 +1,6 @@
+{"rev": 4, "jobs": [
+  {"name": "trackc2-lights-check", "scene": "lookdev/ld_trackc.py", "stills": "640,700,850", "res": 720, "samples": 32, "args": "--pilot 2 --half lights"},
+  {"name": "trackc2-roundabout-check", "scene": "lookdev/ld_trackc.py", "stills": "640,700,850", "res": 720, "samples": 32, "args": "--pilot 2 --half roundabout"},
+  {"name": "trackc2-lights-720", "scene": "lookdev/ld_trackc.py", "frames": "1-969", "chunks": 10, "res": 720, "samples": 16, "args": "--pilot 2 --half lights"},
+  {"name": "trackc2-roundabout-720", "scene": "lookdev/ld_trackc.py", "frames": "1-969", "chunks": 10, "res": 720, "samples": 16, "args": "--pilot 2 --half roundabout"}
+]}
