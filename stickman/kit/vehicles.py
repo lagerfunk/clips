@@ -109,6 +109,7 @@ def common():
         tail=mat("car_tail", (0.5, 0.01, 0.01), 0.15, emit=(1, 0.03, 0.02), estr=0.8),
         plate=mat("car_plate", (0.88, 0.88, 0.86), 0.35),
         euband=mat("car_euband", (0.0, 0.05, 0.35), 0.4),
+        plate_d=mat("car_plate_d", (0.95, 0.95, 0.95), 0.5),
         plate_txt=mat("car_plate_txt", (0.01, 0.01, 0.01), 0.5),
         arch=mat("car_arch", (0.012, 0.012, 0.012), 0.8),
     )
@@ -219,9 +220,25 @@ def stick(root_coll, parent, body, origin, direction, size, m, up=(0, 0, 1), emb
     return o
 
 
+# District codes that are not assigned anywhere in Germany (ADAC list of all Unterscheidungszeichen, read
+# 26 Oct 2026: the only Q codes are QFT and QLB, the only J codes are J, JB, JE, JEV, JL, JUEL). Every plate in the
+# series uses one of these, so no combination can belong to a real car.
+FICTIONAL_CODES = ("QX", "QZ", "JX", "JJ")
+
+
+def fictional(text):
+    """Swap the district code of a plate text for an unassigned one (stable per plate): 'WI LK 204' -> 'QX LK 204'."""
+    parts = text.split(" ")
+    if len(parts) < 2 or parts[0] in FICTIONAL_CODES:
+        return text
+    k = sum(ord(ch) for ch in text) % len(FICTIONAL_CODES)
+    return " ".join([FICTIONAL_CODES[k]] + parts[1:])
+
+
 def plate_text(root_coll, parent, body, origin, direction, text, C, name="plate"):
-    """German plate: white, EU band on the viewer's left. A sticker's local +y is the outward normal, so the viewer's
-    right is local -x."""
+    """German plate: white, EU band with a white D on the viewer's left. A sticker's local +y is the outward normal,
+    so the viewer's right is local -x. The district code is always a fictional one (FICTIONAL_CODES)."""
+    text = fictional(text)
     p = stick(root_coll, parent, body, origin, direction, (0.52, 0.012, 0.11), C["plate"], bevel=0.004, name=name)
     if not p:
         return
@@ -229,6 +246,11 @@ def plate_text(root_coll, parent, body, origin, direction, text, C, name="plate"
                  name=name + "_eu")
     if band:
         band.matrix_world = p.matrix_world @ Matrix.Translation((0.235, 0.001, 0))
+        d = W.text_obj(name + "_d", "D", 0.034, C["plate_d"], root_coll, "CENTER", "CENTER", 0.001)
+        d.matrix_world = (p.matrix_world @ Matrix.Translation((0.235, 0.0085, -0.024)) @ Matrix.Rotation(math.pi, 4, "Z")
+                          @ Matrix.Rotation(math.radians(90), 4, "X"))
+        d.parent = parent
+        d.matrix_parent_inverse = parent.matrix_world.inverted()
     t = W.text_obj(name + "_txt", text, 0.075, C["plate_txt"], root_coll, "CENTER", "CENTER", 0.001)
     t.matrix_world = (p.matrix_world @ Matrix.Translation((-0.02, 0.0065, 0)) @ Matrix.Rotation(math.pi, 4, "Z")
                       @ Matrix.Rotation(math.radians(90), 4, "X"))

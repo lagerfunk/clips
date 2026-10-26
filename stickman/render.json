@@ -1,1 +1,1 @@
-{"enabled": true, "name": "dlal-01-rettungsgasse-v1-fix280", "scene": "ep01_rettungsgasse.py", "first": 280, "last": 450, "chunks": 17, "res": 720, "samples": 16}
+{"enabled": true, "name": "dlal-01-rettungsgasse-v2", "scene": "ep01_rettungsgasse.py", "first": 1, "last": 840, "chunks": 18, "res": 720, "samples": 16}
