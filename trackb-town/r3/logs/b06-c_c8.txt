@@ -1,0 +1,9 @@
+job b06-c c8 stills 680,790,900 res 720 samples 16 args '': 3 png
+00:41.645  cycles           | WARNING CUEW initialization failed: Error opening the library
+01:39.674  render           | Saved: 'frames/f_0680.png'
+Saved frames/f_0680.png
+02:21.070  render           | Saved: 'frames/f_0790.png'
+Saved frames/f_0790.png
+03:01.496  render           | Saved: 'frames/f_0900.png'
+Saved frames/f_0900.png
+RENDER_DONE None signs dict_keys([('nl', 'b6-give-way'), ('nl', 'g11-cycle-path')])

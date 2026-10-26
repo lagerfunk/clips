@@ -1,0 +1,9 @@
+job b02-c c2 stills 700,800,890 res 720 samples 16 args '': 3 png
+00:35.194  cycles           | WARNING CUEW initialization failed: Error opening the library
+01:08.667  render           | Saved: 'frames/f_0700.png'
+Saved frames/f_0700.png
+01:51.659  render           | Saved: 'frames/f_0800.png'
+Saved frames/f_0800.png
+03:18.375  render           | Saved: 'frames/f_0890.png'
+Saved frames/f_0890.png
+RENDER_DONE None signs dict_keys([('it', 'ztl-a'), ('it', 'ztl'), ('it', 'ztl-end'), ('it', 'no-vehicles'), ('it', 'pedestrian-area')])

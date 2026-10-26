@@ -1,0 +1,9 @@
+job b08-a c9 stills 20,60,130 res 720 samples 16 args '': 3 png
+00:57.934  cycles           | WARNING CUEW initialization failed: Error opening the library
+01:55.224  render           | Saved: 'frames/f_0020.png'
+Saved frames/f_0020.png
+02:47.984  render           | Saved: 'frames/f_0060.png'
+Saved frames/f_0060.png
+03:35.692  render           | Saved: 'frames/f_0130.png'
+Saved frames/f_0130.png
+RENDER_DONE None signs dict_keys([('de-core', '205'), ('de-core', '215'), ('de-core', '222'), ('es', 'r1-ceda'), ('es', 'r402-rotonda')])

@@ -1,7 +1,0 @@
-job b05-mirror stills 330 res 360 samples 16 args '': 0 png
-Traceback (most recent call last):
-  File "/home/runner/work/clips/clips/drivelocal/b05_keep_left_roundabouts.py", line 23, in <module>
-    import bmesh  # noqa: E402
-    ^^^^^^^^^^^^
-ModuleNotFoundError: No module named 'bmesh'
-scene exited with 1

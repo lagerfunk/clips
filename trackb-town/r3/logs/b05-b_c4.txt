@@ -1,0 +1,9 @@
+job b05-b c4 stills 430,560,700 res 720 samples 16 args '': 3 png
+04:19.754  cycles           | WARNING CUEW initialization failed: Error opening the library
+04:55.683  render           | Saved: 'frames/f_0430.png'
+Saved frames/f_0430.png
+05:21.381  render           | Saved: 'frames/f_0560.png'
+Saved frames/f_0560.png
+06:15.684  render           | Saved: 'frames/f_0700.png'
+Saved frames/f_0700.png
+RENDER_DONE None signs dict_keys([('de-core', '205'), ('de-core', '215'), ('de-core', '222'), ('de-core', '350-10'), ('uk', 'roundabout-ahead'), ('uk', 'give-way'), ('uk', 'keep-left')])
