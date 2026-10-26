@@ -1,0 +1,6 @@
+job ld2-cyclist stills 30 res 720 samples 48 args '--shot cyclist': 1 png
+scene built in 32.1 s
+00:33.449  cycles           | WARNING CUEW initialization failed: Error opening the library
+02:20.668  render           | Saved: 'frames/f_0030.png'
+Saved frames/f_0030.png 106.5 s
+RENDER_DONE

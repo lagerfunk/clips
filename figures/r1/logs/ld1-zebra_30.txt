@@ -1,0 +1,6 @@
+job ld1-zebra stills 30 res 720 samples 48 args '--shot zebra': 1 png
+scene built in 47.1 s
+00:48.360  cycles           | WARNING CUEW initialization failed: Error opening the library
+03:06.717  render           | Saved: 'frames/f_0030.png'
+Saved frames/f_0030.png 137.8 s
+RENDER_DONE

@@ -1,0 +1,6 @@
+job ld3-enforce stills 30 res 720 samples 48 args '--shot enforce': 1 png
+scene built in 135.6 s
+02:16.884  cycles           | WARNING CUEW initialization failed: Error opening the library
+04:38.550  render           | Saved: 'frames/f_0030.png'
+Saved frames/f_0030.png 141.1 s
+RENDER_DONE
