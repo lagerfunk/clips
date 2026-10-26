@@ -1,0 +1,6 @@
+{
+ "rev": 2,
+ "jobs": [
+  {"name": "ld3-disc", "scene": "lookdev/ld_townplus.py", "stills": "30", "res": 720, "samples": 48, "args": "--shot disc"}
+ ]
+}
