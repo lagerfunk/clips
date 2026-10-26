@@ -1,6 +1,6 @@
 name: signs
 # Drive Like a Local sign library. A change to any drivelocal/signs/*.json list downloads those traffic signs from
-# Wikimedia Commons, unaltered (SVG plus Commons' own PNG rendering), with author, licence and file page for each,
+# Wikimedia Commons, unaltered (SVG plus a librsvg PNG of it), with author, licence and file page for each,
 # and puts them on the orphan branch "drivelocal-signs" (one folder per list). The render workflow checks that branch
 # out as assets/signs. No secrets are used.
 on:
@@ -20,12 +20,16 @@ jobs:
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - name: Fetch from Wikimedia Commons
+        timeout-minutes: 20
         run: |
+          sudo apt-get -qq update && sudo apt-get -qq install -y librsvg2-bin > /dev/null
           mkdir -p out
           python3 drivelocal/signs/fetch_signs.py out 2>&1 | tee fetch-log.txt
           cp fetch-log.txt out/LOG.txt
       - name: Push to drivelocal-signs
+        if: always()
         run: |
+          [ -f fetch-log.txt ] && cp fetch-log.txt out/LOG.txt
           cd out
           git init -q -b drivelocal-signs
           git config user.name "github-actions[bot]"
@@ -34,6 +38,7 @@ jobs:
           git commit -q -m "signs from ${GITHUB_SHA}"
           git push -q -f "https://x-access-token:${{ github.token }}@github.com/${GITHUB_REPOSITORY}.git" drivelocal-signs
       - name: Fail on unresolved signs
+        if: always()
         run: |
           if [ ! -f out/MISSING.txt ]; then echo "fetch did not finish, see LOG.txt on drivelocal-signs"; exit 1; fi
           if [ -s out/MISSING.txt ]; then echo "Unresolved signs:"; cat out/MISSING.txt; exit 1; fi

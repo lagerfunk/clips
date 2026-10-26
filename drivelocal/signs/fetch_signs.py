@@ -7,7 +7,7 @@ the file name:
      {"id": "205", "search": "Zeichen 205"},                       # best StVO match by title
      {"id": "274-60", "search": "Zeichen 274-60"},
      {"id": "1040-32", "title": "File:Zusatzzeichen 1040-32 - Parkscheibe, StVO 1992.svg"}]}   # exact file
-Writes OUTDIR/<set>/<id>.svg (original bytes), <id>.png (Commons' own 1024 px rendering of that SVG) and
+Writes OUTDIR/<set>/<id>.svg (original bytes), <id>.png (a 1024 px librsvg rendering of that SVG, the renderer Commons uses) and
 OUTDIR/<set>/sources.json + SOURCES.md (file page, author, licence, retrieval time) so every video description can
 name the source. Nothing is edited: German official signs are public domain under section 5(1) UrhG, and
 section 5(2) requires them unaltered with the source named. A sign that cannot be resolved is listed as missing and
@@ -29,26 +29,37 @@ AVOID = re.compile(r"\b(DDR|1938|1956|1964|1971|Vorlage|blank|leer|old|alt|Varia
 def call(**params):
     params.update(format="json", formatversion="2")
     url = API + "?" + urllib.parse.urlencode(params)
-    for attempt in range(4):
+    last = None
+    for attempt in range(2):
         try:
-            with urllib.request.urlopen(urllib.request.Request(url, headers=UA), timeout=60) as r:
+            with urllib.request.urlopen(urllib.request.Request(url, headers=UA), timeout=30) as r:
                 return json.load(r)
         except Exception as e:  # noqa: BLE001
+            last = e
             print("retry", attempt, e, flush=True)
-            time.sleep(2 + 3 * attempt)
-    raise RuntimeError("Commons API unreachable: " + url)
+            time.sleep(2)
+    raise RuntimeError(f"Commons API failed: {last}")
 
 
 def get(url, dest):
-    for attempt in range(4):
+    last = None
+    for attempt in range(2):
         try:
-            with urllib.request.urlopen(urllib.request.Request(url, headers=UA), timeout=120) as r:
+            with urllib.request.urlopen(urllib.request.Request(url, headers=UA), timeout=60) as r:
                 dest.write_bytes(r.read())
             return
         except Exception as e:  # noqa: BLE001
+            last = e
             print("retry", attempt, e, flush=True)
-            time.sleep(2 + 3 * attempt)
-    raise RuntimeError("download failed: " + url)
+            time.sleep(2)
+    raise RuntimeError(f"download failed: {last}")
+
+
+def rasterise(svg, png, width=1024):
+    """PNG of the unaltered SVG with librsvg (the renderer Commons itself uses), so no thumbnail request is needed:
+    Commons rate-limits non-standard thumbnail sizes for scripts."""
+    import subprocess
+    subprocess.run(["rsvg-convert", "-w", str(width), "-o", str(png), str(svg)], check=True, timeout=60)
 
 
 def resolve(entry):
@@ -78,6 +89,14 @@ def main():
     out = pathlib.Path(sys.argv[1])
     lists = sorted(pathlib.Path(__file__).parent.glob("*.json"))
     missing = []
+    out.mkdir(parents=True, exist_ok=True)
+    try:
+        probe = call(action="query", meta="siteinfo")
+        print("Commons API reachable:", probe.get("query", {}).get("general", {}).get("sitename"), flush=True)
+    except Exception as ex:  # noqa: BLE001
+        (out / "MISSING.txt").write_text(f"Commons API not reachable from the runner: {ex}\n", encoding="utf-8")
+        print("probe failed", ex)
+        return
     for lf in lists:
         conf = json.load(open(lf, encoding="utf-8"))
         sset = lf.stem
@@ -92,8 +111,7 @@ def main():
                 if not title:
                     missing.append(f"{sset}/{e['id']} ({e.get('search') or e.get('title')}): no match")
                     continue
-                info = call(action="query", titles=title, prop="imageinfo", iiprop="url|extmetadata|size|mime",
-                            iiurlwidth=1024)
+                info = call(action="query", titles=title, prop="imageinfo", iiprop="url|extmetadata|size|mime")
                 page = info.get("query", {}).get("pages", [{}])[0]
                 if page.get("missing") or not page.get("imageinfo"):
                     missing.append(f"{sset}/{e['id']} ({title}): no image info")
@@ -101,7 +119,7 @@ def main():
                 ii = page["imageinfo"][0]
                 meta = ii.get("extmetadata", {})
                 get(ii["url"], d / f"{e['id']}.svg")
-                get(ii["thumburl"], d / f"{e['id']}.png")
+                rasterise(d / f"{e['id']}.svg", d / f"{e['id']}.png")
                 index[e["id"]] = {
                     "title": title, "page": ii["descriptionurl"], "svg": ii["url"],
                     "width": ii.get("width"), "height": ii.get("height"),
