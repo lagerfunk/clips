@@ -1,7 +1,8 @@
 name: lookdev
 # Drive Like a Local look-dev and preview renders from a work branch. A push to a branch "lookdev/<name>" that changes
 # drivelocal/lookdev.json renders what that file lists on parallel runners and puts the results on the branch
-# "lookdev-out" under <name>/<rev>/ (stills as PNG, previews as MP4). Main and the episode renders are not touched.
+# "lookdev-out" under <name>/<rev>/ (stills as PNG, previews as MP4, the tail of every job's log in logs/, so a scene
+# that crashes on the runner can be debugged from the workspace). Main and the episode renders are not touched.
 #   {"rev": 3, "jobs": [
 #     {"name": "rb-top", "scene": "lookdev/ld_roundabout.py", "stills": "60,120", "res": 720, "samples": 32,
 #      "args": "--shot top"},
@@ -81,19 +82,28 @@ jobs:
           RES: ${{ matrix.res }}
           SAMPLES: ${{ matrix.samples }}
           ARGS: ${{ matrix.args }}
+          NAME: ${{ matrix.name }}
         run: |
           flag="--frames"
           if [ "$MODE" = stills ]; then flag="--stills"; fi
+          mkdir -p frames
           # shellcheck disable=SC2086
           /tmp/bpy/bin/python "drivelocal/$SCENE" frames "$flag" "$RANGE" --res "$RES" --samples "$SAMPLES" \
-            --assets assets $ARGS 2>&1 | grep -E "Saved /|RENDER_DONE|Error|Traceback|line [0-9]+|WARN" | tail -80
+            --assets assets $ARGS > run.log 2>&1 || echo "scene exited with $?" >> run.log
+          grep -E "Saved /|RENDER_DONE|Error|Traceback|line [0-9]+|WARN" run.log | tail -80
+          # the log tail goes to the results branch too (Actions logs cannot be read from the workspace)
           n=$(find frames -name '*.png' | wc -l)
+          { echo "job $NAME $MODE $RANGE res $RES samples $SAMPLES args '$ARGS': $n png"; \
+            grep -vE "^Fra:|Saved /|^ *$" run.log | tail -n 120; } > "frames/log_${RANGE//[^0-9-]/_}.txt"
           echo "frames: $n"
           test "$n" -gt 0
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        if: always()
         with:
           name: ld-${{ matrix.name }}-${{ matrix.range }}
-          path: frames/*.png
+          path: |
+            frames/*.png
+            frames/log_*.txt
           retention-days: 2
           compression-level: 0
   publish:
@@ -123,8 +133,12 @@ jobs:
           import json, os, shutil, subprocess, sys, glob
           dest = sys.argv[1]
           jobs = json.load(open("drivelocal/lookdev.json")).get("jobs", [])[:12]
+          os.makedirs(os.path.join(dest, "logs"), exist_ok=True)
           for j in jobs:
               dirs = sorted(glob.glob(f"dl/ld-{j['name']}-*"))
+              for d in dirs:
+                  for lg in glob.glob(os.path.join(d, "log_*.txt")):
+                      shutil.copy(lg, os.path.join(dest, "logs", j["name"] + "_" + os.path.basename(lg)[4:]))
               pngs = sorted(p for d in dirs for p in glob.glob(os.path.join(d, "*.png")))
               if not pngs:
                   print("no output for", j["name"])
