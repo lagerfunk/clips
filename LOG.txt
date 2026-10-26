@@ -1,14 +1,5 @@
 Commons API reachable
 de-core: 80 kept, 1 to fetch
-de-junctions: 0 kept, 10 to fetch
-de-junctions/1002-10: File:Zusatzzeichen 1002-10 - Verlauf der Vorfahrtsstraße an Kreuzungen (von unten nach links), StVO 1992.svg [Public domain]
-de-junctions/1002-11: File:Zusatzzeichen 1002-11 - Verlauf der Vorfahrtsstraße an Kreuzungen (von oben nach links), StVO 1992.svg [Public domain]
-de-junctions/1002-12: File:Zusatzzeichen 1002-12 - Verlauf der Vorfahrtsstraße an Einmündungen (von unten nach links, Fall 1), StVO 1992.svg [Public domain]
-de-junctions/1002-13: File:Zusatzzeichen 1002-13 - Verlauf der Vorfahrtsstraße an Einmündungen (von unten nach links, Fall 2), StVO 1992.svg [Public domain]
-de-junctions/1002-14: File:Zusatzzeichen 1002-14.svg [Public domain]
-de-junctions/1002-20: File:Zusatzzeichen 1002-20 - Verlauf der Vorfahrtsstraße an Kreuzungen (von unten nach rechts), StVO 1992.svg [Public domain]
-de-junctions/1002-21: File:Zusatzzeichen 1002-21 - Verlauf der Vorfahrtsstraße an Kreuzungen (von oben nach rechts), StVO 1992.svg [Public domain]
-de-junctions/1002-22: File:Zusatzzeichen 1002-22 - Verlauf der Vorfahrtsstraße an Einmündungen (von unten nach rechts, Fall 1), StVO 1992.svg [Public domain]
-de-junctions/1002-23: File:Zusatzzeichen 1002-23 - Verlauf der Vorfahrtsstraße an Einmündungen (von unten nach rechts, Fall 2), StVO 1992.svg [Public domain]
-de-junctions/1002-24: File:Zusatzzeichen 1002-24 - Verlauf der Vorfahrtsstraße an Einmündungen (von oben nach rechts), StVO 1992.svg [Public domain]
-done, 1 missing
+de-core/101-51: File:Zeichen 101-51 - Schnee- oder Eisglätte, StVO 2017.svg [Public domain]
+de-junctions: 10 kept, 0 to fetch
+done, 0 missing
