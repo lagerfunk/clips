@@ -75,5 +75,27 @@
   "licence": "Public domain",
   "usage": "Public domain",
   "retrieved": "2026-10-26"
+ },
+ "R2-1-45": {
+  "title": "File:Speed Limit 45 sign.svg",
+  "page": "https://commons.wikimedia.org/wiki/File:Speed_Limit_45_sign.svg",
+  "svg": "https://upload.wikimedia.org/wikipedia/commons/6/6d/Speed_Limit_45_sign.svg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+  "width": 601,
+  "height": 751,
+  "artist": "Federal Highway Administration - MUTCD",
+  "licence": "Public domain",
+  "usage": "Public domain",
+  "retrieved": "2026-10-26"
+ },
+ "FL-MOVEOVER": {
+  "title": "File:FDOT Road sign Move over for stopped emergency vehicles.svg",
+  "page": "https://commons.wikimedia.org/wiki/File:FDOT_Road_sign_Move_over_for_stopped_emergency_vehicles.svg",
+  "svg": "https://upload.wikimedia.org/wikipedia/commons/f/fe/FDOT_Road_sign_Move_over_for_stopped_emergency_vehicles.svg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+  "width": 387,
+  "height": 213,
+  "artist": "Design: Florida Department of Transportation Vectorization: Big guy 637",
+  "licence": "Public domain",
+  "usage": "Public domain",
+  "retrieved": "2026-10-26"
  }
 }

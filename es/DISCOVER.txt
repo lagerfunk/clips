@@ -20,11 +20,11 @@
   File:Spain traffic signal R-509.svg
   File:Spain traffic signal R-512.svg
   File:Spain traffic signal R-511.svg
-  File:Spain traffic signal R-515.svg
   File:Spain traffic signal R-420.svg
+  File:Spain traffic signal R-515.svg
   File:Spain traffic signal R-106 (2023).svg
-  File:Spain traffic signal R-411 (40).svg
   File:Spain traffic signal R-421.svg
+  File:Spain traffic signal R-411 (40).svg
   File:Spain traffic signal R-516.svg
   File:Spain traffic signal R-407a.svg
   File:Spain traffic signal R-507.svg
@@ -35,36 +35,36 @@
   File:Spain traffic signal R-411 (10).svg
   File:Spain traffic signal R-411 (80).svg
   File:Spain traffic signal R-411 (50).svg
+  File:Spain traffic signal R-411 (60).svg
+  File:Spain traffic signal R-411 (90).svg
+  File:Spain traffic signal R-411 (100).svg
+  File:Spain traffic signal R-411 (70).svg
   File:Spain traffic signal R-411 (30).svg
   File:Spain traffic signal R-411 (120).svg
   File:Spain traffic signal R-411 (20).svg
   File:Spain traffic signal R-411 (110).svg
-  File:Spain traffic signal R-411 (90).svg
-  File:Spain traffic signal R-411 (60).svg
-  File:Spain traffic signal R-411 (100).svg
-  File:Spain traffic signal R-411 (70).svg
-  File:Spain traffic signal R-506 (50).svg
   File:Spain traffic signal R-501 (50).svg
   File:Spain traffic signal R-506 (120).svg
   File:Spain traffic signal R-501 (40).svg
   File:Spain traffic signal R-506 (110).svg
+  File:Spain traffic signal R-501 (110).svg
+  File:Spain traffic signal R-506 (50).svg
   File:Spain traffic signal R-506 (90).svg
+  File:Spain traffic signal R-506 (80).svg
   File:Spain traffic signal R-506 (30).svg
   File:Spain traffic signal R-501 (20).svg
-  File:Spain traffic signal R-501 (110).svg
-  File:Spain traffic signal R-506 (70).svg
-  File:Spain traffic signal R-506 (20).svg
   File:Spain traffic signal R-506 (40).svg
-  File:Spain traffic signal R-501 (80).svg
+  File:Spain traffic signal R-506 (10).svg
+  File:Spain traffic signal R-506 (20).svg
+  File:Spain traffic signal R-501 (30).svg
   File:Spain traffic signal R-501 (90).svg
   File:Spain traffic signal R-501 (60).svg
-  File:Spain traffic signal R-506 (80).svg
-  File:Spain traffic signal R-506 (10).svg
-  File:Spain traffic signal R-506 (60).svg
   File:Spain traffic signal R-501 (10).svg
-  File:Spain traffic signal R-501 (30).svg
-  File:Spain traffic signal R-501 (120).svg
+  File:Spain traffic signal R-506 (60).svg
+  File:Spain traffic signal R-501 (80).svg
+  File:Spain traffic signal R-506 (70).svg
   File:Spain traffic signal R-501 (100).svg
+  File:Spain traffic signal R-501 (120).svg
   File:Spain traffic signal R-501 (70).svg
   File:Spain traffic signal R-506 (100).svg
   File:Spain traffic signal s35.svg
@@ -88,15 +88,15 @@
   File:PE road sign R-37.svg
   File:PE road sign R-16 (–2016).svg
   File:PE road sign R-23 (–2016).svg
-  File:PE road sign R-44 (–2016).svg
-  File:PE road sign R-24 (–2016).svg
   File:PE road sign R-17 (–2016).svg
+  File:PE road sign R-4.svg
+  File:PE road sign R-24 (–2016).svg
+  File:PE road sign R-44 (–2016).svg
   File:PE road sign R-19 (–2016).svg
   File:PE road sign R-33 (–2016).svg
-  File:PE road sign R-7 (–2016).svg
-  File:PE road sign R-8 (–2016).svg
-  File:PE road sign R-4.svg
   File:PE road sign R-15 (–2016).svg
+  File:PE road sign R-8 (–2016).svg
+  File:PE road sign R-7 (–2016).svg
   File:PE road sign R-5-1-R.svg
   File:PE road sign R-28 (–2016).svg
   File:PE road sign R-32 (–2016).svg
