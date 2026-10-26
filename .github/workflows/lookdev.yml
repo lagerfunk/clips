@@ -147,7 +147,7 @@ jobs:
           jobs = json.load(open("drivelocal/lookdev.json")).get("jobs", [])[:12]
           os.makedirs(os.path.join(dest, "logs"), exist_ok=True)
           for j in jobs:
-              dirs = sorted(glob.glob(f"dl/ld-{j['name']}-*"))
+              dirs = sorted(glob.glob(f"dl/ld-{j['name']}-c[0-9]*"))
               for d in dirs:
                   for lg in glob.glob(os.path.join(d, "log_*.txt")):
                       shutil.copy(lg, os.path.join(dest, "logs", j["name"] + "_" + os.path.basename(lg)[4:]))
