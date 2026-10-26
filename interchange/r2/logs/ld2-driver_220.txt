@@ -1,0 +1,10 @@
+job ld2-driver stills 220 res 720 samples 48 args '--shot driver': 1 png
+terrain 492 x 784
+vegetation 68676 48311 920 1575
+tufts 15106
+00:37.303  cycles           | WARNING CUEW initialization failed: Error opening the library
+traffic 68 vehicles
+01:38.732  render           | Saved: 'frames/f_0220.png'
+Saved frames/f_0220.png
+signs: ['File:Zeichen 205 - Vorfahrt gewähren! StVO 1970.svg', 'File:Zeichen 330.1 - Autobahn, StVO 2013.svg', 'File:Zeichen 330.2 - Ende der Autobahn, StVO 2013.svg', 'File:Zeichen 332 - Ausfahrt von der Autobahn, StVO 1970.svg', 'File:Zeichen 333 - Pfeilschild - Ausfahrt von der Autobahn, StVO 1970.svg', 'File:Zeichen 448 - Ankündigungstafel auf Autobahnen, StVO 1992.svg', 'File:Zeichen 449 - Vorwegweiser auf Autobahnen (nach RWBA), StVO 1992.svg', 'File:Zeichen 450-50 - Ankündigungsbake einstreifig (100 m), StVO 2013.svg', 'File:Zeichen 450-51 - Ankündigungsbake zweistreifig (200 m), StVO 2013.svg']
+RENDER_DONE

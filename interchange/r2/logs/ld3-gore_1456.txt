@@ -1,0 +1,10 @@
+job ld3-gore stills 1456 res 720 samples 48 args '--shot gore': 1 png
+terrain 492 x 784
+vegetation 68676 48311 920 1575
+tufts 13917
+00:32.778  cycles           | WARNING CUEW initialization failed: Error opening the library
+traffic 74 vehicles
+01:31.302  render           | Saved: 'frames/f_1456.png'
+Saved frames/f_1456.png
+signs: ['File:Zeichen 205 - Vorfahrt gewähren! StVO 1970.svg', 'File:Zeichen 330.1 - Autobahn, StVO 2013.svg', 'File:Zeichen 330.2 - Ende der Autobahn, StVO 2013.svg', 'File:Zeichen 332 - Ausfahrt von der Autobahn, StVO 1970.svg', 'File:Zeichen 333 - Pfeilschild - Ausfahrt von der Autobahn, StVO 1970.svg', 'File:Zeichen 448 - Ankündigungstafel auf Autobahnen, StVO 1992.svg', 'File:Zeichen 449 - Vorwegweiser auf Autobahnen (nach RWBA), StVO 1992.svg', 'File:Zeichen 450-50 - Ankündigungsbake einstreifig (100 m), StVO 2013.svg', 'File:Zeichen 450-51 - Ankündigungsbake zweistreifig (200 m), StVO 2013.svg']
+RENDER_DONE
