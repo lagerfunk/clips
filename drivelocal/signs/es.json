@@ -1,24 +1,23 @@
 {
  "set": "es",
- "note": "Episode 8 Spain roundabout: R-1 ceda el paso and R-402 roundabout. DRAFT, NOT CONFIRMED against Wikimedia Commons: the agent workspace cannot reach commons.wikimedia.org (egress policy 403) and the web search quota was spent, so the 'search' prefixes below are best-guess Commons naming patterns. fetch_signs.py only accepts a hit whose title starts with the prefix and contains every word in 'require', so a wrong guess ends in MISSING.txt, never in a wrong sign. Licence of each file is unknown until the runner writes sources.json (expected: public-domain official sign, or Open Government Licence / Crown copyright for the UK; do not assume). Fix any entry listed in MISSING.txt with an exact 'title'.",
+ "rev": 2,
+ "note": "Episode 8 Spain roundabout: R-1 ceda el paso and R-402 roundabout. Entries with a 'title' are exact Commons file names taken from the runner's DISCOVER.txt (run of 2026-10-26); fetch_signs.py accepts only that exact title. Licences from sources.json (retrieved 2026-10-26): r1-ceda is public domain; r402-rotonda is CC BY-SA 4.0 by Majafego, so the video description must credit the author and the licence (kit/signs.py writes both from sources.json), and the share-alike term is the producer's call.",
  "signs": [
   {
    "id": "r1-ceda",
-   "search": "Spain traffic signal r1",
-   "need": "ceda el paso",
-   "confidence": "guess"
+   "title": "File:Spain traffic signal r1.svg",
+   "need": "ceda el paso (R-1)"
   },
   {
    "id": "r402-rotonda",
-   "search": "Spain traffic signal r402",
-   "need": "intersección de sentido giratorio",
-   "confidence": "guess"
+   "title": "File:Spain traffic signal r402.svg",
+   "need": "intersección de sentido giratorio (R-402)"
   }
  ],
  "discover": [
-  "Spain traffic sign R-402",
-  "Señal de tráfico R-402",
-  "Spain traffic signal glorieta svg",
-  "Spain traffic sign R-1"
+  "Spain traffic signal r402 public domain",
+  "Señal R-402 glorieta svg",
+  "Spain traffic sign R-1",
+  "Señalrotondaspain"
  ]
 }

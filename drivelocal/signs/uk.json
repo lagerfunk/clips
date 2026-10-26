@@ -1,30 +1,27 @@
 {
  "set": "uk",
- "note": "Episode 5 United Kingdom: keep-left, roundabout warning, mini-roundabout and give-way signs (TSRGD diagram numbers). DRAFT, NOT CONFIRMED against Wikimedia Commons: the agent workspace cannot reach commons.wikimedia.org (egress policy 403) and the web search quota was spent, so the 'search' prefixes below are best-guess Commons naming patterns. fetch_signs.py only accepts a hit whose title starts with the prefix and contains every word in 'require', so a wrong guess ends in MISSING.txt, never in a wrong sign. Licence of each file is unknown until the runner writes sources.json (expected: public-domain official sign, or Open Government Licence / Crown copyright for the UK; do not assume). Fix any entry listed in MISSING.txt with an exact 'title'.",
+ "rev": 2,
+ "note": "Episode 5 United Kingdom: keep-left, roundabout warning, mini-roundabout and give-way signs (TSRGD diagram numbers). Entries with a 'title' are exact Commons file names taken from the runner's DISCOVER.txt (run of 2026-10-26); fetch_signs.py accepts only that exact title. Licences from sources.json (retrieved 2026-10-26): keep-left, mini-roundabout and give-way are OGL v1.0 (Crown copyright, Department for Transport); OGL v1.0 allows reuse with the acknowledgement 'Contains public sector information licensed under the Open Government Licence v1.0'. roundabout-ahead is public domain. The Commons file pages could not be opened from the agent workspace; the licence is the one the runner read from each file page.",
  "signs": [
   {
    "id": "keep-left",
-   "search": "UK traffic sign 610",
-   "need": "keep left (blue disc)",
-   "confidence": "guess"
+   "title": "File:UK traffic sign 610 (left).svg",
+   "need": "keep left (blue disc, diagram 610)"
   },
   {
    "id": "roundabout-ahead",
-   "search": "UK traffic sign 510",
-   "need": "roundabout warning",
-   "confidence": "guess"
+   "title": "File:UK traffic sign 510.svg",
+   "need": "roundabout warning (diagram 510)"
   },
   {
    "id": "mini-roundabout",
-   "search": "UK traffic sign 611.1",
-   "need": "mini-roundabout",
-   "confidence": "guess"
+   "title": "File:UK traffic sign 611.1.svg",
+   "need": "mini-roundabout (diagram 611.1)"
   },
   {
    "id": "give-way",
-   "search": "UK traffic sign 602",
-   "need": "give way triangle",
-   "confidence": "guess"
+   "title": "File:UK traffic sign 602.svg",
+   "need": "give way triangle (diagram 602)"
   }
  ],
  "discover": [

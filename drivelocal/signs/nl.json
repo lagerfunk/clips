@@ -1,24 +1,23 @@
 {
  "set": "nl",
- "note": "Episode 6 Netherlands: give-way sign B6 (goes with shark teeth) and cycle-path sign G11. DRAFT, NOT CONFIRMED against Wikimedia Commons: the agent workspace cannot reach commons.wikimedia.org (egress policy 403) and the web search quota was spent, so the 'search' prefixes below are best-guess Commons naming patterns. fetch_signs.py only accepts a hit whose title starts with the prefix and contains every word in 'require', so a wrong guess ends in MISSING.txt, never in a wrong sign. Licence of each file is unknown until the runner writes sources.json (expected: public-domain official sign, or Open Government Licence / Crown copyright for the UK; do not assume). Fix any entry listed in MISSING.txt with an exact 'title'.",
+ "rev": 2,
+ "note": "Episode 6 Netherlands: give-way sign B6 (goes with shark teeth) and cycle-path sign G11. Entries with a 'title' are exact Commons file names taken from the runner's DISCOVER.txt (run of 2026-10-26); fetch_signs.py accepts only that exact title. Licences from sources.json (retrieved 2026-10-26): both public domain (SVG version by Bouwe Brouwer). DISCOVER.txt also lists '2023' variants of several Dutch signs (for example B6 2023); the files used here are the plain ones.",
  "signs": [
   {
    "id": "b6-give-way",
-   "search": "Nederlands verkeersbord B6",
-   "need": "voorrang verlenen",
-   "confidence": "guess"
+   "title": "File:Nederlands verkeersbord B6.svg",
+   "need": "voorrang verlenen (B6)"
   },
   {
    "id": "g11-cycle-path",
-   "search": "Nederlands verkeersbord G11",
-   "need": "verplicht fietspad",
-   "confidence": "guess"
+   "title": "File:Nederlands verkeersbord G11.svg",
+   "need": "verplicht fietspad (G11)"
   }
  ],
  "discover": [
-  "Nederlands verkeersbord svg",
-  "Netherlands traffic sign B6",
-  "verkeersbord B6",
-  "Dutch road sign fietspad"
+  "Nederlands verkeersbord B6 2023",
+  "Nederlands verkeersbord G11 2023",
+  "Netherlands traffic sign haaientanden",
+  "Nederlands verkeersbord F1"
  ]
 }

@@ -1,36 +1,33 @@
 {
  "set": "it",
- "note": "Episode 2 Italy ZTL: entry sign, end sign, no-entry and pedestrian-zone signs (GPS-trap street). DRAFT, NOT CONFIRMED against Wikimedia Commons: the agent workspace cannot reach commons.wikimedia.org (egress policy 403) and the web search quota was spent, so the 'search' prefixes below are best-guess Commons naming patterns. fetch_signs.py only accepts a hit whose title starts with the prefix and contains every word in 'require', so a wrong guess ends in MISSING.txt, never in a wrong sign. Licence of each file is unknown until the runner writes sources.json (expected: public-domain official sign, or Open Government Licence / Crown copyright for the UK; do not assume). Fix any entry listed in MISSING.txt with an exact 'title'.",
+ "rev": 2,
+ "note": "Episode 2 Italy ZTL: entry sign, end sign, no-entry and pedestrian-zone signs (GPS-trap street). Entries with a 'title' are exact Commons file names taken from the runner's DISCOVER.txt (run of 2026-10-26); fetch_signs.py accepts only that exact title. Licences from sources.json (retrieved 2026-10-26): all four public domain. 'ztl' is the 1992-1996 drawing of figura II 322; DISCOVER.txt also lists the current 'zona traffico limitato (figura II 322-a).svg' if a newer look is wanted.",
  "signs": [
   {
    "id": "ztl",
-   "search": "Italian traffic signs - zona a traffico limitato",
-   "need": "ZTL start sign",
-   "confidence": "guess"
+   "title": "File:Italian traffic signs - zona a traffico limitato (figura II 322, 1992-1996).svg",
+   "need": "ZTL start sign (figura II 322)"
   },
   {
    "id": "ztl-end",
-   "search": "Italian traffic signs - fine zona a traffico limitato",
-   "need": "ZTL end sign",
-   "confidence": "guess"
+   "title": "File:Italian traffic signs - fine zona a traffico limitato (figura II 322-b).svg",
+   "need": "ZTL end sign (figura II 322-b)"
   },
   {
    "id": "no-vehicles",
-   "search": "Italian traffic signs - divieto di transito",
-   "need": "no entry for all vehicles (white disc, red ring)",
-   "confidence": "guess"
+   "title": "File:Italian traffic signs - divieto di transito.svg",
+   "need": "no entry for all vehicles (white disc, red ring)"
   },
   {
    "id": "pedestrian-area",
-   "search": "Italian traffic signs - area pedonale",
-   "need": "pedestrian area",
-   "confidence": "guess"
+   "title": "File:Italian traffic signs - area pedonale (figura II 320).svg",
+   "need": "pedestrian area (figura II 320)"
   }
  ],
  "discover": [
-  "Italian traffic signs zona traffico limitato",
-  "Italian traffic sign ZTL",
+  "Italian traffic signs zona traffico limitato figura II 322-a",
   "Italian traffic signs svg divieto",
-  "Figura II"
+  "Figura II 322",
+  "Italian traffic signs - ZTL varco"
  ]
 }

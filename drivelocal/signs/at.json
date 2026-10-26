@@ -1,27 +1,27 @@
 {
  "set": "at",
- "note": "Episode 1 Austria vignette: Autobahn sign and the vignette-obligation sign at the border. DRAFT, NOT CONFIRMED against Wikimedia Commons: the agent workspace cannot reach commons.wikimedia.org (egress policy 403) and the web search quota was spent, so the 'search' prefixes below are best-guess Commons naming patterns. fetch_signs.py only accepts a hit whose title starts with the prefix and contains every word in 'require', so a wrong guess ends in MISSING.txt, never in a wrong sign. Licence of each file is unknown until the runner writes sources.json (expected: public-domain official sign, or Open Government Licence / Crown copyright for the UK; do not assume). Fix any entry listed in MISSING.txt with an exact 'title'.",
+ "rev": 2,
+ "note": "Episode 1 Austria vignette: Autobahn sign and the vignette-obligation sign at the border. Entries with a 'title' are exact Commons file names taken from the runner's DISCOVER.txt (run of 2026-10-26); fetch_signs.py accepts only that exact title. Entries with status 'unresolved' have no file yet: the runner's DISCOVER.txt held no clean SVG for them, so they stay in MISSING.txt until a title is found from the 'discover' queries. Licences are not recorded here until the runner has written sources.json for this set. vignette-pflicht: the only hit was a photo (Vignette Oesterreich.jpg), which is a sticker, not a sign, so it is not used.",
  "signs": [
   {
    "id": "autobahn",
-   "search": "Austria road sign § 53 Z 10a",
-   "need": "Hinweiszeichen Autobahn",
-   "confidence": "guess"
+   "title": "File:Hinweiszeichen 8a.svg",
+   "need": "Autobahn sign (Hinweiszeichen 8a)"
   },
   {
    "id": "vignette-pflicht",
-   "search": "Austria road sign § 53 Z 10a",
+   "search": "Hinweiszeichen",
    "require": [
     "Vignette"
    ],
-   "need": "vignette obligation plate or sign, if a Commons file exists",
-   "confidence": "guess"
+   "need": "vignette obligation sign, if a clean SVG exists on Commons",
+   "status": "unresolved"
   }
  ],
  "discover": [
-  "Austria road sign Autobahn",
-  "Österreich Verkehrszeichen Autobahn svg",
-  "Vignette Österreich svg",
-  "Austrian road sign"
+  "Vignettenpflicht Zusatztafel",
+  "Austria Mautpflicht sign svg",
+  "Hinweiszeichen Vignette",
+  "Vorschriftszeichen Vignette Autobahn"
  ]
 }
