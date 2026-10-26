@@ -1,0 +1,10 @@
+job b01-a c0 stills 50,292,330 res 720 samples 16 args '': 3 png
+00:46.994  cycles           | WARNING CUEW initialization failed: Error opening the library
+01:08.517  render           | Saved: 'frames/f_0050.png'
+vegetation 16248 13804 127 267
+Saved frames/f_0050.png
+01:29.714  render           | Saved: 'frames/f_0292.png'
+Saved frames/f_0292.png
+01:51.095  render           | Saved: 'frames/f_0330.png'
+Saved frames/f_0330.png
+RENDER_DONE None signs dict_keys([('at', 'autobahn')])

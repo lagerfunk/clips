@@ -1,0 +1,12 @@
+job b07-b c10 stills 300,411,531,639 res 720 samples 16 args '': 4 png
+00:51.583  cycles           | WARNING CUEW initialization failed: Error opening the library
+01:10.856  render           | Saved: 'frames/f_0300.png'
+vegetation 16292 13785 126 269
+Saved frames/f_0300.png
+01:29.091  render           | Saved: 'frames/f_0411.png'
+Saved frames/f_0411.png
+01:54.294  render           | Saved: 'frames/f_0531.png'
+Saved frames/f_0531.png
+02:10.523  render           | Saved: 'frames/f_0639.png'
+Saved frames/f_0639.png
+RENDER_DONE None signs dict_keys([('fr', 'autoroute')])
