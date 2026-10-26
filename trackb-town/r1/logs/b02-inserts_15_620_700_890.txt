@@ -1,0 +1,12 @@
+job b02-inserts stills 15,620,700,890 res 720 samples 32 args '': 0 png
+Traceback (most recent call last):
+  File "/home/runner/work/clips/clips/drivelocal/b02_ztl_camera_gate.py", line 152, in <module>
+    ico_no = CY.icon(env, "ico_no", "no", (0.0, -2.5, 2.4), 0.55)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/clips/clips/drivelocal/kit/country.py", line 691, in icon
+    flat(c, name + "_x", bar_pts(p[0], p[1], q[0], q[1], 0.24), (0.9, 0.05, 0.05), 1.2, parent=g, z=0.01)
+  File "/home/runner/work/clips/clips/drivelocal/kit/country.py", line 652, in flat
+    o.location, o.rotation_euler = loc, rot
+    ^^^^^^^^^^
+ValueError: bpy_struct: item.attr = val: sequence expected at dimension 1, not 'float'
+scene exited with 1
