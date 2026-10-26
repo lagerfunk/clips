@@ -20,7 +20,10 @@ jobs:
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - name: Fetch from Wikimedia Commons
-        run: python3 drivelocal/signs/fetch_signs.py out
+        run: |
+          mkdir -p out
+          python3 drivelocal/signs/fetch_signs.py out 2>&1 | tee fetch-log.txt
+          cp fetch-log.txt out/LOG.txt
       - name: Push to drivelocal-signs
         run: |
           cd out
@@ -32,4 +35,5 @@ jobs:
           git push -q -f "https://x-access-token:${{ github.token }}@github.com/${GITHUB_REPOSITORY}.git" drivelocal-signs
       - name: Fail on unresolved signs
         run: |
+          if [ ! -f out/MISSING.txt ]; then echo "fetch did not finish, see LOG.txt on drivelocal-signs"; exit 1; fi
           if [ -s out/MISSING.txt ]; then echo "Unresolved signs:"; cat out/MISSING.txt; exit 1; fi

@@ -55,10 +55,12 @@ def resolve(entry):
     if entry.get("title"):
         return entry["title"]
     q = entry["search"]
-    res = call(action="query", list="search", srnamespace=6, srlimit=50,
-               srsearch=f'intitle:"{q}" filemime:svg')
+    res = call(action="query", list="search", srnamespace=6, srlimit=100, srsearch=f'intitle:"{q}"')
+    if "error" in res:
+        raise RuntimeError(f"search error: {res['error']}")
     pat = re.compile(r"^File:" + re.escape(q) + r"(\s|\.svg$|,)", re.I)
-    titles = [h["title"] for h in res["query"]["search"] if pat.match(h["title"]) and not AVOID.search(h["title"])]
+    titles = [h["title"] for h in res.get("query", {}).get("search", [])
+              if pat.match(h["title"]) and h["title"].lower().endswith(".svg") and not AVOID.search(h["title"])]
     if not titles:
         return None
     for p in entry.get("prefer", PREFER):
@@ -85,29 +87,32 @@ def main():
         d.mkdir(parents=True, exist_ok=True)
         index = {}
         for e in conf["signs"]:
-            title = resolve(e)
-            if not title:
-                missing.append(f"{sset}/{e['id']} ({e.get('search') or e.get('title')})")
-                continue
-            info = call(action="query", titles=title, prop="imageinfo", iiprop="url|extmetadata|size|mime",
-                        iiurlwidth=1024)
-            page = info["query"]["pages"][0]
-            if page.get("missing") or not page.get("imageinfo"):
-                missing.append(f"{sset}/{e['id']} ({title})")
-                continue
-            ii = page["imageinfo"][0]
-            meta = ii.get("extmetadata", {})
-            get(ii["url"], d / f"{e['id']}.svg")
-            get(ii["thumburl"], d / f"{e['id']}.png")
-            index[e["id"]] = {
-                "title": title, "page": ii["descriptionurl"], "svg": ii["url"],
-                "width": ii.get("width"), "height": ii.get("height"),
-                "artist": strip_html(meta.get("Artist", {}).get("value")),
-                "licence": strip_html(meta.get("LicenseShortName", {}).get("value")),
-                "usage": strip_html(meta.get("UsageTerms", {}).get("value")),
-                "retrieved": time.strftime("%Y-%m-%d"),
-            }
-            print(f"{sset}/{e['id']}: {title} [{index[e['id']]['licence']}]", flush=True)
+            try:
+                title = resolve(e)
+                if not title:
+                    missing.append(f"{sset}/{e['id']} ({e.get('search') or e.get('title')}): no match")
+                    continue
+                info = call(action="query", titles=title, prop="imageinfo", iiprop="url|extmetadata|size|mime",
+                            iiurlwidth=1024)
+                page = info.get("query", {}).get("pages", [{}])[0]
+                if page.get("missing") or not page.get("imageinfo"):
+                    missing.append(f"{sset}/{e['id']} ({title}): no image info")
+                    continue
+                ii = page["imageinfo"][0]
+                meta = ii.get("extmetadata", {})
+                get(ii["url"], d / f"{e['id']}.svg")
+                get(ii["thumburl"], d / f"{e['id']}.png")
+                index[e["id"]] = {
+                    "title": title, "page": ii["descriptionurl"], "svg": ii["url"],
+                    "width": ii.get("width"), "height": ii.get("height"),
+                    "artist": strip_html(meta.get("Artist", {}).get("value")),
+                    "licence": strip_html(meta.get("LicenseShortName", {}).get("value")),
+                    "usage": strip_html(meta.get("UsageTerms", {}).get("value")),
+                    "retrieved": time.strftime("%Y-%m-%d"),
+                }
+                print(f"{sset}/{e['id']}: {title} [{index[e['id']]['licence']}]", flush=True)
+            except Exception as ex:  # noqa: BLE001
+                missing.append(f"{sset}/{e['id']}: error {type(ex).__name__}: {ex}")
             time.sleep(0.3)
         json.dump(index, open(d / "sources.json", "w", encoding="utf-8"), ensure_ascii=False, indent=1)
         lines = [f"# Sign sources, set {sset}", "",
