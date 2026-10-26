@@ -1,0 +1,89 @@
+{
+ "rev": 2,
+ "jobs": [
+  {
+   "name": "b01-a",
+   "scene": "b01_vignette_18_days.py",
+   "stills": "50,292,330",
+   "res": 720,
+   "samples": 16
+  },
+  {
+   "name": "b01-b",
+   "scene": "b01_vignette_18_days.py",
+   "stills": "400,520,600",
+   "res": 720,
+   "samples": 16
+  },
+  {
+   "name": "b01-c",
+   "scene": "b01_vignette_18_days.py",
+   "stills": "700,800,900,1040",
+   "res": 720,
+   "samples": 16
+  },
+  {
+   "name": "b03-a",
+   "scene": "b03_rain_speed_limits.py",
+   "stills": "25,120,300",
+   "res": 720,
+   "samples": 16
+  },
+  {
+   "name": "b03-b",
+   "scene": "b03_rain_speed_limits.py",
+   "stills": "400,520,640,700",
+   "res": 720,
+   "samples": 16
+  },
+  {
+   "name": "b03-c",
+   "scene": "b03_rain_speed_limits.py",
+   "stills": "800,900,1060",
+   "res": 720,
+   "samples": 16
+  },
+  {
+   "name": "b04-a",
+   "scene": "b04_raser_law.py",
+   "stills": "20,60,300",
+   "res": 720,
+   "samples": 16
+  },
+  {
+   "name": "b04-b",
+   "scene": "b04_raser_law.py",
+   "stills": "420,560,640,720",
+   "res": 720,
+   "samples": 16
+  },
+  {
+   "name": "b04-c",
+   "scene": "b04_raser_law.py",
+   "stills": "850,920,1080",
+   "res": 720,
+   "samples": 16
+  },
+  {
+   "name": "b07-a",
+   "scene": "b07_motorway_breakdown.py",
+   "stills": "20,60,130,216",
+   "res": 720,
+   "samples": 16
+  },
+  {
+   "name": "b07-b",
+   "scene": "b07_motorway_breakdown.py",
+   "stills": "300,411,531,639",
+   "res": 720,
+   "samples": 16
+  },
+  {
+   "name": "b07-c",
+   "scene": "b07_motorway_breakdown.py",
+   "stills": "840,939,1080",
+   "res": 720,
+   "samples": 16
+  }
+ ]
+}
