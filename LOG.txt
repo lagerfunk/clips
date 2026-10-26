@@ -8,15 +8,13 @@ de-lanemgmt: 9 kept, 0 to fetch
 de-townplus: 4 kept, 0 to fetch
 es: 2 kept, 0 to fetch
 fr: 5 kept, 1 to fetch
-it: 4 kept, 0 to fetch
+it: 0 kept, 5 to fetch
+it/ztl: File:Italian traffic signs - zona a traffico limitato (figura II 322, 1992-1996).svg [Public domain]
+it/ztl-a: File:Italian traffic signs - zona traffico limitato (figura II 322-a).svg [CC BY-SA 3.0]
+it/ztl-end: File:Italian traffic signs - fine zona a traffico limitato (figura II 322-b).svg [Public domain]
+it/no-vehicles: File:Italian traffic signs - divieto di transito.svg [Public domain]
+it/pedestrian-area: File:Italian traffic signs - area pedonale (figura II 320).svg [Public domain]
 nl: 2 kept, 0 to fetch
 uk: 4 kept, 0 to fetch
-us: 0 kept, 7 to fetch
-us/R10-6: File:MUTCD R10-6.svg [Public domain]
-us/S3-1: File:MUTCD S3-1 (new).svg [Public domain]
-us/R2-1: File:MUTCD R2-1.svg [Public domain]
-us/R10-11: File:MUTCD R10-11.svg [Public domain]
-us/R1-1: File:MUTCD R1-1.svg [Public domain]
-us/S1-1: File:MUTCD S1-1.svg [Public domain]
-us/R4-3: File:MUTCD R4-3.svg [Public domain]
+us: 7 kept, 0 to fetch
 done, 3 missing
