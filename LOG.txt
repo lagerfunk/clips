@@ -2,17 +2,16 @@ Commons API reachable
 at: 0 kept, 2 to fetch
 ch: 0 kept, 2 to fetch
 de-core: 81 kept, 0 to fetch
+de-interchange: 0 kept, 7 to fetch
+de-interchange/449-1970: File:Zeichen 449 - Autobahnausfahrt-Vorwegweiser, StVO 1970.svg [Public domain]
+de-interchange/449-1974: File:Zeichen 449 - Vorwegweiser auf Autobahnen, StVO 1974.svg [Public domain]
+de-interchange/449-21: File:Zeichen 449-21.svg [Public domain]
+de-interchange/449-22: File:Zeichen 449-22.svg [Public domain]
+de-interchange/450-1970: File:Zeichen 450 - Ankündigungsbake auf Autobahnen, StVO 1970.svg [Public domain]
+de-interchange/450-21: File:Zeichen 450-21.svg [Public domain]
+de-interchange/450-white: File:Zeichen 450 white.svg [Public domain]
 de-junctions: 10 kept, 0 to fetch
-de-lanemgmt: 0 kept, 9 to fetch
-de-lanemgmt/531-11: File:Zeichen 531-11 - Einengungstafel, Darstellung ohne Gegenverkehr- noch zwei Fahrstreifen links in Fahrtrichtung, StVO 1992.svg [Public domain]
-de-lanemgmt/1004-35: File:Zusatzzeichen 1004-35 - nach 2 km, StVO 1992.svg [Public domain]
-de-lanemgmt/1004-800: File:Zusatzschild 741 - nach 800 m, StVO 1970.svg [Public domain]
-de-lanemgmt/223.1-51: File:Zeichen 223.1-51 - Seitenstreifen befahrbar, 3 Fahrstreifen u. Seitenstreifen, StVO 2017.svg [Public domain]
-de-lanemgmt/223.3-51: File:Zeichen 223.3-51 - Seitenstreifen räumen, 3 Fahrstreifen u. Seitenstreifen, StVO 2017.svg [Public domain]
-de-lanemgmt/328: File:Zeichen 328 - Nothalte- und Pannenbucht, StVO 2006.svg [Public domain]
-de-lanemgmt/124: File:Zeichen 124 - Stau, StVO 1992.svg [Public domain]
-de-lanemgmt/274-40: File:Zeichen 274-40 - Zulässige Höchstgeschwindigkeit, StVO 2017.svg [Public domain]
-de-lanemgmt/605-20: File:Zeichen 605-20 - Leitbake (Aufstellung links), 1000x250; StVO 1992.svg [Public domain]
+de-lanemgmt: 9 kept, 0 to fetch
 de-townplus: 3 kept, 0 to fetch
 es: 2 kept, 0 to fetch
 fr: 0 kept, 6 to fetch
