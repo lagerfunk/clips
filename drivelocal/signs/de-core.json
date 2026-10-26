@@ -333,5 +333,11 @@
    "search": "Zeichen 101-51"
   }
  ],
- "rev": 2
+ "rev": 2,
+ "discover": [
+  "intitle:\"Zeichen 449\"",
+  "intitle:\"Zeichen 450\"",
+  "intitle:\"Zeichen 448\"",
+  "intitle:\"Zeichen 332\""
+ ]
 }
