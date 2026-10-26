@@ -1,0 +1,7 @@
+{"rev": 2, "jobs": [
+  {"name": "wx-ld1-rain", "scene": "lookdev/ld_weather.py", "stills": "30", "res": 720, "samples": 48, "args": "--shot rain"},
+  {"name": "wx-ld2-night", "scene": "lookdev/ld_weather.py", "stills": "30", "res": 720, "samples": 48, "args": "--shot night"},
+  {"name": "wx-ld3-snow", "scene": "lookdev/ld_weather.py", "stills": "30", "res": 720, "samples": 48, "args": "--shot snow"},
+  {"name": "wx-time-ab", "scene": "lookdev/ld_weather.py", "stills": "1,2,3,4,5,6,7,8", "res": 720, "samples": 16, "args": "--shot rain --timing"},
+  {"name": "wx-time-town", "scene": "lookdev/ld_weather.py", "stills": "1,2,3,4,5,6,7,8", "res": 720, "samples": 16, "args": "--shot night --timing"}
+]}

@@ -1,5 +1,5 @@
 """Junction episode toolkit: lane paths through the X junction, simple kinematics (cruise, stop at a line, hold),
-hero cars (wheels, steering, brake lights and indicators through kit/motion.py), quiz badges (A, B, C) that float above the roof, path ribbons,
+hero cars with their own brake lights and indicators, quiz badges (A, B, C) that float above the roof, path ribbons,
 camera shots switched by markers, and the frame render loop. Right-hand traffic."""
 import math
 import os
@@ -8,7 +8,6 @@ import bmesh
 import bpy
 from mathutils import Matrix, Vector
 
-import motion
 import stage
 import vehicles as V
 import world as W
@@ -138,55 +137,82 @@ def amber():
 
 
 def hero(kind, color, name, plate, lib, traffic, metal=0.45):
-    """A car built for this episode, as a collection instance in `traffic`. Returns a dict for drive, brake_lights,
-    blink, badge. Wheels, steering and lamps come from motion.rig/bake: brake and tail lights read the instance's
-    "brake"/"tail" properties (shared material car_tail: 0.8 at rest, 6.0 braking), the amber indicator lenses sit at
-    the ray-cast corner and side spots (vehicles.lamp_spots) and light to 12 at 1.5 Hz."""
+    """A car built only for this episode (own brake-light and indicator materials). Returns a dict."""
     coll = V.car(kind, color, name, plate, metal=metal, c=lib)
     bpy.context.view_layer.update()
     body = coll.objects[name + "_body"]
+    g = coll.objects[name]
+    tail = bpy.data.materials["car_tail"].copy()
+    tail.name = name + "_tail"
+    for o in coll.objects:
+        if o.name.startswith(("taillight", "brake3")) and o.data and o.data.materials:
+            o.data = o.data.copy()
+            o.data.materials[0] = tail
+    ind_l, ind_r = amber(), amber()
+    ind_l.name, ind_r.name = name + "_ind_L", name + "_ind_R"
     k = V.KINDS[kind]
     L, Wh = k["L"], k["W"]
     mw = body.matrix_world
     bb = [mw @ Vector(c_) for c_ in body.bound_box]
     roof = max(v.z for v in bb)
+    zf = k["stations"][-2][3] - 0.02
+    zr = k["stations"][1][3] + 0.04
+    for side, m in ((-1, ind_l), (1, ind_r)):
+        for (y, z, sz) in ((L / 2 - 0.12, zf, (0.16, 0.08, 0.06)), (-L / 2 + 0.1, zr, (0.14, 0.06, 0.06)),
+                           (L * 0.16, (k["stations"][len(k["stations"]) // 2][3]) + 0.14, (0.1, 0.03, 0.03))):
+            # ray cast inwards from outside the corner to sit on the body
+            origin = Vector((side * (Wh + 1.0), y, z))
+            loc_local = body.matrix_world.inverted() @ origin
+            dir_local = body.matrix_world.inverted().to_3x3() @ Vector((-side, 0, 0))
+            hit, loc, nrm, _i = body.ray_cast(loc_local, dir_local, distance=5.0)
+            if not hit:
+                continue
+            wl = body.matrix_world @ loc
+            bm = bmesh.new()
+            bmesh.ops.create_cube(bm, size=1.0)
+            for v in bm.verts:
+                v.co.x *= sz[1]
+                v.co.y *= sz[0]
+                v.co.z *= sz[2]
+            me = bpy.data.meshes.new(name + "_ind")
+            bm.to_mesh(me)
+            bm.free()
+            o = bpy.data.objects.new(name + "_ind", me)
+            coll.objects.link(o)
+            me.materials.append(m)
+            o.location = wl + Vector((side * 0.01, 0, 0))
+            o.parent = g
     e = bpy.data.objects.new(name + "_inst", None)
     e.instance_type = "COLLECTION"
     e.instance_collection = coll
     traffic.objects.link(e)
-    car = dict(name=name, kind=kind, obj=e, coll=coll, tail=bpy.data.materials["car_tail"],
-               ind=dict(zip("LR", V.lamp_mats())), L=L, W=Wh, roof=roof, blinks=[])
-    car["rig"] = motion.rig(e)
-    return car
+    return dict(name=name, kind=kind, obj=e, coll=coll, tail=tail, ind={"L": ind_l, "R": ind_r}, L=L, W=Wh,
+                roof=roof)
 
 
-def drive(car, path, sv, frames, z=0.0, night=False):
-    """Bake the car along `path` with the (s, v) list (one per frame, frames 1..N) through motion.bake: position and
-    heading (from the rear axle to the front axle, a car pivots around its rear axle), wheels turning with the
-    distance, front wheels steering from the yaw rate, brake lights from the deceleration, indicators from blink()."""
-    locs, yaws, vs = [], [], []
+def drive(car, path, sv, frames, z=0.0):
+    """Bake the car along `path` with the (s, v) list (one per frame, frames 1..N)."""
+    locs, rots = [], []
     wb = 0.55 * car["L"]
     for (s, v) in sv:
+        # heading from the rear axle to the front axle (a car pivots around its rear axle)
         pf, _ = path.at(s + wb / 2)
         pr, _ = path.at(s - wb / 2)
         d = pf - pr
+        yaw = math.atan2(d.y, d.x) - math.pi / 2
         p, _ = path.at(s)
         locs.append((p.x, p.y, z))
-        yaws.append(math.atan2(d.y, d.x))
-        vs.append(v)
-    track = motion.track_from(locs, yaws, vs)
-    for side, t0, t1 in car.get("blinks", []):
-        _mark(track, side, t0, t1, frames[0])
-    car["rig"] = motion.bake(car.get("rig") or motion.rig(car), track, night=night, frame0=frames[0])
+        rots.append((0.0, 0.0, yaw))
+    # unwrap yaw
+    for i in range(1, len(rots)):
+        a = rots[i][2]
+        while a - rots[i - 1][2] > math.pi:
+            a -= 2 * math.pi
+        while a - rots[i - 1][2] < -math.pi:
+            a += 2 * math.pi
+        rots[i] = (0.0, 0.0, a)
+    stage.bake_motion(car["obj"], frames, locs, rots)
     car["track"] = locs
-    car["sv"] = list(sv)
-
-
-def _mark(track, side, t0, t1, frame0=1):
-    for i in range(len(track)):
-        t = (frame0 + i - 1) / FPS
-        if t0 - 1e-6 <= t < t1:
-            track[i]["ind"] = side
 
 
 def key_emission(m, pairs, constant=True):
@@ -200,26 +226,30 @@ def key_emission(m, pairs, constant=True):
                 kp.interpolation = "CONSTANT"
 
 
-def brake_lights(car, sv=None, base=0.8, braking=6.0):
-    """Brake lights from the deceleration (below -0.8 m/s2) and while standing, as motion.bake derives them. drive()
-    already keys them; this re-applies them (and accepts the old arguments; the levels are those of car_tail)."""
-    r = car.get("rig")
-    if r is None or r.track is None:
-        return
-    if sv is not None and len(sv) == len(r.track):
-        for t, (_s, v) in zip(r.track, sv):
-            t["v"] = v
-    motion.relight(r)
+def brake_lights(car, sv, base=0.8, braking=6.0):
+    """Brake lights on while decelerating or standing."""
+    pairs = []
+    state = None
+    for i in range(len(sv)):
+        v = sv[i][1]
+        v_prev = sv[i - 1][1] if i else v
+        on = (v_prev - v) > 0.004 or v < 0.05
+        if on != state:
+            pairs.append((i + 1, braking if on else base))
+            state = on
+    key_emission(car["tail"], pairs)
 
 
-def blink(car, side, t0, t1, period=None):
-    """Indicator `side` ("L", "R" or "H" for hazards) blinking at 1.5 Hz (on 0.33 s, off 0.33 s) from t0 to t1
-    (seconds). Works before or after drive()."""
-    car.setdefault("blinks", []).append((side, t0, t1))
-    r = car.get("rig")
-    if r is not None and r.track is not None:
-        _mark(r.track, side, t0, t1, r.frame0)
-        motion.relight(r)
+def blink(car, side, t0, t1, period=0.66):
+    """German indicators flash at 1.5 Hz (90 a minute): on half the period."""
+    m = car["ind"][side]
+    pairs = [(1, 0.0)]
+    t = t0
+    while t < t1:
+        pairs.append((int(t * FPS) + 1, 12.0))
+        pairs.append((int((t + period / 2) * FPS) + 1, 0.0))
+        t += period
+    key_emission(m, pairs)
 
 
 # ------------------------------------------------------------------ quiz layer
