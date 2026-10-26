@@ -1,1 +1,57 @@
-{}
+{
+ "b14-130": {
+  "title": "File:France road sign B14 (130).svg",
+  "page": "https://commons.wikimedia.org/wiki/File:France_road_sign_B14_(130).svg",
+  "svg": "https://upload.wikimedia.org/wikipedia/commons/f/f1/France_road_sign_B14_%28130%29.svg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+  "width": 581,
+  "height": 581,
+  "artist": "Grondin",
+  "licence": "CC BY-SA 3.0",
+  "usage": "Creative Commons Attribution-Share Alike 3.0",
+  "retrieved": "2026-10-26"
+ },
+ "b14-110": {
+  "title": "File:France road sign B14 (110).svg",
+  "page": "https://commons.wikimedia.org/wiki/File:France_road_sign_B14_(110).svg",
+  "svg": "https://upload.wikimedia.org/wikipedia/commons/f/ff/France_road_sign_B14_%28110%29.svg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+  "width": 581,
+  "height": 581,
+  "artist": "Grondin",
+  "licence": "CC BY-SA 3.0",
+  "usage": "Creative Commons Attribution-Share Alike 3.0",
+  "retrieved": "2026-10-26"
+ },
+ "b14-100": {
+  "title": "File:France road sign B14 (100).svg",
+  "page": "https://commons.wikimedia.org/wiki/File:France_road_sign_B14_(100).svg",
+  "svg": "https://upload.wikimedia.org/wikipedia/commons/b/b3/France_road_sign_B14_%28100%29.svg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+  "width": 576,
+  "height": 576,
+  "artist": "Ryse93",
+  "licence": "CC BY-SA 4.0",
+  "usage": "Creative Commons Attribution-Share Alike 4.0",
+  "retrieved": "2026-10-26"
+ },
+ "b14-80": {
+  "title": "File:France road sign B14 (80).svg",
+  "page": "https://commons.wikimedia.org/wiki/File:France_road_sign_B14_(80).svg",
+  "svg": "https://upload.wikimedia.org/wikipedia/commons/b/b9/France_road_sign_B14_%2880%29.svg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+  "width": 581,
+  "height": 581,
+  "artist": "Ryse93",
+  "licence": "CC BY-SA 3.0",
+  "usage": "Creative Commons Attribution-Share Alike 3.0",
+  "retrieved": "2026-10-26"
+ },
+ "autoroute": {
+  "title": "File:France road sign C207.svg",
+  "page": "https://commons.wikimedia.org/wiki/File:France_road_sign_C207.svg",
+  "svg": "https://upload.wikimedia.org/wikipedia/commons/f/f3/France_road_sign_C207.svg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+  "width": 575,
+  "height": 575,
+  "artist": "Roulex 45 self-made from source above",
+  "licence": "CC BY-SA 3.0",
+  "usage": "Creative Commons Attribution-Share Alike 3.0",
+  "retrieved": "2026-10-26"
+ }
+}

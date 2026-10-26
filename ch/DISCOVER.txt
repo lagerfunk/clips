@@ -1,270 +1,114 @@
-## Swiss road sign Autobahn (66)
-  File:Swiss Autobahn Sign.jpg
-  File:Km 42 sign on Autobahn A2 in Switzerland, 2017.jpg
-  File:Autobahn A9 Verzweigung Brig-Gils.jpg
-  File:CH-Autobahn 18.png
-  File:Autobahn-Signalisationstafeln im Verkehrshaus.jpg
-  File:Autobahn A51 exit Opfikon Wallisellen Oerlikon 5472 - 20180619 (48402670167).jpg
-  File:Verzweigung Hagnau (Autobahn A2 and A18) on A2 northbound, 2013.jpg
-  File:Verzweigung Bern-Weyermannshaus (Autobahn A1 A12), directional signs in 2013.jpg
-  File:Autobahn A7 beginnt in Kreuzlingen TG (2023).jpg
-  File:Verzweigung Reichenburg, interchange 42 with Autobahn A3, 2018.jpg
-  File:Raischibe Autobahn-Tunnel, Blick Richtung Chur.jpg
-  File:Km 71.8 sign on highway in Switzerland, 2021.jpg
-  File:Autobahn A2 Brücken Reuss Ebikon LU - Emmen LU 20160725-jag9889.jpg
-  File:Deitingen Süd, sign 2009.jpg
-  File:CH-Hinweissignal-Autobahn.svg
-  File:CH-Hinweissignal-Ende der Autobahn.svg
-  File:CH-1963-Hinweissignal-Autobahn.svg
-  File:Autobahn A4 Brücken Muota Schwyz SZ 20180725-jag9889.jpg
-  File:A2 Autobahn-Brücke über die Suhre, Sursee LU 20210720-jag9889.jpg
-  File:CH-1963-Hinweissignal-Ende der Autobahn.svg
-  File:GranciaHinterAutobahn.JPG
-  File:Image-Swiss-Highway-network-en.png
-  File:Muota, sign, 2018.jpg
-  File:A861Swiss.svg
-  File:Selisbergtunnel, 9250 m, sign 2006.jpg
-  File:Muttenz, Switzerland - panoramio.jpg
-  File:Gotthard-Strassentunnel Nord-Süd-8889.jpg
-  File:A1-Autobahnbrücke über die Wigger, Rothrist AG – Oftringen AG 20210820-jag9889.jpg
-  File:A861Swiss.png
-  File:Entrée Bâle - panoramio.jpg
-  File:A4 Switzerland.jpg
-  File:Raischibe, 800 m, tunnel signs, 2017.jpg
-  File:CH HighwayPictures AG 52.jpg
-  File:Grenzverkehr über B33n und A7.jpg
-  File:Deitingen Sued Raststaette, Schalendach 02 09.jpg
-  File:CH HighwayPictures AG 56.jpg
-  File:Uster-autobahn02.jpg
-  File:CH HighwayPictures AG 57.jpg
-  File:CH HighwayPictures AG 54.jpg
-  File:CH HighwayPictures AG 61.jpg
-  File:Uster-autobahn01.jpg
-  File:20180619 WalenseeHwy 5640 (48402798431).jpg
-  File:20170711 OltenHwy 0804 (36125566793).jpg
-  File:CH HighwayPictures AG 58.jpg
-  File:Raststätte Pratteln g.JPG
-  File:CH HighwayPictures AG 50.jpg
-  File:CH HighwayPictures AG 51.jpg
-  File:Polizeiauto der Luzerner Polizei.jpg
-  File:CH HighwayPictures AG 55.jpg
-  File:Seelisbergtunnel Nordportal.jpg
-  File:Svisa kantona autovojo A53 873.jpg
-  File:Svisa kantona autovojo A53 567.jpg
-  File:Svisa kantona autovojo A53 571.jpg
-  File:Haldenmoos mit Scheibenstand.jpg
-  File:AB-Vzw.svg
-  File:AB-Tunnel.svg
-  File:Bremgartenwald - panoramio (12).jpg
-  File:Gigafactory Logistics in Space and Time - Tesla’s Fourth Gigafactory and Its Rivals.pdf
-  File:OJ C 65 of 2013 - EN English.pdf
-  File:State 1990-01- Iss 329 (IA sim state-magazine 1990-01 329).pdf
-  File:26March2008.pdf
-  File:The best of both worlds (with notes).pdf
-  File:Computer Entertainer 7-7.pdf
-  File:SwissSign Highway end.jpg
-  File:SwissSign Highway.png
-  File:Schweizer.Autobahnvignette.jpg
-## CH-Signal svg (100)
-  File:CH-symbole-signal-9.01.svg
-  File:Swiss Signal ETCS Shunting Proceed.svg
-  File:Swiss Signal ETCS Shunting End.svg
-  File:CH-symbole-signal-9a.svg
-  File:Swiss Signal Shunting Evacuation Forbidden 2.svg
-  File:Swiss Signal Shunting Evacuation Allowed 1.svg
-  File:Swiss Signal Shunting Evacuation Allowed 2.svg
-  File:Swiss Signal Shunting Evacuation Forbidden 1.svg
-  File:ERTMS trackside board 10 - GSM-R network border marker - EN 16494 (CH).svg
-  File:Swiss Signal CAB Start.svg
-  File:Swiss Signal CAB End.svg
-  File:Swiss Signal Station End.svg
-  File:Swiss Signal Station announce.svg
-  File:CH-Vorschriftssignal-Verbot für Motorräder.svg
-  File:Swiss Signal Station Begin.svg
-  File:Swiss Signal ETCS Shunting Back.svg
-  File:Swiss Signal ETCS Shunting Stop.svg
-  File:Swiss Signal Stop.svg
-  File:Swiss Signal Resume Speed.svg
-  File:CH-Gefahrensignal-Lichtsignale.svg
-  File:Swiss Signal Distant Repeater.svg
-  File:Swiss Signal Raise Pantograph.svg
-  File:Swiss Signal Lower Pantograph.svg
-  File:Swiss Signal ETCS Shunting Proceed with caution.svg
-  File:CH-Gefahrensymbol-Rechtskurve.svg
-  File:CH-Vortrittssignal-Wechselblinklicht.svg
-  File:Swiss Signal Distant Lower Pantograph.svg
-  File:Swiss Signal Level Crossing Announce.svg
-  File:CH-Vortrittssignal-Einfaches Blinklicht.svg
-  File:CH-Gefahrensignale-Distanzbaken.svg
-  File:CH-Gefahrensignal-Steinschlag (1).svg
-  File:CH-Vorschriftssignal-Zonensignal-6.svg
-  File:CH-Gefahrensignal-Steinschlag (2).svg
-  File:CH-Vorschriftssignal-Zonensignal-5.svg
-  File:CH-Vorschriftssignal-Zonensignal-3.svg
-  File:CH-Vorschriftssignal-Zonensignal-2.svg
-  File:CH-Vortrittssignal-Einfaches Andreaskreuz 2.svg
-  File:CH-Vorschriftssignal-Ende-Zonensignal-6.svg
-  File:CH-Vorschriftssignal-Begegnungszone-2.svg
-  File:CH-Vorschriftssignal-Ende-Zonensignal-3.svg
-  File:CH-Vorschriftssignal-Fussgängerzone-1.svg
-  File:CH-Vorschriftssignal-Fussgängerzone-2.svg
-  File:CH-Vortrittssignal-Doppeltes Andreaskreuz 2.svg
-  File:CH-Gefahrensignal-Steinschlag(2).svg
-  File:CH-Vorschriftssignal-Ende-Zonensignal-5.svg
-  File:CH-Vorschriftssignal-Begegnungszone-1.svg
-  File:CH-Vorschriftssignal-Zonensignal-1.svg
-  File:CH-Vorschriftssignal-Zollhaltestelle-2.svg
-  File:CH-Hinweissignal-Bestätigungstafel (3).svg
-  File:CH-Vorschriftssignal-Ende-Zonensignal-2.svg
-  File:CH-Hinweissignal-Ausfahrtstafel (2).svg
-  File:CH-Vorschriftssignal-Höchstgeschwindigkeit 50 generell-2.svg
-  File:CH-Hinweissignal-Standort eines Fussgängerstreifens (gespiegelt).svg
-  File:CH-Hinweissignal-Fussgänger-Unterführung (gespiegelt).svg
-  File:CH-Vorschriftssignal-Ende-Zonensignal-1.svg
-  File:CH-Hinweissignal-Ausfahrtstafel (1).svg
-  File:CH-Vorschriftssignal-Polizei-2.svg
-  File:CH-Vorschriftssignal-Ende der Begegnungszone-2.svg
-  File:CH-Vorschriftssignal-Ende der Fussgängerzone-2.svg
-  File:CH-Vorschriftssignal-Zollhaltestelle-1.svg
-  File:CH-Hinweissignal-Ausfahrtstafel (3).svg
+## CH-Vorschriftssignal-Höchstgeschwindigkeit 120 (0)
+## CH-Vorschriftssignal-Höchstgeschwindigkeit (10)
+  File:CH-Vorschriftssignal-Höchstgeschwindigkeit 50 generell-4.svg
+  File:CH-Vorschriftssignal-Höchstgeschwindigkeit 50 generell.svg
   File:CH-Vorschriftssignal-Höchstgeschwindigkeit 50 generell-3.svg
-  File:CH-Hinweissignal-Fussgänger-Überführung (gespiegelt).svg
-  File:CH-Vorschriftssignal-Ende der Begegnungszone-1.svg
-  File:CH-Vorschriftssignal-Ende der Fussgängerzone-1.svg
-  File:CH-Gefahrsignal 7 - Vortrittsrecht, SSV 1932.svg
-  File:CH-Vorschriftssignal-Polizei-1.svg
-  File:CH-Gefahrsignal 6 - Andere Gefahren, SSV 1932.svg
-  File:CH-Gefahrensignal-Baustelle.svg
-  File:CH-Vorschriftssignal-Zonensignal-4.svg
-  File:CH-Gefahrensignal-Wildwechsel.svg
-  File:CH-Vorschriftssignal-Ende-Zonensignal-4.svg
-  File:CH-Gefahrensignal-Rollsplitt.svg
-  File:CH-Vorschriftssignal-Geradeausfahren.svg
-  File:CH-Hinweissignal-Hinweis auf Polizeistützpunkte (1).svg
-  File:CH-Vortrittssignal-Hauptstrasse.svg
-  File:CH-Vorschriftssignal-Rechtsabbiegen.svg
-  File:CH-Vorschriftssignal-Radweg.svg
-  File:CH-Gefahrensignal-Stau.svg
-  File:CH-Vorschriftssignal-Achsdruck.svg
-  File:CH-Vorschriftssignal-Ende der Höchstgeschwindigkeit 50 generell-2.svg
-  File:CH-Gefahrensignal-Radfahrer.svg
-  File:CH-Vorschriftssignal-Höchstgewicht.svg
-  File:CH-Vorschriftssignal-Busfahrbahn.svg
-  File:CH-Vorschriftssignal-Linksabbiegen.svg
+  File:CH-Vorschriftssignal-Höchstgeschwindigkeit 50 generell-2.svg
+  File:CH-Vorschriftssignal-Ende der Höchstgeschwindigkeit 50 generell-3.svg
   File:CH-Vorschriftssignal-Ende der Höchstgeschwindigkeit 50 generell-4.svg
-  File:CH-Gefahrensignal-Flugzeuge.svg
-  File:CH-Gefahrensignal-Tiere.svg
-  File:CH-Hinweissignal-Hinweis auf Polizeistützpunkte (2).svg
-  File:CH-Vorschriftssignal-Höchsthöhe.svg
-  File:CH-Zusatztafel-Streckenlänge.svg
-  File:CH-Gefahrensignal-Engpass.svg
-  File:CH-Zusatztafel-Panzer.svg
-  File:CH-Gefahrensignal-Seitenwind.svg
+  File:CH-Vorschriftssignal-Höchstgeschwindigkeit.svg
+  File:CH-Vorschriftssignal-Ende der Höchstgeschwindigkeit 50 generell-2.svg
   File:CH-Vorschriftssignal-Ende der Höchstgeschwindigkeit 50 generell-1.svg
-  File:CH-Vorschriftssignal-Kreisverkehrsplatz.svg
-  File:CH-Vorschriftssignal-Mindestgeschwindigkeit.svg
-  File:CH-Zusatztafel-Anfangstafel.svg
-  File:CH-Zusatztafel-Schiesslärm.svg
-  File:CH-Zusatztafel-Wegweiser «Route für fahrzeugähnliche Geräte».svg
-## Schweizer Signal Autobahn (0)
-## Swiss road sign 4.01 (100)
-  File:No vehicles road sign in Switzerland.jpg
-  File:No stopping road sign in Switzerland.jpg
-  File:Road sign Gelmerbahn.jpg
-  File:Swiss trail marker in Tenna.jpg
-  File:Panneau 4.01 début autoroute A1.jpg
-  File:Turning on red signal for cyclists road sign, Switzerland, Acacias-01.jpg
-  File:Panneau 4.01 début autoroute A1 Bardonnex.jpg
-  File:Swiss Museum of Transportation(Verkehrshaus der Schweiz) Lucerne, Switzerland (Ank Kumar, Infosys Limited) 01.jpg
-  File:Turning on red signal for cyclists road sign, Switzerland, Onex-01.jpg
-  File:No stopping sign near Sentiero di Gandria Switzerland.jpg
-  File:Turning on red signal for cyclists road sign, Switzerland, PontRouge-01.jpg
-  File:Val Medel road toll sign.jpg
-  File:Turning on red signal for cyclists road sign, Switzerland, Acacias-02.jpg
-  File:Km 65.2 sign on highway in Switzerland, 2020.jpg
-  File:Gotthard Road Tunnel Switzerland (from nord).jpg
-  File:Twann Tessenbergstrasse Signalisation 01.jpg
-  File:Cassiopeiasteg, sign 2022.jpg
-  File:Deutsch-Schweizer Grenze Konstanz - B 33n-4755.jpg
-  File:Klosters-Traffic sign-01.jpg
-  File:Raststätte Pratteln-Nord, sign 2009.jpg
-  File:Km 134.8 sign on highway in Switzerland, 2019.jpg
-  File:Panneau 4.38 5.50 9.01.jpg
-  File:Km 154.8 sign on highway in Switzerland, 2018.jpg
-  File:Carouge panneaux 4.38 5.50 9.01.jpg
-  File:Gotthard Road Tunnel Switzerland.jpg
-  File:ZRH warning sign 270315.jpg
-  File:Panneaux suisses 4.04 4.07a 5.01 nationale 9S.jpg
-  File:Panneaux 1.31 2.51 4.07 5.01.jpg
-  File:Bergtocht van Churwalden Mittelberg (1500 meter) via Ranculier en Praden naar Tschiertschen 026.jpg
-  File:La Renfile panneaux 4.09 2.01 2.12.jpg
-  File:Verzweigung Reichenburg, 1500 m, number 42, sign, 2018.jpg
-  File:Old level crossing signal without gates in Switzerland.jpg
-  File:Carouge panneaux 1.22 5.01.jpg
-  File:La Renfile panneaux 4.09 2.01 2.12 zoom.jpg
-  File:Deutsch-Schweizer Grenze Konstanz - A 7-4760.jpg
-  File:Troinex panneaux suisses 2.53.1 4.30.jpg
-  File:Rein anteriur, sign, 2017.jpg
-  File:Old level crossing with gates in Switzerland.jpg
-  File:Panneaux suisses 4.24 5.01 N9S.jpg
-  File:Street sign.jpg
-  File:Carre d'Aval panneaux 1.01 5.01.jpg
-  File:Signal routier suisse 1.30 avec plaques 5.34 et 5.01.jpg
-  File:Panneau suisse Petit-Veyrier 2.01.jpg
-  File:Carre d'Aval panneaux 1.01 5.01 zoom.jpg
-  File:Panneau suisse 4.54 orange.jpg
-  File:Bellevue panneau suisse 3.01.jpg
-  File:Street sign Liselotte Spreng 01.jpg
-  File:Panneau 1.01 attention virage à droite, route de Saint-Cergue 01.jpg
-  File:Panneau 4.92 extincteur sur la Jaunestrasse.jpg
-  File:Cantilever sign Fleur de Lys Fribourg 01.jpg
-  File:Gotthard-Strassentunnel Nord-Süd-8889.jpg
-  File:CH-symbole-signal-9.01.svg
-  File:Cantilever inn sign Fleur de Lys Fribourg 01.jpg
-  File:Panneau 4.77 de 3 à 2 voies à 200 m.jpg
-  File:Panneaux 2.16 2.17 5.01 et feu vert.jpg
-  File:Praille panneau 4.02.jpg
-  File:CH HighwayPictures AG 08.jpg
-  File:(Velo)Wegweiser in Schaffhausen.jpg
-  File:Panneaux 2.16 2.17 5.01 et feu rouge.jpg
-  File:Panneaux 2.36 et 3.01, chemin du Vieux-Châtel.jpg
-  File:Rue des Grottes-01-Zone 20.jpg
-  File:Pont Sierre-Chippis 01.jpg
-  File:Panneau 1.01 attention virage à droite, route de Saint-Cergue 03.jpg
-  File:Panneau 1.01 attention virage à droite, route de Saint-Cergue 02.jpg
-  File:Cara Panneaux suisses 1.06 5.01.jpg
-  File:Veyrier panneaux 2.11 5.01.jpg
-  File:Street sign rue d'Or Fribourg 01.jpg
-  File:Panneau suisse 4.21 4.33.jpg
-  File:Street sign Planche-Supérieure Fribourg 01.jpg
-  File:Carouge - Rue du Marché - travaux 01.jpg
-  File:Street sign Grand-Rue Fribourg 01.jpg
-  File:Panneaux indicateur de direction au Brassus 01.jpg
-  File:Panneaux suisses 4.81 et 4.92 au tunnel de Collombey 01.jpg
-  File:Panneau 3.05 route de Genolier (1).jpg
-  File:Signal routier suisse 4.77.1 largeur max 2 m.jpg
-  File:Autobahn A9 Verzweigung Brig-Gils.jpg
-  File:Aspwald, 380 m, tunnel sign, 2010.jpg
-  File:Muttenz, Switzerland - panoramio.jpg
-  File:Panneaux 2.07 5.01 et feu piéton rouge.jpg
-  File:TWW 10634 Niederwiler Stierenberg Wanderweg gesperrt.jpg
-  File:Panneaux suisses 4.33 et militaire jaune.jpg
-  File:Grengiols Ze Hyschere 01.jpg
-  File:Bodenseeradwegschildschweiz.jpg
-  File:Bernex panneaux suisses 2.41.1 5.01.jpg
-  File:3 Cartelli Cavigliano 220919.jpg
-  File:Miex Panneau 4.06.jpg
-  File:Hinterrhein uscita A13 071114.jpg
-  File:Gotthard-Strassentunnel Nord-Süd-8915.jpg
-  File:Fin provisoire autoroute suisse A9 à Gampel-Steg.jpg
-  File:Passage piétons suisse 4.11 2.34.jpg
-  File:Panneau suisse 4.33 Téléskis avec idéogramme 9.10 téléski 01.jpg
-  File:Praille panneaux 4.21 4.33.jpg
-  File:Grenzverkehr über B33n und A7.jpg
-  File:CH-Hinweissignal-Autobahn.svg
-  File:Sankt Gallen-Kubel-wooden bridge near power plant Kubel-06ASD.jpg
-  File:Panneaux 4.07a Genève Vignoble de qualité.jpg
-  File:Street signs Fribourg Rue des Epouses 01.jpg
-  File:Panneau suisse 4.03 nationale 9S.jpg
-  File:Rüti - Dorf-Ferrachstrasse 2011-01-07 13-19-42 ShiftN.jpg
-  File:Baerenwil.jpg
+  File:CH-Vorschriftssignal-Ende der Höchstgeschwindigkeit.svg
+## Swiss road sign 2.30 120 (100)
+  File:Altikon 120.jpg
+  File:Gunzgen vilagheniro 120.JPG
+  File:2012-07-18-Regiono Arbergo (Foto Dietrich Michael Weidmann) 120.JPG
+  File:Praille panneaux 2.46 4.59 4.64 4.21 P+R 2.30.1.jpg
+  File:Swiss copyright law.pdf
+  File:Our life in the Swiss highlands (IA ourlifeinswisshi00symoiala).pdf
+  File:Life of Ulrich Zwingli, the Swiss patriot and reformer (IA lifeofulrichzwin00simprich).pdf
+  File:Federal Register 1938-06-21- Vol 3 Iss 120 (IA sim federal-register-find 1938-06-21 3 120).pdf
+  File:Federal Register 1992-06-22- Vol 57 Iss 120 (IA sim federal-register-find 1992-06-22 57 120).pdf
+  File:Some remarks on the climate of the Swiss Alps, with pulmonary cases treated at Maloja (6,000 feet) (IA b2230003x).pdf
+  File:Some remarks on the climate of the Swiss Alps, with pulmonary cases treated at Maloja (6,000 feet) (IA b30799053).pdf
+  File:Switzerland and the adjacent portions of Italy, Savoy, and Tyrol. Handbook for travellers (IA switzerlanditaly00karl).pdf
+  File:Switzerland and the adjacent portions of Italy, Savoy and the Tyrol - handbook for travellers (IA switzerlandadj00karl).pdf
+  File:Preventing Teen Pregnancy in the US-CDC Vital Signs-April 2011.pdf
+  File:DHIA sire summary list, November, 1963 - Ayrshire, Guernsey, Holstein, Jersey, Brown Swiss, and Milking Shorthorn sires (IA CAT31320818).pdf
+  File:Switzerland and the adjacent portions of Italy, Savoy, and Tyrol; handbook for travellers (IA switzerlandadja00karl).pdf
+  File:Switzerland and the adjacent portions of Italy, Savoy, and the Tyrol - handbook for travellers (IA switzerlandadjac00karl).pdf
+  File:Switzerland, and the adjacent portions of Italy, Savoy, and the Tyrol - handbook for travellers (IA switzerlandad00karl).pdf
+  File:DHIA sire summary list, November 1965 - Ayrshire, Guernsey, Holstein, Jersey, Brown Swiss, Milking Shorthorn, Red Dane, and Red Poll sires (IA CAT31320861).pdf
+  File:DHIA sire summary list, February 1965 - Ayrshire, Guernsey, Holstein, Jersey, Brown Swiss, Milking Shorthorn, Red Dane, and Red Poll sires (IA CAT31320872).pdf
+  File:Road maps and tour book of western North Carolina .. (IA roadmapstourbook1916nort).pdf
+  File:Switzerland in 1854-5- a book of travel, men & things (IA switzerlandin18500heatrich).pdf
+  File:Switzerland, and the adjacent portions of Italy, Savoy, and the Tyrol, handbook for travellers (IA switzerlanda00karl).pdf
+  File:DHIA sire summary list, May 1965 - Ayrshire, Guernsey, Holstein, Jersey, Brown Swiss, Milking Shorthorn, Red Dane, Red Poll, and Mixed Breed sires (IA CAT31320873).pdf
+  File:DHIA sire summary list, March, 1964 - Ayrshire, Guernsey, Holstein, Jersey, Brown Swiss, Milking Shorthorn sires, Red Dane, Red Poll, and Mixed Breed sires (IA CAT31320807).pdf
+  File:Switzerland - and the adjacent portions of Italy, Savoy, and the Tyrol - handbook for travellers (IA 03054781.5425.emory.edu).pdf
+  File:The road of life (IA roadoflife00kell).pdf
+  File:The royal road to romance (IA royalroadtoroman00hall).djvu
+  File:Paper Trade Journal 1908-07-30- Vol 47 Iss 5 (IA sim paper-trade-journal 1908-07-30 47 5).pdf
+  File:A wayfarer in Switzerland (IA wayfarerinswitze00muir).pdf
+  File:OJ C 30 of 2015 - EN English.pdf
+  File:The New York Evangelist 1849-08-30- Vol 20 Iss 35 (IA sim evangelist-and-religious-review 1849-08-30 20 35).pdf
+  File:Romance and Teutonic Switzerland (IA romanceteutonics02mccriala).pdf
+  File:The Enterprise 1895-11-30 (IA cssf 000035).pdf
+  File:A road-book for tourists in Norway. With hints to English sportsmen and anglers (IA roadbookfortouri00fore).pdf
+  File:Paterson's guide to Switzerland - with maps and plans (IA patersonsguideto00ediniala).pdf
+  File:Cook's tourist's handbook for Switzerland (IA cookstouristshan00thom 0).pdf
+  File:OJ C 286 of 2017 - EN English.pdf
+  File:The Glendale Evening News 1915-01-06 (IA cgl 002440).pdf
+  File:Two Journeys Through Italy And Switzerland (IA dli.granth.36561).pdf
+  File:Pictorial and descriptive guide to the valley of the Wye - by river, road & rail, from source to mouth ; with hints on fishing, boating, cycling, motoring, etc (IA pictorialdescript00ward).pdf
+  File:Switzerland - and the adjacent portions of Italy, Savoy, and the Tyrol - handbook for travellers (IA 09941009.5427.emory.edu).pdf
+  File:Switzerland - and the adjacent portions of Italy, Savoy, and the Tyrol - handbook for travellers (IA 05845210.5428.emory.edu).pdf
+  File:Northern Italy including Leghorn, Florence, Ravenna and routes through France, Switzerland, and Austria; handbook for travellers (IA northernitalyinc00karl).pdf
+  File:Notes of a ramble through France, Italy, Switzerland, Germany, Holland, and Belgium - and of a visit to the scenes of the "Lady of the lake" (IA notesoframblethr00londiala).pdf
+  File:California Digital Library (IA switzerlandorjou01simoiala).pdf
+  File:Rambles in Europe- in Ireland, Scotland, England, Belgium, Germany, Switzerland, and France, with historical facts relating to Scotch-American families (IA ramblesineuropei00morr).pdf
+  File:The diary of an invalid being the journal of a tour in pursuit of health in Portugal, Italy, Switzerland, and France in the years 1817, 1818, and 1819 (IA b22022235 0001).pdf
+  File:Notes and Queries - Series 2 - General Index.djvu
+  File:The Sketch - A journal of art and actuality, vol. 30, 1900.pdf
+  File:A tour in France, Savoy, northern Italy, Switzerland, Germany and the Netherlands, in the summer of 1825- including some observations on the scenery of the Neckar and the Rhine- (IA gri 33125014919381).pdf
+  File:The Examiner 1809-07-30- Iss 83 (IA sim examiner-a-weekly-paper-on-politics-literature-music 1809-07-30 83).pdf
+  File:The Editor and Publisher 1920-10-30- Vol 53 Iss 22 (IA sim editor-publisher 1920-10-30 53 22).pdf
+  File:Federal Register 1961-12-30- Vol 26 Iss 251 (IA sim federal-register-find 1961-12-30 26 251).pdf
+  File:Engineering News and American Railway Journal 1893-07-20- Vol 30 Iss 3 (IA enr 1893-07-20 30 3).djvu
+  File:The Glendale News 1907-03-30 (IA cgl 000717).pdf
+  File:Behar Herald 22-01-2020 & 30-01-2020.pdf
+  File:Victoria Daily Times (1925-09-30) (IA victoriadailytimes19250930).pdf
+  File:The Engineering and Mining Journal 1889-11-30- Vol 48 Iss 22 (IA sim engineering-and-mining-journal 1889-11-30 48 22).pdf
+  File:Victoria Daily Times (1921-03-30) (IA victoriadailytimes19210330).pdf
+  File:Victoria Daily Times (1917-07-30) (IA victoriadailytimes19170730).pdf
+  File:Victoria Daily Times (1913-01-30) (IA victoriadailytimes19130130).pdf
+  File:Engineering News and American Railway Journal 1894-04-05- Vol 30 Iss 14 (IA sim enr 1894-04-05 30 14).pdf
+  File:Victoria Daily Times (1918-07-30) (IA victoriadailytimes19180730).pdf
+  File:Engineering News and American Railway Journal 1894-02-08- Vol 30 Iss 6 (IA sim enr 1894-02-08 30 6).pdf
+  File:Victoria Daily Times (1918-09-30) (IA victoriadailytimes19180930).pdf
+  File:The Engineering and Mining Journal 1880-09-18- Vol 30 Iss 12 (IA sim engineering-and-mining-journal 1880-09-18 30 12).pdf
+  File:Switzerland; or, a Journal of a Tour and Residence in that Country, in the Years 1817, 1818, and 1819- followed by an Historical Ketch on the Manners and Costoms of Ancient and Modern Helvetia (IA dli.granth.34992).pdf
+  File:The Journal of Classical and Sacred Philology, Volume 2, 1855.djvu
+  File:Change of air or the pursuit of health and recreation. (Through France Switzerland Italy c.) illustrating the beneficial influence of bodily exercise change of scene pure air (IA b29339170).pdf
+  File:Scientific American - Series 2 - Volume 004 - Issue 19.pdf
+  File:Good roads year book (IA goodroadsyearboo03washrich).pdf
+  File:A Tour in France, Savoy, Northern, Italy, Switzerland Germany and the Netherlands in the Summer of 1825 including some observation on the scenery of The Necker and The Rhine (In Two Volumes (IA dli.granth.34972).pdf
+  File:The Bombay Gazette, 30 December 1869 (IA dli.granth.24518).pdf
+  File:The Glendale Evening News 1920-09-30 (IA cgl 004192).pdf
+  File:The Bombay Gazette, 30 January 1868 (IA dli.granth.23888).pdf
+  File:The Bombay Gazette, 30 July 1868 (IA dli.granth.24045).pdf
+  File:Sierra Madre News 1923-11-30 (IA csie 000895).pdf
+  File:The New York Times 1929-08-30- Vol 78 Iss 26151 (IA per new-york-times-magazine the-new-york-times 1929-08-30 78 26151).pdf
+  File:The New York Times 1914-08-30- Vol 63 Iss 20672 (IA per new-york-times-magazine the-new-york-times 1914-08-30 63 20672).pdf
+  File:The New York Times 1896-08-30- Vol 45 Iss 14049 (IA per new-york-times-magazine the-new-york-times 1896-08-30 45 14049).pdf
+  File:Board of Trade Journal. London. 1914-04-30- Vol 85 Iss 909 (IA sim great-britain-board-of-trade-board-of-trade-journal 1914-04-30 85 909).pdf
+  File:Board of Trade Journal. London. 1922-11-30- Vol 109 Iss 1357 (IA sim great-britain-board-of-trade-board-of-trade-journal 1922-11-30 109 1357).pdf
+  File:Board of Trade Journal. London. 1913-10-30- Vol 83 Iss 883 (IA sim great-britain-board-of-trade-board-of-trade-journal 1913-10-30 83 883).pdf
+  File:The GLA Roads Designation Order 2000 (UKSI 2000-1117).pdf
+  File:The GLA Roads Designation Order 2000 (UKSI 2000-1117 qp).pdf
+  File:Beecham's help to scholars - containing arithmetical tables and signs, weights and measures, tables of the metric system, and other useful information (IA b30472532).pdf
+  File:EUD 1994-2.pdf
+  File:Eighth Annual Report of the Trustees of the Massachusetts State Sanatorium at Rutland. September 30, 1904 (IA eighthannualrepo08mass 1).pdf
+  File:Ninth Annual Report of the Trustees of the Massachusetts State Sanatorium at Rutland. September 30, 1905 (IA ninthannualrepor09mass 0).pdf
+  File:The passes of the Pyrenees; a practical guide to the mountain roads of the Franco-Spanish frontier (IA passesofpyrenees00free).pdf
+  File:Annual report of the American Scenic and Historic Preservation Society to the legislature of the State of New York. (IA annualreportofam00amer 2).pdf
+  File:Annual report of the superintendent of national parks to the secretary of the interior for the fiscal year ended June 30, 1916 (IA annualreportofsu00unit).pdf
+  File:Annual report covering military activities of the Corps of Engineers for the fiscal year ending June 30, 1930 - USACE-p16021coll6-1865.pdf
+  File:Scribner's Magazine, Volume 55, Issue 2.pdf
+  File:Harper's New Monthly Magazine, Volume 2.pdf
+  File:Report on the highways of Maryland. In accordance with an act passed at the session of the General assembly of 1898. (Laws of Maryland 1898, chap. 454.) (IA cu31924022787851).pdf
+  File:The exhibition of the Society of British Artists (IA exhibitionofsoci00roya 2).pdf
+  File:Hans Andersen's fairy tales; (IA hansandersensfai00ande 2).pdf
+  File:Joseph in the snow ; and, The clockmaker (microform) (IA 3177140 2).pdf
+## Höchstgeschwindigkeit 120 Schweiz Signal svg (0)

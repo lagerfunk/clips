@@ -1,10 +1,3 @@
-at/autobahn (Austria road sign § 53 Z 10a): no match
-at/vignette-pflicht (Austria road sign § 53 Z 10a): no match
-ch/autobahn (Zeichen 4.01): no match
-ch/limit-120 (Zeichen 2.30): no match
-fr/b14-130 (Panneau B14): no match
-fr/b14-110 (Panneau B14): no match
-fr/b14-100 (Panneau B14): no match
-fr/b14-80 (Panneau B14): no match
-fr/autoroute (Panneau E): no match
-fr/emergency-call (Panneau): no match
+at/vignette-pflicht (Hinweiszeichen): no match
+ch/limit-120 (CH-Vorschriftssignal-Höchstgeschwindigkeit): no match
+fr/emergency-call (France road sign CE): no match
