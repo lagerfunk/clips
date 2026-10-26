@@ -1,8 +1,24 @@
 Commons API reachable
+at: 0 kept, 2 to fetch
+ch: 0 kept, 2 to fetch
 de-core: 81 kept, 0 to fetch
 de-junctions: 10 kept, 0 to fetch
-de-townplus: 0 kept, 3 to fetch
-de-townplus/318: File:Zeichen 318 - Parkscheibe, StVO 2013.svg [Public domain]
-de-townplus/rad-marking: File:Markierung Radfahrer.svg [Copyrighted free use]
-de-townplus/224: File:Zeichen 224 - Haltestelle, StVO 2017.svg [Public domain]
-done, 0 missing
+de-townplus: 3 kept, 0 to fetch
+es: 0 kept, 2 to fetch
+es/r1-ceda: File:Spain traffic signal r1.svg [Public domain]
+es/r402-rotonda: File:Spain traffic signal r402.svg [CC BY-SA 4.0]
+fr: 0 kept, 6 to fetch
+it: 0 kept, 4 to fetch
+it/ztl: File:Italian traffic signs - zona a traffico limitato (figura II 322, 1992-1996).svg [Public domain]
+it/ztl-end: File:Italian traffic signs - fine zona a traffico limitato (figura II 322-b).svg [Public domain]
+it/no-vehicles: File:Italian traffic signs - divieto di transito.svg [Public domain]
+it/pedestrian-area: File:Italian traffic signs - area pedonale (figura II 320).svg [Public domain]
+nl: 0 kept, 2 to fetch
+nl/b6-give-way: File:Nederlands verkeersbord B6.svg [Public domain]
+nl/g11-cycle-path: File:Nederlands verkeersbord G11.svg [Public domain]
+uk: 0 kept, 4 to fetch
+uk/keep-left: File:UK traffic sign 610 (left).svg [OGL v1.0]
+uk/roundabout-ahead: File:UK traffic sign 510.svg [Public domain]
+uk/mini-roundabout: File:UK traffic sign 611.1.svg [OGL v1.0]
+uk/give-way: File:UK traffic sign 602.svg [OGL v1.0]
+done, 10 missing
