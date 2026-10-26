@@ -1,0 +1,24 @@
+{
+ "set": "es",
+ "note": "Episode 8 Spain roundabout: R-1 ceda el paso and R-402 roundabout. DRAFT, NOT CONFIRMED against Wikimedia Commons: the agent workspace cannot reach commons.wikimedia.org (egress policy 403) and the web search quota was spent, so the 'search' prefixes below are best-guess Commons naming patterns. fetch_signs.py only accepts a hit whose title starts with the prefix and contains every word in 'require', so a wrong guess ends in MISSING.txt, never in a wrong sign. Licence of each file is unknown until the runner writes sources.json (expected: public-domain official sign, or Open Government Licence / Crown copyright for the UK; do not assume). Fix any entry listed in MISSING.txt with an exact 'title'.",
+ "signs": [
+  {
+   "id": "r1-ceda",
+   "search": "Spain traffic signal r1",
+   "need": "ceda el paso",
+   "confidence": "guess"
+  },
+  {
+   "id": "r402-rotonda",
+   "search": "Spain traffic signal r402",
+   "need": "intersección de sentido giratorio",
+   "confidence": "guess"
+  }
+ ],
+ "discover": [
+  "Spain traffic sign R-402",
+  "Señal de tráfico R-402",
+  "Spain traffic signal glorieta svg",
+  "Spain traffic sign R-1"
+ ]
+}

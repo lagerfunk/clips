@@ -1,0 +1,27 @@
+{
+ "set": "at",
+ "note": "Episode 1 Austria vignette: Autobahn sign and the vignette-obligation sign at the border. DRAFT, NOT CONFIRMED against Wikimedia Commons: the agent workspace cannot reach commons.wikimedia.org (egress policy 403) and the web search quota was spent, so the 'search' prefixes below are best-guess Commons naming patterns. fetch_signs.py only accepts a hit whose title starts with the prefix and contains every word in 'require', so a wrong guess ends in MISSING.txt, never in a wrong sign. Licence of each file is unknown until the runner writes sources.json (expected: public-domain official sign, or Open Government Licence / Crown copyright for the UK; do not assume). Fix any entry listed in MISSING.txt with an exact 'title'.",
+ "signs": [
+  {
+   "id": "autobahn",
+   "search": "Austria road sign § 53 Z 10a",
+   "need": "Hinweiszeichen Autobahn",
+   "confidence": "guess"
+  },
+  {
+   "id": "vignette-pflicht",
+   "search": "Austria road sign § 53 Z 10a",
+   "require": [
+    "Vignette"
+   ],
+   "need": "vignette obligation plate or sign, if a Commons file exists",
+   "confidence": "guess"
+  }
+ ],
+ "discover": [
+  "Austria road sign Autobahn",
+  "Österreich Verkehrszeichen Autobahn svg",
+  "Vignette Österreich svg",
+  "Austrian road sign"
+ ]
+}

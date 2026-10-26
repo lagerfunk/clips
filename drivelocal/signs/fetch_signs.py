@@ -194,6 +194,19 @@ def main():
                 missing.append(f"{sset}/{sid}: download error {ex}")
             write_index(d, sset, index)
         write_index(d, sset, index)
+        # discovery: real Commons file titles for search queries, so an agent can pick exact titles
+        disc = conf.get("discover", [])
+        if disc:
+            lines = []
+            for q in disc:
+                try:
+                    res = call(action="query", list="search", srnamespace=6, srlimit=100, srsearch=q)
+                    hits = [h["title"] for h in res.get("query", {}).get("search", [])]
+                    lines.append(f"## {q} ({len(hits)})")
+                    lines += [f"  {t}" for t in hits]
+                except Exception as ex:  # noqa: BLE001
+                    lines.append(f"## {q}: error {ex}")
+            (d / "DISCOVER.txt").write_text("\n".join(lines) + "\n", encoding="utf-8")
     (out / "MISSING.txt").write_text("\n".join(missing) + ("\n" if missing else ""), encoding="utf-8")
     print(f"done, {len(missing)} missing", flush=True)
 

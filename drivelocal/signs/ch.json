@@ -1,0 +1,27 @@
+{
+ "set": "ch",
+ "note": "Episode 4 Switzerland Raser law: motorway sign and the 120 speed-limit disc (shown only if ch_motorway_limit_120 is VERIFIED). DRAFT, NOT CONFIRMED against Wikimedia Commons: the agent workspace cannot reach commons.wikimedia.org (egress policy 403) and the web search quota was spent, so the 'search' prefixes below are best-guess Commons naming patterns. fetch_signs.py only accepts a hit whose title starts with the prefix and contains every word in 'require', so a wrong guess ends in MISSING.txt, never in a wrong sign. Licence of each file is unknown until the runner writes sources.json (expected: public-domain official sign, or Open Government Licence / Crown copyright for the UK; do not assume). Fix any entry listed in MISSING.txt with an exact 'title'.",
+ "signs": [
+  {
+   "id": "autobahn",
+   "search": "Zeichen 4.01",
+   "need": "Autobahn sign (Swiss signal 4.01, green)",
+   "confidence": "guess"
+  },
+  {
+   "id": "limit-120",
+   "search": "Zeichen 2.30",
+   "require": [
+    "120"
+   ],
+   "need": "speed limit 120",
+   "confidence": "guess"
+  }
+ ],
+ "discover": [
+  "Swiss road sign Autobahn",
+  "CH-Signal svg",
+  "Schweizer Signal Autobahn",
+  "Swiss road sign 4.01"
+ ]
+}

@@ -1,0 +1,36 @@
+{
+ "set": "uk",
+ "note": "Episode 5 United Kingdom: keep-left, roundabout warning, mini-roundabout and give-way signs (TSRGD diagram numbers). DRAFT, NOT CONFIRMED against Wikimedia Commons: the agent workspace cannot reach commons.wikimedia.org (egress policy 403) and the web search quota was spent, so the 'search' prefixes below are best-guess Commons naming patterns. fetch_signs.py only accepts a hit whose title starts with the prefix and contains every word in 'require', so a wrong guess ends in MISSING.txt, never in a wrong sign. Licence of each file is unknown until the runner writes sources.json (expected: public-domain official sign, or Open Government Licence / Crown copyright for the UK; do not assume). Fix any entry listed in MISSING.txt with an exact 'title'.",
+ "signs": [
+  {
+   "id": "keep-left",
+   "search": "UK traffic sign 610",
+   "need": "keep left (blue disc)",
+   "confidence": "guess"
+  },
+  {
+   "id": "roundabout-ahead",
+   "search": "UK traffic sign 510",
+   "need": "roundabout warning",
+   "confidence": "guess"
+  },
+  {
+   "id": "mini-roundabout",
+   "search": "UK traffic sign 611.1",
+   "need": "mini-roundabout",
+   "confidence": "guess"
+  },
+  {
+   "id": "give-way",
+   "search": "UK traffic sign 602",
+   "need": "give way triangle",
+   "confidence": "guess"
+  }
+ ],
+ "discover": [
+  "UK traffic sign roundabout svg",
+  "UK traffic sign give way",
+  "UK road sign keep left",
+  "Diagram 610"
+ ]
+}

@@ -1,0 +1,66 @@
+{
+ "set": "fr",
+ "note": "Episodes 3 and 7 France: B14 speed-limit discs for the rain episode (numerals shown only if the rain keys are VERIFIED), autoroute sign, emergency-call sign. DRAFT, NOT CONFIRMED against Wikimedia Commons: the agent workspace cannot reach commons.wikimedia.org (egress policy 403) and the web search quota was spent, so the 'search' prefixes below are best-guess Commons naming patterns. fetch_signs.py only accepts a hit whose title starts with the prefix and contains every word in 'require', so a wrong guess ends in MISSING.txt, never in a wrong sign. Licence of each file is unknown until the runner writes sources.json (expected: public-domain official sign, or Open Government Licence / Crown copyright for the UK; do not assume). Fix any entry listed in MISSING.txt with an exact 'title'.",
+ "signs": [
+  {
+   "id": "b14-130",
+   "search": "Panneau B14",
+   "require": [
+    "130"
+   ],
+   "need": "speed limit 130",
+   "confidence": "guess"
+  },
+  {
+   "id": "b14-110",
+   "search": "Panneau B14",
+   "require": [
+    "110"
+   ],
+   "need": "speed limit 110",
+   "confidence": "guess"
+  },
+  {
+   "id": "b14-100",
+   "search": "Panneau B14",
+   "require": [
+    "100"
+   ],
+   "need": "speed limit 100",
+   "confidence": "guess"
+  },
+  {
+   "id": "b14-80",
+   "search": "Panneau B14",
+   "require": [
+    "80"
+   ],
+   "need": "speed limit 80",
+   "confidence": "guess"
+  },
+  {
+   "id": "autoroute",
+   "search": "Panneau E",
+   "require": [
+    "autoroute"
+   ],
+   "need": "autoroute start sign",
+   "confidence": "guess"
+  },
+  {
+   "id": "emergency-call",
+   "search": "Panneau",
+   "require": [
+    "appel d'urgence"
+   ],
+   "need": "emergency-call post sign (blue, telephone)",
+   "confidence": "guess"
+  }
+ ],
+ "discover": [
+  "France road sign C207",
+  "France road sign B14",
+  "Panneau autoroute France svg",
+  "France road sign A14"
+ ]
+}
