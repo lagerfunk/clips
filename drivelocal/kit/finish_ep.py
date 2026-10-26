@@ -1,6 +1,6 @@
 """Finish one episode: captions, sound, compose per language, per-language segment order, checks.
 
-    python3 kit/finish_ep.py epNN RENDER.mp4 OUTDIR [--langs en,de,fr]
+    python3 kit/finish_ep.py epNN|bNN|flNN RENDER.mp4 OUTDIR [--langs en,de,fr]
 
 Expects projects/drivelocal/epNN/post_epNN.py with the same CLI as episodes 2 to 5 (`post_epNN.py OUTDIR` writes
 epNN_<lang>.ass and audio_epNN.wav) and, optionally, writing OUTDIR/epNN_edit.json:
@@ -42,7 +42,9 @@ def main():
     langs = ["en", "de", "fr"]
     if "--langs" in sys.argv:
         langs = sys.argv[sys.argv.index("--langs") + 1].split(",")
-    n = ep[2:]
+    import re
+    pre, n = re.match(r"^([a-z]+)(\d\d)$", ep).groups()
+    code = {"ep": f"dlal{n}", "b": f"dlalb{n}", "fl": f"fl{n}"}[pre]
     work = os.path.join(out, "work")
     os.makedirs(work, exist_ok=True)
     post = os.path.join(ROOT, ep, f"post_{ep}.py")
@@ -59,7 +61,7 @@ def main():
     checks["captions"] = cap.stdout.strip().splitlines()[-1]
     ok = cap.returncode == 0
     for lang in langs:
-        dst = os.path.join(out, f"dlal{n}-{slug}-{lang}.mp4")
+        dst = os.path.join(out, f"{code}-{slug}-{lang}.mp4")
         title = edit.get("title", {}).get(lang, f"Drive Like a Local #{int(n)} ({lang})")
         tmp = dst if not edit.get("order") else dst.replace(".mp4", ".canon.mp4")
         run(["bash", os.path.join(HERE, "compose.sh"), render, os.path.join(work, f"{ep}_{lang}.ass"),

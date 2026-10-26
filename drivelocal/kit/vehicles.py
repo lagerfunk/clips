@@ -365,6 +365,8 @@ def stick(root_coll, parent, body, origin, direction, size, m, up=(0, 0, 1), emb
 # 26 Oct 2026: the only Q codes are QFT and QLB, the only J codes are J, JB, JE, JEV, JL, JUEL). Every plate in the
 # series uses one of these, so no combination can belong to a real car.
 FICTIONAL_CODES = ("QX", "QZ", "JX", "JJ")
+# Owner rule "no brand badges or logos": no company wordmarks on trucks, fictional names included (26 Oct 2026).
+LABELS = False
 
 
 def fictional(text):
@@ -713,7 +715,7 @@ def truck(name, cab_color, trailer_color, label="", label_color=(0.05, 0.12, 0.4
             k_ += 1
     bx("plate_board", (0, -9.215, 0.85), (0.6, 0.03, 0.2), dark)
     plate_on(root, g, (0, -9.231, 0.85), (0, -1, 0), plate, C, "plate_r")
-    if label:
+    if label and LABELS:
         lm = mat(name + "_label", label_color, 0.4)
         for sx in (-1, 1):
             t = W.text_obj("truck_label", label, 0.85, lm, root, "CENTER", "CENTER", 0.003)
@@ -1154,7 +1156,7 @@ def drawbar(name="gliederzug", cab_color=(0.86, 0.87, 0.88), box_color=(0.88, 0.
             for kk in range(4):
                 _bx(root, g, "marker", (sx * 1.281, y0 - 0.6 - kk * (ly - 1.2) / 3, 1.05), (0.01, 0.12, 0.06),
                     amber_m, part=part)
-        if label:
+        if label and LABELS:
             lm = mat(name + "_label", label_color, 0.4)
             for sx in (-1, 1):
                 t = W.text_obj("truck_label", label, 0.62, lm, root, "CENTER", "CENTER", 0.003)
