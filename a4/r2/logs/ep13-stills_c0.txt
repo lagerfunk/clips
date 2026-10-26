@@ -1,0 +1,29 @@
+job ep13-stills c0 stills 100,200,470,800,1070 res 720 samples 16 args '': 5 png
+vegetation 42905 29189 301 517
+[ 120.0s] world built
+[ 167.5s] sim 157 vehicles, 1699 steps
+dropped 4 vehicles in conflict with scripted ones
+[ 171.4s] sim 172 vehicles, 2040 steps
+dropped 3 vehicles in conflict with scripted ones
+[ 172.8s] tracks 260
+[ 172.9s] tracks after cull 124
+AUDIT ok
+[ 175.2s] cast 124
+[ 175.3s] cameras
+02:56.678  cycles           | WARNING CUEW initialization failed: Error opening the library
+03:38.316  render           | Saved: 'frames/f_0100.png'
+Saved frames/f_0100.png
+[ 217.2s] frame 100
+04:27.986  render           | Saved: 'frames/f_0200.png'
+Saved frames/f_0200.png
+[ 266.8s] frame 200
+05:08.382  render           | Saved: 'frames/f_0470.png'
+Saved frames/f_0470.png
+[ 307.2s] frame 470
+05:59.412  render           | Saved: 'frames/f_0800.png'
+Saved frames/f_0800.png
+[ 358.3s] frame 800
+06:58.957  render           | Saved: 'frames/f_1070.png'
+Saved frames/f_1070.png
+[ 417.8s] frame 1070
+RENDER_DONE [100, 200, 470, 800, 1070]

@@ -1,0 +1,32 @@
+job ep24-stills c2 stills 20,220,300,880,1040 res 720 samples 16 args '': 5 png
+vegetation 42896 29318 309 542
+[ 117.3s] world built
+[ 120.4s] sim 207 vehicles, 2716 steps
+dropped 0 vehicles in conflict with scripted ones
+[ 124.1s] sim 219 vehicles, 3055 steps
+dropped 7 vehicles in conflict with scripted ones
+[ 126.0s] sim 177 vehicles, 660 steps
+dropped 2 vehicles in conflict with scripted ones
+[ 126.6s] tracks 531
+[ 126.7s] tracks after cull 240
+AUDIT FAIL lane change without indicator: 1 frames, ['C:police2'] e.g. frame 673
+AUDIT 1 failure kinds
+[ 128.8s] cast 240
+[ 128.9s] cameras
+02:09.754  cycles           | WARNING CUEW initialization failed: Error opening the library
+02:36.289  render           | Saved: 'frames/f_0020.png'
+Saved frames/f_0020.png
+[ 155.5s] frame 20
+03:03.032  render           | Saved: 'frames/f_0220.png'
+Saved frames/f_0220.png
+[ 182.3s] frame 220
+03:33.277  render           | Saved: 'frames/f_0300.png'
+Saved frames/f_0300.png
+[ 212.5s] frame 300
+03:59.831  render           | Saved: 'frames/f_0880.png'
+Saved frames/f_0880.png
+[ 239.1s] frame 880
+04:32.836  render           | Saved: 'frames/f_1040.png'
+Saved frames/f_1040.png
+[ 272.1s] frame 1040
+RENDER_DONE [20, 220, 300, 880, 1040]

@@ -1,0 +1,121 @@
+job ep24-preview c20 stills 697,699,701,703,705,707,709,711,713,715,717,719,721,723,725, res 360 samples 6 args '': 87 png
+Saved frames/f_0791.png
+[ 719.9s] frame 791
+12:11.840  render           | Saved: 'frames/f_0793.png'
+Saved frames/f_0793.png
+[ 730.8s] frame 793
+12:22.984  render           | Saved: 'frames/f_0795.png'
+Saved frames/f_0795.png
+[ 741.9s] frame 795
+12:34.110  render           | Saved: 'frames/f_0797.png'
+Saved frames/f_0797.png
+[ 753.0s] frame 797
+12:45.259  render           | Saved: 'frames/f_0799.png'
+Saved frames/f_0799.png
+[ 764.2s] frame 799
+12:56.359  render           | Saved: 'frames/f_0801.png'
+Saved frames/f_0801.png
+[ 775.3s] frame 801
+13:07.470  render           | Saved: 'frames/f_0803.png'
+Saved frames/f_0803.png
+[ 786.4s] frame 803
+13:18.447  render           | Saved: 'frames/f_0805.png'
+Saved frames/f_0805.png
+[ 797.4s] frame 805
+13:29.475  render           | Saved: 'frames/f_0807.png'
+Saved frames/f_0807.png
+[ 808.4s] frame 807
+13:40.790  render           | Saved: 'frames/f_0809.png'
+Saved frames/f_0809.png
+[ 819.7s] frame 809
+13:52.051  render           | Saved: 'frames/f_0811.png'
+Saved frames/f_0811.png
+[ 831.0s] frame 811
+14:03.211  render           | Saved: 'frames/f_0813.png'
+Saved frames/f_0813.png
+[ 842.1s] frame 813
+14:14.383  render           | Saved: 'frames/f_0815.png'
+Saved frames/f_0815.png
+[ 853.3s] frame 815
+14:25.463  render           | Saved: 'frames/f_0817.png'
+Saved frames/f_0817.png
+[ 864.4s] frame 817
+14:36.590  render           | Saved: 'frames/f_0819.png'
+Saved frames/f_0819.png
+[ 875.5s] frame 819
+14:47.885  render           | Saved: 'frames/f_0821.png'
+Saved frames/f_0821.png
+[ 886.8s] frame 821
+14:59.135  render           | Saved: 'frames/f_0823.png'
+Saved frames/f_0823.png
+[ 898.1s] frame 823
+15:10.402  render           | Saved: 'frames/f_0825.png'
+Saved frames/f_0825.png
+[ 909.3s] frame 825
+15:21.750  render           | Saved: 'frames/f_0827.png'
+Saved frames/f_0827.png
+[ 920.7s] frame 827
+15:32.854  render           | Saved: 'frames/f_0829.png'
+Saved frames/f_0829.png
+[ 931.8s] frame 829
+15:43.593  render           | Saved: 'frames/f_0831.png'
+Saved frames/f_0831.png
+[ 942.5s] frame 831
+15:55.500  render           | Saved: 'frames/f_0833.png'
+Saved frames/f_0833.png
+[ 954.4s] frame 833
+16:07.436  render           | Saved: 'frames/f_0835.png'
+Saved frames/f_0835.png
+[ 966.4s] frame 835
+16:19.420  render           | Saved: 'frames/f_0837.png'
+Saved frames/f_0837.png
+[ 978.3s] frame 837
+16:31.431  render           | Saved: 'frames/f_0839.png'
+Saved frames/f_0839.png
+[ 990.4s] frame 839
+16:43.377  render           | Saved: 'frames/f_0841.png'
+Saved frames/f_0841.png
+[1002.3s] frame 841
+16:55.199  render           | Saved: 'frames/f_0843.png'
+Saved frames/f_0843.png
+[1014.1s] frame 843
+17:06.810  render           | Saved: 'frames/f_0845.png'
+Saved frames/f_0845.png
+[1025.7s] frame 845
+17:18.043  render           | Saved: 'frames/f_0847.png'
+Saved frames/f_0847.png
+[1037.0s] frame 847
+17:29.174  render           | Saved: 'frames/f_0849.png'
+Saved frames/f_0849.png
+[1048.1s] frame 849
+17:40.164  render           | Saved: 'frames/f_0851.png'
+Saved frames/f_0851.png
+[1059.1s] frame 851
+17:51.264  render           | Saved: 'frames/f_0853.png'
+Saved frames/f_0853.png
+[1070.2s] frame 853
+18:02.210  render           | Saved: 'frames/f_0855.png'
+Saved frames/f_0855.png
+[1081.1s] frame 855
+18:13.316  render           | Saved: 'frames/f_0857.png'
+Saved frames/f_0857.png
+[1092.2s] frame 857
+18:24.436  render           | Saved: 'frames/f_0859.png'
+Saved frames/f_0859.png
+[1103.4s] frame 859
+18:35.413  render           | Saved: 'frames/f_0861.png'
+Saved frames/f_0861.png
+[1114.3s] frame 861
+18:46.286  render           | Saved: 'frames/f_0863.png'
+Saved frames/f_0863.png
+[1125.2s] frame 863
+18:57.039  render           | Saved: 'frames/f_0865.png'
+Saved frames/f_0865.png
+[1136.0s] frame 865
+19:07.836  render           | Saved: 'frames/f_0867.png'
+Saved frames/f_0867.png
+[1146.8s] frame 867
+19:18.754  render           | Saved: 'frames/f_0869.png'
+Saved frames/f_0869.png
+[1157.7s] frame 869
+RENDER_DONE [697, 699, 701, 703, 705, 707, 709, 711, 713, 715, 717, 719, 721, 723, 725, 727, 729, 731, 733, 735, 737, 739, 741, 743, 745, 747, 749, 751, 753, 755, 757, 759, 761, 763, 765, 767, 769, 771, 773, 775, 777, 779, 781, 783, 785, 787, 789, 791, 793, 795, 797, 799, 801, 803, 805, 807, 809, 811, 813, 815, 817, 819, 821, 823, 825, 827, 829, 831, 833, 835, 837, 839, 841, 843, 845, 847, 849, 851, 853, 855, 857, 859, 861, 863, 865, 867, 869]

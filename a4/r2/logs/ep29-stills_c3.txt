@@ -1,0 +1,33 @@
+job ep29-stills c3 stills 100,320,400,690,1040 res 720 samples 16 args '': 5 png
+vegetation 42907 29397 301 545
+[ 105.3s] world built
+[ 118.1s] sim 159 vehicles, 1721 steps
+dropped 11 vehicles in conflict with scripted ones
+[ 121.6s] sim 175 vehicles, 2520 steps
+dropped 7 vehicles in conflict with scripted ones
+[ 123.0s] sim 133 vehicles, 600 steps
+dropped 2 vehicles in conflict with scripted ones
+[ 124.3s] tracks 409
+[ 124.4s] tracks after cull 161
+AUDIT ok
+[ 126.5s] cast 161
+[ 126.6s] cameras
+/home/runner/work/clips/clips/drivelocal/ep29_roadworks_yellow_lines.py:299: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  fade.use_nodes = True
+02:07.695  cycles           | WARNING CUEW initialization failed: Error opening the library
+02:41.477  render           | Saved: 'frames/f_0100.png'
+Saved frames/f_0100.png
+[ 160.5s] frame 100
+03:23.712  render           | Saved: 'frames/f_0320.png'
+Saved frames/f_0320.png
+[ 202.8s] frame 320
+04:07.058  render           | Saved: 'frames/f_0400.png'
+Saved frames/f_0400.png
+[ 246.1s] frame 400
+04:56.575  render           | Saved: 'frames/f_0690.png'
+Saved frames/f_0690.png
+[ 295.6s] frame 690
+05:42.469  render           | Saved: 'frames/f_1040.png'
+Saved frames/f_1040.png
+[ 341.5s] frame 1040
+RENDER_DONE [100, 320, 400, 690, 1040]

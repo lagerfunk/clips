@@ -1,0 +1,32 @@
+job ep15-stills c1 stills 60,200,530,684,1050 res 720 samples 16 args '': 5 png
+vegetation 42807 29314 301 530
+[ 102.3s] world built
+WARN roadworks: no barrier picture for a left closure, barrier left out
+[ 116.7s] sim 291 vehicles, 2250 steps
+dropped 11 vehicles in conflict with scripted ones
+[ 124.3s] sim 265 vehicles, 2250 steps
+hero A lane change [23.03, 24.77, 0, 1, 17.47] hero B [29.0, 30.97, 0, 1, 0.4]
+[ 126.5s] tracks 494
+[ 126.6s] tracks after cull 384
+AUDIT zipper merges variant A (vehicle, metres before the lane end): [('hero', 613.2), ('hero', 613.2)]
+AUDIT zipper merges variant B (vehicle, metres before the lane end): [('v68', 30.8), ('hero', 41.7), ('v70', 54.1), ('v71', 60.9)]
+AUDIT ok
+[ 131.5s] cast 384
+[ 131.5s] cameras
+02:12.518  cycles           | WARNING CUEW initialization failed: Error opening the library
+02:51.277  render           | Saved: 'frames/f_0060.png'
+Saved frames/f_0060.png
+[ 170.4s] frame 60
+03:29.958  render           | Saved: 'frames/f_0200.png'
+Saved frames/f_0200.png
+[ 209.1s] frame 200
+04:21.712  render           | Saved: 'frames/f_0530.png'
+Saved frames/f_0530.png
+[ 260.9s] frame 530
+05:16.465  render           | Saved: 'frames/f_0684.png'
+Saved frames/f_0684.png
+[ 315.6s] frame 684
+06:02.380  render           | Saved: 'frames/f_1050.png'
+Saved frames/f_1050.png
+[ 361.5s] frame 1050
+RENDER_DONE [60, 200, 530, 684, 1050]
