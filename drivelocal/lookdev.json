@@ -1,0 +1,5 @@
+{"rev": 3, "jobs": [
+  {"name": "ld1", "scene": "lookdev/ld_junctions.py", "stills": "1", "res": 720, "samples": 48, "args": "--shot rb1"},
+  {"name": "ld2", "scene": "lookdev/ld_junctions.py", "stills": "1", "res": 720, "samples": 48, "args": "--shot rb2"},
+  {"name": "ld3", "scene": "lookdev/ld_junctions.py", "stills": "1", "res": 720, "samples": 48, "args": "--shot bend"}
+]}

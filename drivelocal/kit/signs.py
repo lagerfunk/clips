@@ -96,7 +96,7 @@ def _back_material(img):
     return m
 
 
-def _quad(name, w, h, y, mat, c, flip=False, uv_rect=(0.0, 0.0, 1.0, 1.0)):
+def _quad(name, w, h, y, mat, c, flip=False):
     """Rectangle in the XZ plane at depth y; UV (0,0) bottom left to (1,1) top right in world space, so the back
     plate's alpha mask lines up with the front picture. flip reverses the winding (normal +Y for the back)."""
     me = bpy.data.meshes.new(name)
@@ -104,8 +104,7 @@ def _quad(name, w, h, y, mat, c, flip=False, uv_rect=(0.0, 0.0, 1.0, 1.0)):
     face_ = (3, 2, 1, 0) if flip else (0, 1, 2, 3)
     me.from_pydata(vs, [], [face_])
     uv = me.uv_layers.new(name="UVMap")
-    u0, v0, u1, v1 = uv_rect
-    per_vertex = [(u0, v0), (u1, v0), (u1, v1), (u0, v1)]
+    per_vertex = [(0, 0), (1, 0), (1, 1), (0, 1)]
     for li, vi in enumerate(face_):
         uv.data[li].uv = per_vertex[vi]
     me.materials.append(mat)
@@ -114,26 +113,16 @@ def _quad(name, w, h, y, mat, c, flip=False, uv_rect=(0.0, 0.0, 1.0, 1.0)):
     return o
 
 
-def plate_rect(set_, id_):
-    """Some Commons files are construction drawings: the sign itself is clean, but dimension lines and labels sit on
-    the transparent margin around it. The list entry may give "plate": [u0, v0, u1, v1] (fractions of the picture,
-    origin bottom left) and only that rectangle is shown: the sign is untouched, the drawer's annotations stay off
-    screen. Never use it to cut into a sign."""
-    return tuple(_used.get((set_, id_), {}).get("plate") or (0.0, 0.0, 1.0, 1.0))
-
-
 def face(id_, c, width=0.6, set_=DEFAULT_SET, name=None, emit=0.0, back=True):
     """One sign plate, width in metres, in the XZ plane facing -Y, bottom edge at z = 0, centred on x = 0.
-    Returns the front object (the back plate is parented to it). Height follows the picture's aspect ratio (of the
-    plate rectangle when the file is a construction drawing, see plate_rect)."""
+    Returns the front object (the back plate is parented to it). Height follows the picture's aspect ratio."""
     m, img = _material(set_, id_, emit)
-    rect = plate_rect(set_, id_)
     w_px, h_px = img.size
-    h = width * (h_px * (rect[3] - rect[1])) / max(1, w_px * (rect[2] - rect[0]))
+    h = width * h_px / max(1, w_px)
     nm = name or f"sign_{id_}"
-    fr = _quad(nm, width, h, -0.003, m, c, uv_rect=rect)
+    fr = _quad(nm, width, h, -0.003, m, c)
     if back:
-        bk = _quad(nm + "_back", width, h, 0.003, _back_material(img), c, flip=True, uv_rect=rect)
+        bk = _quad(nm + "_back", width, h, 0.003, _back_material(img), c, flip=True)
         bk.parent = fr
     fr["sign"] = f"{set_}/{id_}"
     fr["height"] = h
@@ -174,8 +163,7 @@ def assembly(stack, c, loc, rz=0.0, bottom=2.0, gap=0.06, set_=DEFAULT_SET, emit
         s = set_ if isinstance(sid, str) else sid[0]
         i = sid if isinstance(sid, str) else sid[1]
         m, img = _material(s, i, emit)
-        r = plate_rect(s, i)
-        heights.append(w * (img.size[1] * (r[3] - r[1])) / max(1, img.size[0] * (r[2] - r[0])))
+        heights.append(w * img.size[1] / max(1, img.size[0]))
     z = bottom + sum(heights) + gap * (len(stack) - 1)
     for (sid, w), h in zip(stack, heights):
         s = set_ if isinstance(sid, str) else sid[0]
