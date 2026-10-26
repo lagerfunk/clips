@@ -1,0 +1,12 @@
+job a5-ep10-stills stills 40,391,895 res 720 samples 16 args '': 3 png
+02:39.680  cycles           | WARNING CUEW initialization failed: Error opening the library
+SIGN_MISSING de-a5 113
+SIGN_SOURCES []
+WEATHER 40 ('ice', 0.9)
+03:39.368  render           | Saved: 'frames/f_0040.png'
+Saved frames/f_0040.png
+04:30.686  render           | Saved: 'frames/f_0391.png'
+Saved frames/f_0391.png
+05:37.227  render           | Saved: 'frames/f_0895.png'
+Saved frames/f_0895.png
+RENDER_DONE None
