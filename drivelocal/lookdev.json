@@ -1,0 +1,6 @@
+{"rev": 2, "jobs": [
+  {"name": "veh-brake", "scene": "lookdev/ld_vehicles.py", "stills": "70", "res": 720, "samples": 48,
+   "args": "--shot brake"},
+  {"name": "veh-autobahn", "scene": "lookdev/ld_vehicles.py", "stills": "60", "res": 720, "samples": 48,
+   "args": "--shot autobahn"}
+]}
