@@ -1,6 +1,6 @@
 ## intitle:"Zeichen 449" (6)
-  File:Zeichen 449 - Autobahnausfahrt-Vorwegweiser, StVO 1970.svg
   File:Zeichen 449 - Vorwegweiser auf Autobahnen (nach RWBA), StVO 1992.svg
+  File:Zeichen 449 - Autobahnausfahrt-Vorwegweiser, StVO 1970.svg
   File:Zeichen 449 - Vorwegweiser auf Autobahnen, StVO 1974.svg
   File:Zeichen 449-21.svg
   File:Zeichen 449-50 - Vorwegweiser auf anderen Straßen außerhalb von Autobahnen, StVO 2017.svg
@@ -9,8 +9,8 @@
   File:Zeichen 450 - Ankündigungsbake auf Autobahnen, StVO 1970.svg
   File:Zeichen 450-52 - Ankündigungsbake dreistreifig (300 m), StVO 2013.svg
   File:Zeichen 450-51 - Ankündigungsbake zweistreifig (200 m), StVO 2013.svg
-  File:Zeichen 450-53 - Ankündigungsbake einstreifig (100 m, gelb), StVO 2013.svg
   File:Zeichen 450-55 - Ankündigungsbake dreistreifig (300 m, gelb) StVO 2013.svg
+  File:Zeichen 450-53 - Ankündigungsbake einstreifig (100 m, gelb), StVO 2013.svg
   File:Zeichen 450-54 - Ankündigungsbake zweistreifig (200 m, gelb), StVO 2013.svg
   File:Zeichen 450-50 - Ankündigungsbake einstreifig (100 m), StVO 2013.svg
   File:Zeichen 450 white.svg
@@ -22,22 +22,22 @@
   File:Zeichen 448-50 - Ankündigungstafel auf anderen Straßen außerhalb von Autobahnen, StVO 2013.svg
   File:Zeichen 448-22.svg
   File:Zeichen 448-21.svg
-  File:Zeichen 448 - Ankündigungstafel auf Autobahnen; StVO 1970.svg
   File:Zusatzzeichen 1010-15 - Information Leistungsumfang (zu Zeichen 448.1), StVO 2017.svg
+  File:Zeichen 448 - Ankündigungstafel auf Autobahnen; StVO 1970.svg
   File:Zeichen 448 - Ankündigungstafel, StVO 1990.svg
 ## intitle:"Zeichen 332" (15)
   File:Zeichen 332 - Ausfahrt von der Autobahn, StVO 1970.svg
   File:Zeichen 332 a - Ausfahrt von Kraftfahrstraßen, StVO 1970.svg
   File:Zeichen 332 b - Ausfahrt nach innerörtlichen Zielen, StVO 1970.svg
   File:Zeichen 332-20 - Ausfahrt von der Autobahn, StVO 1992.svg
-  File:Zeichen 332.1.svg
   File:Zeichen 332.1-20 - Ausfahrttafel auf anderen Straßen außerhalb der Autobahn, in Weiß mit Zielen nach Zeichen 432, StVO 2017.svg
   File:Zeichen 332 - Ausfahrt von der Autobahn, StVO 1981.svg
+  File:Zeichen 332.1.svg
   File:Zeichen 332.1 - Ausfahrttafel auf anderen Straßen außerhalb der Autobahn, StVO 2017.svg
   File:Zeichen 332-21.svg
-  File:Zeichen 332-22 - Ausfahrt nach innerörtlichen Zielen, StVO 1992.svg
   File:Zeichen 332-22.svg
+  File:Zeichen 332-22 - Ausfahrt nach innerörtlichen Zielen, StVO 1992.svg
   File:Zeichen 332.1 - Ausfahrt von der Kraftfahrstraße, StVO 2013.svg
   File:Bundesstraße 270 - Zeichen 332.1 - 2016-06-26 17-52-43.jpg
-  File:Zeichen 333.1-20 - Ausfahrt von anderen Straßen außerhalb der Autobahn, in Weiß (in Verbindung mit Zeichen 332.1-20), 500 x 2000, StVO 2017.svg
   File:Zeichen 332-21 - Ausfahrt von anderen Straßen, StVO 1992.svg
+  File:Zeichen 333.1-20 - Ausfahrt von anderen Straßen außerhalb der Autobahn, in Weiß (in Verbindung mit Zeichen 332.1-20), 500 x 2000, StVO 2017.svg

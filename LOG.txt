@@ -1,33 +1,22 @@
 Commons API reachable
-at: 0 kept, 2 to fetch
-at/autobahn: File:Hinweiszeichen 8a.svg [Public domain]
-ch: 0 kept, 2 to fetch
-ch/autobahn: File:CH-Hinweissignal-Autobahn.svg [Public domain]
+at: 1 kept, 1 to fetch
+ch: 1 kept, 1 to fetch
 de-core: 81 kept, 0 to fetch
 de-interchange: 2 kept, 0 to fetch
 de-junctions: 10 kept, 0 to fetch
 de-lanemgmt: 9 kept, 0 to fetch
 de-townplus: 4 kept, 0 to fetch
-es: 0 kept, 2 to fetch
-es/r1-ceda: File:Spain traffic signal r1.svg [Public domain]
-es/r402-rotonda: File:Spain traffic signal r402.svg [CC BY-SA 4.0]
-fr: 0 kept, 6 to fetch
-fr/b14-130: File:France road sign B14 (130).svg [CC BY-SA 3.0]
-fr/b14-110: File:France road sign B14 (110).svg [CC BY-SA 3.0]
-fr/b14-100: File:France road sign B14 (100).svg [CC BY-SA 4.0]
-fr/b14-80: File:France road sign B14 (80).svg [CC BY-SA 3.0]
-fr/autoroute: File:France road sign C207.svg [CC BY-SA 3.0]
-it: 0 kept, 4 to fetch
-it/ztl: File:Italian traffic signs - zona a traffico limitato (figura II 322, 1992-1996).svg [Public domain]
-it/ztl-end: File:Italian traffic signs - fine zona a traffico limitato (figura II 322-b).svg [Public domain]
-it/no-vehicles: File:Italian traffic signs - divieto di transito.svg [Public domain]
-it/pedestrian-area: File:Italian traffic signs - area pedonale (figura II 320).svg [Public domain]
-nl: 0 kept, 2 to fetch
-nl/b6-give-way: File:Nederlands verkeersbord B6.svg [Public domain]
-nl/g11-cycle-path: File:Nederlands verkeersbord G11.svg [Public domain]
-uk: 0 kept, 4 to fetch
-uk/keep-left: File:UK traffic sign 610 (left).svg [OGL v1.0]
-uk/roundabout-ahead: File:UK traffic sign 510.svg [Public domain]
-uk/mini-roundabout: File:UK traffic sign 611.1.svg [OGL v1.0]
-uk/give-way: File:UK traffic sign 602.svg [OGL v1.0]
+es: 2 kept, 0 to fetch
+fr: 5 kept, 1 to fetch
+it: 4 kept, 0 to fetch
+nl: 2 kept, 0 to fetch
+uk: 4 kept, 0 to fetch
+us: 0 kept, 7 to fetch
+us/R10-6: File:MUTCD R10-6.svg [Public domain]
+us/S3-1: File:MUTCD S3-1 (new).svg [Public domain]
+us/R2-1: File:MUTCD R2-1.svg [Public domain]
+us/R10-11: File:MUTCD R10-11.svg [Public domain]
+us/R1-1: File:MUTCD R1-1.svg [Public domain]
+us/S1-1: File:MUTCD S1-1.svg [Public domain]
+us/R4-3: File:MUTCD R4-3.svg [Public domain]
 done, 3 missing
