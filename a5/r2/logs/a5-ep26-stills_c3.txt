@@ -1,0 +1,14 @@
+job a5-ep26-stills c3 stills 50,420,880,960 res 720 samples 16 args '': 4 png
+00:44.936  cycles           | WARNING CUEW initialization failed: Error opening the library
+DISC_SOURCE commons commons
+SIGN_SOURCES [('de-core', '1040-32'), ('de-core', '283'), ('de-core', '314'), ('de-townplus', '318')]
+WEATHER 50 ('day', 1.0)
+01:34.886  render           | Saved: 'frames/f_0050.png'
+Saved frames/f_0050.png
+02:08.611  render           | Saved: 'frames/f_0420.png'
+Saved frames/f_0420.png
+02:57.510  render           | Saved: 'frames/f_0880.png'
+Saved frames/f_0880.png
+03:16.276  render           | Saved: 'frames/f_0960.png'
+Saved frames/f_0960.png
+RENDER_DONE None

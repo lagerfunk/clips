@@ -1,0 +1,12 @@
+job a5-ep16-stills c1 stills 421,545,960 res 720 samples 16 args '': 3 png
+00:47.984  cycles           | WARNING CUEW initialization failed: Error opening the library
+CORRECT manoeuvre frames 370 shown 195
+SIGN_SOURCES [('de-core', '220-20')]
+WEATHER 421 ('day', 1.0)
+01:40.982  render           | Saved: 'frames/f_0421.png'
+Saved frames/f_0421.png
+02:25.976  render           | Saved: 'frames/f_0545.png'
+Saved frames/f_0545.png
+02:48.188  render           | Saved: 'frames/f_0960.png'
+Saved frames/f_0960.png
+RENDER_DONE None
