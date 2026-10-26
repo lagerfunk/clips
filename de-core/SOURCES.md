@@ -1,0 +1,13 @@
+# Sign sources, set de-core
+
+Wikimedia Commons files, used unaltered (German signs: section 5(1) and 5(2) UrhG). Name the source in every video description.
+
+- 101: [Zeichen 101 - Gefahrstelle, StVO 1970.svg](https://commons.wikimedia.org/wiki/File:Zeichen_101_-_Gefahrstelle,_StVO_1970.svg), Public domain, nach den historischen Vorgaben digital umgesetzt durch Mediatus, retrieved 2026-10-26
+- 102: [Zeichen 102 - Kreuzung oder Einmündung mit Vorfahrt von rechts, StVO 1970.svg](https://commons.wikimedia.org/wiki/File:Zeichen_102_-_Kreuzung_oder_Einm%C3%BCndung_mit_Vorfahrt_von_rechts,_StVO_1970.svg), Public domain, Interpretiert und digital gezeichnet durch MarianSigler and Mediatus, retrieved 2026-10-26
+- 121: [Zeichen 121 - Einseitig (rechts) verengte Fahrbahn, StVO 1970.svg](https://commons.wikimedia.org/wiki/File:Zeichen_121_-_Einseitig_(rechts)_verengte_Fahrbahn,_StVO_1970.svg), Public domain, nach den historischen Vorgaben digital umgesetzt durch Mediatus, retrieved 2026-10-26
+- 220-20: [Zeichen 220-20 - Einbahnstraße, rechtsweisend, StVO 2017.svg](https://commons.wikimedia.org/wiki/File:Zeichen_220-20_-_Einbahnstra%C3%9Fe,_rechtsweisend,_StVO_2017.svg), Public domain, Nach den amtlichen Vorgaben digital umgesetzt durch: Mediatus, retrieved 2026-10-26
+- 222: [Zeichen 222 - Vorgeschriebene Vorbeifahrt, Rechts vorbei, StVO 2017.svg](https://commons.wikimedia.org/wiki/File:Zeichen_222_-_Vorgeschriebene_Vorbeifahrt,_Rechts_vorbei,_StVO_2017.svg), Public domain, Nach den amtlichen Vorgaben digital umgesetzt durch: Mediatus, retrieved 2026-10-26
+- 240: [Zeichen 240 - Gemeinsamer Fuß- und Radweg, StVO 1992.svg](https://commons.wikimedia.org/wiki/File:Zeichen_240_-_Gemeinsamer_Fu%C3%9F-_und_Radweg,_StVO_1992.svg), Public domain, erstes Hochladen einer Datei durch Andreas 06; nach den Vorgaben 2017 korrekt interpretiert und digital umgesetzt durch Mediatus, retrieved 2026-10-26
+- 241-30: [Zeichen 241-30 - getrennter Rad- und Fußweg, StVO 1992.svg](https://commons.wikimedia.org/wiki/File:Zeichen_241-30_-_getrennter_Rad-_und_Fu%C3%9Fweg,_StVO_1992.svg), Public domain, Bundesministerium für Verkehr, Bau- und Wohnungswesen, retrieved 2026-10-26
+- 274-100: [Zeichen 274-100 - Zulässige Höchstgeschwindigkeit, StVO 2017.svg](https://commons.wikimedia.org/wiki/File:Zeichen_274-100_-_Zul%C3%A4ssige_H%C3%B6chstgeschwindigkeit,_StVO_2017.svg), Public domain, Nach den amtlichen Vorgaben digital umgesetzt durch: Mediatus, retrieved 2026-10-26
+- 274-120: [Zeichen 274-120 - Zulässige Höchstgeschwindigkeit, StVO 2017.svg](https://commons.wikimedia.org/wiki/File:Zeichen_274-120_-_Zul%C3%A4ssige_H%C3%B6chstgeschwindigkeit,_StVO_2017.svg), Public domain, Nach den amtlichen Vorgaben digital umgesetzt durch: Mediatus, retrieved 2026-10-26
