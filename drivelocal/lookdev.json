@@ -1,0 +1,89 @@
+{
+ "rev": 3,
+ "jobs": [
+  {
+   "name": "b02-a",
+   "scene": "b02_ztl_camera_gate.py",
+   "stills": "15,40,121",
+   "res": 720,
+   "samples": 16
+  },
+  {
+   "name": "b02-b",
+   "scene": "b02_ztl_camera_gate.py",
+   "stills": "300,450,620",
+   "res": 720,
+   "samples": 16
+  },
+  {
+   "name": "b02-c",
+   "scene": "b02_ztl_camera_gate.py",
+   "stills": "700,800,890",
+   "res": 720,
+   "samples": 16
+  },
+  {
+   "name": "b05-a",
+   "scene": "b05_keep_left_roundabouts.py",
+   "stills": "20,160,300",
+   "res": 720,
+   "samples": 16
+  },
+  {
+   "name": "b05-b",
+   "scene": "b05_keep_left_roundabouts.py",
+   "stills": "430,560,700",
+   "res": 720,
+   "samples": 16
+  },
+  {
+   "name": "b05-c",
+   "scene": "b05_keep_left_roundabouts.py",
+   "stills": "850,1000",
+   "res": 720,
+   "samples": 16
+  },
+  {
+   "name": "b06-a",
+   "scene": "b06_cyclists_priority.py",
+   "stills": "15,60,220",
+   "res": 720,
+   "samples": 16
+  },
+  {
+   "name": "b06-b",
+   "scene": "b06_cyclists_priority.py",
+   "stills": "319,420,540",
+   "res": 720,
+   "samples": 16
+  },
+  {
+   "name": "b06-c",
+   "scene": "b06_cyclists_priority.py",
+   "stills": "680,790,900",
+   "res": 720,
+   "samples": 16
+  },
+  {
+   "name": "b08-a",
+   "scene": "b08_roundabout_outer_lane.py",
+   "stills": "20,60,130",
+   "res": 720,
+   "samples": 16
+  },
+  {
+   "name": "b08-b",
+   "scene": "b08_roundabout_outer_lane.py",
+   "stills": "230,295,560",
+   "res": 720,
+   "samples": 16
+  },
+  {
+   "name": "b08-c",
+   "scene": "b08_roundabout_outer_lane.py",
+   "stills": "640,700,800",
+   "res": 720,
+   "samples": 16
+  }
+ ]
+}
