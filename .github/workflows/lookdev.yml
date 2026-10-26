@@ -149,7 +149,8 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           url="https://x-access-token:${{ github.token }}@github.com/${GITHUB_REPOSITORY}.git"
           if git fetch -q --depth 1 "$url" lookdev-out; then git reset -q FETCH_HEAD; fi
-          git add -A
+          # stage only this run's folder: the index holds the other agents' results from the reset above
+          git add "$name"
           git commit -q -m "lookdev $name r$rev from ${GITHUB_SHA}"
           for _ in 1 2 3 4; do
             git push -q "$url" HEAD:lookdev-out && break
