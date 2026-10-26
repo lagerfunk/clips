@@ -6,7 +6,9 @@ name: lookdev
 #   {"rev": 3, "jobs": [
 #     {"name": "rb-top", "scene": "lookdev/ld_roundabout.py", "stills": "60,120", "res": 720, "samples": 32,
 #      "args": "--shot top"},
-#     {"name": "ep12-preview", "scene": "ep12_zipper.py", "frames": "1-750", "chunks": 6, "res": 540, "samples": 8}]}
+#     {"name": "ep12-preview", "scene": "ep12_zipper.py", "frames": "1-750", "chunks": 6, "res": 540, "samples": 8,
+#      "step": 2}]}
+# "step": 2 renders every 2nd frame (half the runner time) and the MP4 holds each frame twice, still 30 fps.
 on:
   push:
     branches: ['lookdev/**']
@@ -38,13 +40,22 @@ jobs:
               else:
                   a, b = (int(x) for x in j["frames"].split("-"))
                   n = max(1, min(int(j.get("chunks", 6)), 10))
-                  step = -(-(b - a + 1) // n)
-                  for s in range(a, b + 1, step):
-                      chunks.append(dict(base, mode="frames", range=f"{s}-{min(b, s + step - 1)}"))
+                  every = max(1, int(j.get("step", 1)))      # "step": 2 renders every 2nd frame (15 fps preview)
+                  size = -(-(b - a + 1) // n)
+                  for s in range(a, b + 1, size):
+                      e = min(b, s + size - 1)
+                      if every > 1:
+                          fl = [f for f in range(s, e + 1) if (f - a) % every == 0]
+                          chunks.append(dict(base, mode="stills", range=",".join(map(str, fl))))
+                      else:
+                          chunks.append(dict(base, mode="frames", range=f"{s}-{e}"))
+          for i, c in enumerate(chunks):
+              c["idx"] = i
           print("enabled=" + str(bool(chunks)).lower())
           print("chunks=" + json.dumps({"include": chunks}))
           PY
   render:
+    name: render ${{ matrix.name }} c${{ matrix.idx }}
     needs: plan
     if: needs.plan.outputs.enabled == 'true'
     runs-on: ubuntu-24.04
@@ -74,7 +85,7 @@ jobs:
           uv python install 3.11
           uv venv -q -p 3.11 /tmp/bpy
           VIRTUAL_ENV=/tmp/bpy uv pip install -q bpy numpy
-      - name: Render ${{ matrix.name }} ${{ matrix.range }}
+      - name: Render ${{ matrix.name }} c${{ matrix.idx }}
         env:
           SCENE: ${{ matrix.scene }}
           MODE: ${{ matrix.mode }}
@@ -83,6 +94,7 @@ jobs:
           SAMPLES: ${{ matrix.samples }}
           ARGS: ${{ matrix.args }}
           NAME: ${{ matrix.name }}
+          IDX: ${{ matrix.idx }}
         run: |
           flag="--frames"
           if [ "$MODE" = stills ]; then flag="--stills"; fi
@@ -93,14 +105,14 @@ jobs:
           grep -E "Saved /|RENDER_DONE|Error|Traceback|line [0-9]+|WARN" run.log | tail -80
           # the log tail goes to the results branch too (Actions logs cannot be read from the workspace)
           n=$(find frames -name '*.png' | wc -l)
-          { echo "job $NAME $MODE $RANGE res $RES samples $SAMPLES args '$ARGS': $n png"; \
-            grep -vE "^Fra:|Saved /|^ *$" run.log | tail -n 120; } > "frames/log_${RANGE//[^0-9-]/_}.txt"
+          { echo "job $NAME c$IDX $MODE ${RANGE:0:60} res $RES samples $SAMPLES args '$ARGS': $n png"; \
+            grep -vE "^Fra:|Saved /|^ *$" run.log | tail -n 120; } > "frames/log_c${IDX}.txt"
           echo "frames: $n"
           test "$n" -gt 0
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         if: always()
         with:
-          name: ld-${{ matrix.name }}-${{ matrix.range }}
+          name: ld-${{ matrix.name }}-c${{ matrix.idx }}
           path: |
             frames/*.png
             frames/log_*.txt
@@ -151,9 +163,11 @@ jobs:
                   os.makedirs(tmp, exist_ok=True)
                   for p in pngs:
                       shutil.copy(p, tmp)
-                  first = min(int(os.path.basename(p)[2:6]) for p in pngs)
-                  subprocess.run(["ffmpeg", "-v", "error", "-y", "-framerate", "30", "-start_number", str(first),
-                                  "-i", os.path.join(tmp, "f_%04d.png"), "-c:v", "libx264", "-crf", "20",
+                  every = max(1, int(j.get("step", 1)))
+                  # frames sorted by number; a "step" preview plays at 30/step fps and is written as 30 fps (each
+                  # frame held), so it lines up with the captions and sound of the 30 fps episode timeline
+                  subprocess.run(["ffmpeg", "-v", "error", "-y", "-framerate", f"{30 / every:g}", "-pattern_type", "glob",
+                                  "-i", os.path.join(tmp, "f_*.png"), "-r", "30", "-c:v", "libx264", "-crf", "20",
                                   "-pix_fmt", "yuv420p", os.path.join(dest, j["name"] + ".mp4")], check=True)
               print("ok", j["name"], len(pngs))
           PY
