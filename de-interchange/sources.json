@@ -1,79 +1,36 @@
 {
- "449-1970": {
-  "title": "File:Zeichen 449 - Autobahnausfahrt-Vorwegweiser, StVO 1970.svg",
-  "page": "https://commons.wikimedia.org/wiki/File:Zeichen_449_-_Autobahnausfahrt-Vorwegweiser,_StVO_1970.svg",
-  "svg": "https://upload.wikimedia.org/wikipedia/commons/6/60/Zeichen_449_-_Autobahnausfahrt-Vorwegweiser%2C_StVO_1970.svg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
-  "width": 4155,
-  "height": 4917,
-  "artist": "Mediatus",
-  "licence": "Public domain",
-  "usage": "Public domain",
-  "retrieved": "2026-10-26"
- },
- "449-1974": {
-  "title": "File:Zeichen 449 - Vorwegweiser auf Autobahnen, StVO 1974.svg",
-  "page": "https://commons.wikimedia.org/wiki/File:Zeichen_449_-_Vorwegweiser_auf_Autobahnen,_StVO_1974.svg",
-  "svg": "https://upload.wikimedia.org/wikipedia/commons/9/9b/Zeichen_449_-_Vorwegweiser_auf_Autobahnen%2C_StVO_1974.svg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
-  "width": 3363,
+ "449": {
+  "title": "File:Zeichen 449 - Vorwegweiser auf Autobahnen (nach RWBA), StVO 1992.svg",
+  "page": "https://commons.wikimedia.org/wiki/File:Zeichen_449_-_Vorwegweiser_auf_Autobahnen_(nach_RWBA),_StVO_1992.svg",
+  "svg": "https://upload.wikimedia.org/wikipedia/commons/7/71/Zeichen_449_-_Vorwegweiser_auf_Autobahnen_%28nach_RWBA%29%2C_StVO_1992.svg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+  "width": 4375,
   "height": 4656,
-  "artist": "nach den historischen Vorgaben digital umgesetzt durch Mediatus",
+  "artist": "Andreas06, komplett neu angefertigte Datei durch: Mediatus",
   "licence": "Public domain",
   "usage": "Public domain",
-  "retrieved": "2026-10-26"
+  "retrieved": "2026-10-26",
+  "plate": [
+   0.041,
+   0.022,
+   0.96,
+   0.9578
+  ]
  },
- "449-21": {
-  "title": "File:Zeichen 449-21.svg",
-  "page": "https://commons.wikimedia.org/wiki/File:Zeichen_449-21.svg",
-  "svg": "https://upload.wikimedia.org/wikipedia/commons/2/23/Zeichen_449-21.svg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
-  "width": 872,
-  "height": 945,
-  "artist": "",
-  "licence": "Public domain",
-  "usage": "Public domain",
-  "retrieved": "2026-10-26"
- },
- "449-22": {
-  "title": "File:Zeichen 449-22.svg",
-  "page": "https://commons.wikimedia.org/wiki/File:Zeichen_449-22.svg",
-  "svg": "https://upload.wikimedia.org/wikipedia/commons/d/d8/Zeichen_449-22.svg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
-  "width": 872,
-  "height": 1027,
-  "artist": "",
-  "licence": "Public domain",
-  "usage": "Public domain",
-  "retrieved": "2026-10-26"
- },
- "450-1970": {
-  "title": "File:Zeichen 450 - Ankündigungsbake auf Autobahnen, StVO 1970.svg",
-  "page": "https://commons.wikimedia.org/wiki/File:Zeichen_450_-_Ank%C3%BCndigungsbake_auf_Autobahnen,_StVO_1970.svg",
-  "svg": "https://upload.wikimedia.org/wikipedia/commons/7/7e/Zeichen_450_-_Ank%C3%BCndigungsbake_auf_Autobahnen%2C_StVO_1970.svg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+ "450-52": {
+  "title": "File:Zeichen 450-52 - Ankündigungsbake dreistreifig (300 m), StVO 2013.svg",
+  "page": "https://commons.wikimedia.org/wiki/File:Zeichen_450-52_-_Ank%C3%BCndigungsbake_dreistreifig_(300_m),_StVO_2013.svg",
+  "svg": "https://upload.wikimedia.org/wikipedia/commons/a/ab/Zeichen_450-52_-_Ank%C3%BCndigungsbake_dreistreifig_%28300_m%29%2C_StVO_2013.svg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
   "width": 892,
   "height": 1649,
-  "artist": "Andreas06; aktuelle, vollständig neu erstellte Datei: Mediatus",
+  "artist": "nach den Vorgaben 2017 korrekt interpretiert und digital umgesetzt durch Mediatus",
   "licence": "Public domain",
   "usage": "Public domain",
-  "retrieved": "2026-10-26"
- },
- "450-21": {
-  "title": "File:Zeichen 450-21.svg",
-  "page": "https://commons.wikimedia.org/wiki/File:Zeichen_450-21.svg",
-  "svg": "https://upload.wikimedia.org/wikipedia/commons/0/0f/Zeichen_450-21.svg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
-  "width": 393,
-  "height": 899,
-  "artist": "",
-  "licence": "Public domain",
-  "usage": "Public domain",
-  "retrieved": "2026-10-26"
- },
- "450-white": {
-  "title": "File:Zeichen 450 white.svg",
-  "page": "https://commons.wikimedia.org/wiki/File:Zeichen_450_white.svg",
-  "svg": "https://upload.wikimedia.org/wikipedia/commons/2/23/Zeichen_450_white.svg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
-  "width": 393,
-  "height": 899,
-  "artist": "de:Bundesministerium für Verkehr, Bau- und Wohnungswesen (German Federal Ministry of Traffic, Building and Housing).",
-  "licence": "Public domain",
-  "usage": "Public domain",
-  "retrieved": "2026-10-26"
+  "retrieved": "2026-10-26",
+  "plate": [
+   0.1904,
+   0.0893,
+   0.9209,
+   1.0
+  ]
  }
 }

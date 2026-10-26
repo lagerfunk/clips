@@ -2,11 +2,12 @@ Commons API reachable
 at: 0 kept, 2 to fetch
 ch: 0 kept, 2 to fetch
 de-core: 81 kept, 0 to fetch
-de-interchange: 7 kept, 0 to fetch
+de-interchange: 0 kept, 2 to fetch
+de-interchange/449: File:Zeichen 449 - Vorwegweiser auf Autobahnen (nach RWBA), StVO 1992.svg [Public domain]
+de-interchange/450-52: File:Zeichen 450-52 - Ankündigungsbake dreistreifig (300 m), StVO 2013.svg [Public domain]
 de-junctions: 10 kept, 0 to fetch
 de-lanemgmt: 9 kept, 0 to fetch
-de-townplus: 3 kept, 1 to fetch
-de-townplus/350-20: File:Zeichen 350-20 - Fußgängerüberweg (Linksaufstellung) einseitig, StVO 1992.svg [Public domain]
+de-townplus: 4 kept, 0 to fetch
 es: 2 kept, 0 to fetch
 fr: 0 kept, 6 to fetch
 it: 4 kept, 0 to fetch

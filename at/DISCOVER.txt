@@ -14,8 +14,8 @@
   File:Klauser Tunnel Pyhrn Autobahn A9 00.JPG
   File:Nordost Autobahn A6.jpg
   File:Mühlkreisautobahn A7 Knoten Linz-1045.jpg
-  File:AUT — Land Tirol — Bezirk Innsbruck-Land — Gemeinde Gries — Nähe Vinaders (Brenner Autobahn A 13 in südliche Richtung gesehen) 2021.jpg
   File:Sattledt Voralpenkreuz A1 A8 A9 von Nordwest-8912.jpg
+  File:AUT — Land Tirol — Bezirk Innsbruck-Land — Gemeinde Gries — Nähe Vinaders (Brenner Autobahn A 13 in südliche Richtung gesehen) 2021.jpg
   File:Ansfelden Autobahndreieck-1020.jpg
   File:Sattledt Voralpenkreuz A1 A9 von Süden-8905.jpg
   File:Park & write sign at Thalgau.jpg
@@ -31,10 +31,10 @@
   File:Mautstelle Matrei A13 B182 03.jpg
   File:A7 Treffling Pannenstreifen Autobusse.jpg
   File:VBA auf A12.JPG
-  File:Roßleithen - Pyhrnautobahn Ausfahrt - 2014 11 14.jpg
   File:Karawankenautobahn, Mautstelle Rosenbach, Höhenkontrolle, 1.jpeg
-  File:Wals-Siezenheim - Westautobahn - 2021 10 08.jpg
+  File:Roßleithen - Pyhrnautobahn Ausfahrt - 2014 11 14.jpg
   File:A9 Liezen 1.JPG
+  File:Wals-Siezenheim - Westautobahn - 2021 10 08.jpg
   File:A5-AT.svg
   File:A21-AT.svg
   File:Intercitybus on the A2 2025-12-13 01.jpg
@@ -45,11 +45,11 @@
   File:A1 Knoten Haid 1.JPG
   File:Roßleithen - Pyhrnautobahn Roßleithentunnel - 2014 11 14.jpg
   File:A1 Walserberg 4.JPG
-  File:A1 Salzburg-West.JPG
   File:A23-AT.svg
+  File:A1 Salzburg-West.JPG
   File:Anif - Tauernautobahn - Motiv - 2021 10 08.jpg
-  File:A1 Wals.JPG
   File:A1 Flughafen Salzburg.JPG
+  File:A1 Wals.JPG
   File:A10 Rennweg 2.JPG
   File:Traboch02 KreisverkehrA9 B113 B115.jpg
   File:A22-AT.svg
@@ -58,11 +58,11 @@
   File:Europabrug in gebuik gesteld, Bestanddeelnr 915-7574 (cropped).jpg
   File:Hinweiszeichen 8a.svg
   File:Hinweiszeichen 8b.svg
-  File:A1 Walserberg 1.JPG
   File:Sattledt Voralpenkreuz A1 A9 von Süden-8906.jpg
+  File:A1 Walserberg 1.JPG
   File:Tunnel Wald.JPG
-  File:A10 Salzburg-Süd 3.JPG
   File:A9 Graz-Seiersberg 1.JPG
+  File:A10 Salzburg-Süd 3.JPG
   File:Salzburg - Liefering - Lieferinger Tunnel - 2022 05 12-1.jpg
   File:A1 Feinstaub.JPG
   File:A9 Graz-Webling.JPG
@@ -90,8 +90,8 @@
   File:Hinweiszeichen 15c.svg
   File:Hinweiszeichen 15a-b.svg
   File:Hinweiszeichen 15b-b hoch.svg
-  File:Hinweiszeichen 15b-a.svg
   File:A12 Innsbruck 79.JPG
+  File:Hinweiszeichen 15b-a.svg
   File:Hinweiszeichen 15b-b quer.svg
   File:A 1 - Ausfahrt Kleßheim.jpg
   File:02.11.2008. Friesach A - panoramio.jpg
@@ -119,28 +119,28 @@
   File:Warning Sign "Children" in Vienna, Austria (5596151285).jpg
   File:Ducks crossing the road sign, Fresach.jpg
   File:Lustenau-town sign-01ASD.jpg
-  File:Austria.svg
   File:Warning Sign "Children" in Vienna, Austria (5596733606).jpg
+  File:Austria.svg
   File:Vorschriftszeichen 10a (10 kmh) (2010) 01.png
   File:Austria Bundesadler.svg
   File:Vorschriftszeichen 10a (40 kmh) (2010) 04.png
   File:Watch out for hedgehog sign in Austria.jpg
   File:Austria, Hinweiszeichen 17a.svg
   File:Vorschriftszeichen 10a (30 kmh) (2010) 03.png
-  File:2018-10-22 (897) Expressway end sign with stickers of Tornados Rapid in Krems an der Donau, Austria.jpg
   File:Vorschriftszeichen 10a (20 kmh) (2010) 02.png
   File:Nenzing-town sign-03ASD.jpg
-  File:Vorschriftszeichen 10a (130 kmh) (2010) 13.png
+  File:2018-10-22 (897) Expressway end sign with stickers of Tornados Rapid in Krems an der Donau, Austria.jpg
   File:Austria, Hinweiszeichen 17a (2010).svg
-  File:Vorschriftszeichen 10a (110 kmh) (2010) 11.png
+  File:Vorschriftszeichen 10a (130 kmh) (2010) 13.png
   File:Vorschriftszeichen 10a (140 kmh) (2010) 14.png
   File:Vorschriftszeichen 10a (60 kmh) (2010) 06.png
   File:Vorschriftszeichen 10a (90 kmh) (2010) 09.png
+  File:Vorschriftszeichen 10a (70 kmh) (2010) 07.png
   File:Nenzing-town sign-01ASD.jpg
   File:Vorschriftszeichen 10a (120 kmh) (2010) 12.png
-  File:Vorschriftszeichen 10a (70 kmh) (2010) 07.png
   File:Vorschriftszeichen 10a (80 kmh) (2010) 08.png
   File:Vorschriftszeichen 10a (50 kmh) (2010) 05.png
+  File:Vorschriftszeichen 10a (110 kmh) (2010) 11.png
   File:Furx-well protection sign-01ASD.jpg
   File:Road sign Töllergraben 02.jpg
   File:Vorschriftszeichen 10a (100 kmh) (2010) 10.png
@@ -149,21 +149,21 @@
   File:Road sign Töllergraben 01.jpg
   File:Allgemeine Geschwindigkeitsbeschränkung A.png
   File:Castillo de Hohenwerfen, Werfen, Austria, 2019-05-17, DD 119.jpg
-  File:Bregenz-Fluh-town sign-01ASD.jpg
   File:2019-05-19 (364) Emergency telephone at EuroVelo 6 in Emmersdorf an der Donau, Austria.jpg
+  File:Bregenz-Fluh-town sign-01ASD.jpg
   File:2019-05-19 (382) Fish ladder at Kranftwerk Melk in Emmersdorf an der Donau, Austria.jpg
   File:ESC2014 - Austria 04.jpg
   File:Palacio de Schönbrunn, Viena, Austria, 2020-02-02, DD 10.jpg
-  File:Catedral de Salzburgo, Salzburgo, Austria, 2019-05-19, DD 33-35 HDR.jpg
   File:Diversion sign double direction.svg
-  File:Castillo de Hohenwerfen, Werfen, Austria, 2019-05-17, DD 143-149 PAN.jpg
   File:Snowboarder in flight (Tannheim, Austria).jpg
+  File:Castillo de Hohenwerfen, Werfen, Austria, 2019-05-17, DD 143-149 PAN.jpg
   File:Catedral de Salzburgo, Salzburgo, Austria, 2019-05-19, DD 30-32 HDR.jpg
+  File:Catedral de Salzburgo, Salzburgo, Austria, 2019-05-19, DD 33-35 HDR.jpg
   File:Palacio Belvedere, Viena, Austria, 2020-02-01, DD 93-95 HDR.jpg
   File:Hinweiszeichen 11 (2010).svg
   File:2018-08-09 (800) Building site at B 39 Pielachtal Straße in Boding, Frankenfels, Austria.jpg
-  File:Reloj de flores, Stadtpark, Viena, Austria, 2020-01-31, DD 96-98 HDR.jpg
   File:Park and ride sign in Graz.svg
+  File:Reloj de flores, Stadtpark, Viena, Austria, 2020-01-31, DD 96-98 HDR.jpg
   File:Tauernradweg sign, Klamm, St. Veit, max headroom 1,6m.jpg
   File:Vorschriftszeichen 6d Länge (2010).svg
   File:Vorschriftszeichen 6d Gewicht (2010).svg
@@ -191,14 +191,14 @@
   File:Signs at Bahnhofstraße, Bleiburg.jpg
   File:Italian traffic signs - preavviso di confine di Stato tra paesi della Comunità Europea (Austria).svg
   File:Lauterach-Folding Sign firefighter-03ASD.jpg
-  File:1909 Paris Convention road signs - blue.jpg
   File:Lauterach-Folding Sign firefighter-02ASD.jpg
-  File:E68-AT.svg
+  File:1909 Paris Convention road signs - blue.jpg
   File:E69-AT.svg
+  File:E68-AT.svg
   File:E650-AT.svg
   File:E63-AT.svg
-  File:Hinweiszeichen 1a (2010).svg
   File:Two portals - signs, Schloss Walpersdorf.jpg
+  File:Hinweiszeichen 1a (2010).svg
   File:Hinweiszeichen 1b (2010).svg
   File:R2 Sicheldorf Ende.jpg
   File:Vorschriftszeichen 9a (2010).svg
