@@ -1,0 +1,90 @@
+job pf-ic-prev c4 stills 220 res 360 samples 6 args '--scene lookdev/ld_interchange.py --shot driver --span 3 --sweep off,off+seed,off+mboff,off+mboff+haze,off+mboff+cull,off+mboff+lt,off+mboff+dnfast,off+mboff+dnbal,off+mboff+noadapt,off+mboff+subdiv1,preview': 11 png
+terrain 492 x 784
+vegetation 68676 48311 920 1575
+tufts 15106
+01:00.852  cycles           | WARNING CUEW initialization failed: Error opening the library
+traffic 68 vehicles
+PERF_SCENE objects=2202 instances=260118 animated=504 materials=96 emissive_sampled=96 haze_only=86 meshes=1118 res=360x640 samples=6 blur=True shutter=0.50 threads=4 built_at=60.9s
+01:15.407  render           | Saved: '/tmp/perf_v8qvkfaz/f_0220_off.png'
+PERF off k=0 fs=0.01 f=220 total=13.39 prep=0.00 | pre=0.31 sync=1.64 geom=0.23 bvh=0.82 light=3.76 trace=4.95 save=0.13 other=1.54
+PERF_RAW Sample 4.95; Updating Lights 3.76; Synchronizing object 1.64; Initializing 1.50; Updating Scene BVH 0.73; (blender pre) 0.31; Updating Images 0.13; Finished 0.13; Updating Objects 0.06
+01:27.247  render           | Saved: 'frames/f_0221_off.png'
+PERF off k=1 fs=0.01 f=221 total=11.81 gap=0.03 prep=0.00 | pre=1.39 geom=0.08 bvh=0.66 light=3.19 trace=4.97 save=0.05 other=1.47
+PERF_RAW Sample 4.97; Updating Lights 3.19; Initializing 1.40; (blender pre) 1.39; Updating Scene BVH 0.66; Updating Objects 0.06; Updating Mesh 0.06; Finished 0.05; Updating Shaders 0.01
+01:39.082  render           | Saved: '/tmp/perf_v8qvkfaz/f_0222_off.png'
+PERF off k=2 fs=0.01 f=222 total=11.81 gap=0.02 prep=0.00 | pre=1.38 geom=0.08 bvh=0.66 light=3.21 trace=4.97 save=0.05 other=1.45
+01:51.202  render           | Saved: '/tmp/perf_v8qvkfaz/f_0220_off-seed.png'
+PERF off+seed k=0 fs=0.01 f=220 total=12.09 gap=0.03 prep=0.00 | pre=1.44 geom=0.09 bvh=0.68 light=3.23 trace=4.97 save=0.05 other=1.64
+02:03.141  render           | Saved: 'frames/f_0221_off-seed.png'
+PERF off+seed k=1 fs=0.01 f=221 total=11.91 gap=0.03 prep=0.00 | pre=1.44 geom=0.09 bvh=0.67 light=3.17 trace=4.98 save=0.05 other=1.51
+02:14.976  render           | Saved: '/tmp/perf_v8qvkfaz/f_0222_off-seed.png'
+PERF off+seed k=2 fs=0.01 f=222 total=11.81 gap=0.02 prep=0.00 | pre=1.37 geom=0.09 bvh=0.66 light=3.18 trace=4.97 save=0.05 other=1.49
+02:24.936  render           | Saved: '/tmp/perf_v8qvkfaz/f_0220_off-mboff.png'
+PERF off+mboff k=0 fs=0.01 f=220 total=9.93 gap=0.03 prep=0.00 | pre=1.16 geom=0.04 bvh=0.37 light=3.20 trace=4.84 save=0.04 other=0.27
+02:34.849  render           | Saved: 'frames/f_0221_off-mboff.png'
+PERF off+mboff k=1 fs=0.01 f=221 total=9.89 gap=0.03 prep=0.00 | pre=1.12 sync=0.01 geom=0.08 bvh=0.28 light=3.18 trace=4.88 save=0.04 other=0.29
+02:44.876  render           | Saved: '/tmp/perf_v8qvkfaz/f_0222_off-mboff.png'
+PERF off+mboff k=2 fs=0.01 f=222 total=10.01 gap=0.02 prep=0.00 | pre=1.15 sync=0.01 geom=0.08 bvh=0.28 light=3.20 trace=4.92 save=0.04 other=0.32
+02:54.875  render           | Saved: '/tmp/perf_v8qvkfaz/f_0220_off-mboff-haze.png'
+PERF off+mboff+haze k=0 fs=0.01 f=220 total=9.96 gap=0.04 prep=0.00 | pre=1.14 sync=0.01 geom=0.08 bvh=0.28 light=3.21 trace=4.90 save=0.04 other=0.31
+03:04.858  render           | Saved: 'frames/f_0221_off-mboff-haze.png'
+PERF off+mboff+haze k=1 fs=0.01 f=221 total=9.96 gap=0.02 prep=0.00 | pre=1.13 sync=0.01 geom=0.08 bvh=0.28 light=3.17 trace=4.94 save=0.04 other=0.30
+03:14.969  render           | Saved: '/tmp/perf_v8qvkfaz/f_0222_off-mboff-haze.png'
+PERF off+mboff+haze k=2 fs=0.01 f=222 total=10.09 gap=0.02 prep=0.00 | pre=1.18 sync=0.02 geom=0.08 bvh=0.28 light=3.18 trace=4.99 save=0.04 other=0.32
+03:25.120  render           | Saved: '/tmp/perf_v8qvkfaz/f_0220_off-mboff-cull.png'
+PERF off+mboff+cull k=0 fs=0.01 f=220 total=10.12 gap=0.03 prep=0.00 | pre=1.18 sync=0.01 geom=0.10 bvh=0.28 light=3.19 trace=4.97 save=0.04 other=0.34
+03:35.304  render           | Saved: 'frames/f_0221_off-mboff-cull.png'
+PERF off+mboff+cull k=1 fs=0.01 f=221 total=10.16 gap=0.02 prep=0.00 | pre=1.17 sync=0.01 geom=0.09 bvh=0.28 light=3.22 trace=5.03 save=0.04 other=0.32
+03:45.415  render           | Saved: '/tmp/perf_v8qvkfaz/f_0222_off-mboff-cull.png'
+PERF off+mboff+cull k=2 fs=0.01 f=222 total=10.08 gap=0.03 prep=0.00 | pre=1.22 sync=0.01 geom=0.08 bvh=0.29 light=3.19 trace=4.94 save=0.04 other=0.32
+03:58.871  render           | Saved: '/tmp/perf_v8qvkfaz/f_0220_off-mboff-lt.png'
+PERF off+mboff+lt k=0 fs=0.01 f=220 total=13.42 gap=0.03 prep=0.00 | pre=1.18 sync=0.01 geom=0.08 bvh=0.28 light=7.47 trace=4.03 save=0.04 other=0.32
+04:12.237  render           | Saved: 'frames/f_0221_off-mboff-lt.png'
+PERF off+mboff+lt k=1 fs=0.01 f=221 total=13.34 gap=0.02 prep=0.00 | pre=1.14 sync=0.01 geom=0.08 bvh=0.28 light=7.49 trace=4.01 save=0.04 other=0.29
+04:25.612  render           | Saved: '/tmp/perf_v8qvkfaz/f_0222_off-mboff-lt.png'
+PERF off+mboff+lt k=2 fs=0.01 f=222 total=13.35 gap=0.02 prep=0.00 | pre=1.14 sync=0.01 geom=0.08 bvh=0.28 light=7.47 trace=4.02 save=0.04 other=0.31
+04:33.529  render           | Saved: '/tmp/perf_v8qvkfaz/f_0220_off-mboff-dnfast.png'
+PERF off+mboff+dnfast k=0 fs=0.01 f=220 total=7.88 gap=0.03 prep=0.00 | pre=1.13 sync=0.01 geom=0.08 bvh=0.28 light=3.19 trace=2.86 save=0.04 other=0.29
+04:41.489  render           | Saved: 'frames/f_0221_off-mboff-dnfast.png'
+PERF off+mboff+dnfast k=1 fs=0.01 f=221 total=7.93 gap=0.03 prep=0.00 | pre=1.17 sync=0.01 geom=0.08 bvh=0.28 light=3.18 trace=2.87 save=0.04 other=0.30
+04:49.345  render           | Saved: '/tmp/perf_v8qvkfaz/f_0222_off-mboff-dnfast.png'
+PERF off+mboff+dnfast k=2 fs=0.01 f=222 total=7.83 gap=0.02 prep=0.00 | pre=1.14 sync=0.01 geom=0.08 bvh=0.28 light=3.18 trace=2.82 save=0.04 other=0.29
+04:57.884  render           | Saved: '/tmp/perf_v8qvkfaz/f_0220_off-mboff-dnbal.png'
+PERF off+mboff+dnbal k=0 fs=0.01 f=220 total=8.51 gap=0.03 prep=0.00 | pre=1.19 sync=0.02 geom=0.08 bvh=0.28 light=3.18 trace=3.45 save=0.04 other=0.28
+05:06.452  render           | Saved: 'frames/f_0221_off-mboff-dnbal.png'
+PERF off+mboff+dnbal k=1 fs=0.01 f=221 total=8.54 gap=0.02 prep=0.00 | pre=1.16 sync=0.01 geom=0.08 bvh=0.28 light=3.17 trace=3.49 save=0.04 other=0.31
+05:14.994  render           | Saved: '/tmp/perf_v8qvkfaz/f_0222_off-mboff-dnbal.png'
+PERF off+mboff+dnbal k=2 fs=0.01 f=222 total=8.52 gap=0.02 prep=0.00 | pre=1.15 sync=0.01 geom=0.08 bvh=0.28 light=3.20 trace=3.47 save=0.04 other=0.29
+05:25.054  render           | Saved: '/tmp/perf_v8qvkfaz/f_0220_off-mboff-noadapt.png'
+PERF off+mboff+noadapt k=0 fs=0.01 f=220 total=10.03 gap=0.03 prep=0.00 | pre=1.15 sync=0.01 geom=0.08 bvh=0.28 light=3.17 trace=4.98 save=0.04 other=0.32
+05:35.012  render           | Saved: 'frames/f_0221_off-mboff-noadapt.png'
+PERF off+mboff+noadapt k=1 fs=0.01 f=221 total=9.94 gap=0.02 prep=0.00 | pre=1.14 sync=0.01 geom=0.08 bvh=0.28 light=3.17 trace=4.89 save=0.04 other=0.32
+05:45.057  render           | Saved: '/tmp/perf_v8qvkfaz/f_0222_off-mboff-noadapt.png'
+PERF off+mboff+noadapt k=2 fs=0.01 f=222 total=10.02 gap=0.02 prep=0.00 | pre=1.16 sync=0.01 geom=0.08 bvh=0.28 light=3.18 trace=4.98 save=0.04 other=0.30
+05:55.145  render           | Saved: '/tmp/perf_v8qvkfaz/f_0220_off-mboff-subdiv1.png'
+PERF off+mboff+subdiv1 k=0 fs=0.01 f=220 total=10.06 gap=0.03 prep=0.00 | pre=1.15 sync=0.01 geom=0.08 bvh=0.28 light=3.21 trace=4.98 save=0.04 other=0.31
+06:05.252  render           | Saved: 'frames/f_0221_off-mboff-subdiv1.png'
+PERF off+mboff+subdiv1 k=1 fs=0.01 f=221 total=10.08 gap=0.03 prep=0.00 | pre=1.19 sync=0.01 geom=0.08 bvh=0.29 light=3.21 trace=4.93 save=0.04 other=0.32
+06:15.355  render           | Saved: '/tmp/perf_v8qvkfaz/f_0222_off-mboff-subdiv1.png'
+PERF off+mboff+subdiv1 k=2 fs=0.01 f=222 total=10.08 gap=0.03 prep=0.00 | pre=1.18 sync=0.02 geom=0.08 bvh=0.28 light=3.19 trace=4.98 save=0.04 other=0.31
+06:25.446  render           | Saved: '/tmp/perf_v8qvkfaz/f_0220_preview.png'
+PERF preview k=0 fs=0.01 f=220 total=10.06 gap=0.03 prep=0.00 | pre=1.18 sync=0.01 geom=0.08 bvh=0.28 light=3.19 trace=4.96 save=0.03 other=0.31
+06:35.561  render           | Saved: 'frames/f_0221_preview.png'
+PERF preview k=1 fs=0.01 f=221 total=10.09 gap=0.03 prep=0.00 | pre=1.20 sync=0.01 geom=0.08 bvh=0.28 light=3.18 trace=4.97 save=0.03 other=0.33
+06:45.636  render           | Saved: '/tmp/perf_v8qvkfaz/f_0222_preview.png'
+PERF preview k=2 fs=0.01 f=222 total=10.05 gap=0.02 prep=0.00 | pre=1.19 sync=0.01 geom=0.08 bvh=0.28 light=3.18 trace=4.95 save=0.03 other=0.32
+SWEEP variant | first | steady (frames 2+) | trace | sync+geom+bvh+light | denoise | save | pre
+SWEEP off | 13.40 | 11.82 | 4.97 | 5.41 | 0.00 | 0.05 | 1.39
+SWEEP off+seed | 12.10 | 11.87 | 4.98 | 5.43 | 0.00 | 0.05 | 1.41
+SWEEP off+mboff | 9.94 | 9.95 | 4.90 | 3.87 | 0.00 | 0.04 | 1.14
+SWEEP off+mboff+haze | 9.98 | 10.03 | 4.97 | 3.86 | 0.00 | 0.04 | 1.16
+SWEEP off+mboff+cull | 10.13 | 10.13 | 4.98 | 3.90 | 0.00 | 0.04 | 1.19
+SWEEP off+mboff+lt | 13.43 | 13.36 | 4.01 | 8.15 | 0.00 | 0.04 | 1.14
+SWEEP off+mboff+dnfast | 7.90 | 7.89 | 2.84 | 3.85 | 0.00 | 0.04 | 1.15
+SWEEP off+mboff+dnbal | 8.52 | 8.54 | 3.48 | 3.86 | 0.00 | 0.04 | 1.16
+SWEEP off+mboff+noadapt | 10.04 | 9.99 | 4.93 | 3.85 | 0.00 | 0.04 | 1.15
+SWEEP off+mboff+subdiv1 | 10.07 | 10.09 | 4.95 | 3.90 | 0.00 | 0.04 | 1.19
+SWEEP preview | 10.07 | 10.08 | 4.96 | 3.88 | 0.00 | 0.03 | 1.20
+signs: ['File:Zeichen 205 - Vorfahrt gewähren! StVO 1970.svg', 'File:Zeichen 330.1 - Autobahn, StVO 2013.svg', 'File:Zeichen 330.2 - Ende der Autobahn, StVO 2013.svg', 'File:Zeichen 332 - Ausfahrt von der Autobahn, StVO 1970.svg', 'File:Zeichen 333 - Pfeilschild - Ausfahrt von der Autobahn, StVO 1970.svg', 'File:Zeichen 448 - Ankündigungstafel auf Autobahnen, StVO 1992.svg', 'File:Zeichen 449 - Vorwegweiser auf Autobahnen (nach RWBA), StVO 1992.svg', 'File:Zeichen 450-50 - Ankündigungsbake einstreifig (100 m), StVO 2013.svg', 'File:Zeichen 450-51 - Ankündigungsbake zweistreifig (200 m), StVO 2013.svg']
+RENDER_DONE
+PERF_DONE wall 404.6 s

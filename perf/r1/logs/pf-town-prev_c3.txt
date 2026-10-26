@@ -1,0 +1,86 @@
+job pf-town-prev c3 stills 30 res 360 samples 6 args '--scene lookdev/ld_figures.py --shot zebra --span 3 --sweep off,off+seed,off+mboff,off+mboff+haze,off+mboff+cull,off+mboff+lt,off+mboff+dnfast,off+mboff+dnbal,off+mboff+noadapt,off+mboff+subdiv1,preview': 11 png
+scene built in 41.5 s
+00:42.823  cycles           | WARNING CUEW initialization failed: Error opening the library
+PERF_SCENE objects=8690 instances=9027 animated=9 materials=149 emissive_sampled=149 haze_only=137 meshes=7936 res=360x640 samples=6 blur=True shutter=0.50 threads=4 built_at=42.3s
+00:54.174  render           | Saved: '/tmp/perf_dmbbip0u/f_0030_off.png'
+PERF off k=0 fs=0.03 f=30 total=10.66 prep=0.00 | pre=1.21 sync=0.74 geom=0.06 bvh=0.10 light=1.68 trace=6.42 save=0.13 other=0.31
+PERF_RAW Sample 6.42; Updating Lights 1.68; (blender pre) 1.21; Synchronizing object 0.74; Initializing 0.28; Finished 0.13; Updating Scene BVH 0.07; Updating Images 0.04; Updating Mesh 0.03
+01:02.533  render           | Saved: 'frames/f_0031_off.png'
+PERF off k=1 fs=0.03 f=31 total=8.27 gap=0.09 prep=0.00 | pre=0.11 sync=0.04 geom=0.02 bvh=0.08 light=1.24 trace=6.48 save=0.04 other=0.26
+PERF_RAW Sample 6.48; Updating Lights 1.24; Initializing 0.23; (blender pre) 0.11; Updating Scene BVH 0.07; Finished 0.04; Synchronizing object 0.04; Updating Mesh 0.02; Updating Geometry BVH Mesh 0.01
+01:10.777  render           | Saved: '/tmp/perf_dmbbip0u/f_0032_off.png'
+PERF off k=2 fs=0.03 f=32 total=8.15 gap=0.09 prep=0.00 | pre=0.11 sync=0.04 geom=0.01 bvh=0.08 light=1.23 trace=6.37 save=0.04 other=0.26
+01:18.882  render           | Saved: '/tmp/perf_dmbbip0u/f_0030_off-seed.png'
+PERF off+seed k=0 fs=0.03 f=30 total=8.01 gap=0.10 prep=0.00 | pre=0.10 sync=0.04 geom=0.01 bvh=0.08 light=1.23 trace=6.27 save=0.04 other=0.24
+01:27.169  render           | Saved: 'frames/f_0031_off-seed.png'
+PERF off+seed k=1 fs=0.03 f=31 total=8.20 gap=0.09 prep=0.00 | pre=0.10 sync=0.04 geom=0.01 bvh=0.08 light=1.23 trace=6.45 save=0.04 other=0.25
+01:35.496  render           | Saved: '/tmp/perf_dmbbip0u/f_0032_off-seed.png'
+PERF off+seed k=2 fs=0.03 f=32 total=8.24 gap=0.09 prep=0.00 | pre=0.11 sync=0.04 geom=0.01 bvh=0.08 light=1.23 trace=6.45 save=0.05 other=0.26
+01:43.251  render           | Saved: '/tmp/perf_dmbbip0u/f_0030_off-mboff.png'
+PERF off+mboff k=0 fs=0.04 f=30 total=7.64 gap=0.11 prep=0.00 | pre=0.10 sync=0.04 geom=0.01 bvh=0.08 light=1.23 trace=6.09 save=0.05 other=0.03
+01:50.999  render           | Saved: 'frames/f_0031_off-mboff.png'
+PERF off+mboff k=1 fs=0.02 f=31 total=7.67 gap=0.08 prep=0.00 | pre=0.09 sync=0.04 geom=0.01 bvh=0.06 light=1.23 trace=6.16 save=0.05 other=0.03
+01:58.652  render           | Saved: '/tmp/perf_dmbbip0u/f_0032_off-mboff.png'
+PERF off+mboff k=2 fs=0.02 f=32 total=7.57 gap=0.08 prep=0.00 | pre=0.09 sync=0.04 geom=0.01 bvh=0.06 light=1.22 trace=6.08 save=0.05 other=0.03
+02:06.458  render           | Saved: '/tmp/perf_dmbbip0u/f_0030_off-mboff-haze.png'
+PERF off+mboff+haze k=0 fs=0.03 f=30 total=7.70 gap=0.11 prep=0.00 | pre=0.09 sync=0.04 geom=0.01 bvh=0.06 light=1.22 trace=6.21 save=0.05 other=0.03
+02:14.129  render           | Saved: 'frames/f_0031_off-mboff-haze.png'
+PERF off+mboff+haze k=1 fs=0.03 f=31 total=7.58 gap=0.09 prep=0.00 | pre=0.10 sync=0.04 geom=0.01 bvh=0.06 light=1.22 trace=6.07 save=0.05 other=0.03
+02:21.769  render           | Saved: '/tmp/perf_dmbbip0u/f_0032_off-mboff-haze.png'
+PERF off+mboff+haze k=2 fs=0.02 f=32 total=7.56 gap=0.08 prep=0.00 | pre=0.10 sync=0.04 geom=0.01 bvh=0.06 light=1.22 trace=6.06 save=0.05 other=0.03
+02:29.593  render           | Saved: '/tmp/perf_dmbbip0u/f_0030_off-mboff-cull.png'
+PERF off+mboff+cull k=0 fs=0.03 f=30 total=7.72 gap=0.11 prep=0.00 | pre=0.09 sync=0.04 geom=0.01 bvh=0.06 light=1.22 trace=6.22 save=0.05 other=0.03
+02:37.509  render           | Saved: 'frames/f_0031_off-mboff-cull.png'
+PERF off+mboff+cull k=1 fs=0.03 f=31 total=7.82 gap=0.09 prep=0.00 | pre=0.10 sync=0.04 geom=0.01 bvh=0.06 light=1.22 trace=6.30 save=0.05 other=0.03
+02:45.239  render           | Saved: '/tmp/perf_dmbbip0u/f_0032_off-mboff-cull.png'
+PERF off+mboff+cull k=2 fs=0.03 f=32 total=7.64 gap=0.09 prep=0.00 | pre=0.10 sync=0.04 geom=0.01 bvh=0.07 light=1.23 trace=6.12 save=0.05 other=0.03
+02:50.254  render           | Saved: '/tmp/perf_dmbbip0u/f_0030_off-mboff-lt.png'
+PERF off+mboff+lt k=0 fs=0.03 f=30 total=4.91 gap=0.10 prep=0.00 | pre=0.09 sync=0.04 geom=0.01 bvh=0.06 light=0.05 trace=4.59 save=0.05 other=0.03
+02:55.211  render           | Saved: 'frames/f_0031_off-mboff-lt.png'
+PERF off+mboff+lt k=1 fs=0.02 f=31 total=4.88 gap=0.08 prep=0.00 | pre=0.09 sync=0.04 geom=0.01 bvh=0.06 light=0.05 trace=4.56 save=0.05 other=0.03
+03:00.176  render           | Saved: '/tmp/perf_dmbbip0u/f_0032_off-mboff-lt.png'
+PERF off+mboff+lt k=2 fs=0.03 f=32 total=4.88 gap=0.08 prep=0.00 | pre=0.09 sync=0.04 geom=0.01 bvh=0.06 light=0.05 trace=4.56 save=0.05 other=0.03
+03:05.768  render           | Saved: '/tmp/perf_dmbbip0u/f_0030_off-mboff-dnfast.png'
+PERF off+mboff+dnfast k=0 fs=0.03 f=30 total=5.49 gap=0.10 prep=0.00 | pre=0.09 sync=0.04 geom=0.01 bvh=0.06 light=1.22 trace=4.00 save=0.05 other=0.02
+03:11.362  render           | Saved: 'frames/f_0031_off-mboff-dnfast.png'
+PERF off+mboff+dnfast k=1 fs=0.02 f=31 total=5.52 gap=0.08 prep=0.00 | pre=0.09 sync=0.04 geom=0.01 bvh=0.06 light=1.22 trace=4.02 save=0.05 other=0.03
+03:16.949  render           | Saved: '/tmp/perf_dmbbip0u/f_0032_off-mboff-dnfast.png'
+PERF off+mboff+dnfast k=2 fs=0.02 f=32 total=5.51 gap=0.08 prep=0.00 | pre=0.09 sync=0.04 geom=0.01 bvh=0.06 light=1.22 trace=4.01 save=0.05 other=0.03
+03:23.193  render           | Saved: '/tmp/perf_dmbbip0u/f_0030_off-mboff-dnbal.png'
+PERF off+mboff+dnbal k=0 fs=0.03 f=30 total=6.14 gap=0.11 prep=0.00 | pre=0.10 sync=0.04 geom=0.01 bvh=0.06 light=1.22 trace=4.63 save=0.05 other=0.03
+03:29.384  render           | Saved: 'frames/f_0031_off-mboff-dnbal.png'
+PERF off+mboff+dnbal k=1 fs=0.02 f=31 total=6.11 gap=0.08 prep=0.00 | pre=0.10 sync=0.04 geom=0.01 bvh=0.06 light=1.22 trace=4.61 save=0.05 other=0.03
+03:35.583  render           | Saved: '/tmp/perf_dmbbip0u/f_0032_off-mboff-dnbal.png'
+PERF off+mboff+dnbal k=2 fs=0.02 f=32 total=6.12 gap=0.08 prep=0.00 | pre=0.09 sync=0.04 geom=0.01 bvh=0.06 light=1.22 trace=4.62 save=0.05 other=0.03
+03:43.252  render           | Saved: '/tmp/perf_dmbbip0u/f_0030_off-mboff-noadapt.png'
+PERF off+mboff+noadapt k=0 fs=0.03 f=30 total=7.57 gap=0.10 prep=0.00 | pre=0.09 sync=0.04 geom=0.01 bvh=0.06 light=1.22 trace=6.07 save=0.05 other=0.03
+03:50.904  render           | Saved: 'frames/f_0031_off-mboff-noadapt.png'
+PERF off+mboff+noadapt k=1 fs=0.02 f=31 total=7.57 gap=0.08 prep=0.00 | pre=0.09 sync=0.04 geom=0.01 bvh=0.06 light=1.21 trace=6.08 save=0.05 other=0.02
+03:58.512  render           | Saved: '/tmp/perf_dmbbip0u/f_0032_off-mboff-noadapt.png'
+PERF off+mboff+noadapt k=2 fs=0.02 f=32 total=7.53 gap=0.08 prep=0.00 | pre=0.09 sync=0.04 geom=0.01 bvh=0.06 light=1.22 trace=6.04 save=0.05 other=0.02
+04:06.058  render           | Saved: '/tmp/perf_dmbbip0u/f_0030_off-mboff-subdiv1.png'
+PERF off+mboff+subdiv1 k=0 fs=0.20 f=30 total=7.27 gap=0.27 prep=0.00 | pre=0.21 sync=0.11 geom=0.01 bvh=0.05 light=0.73 trace=6.09 save=0.05 other=0.03
+04:13.199  render           | Saved: 'frames/f_0031_off-mboff-subdiv1.png'
+PERF off+mboff+subdiv1 k=1 fs=0.02 f=31 total=7.06 gap=0.08 prep=0.00 | pre=0.09 sync=0.04 geom=0.01 bvh=0.04 light=0.73 trace=6.08 save=0.05 other=0.02
+04:20.303  render           | Saved: '/tmp/perf_dmbbip0u/f_0032_off-mboff-subdiv1.png'
+PERF off+mboff+subdiv1 k=2 fs=0.02 f=32 total=7.03 gap=0.08 prep=0.00 | pre=0.09 sync=0.04 geom=0.01 bvh=0.04 light=0.73 trace=6.05 save=0.05 other=0.02
+04:28.449  render           | Saved: '/tmp/perf_dmbbip0u/f_0030_preview.png'
+PERF preview k=0 fs=0.19 f=30 total=7.87 gap=0.28 prep=0.00 | pre=0.28 sync=0.11 geom=0.01 bvh=0.07 light=1.22 trace=6.10 save=0.04 other=0.03
+04:36.144  render           | Saved: 'frames/f_0031_preview.png'
+PERF preview k=1 fs=0.02 f=31 total=7.62 gap=0.08 prep=0.00 | pre=0.09 sync=0.04 geom=0.01 bvh=0.06 light=1.24 trace=6.12 save=0.04 other=0.03
+04:43.786  render           | Saved: '/tmp/perf_dmbbip0u/f_0032_preview.png'
+PERF preview k=2 fs=0.02 f=32 total=7.56 gap=0.08 prep=0.00 | pre=0.09 sync=0.04 geom=0.01 bvh=0.06 light=1.22 trace=6.08 save=0.04 other=0.03
+SWEEP variant | first | steady (frames 2+) | trace | sync+geom+bvh+light | denoise | save | pre
+SWEEP off | 10.69 | 8.24 | 6.42 | 1.63 | 0.00 | 0.04 | 0.11
+SWEEP off+seed | 8.04 | 8.25 | 6.45 | 1.62 | 0.00 | 0.04 | 0.11
+SWEEP off+mboff | 7.68 | 7.64 | 6.12 | 1.36 | 0.00 | 0.05 | 0.09
+SWEEP off+mboff+haze | 7.73 | 7.60 | 6.07 | 1.36 | 0.00 | 0.05 | 0.10
+SWEEP off+mboff+cull | 7.75 | 7.76 | 6.21 | 1.37 | 0.00 | 0.05 | 0.10
+SWEEP off+mboff+lt | 4.94 | 4.90 | 4.56 | 0.18 | 0.00 | 0.05 | 0.09
+SWEEP off+mboff+dnfast | 5.52 | 5.54 | 4.01 | 1.36 | 0.00 | 0.05 | 0.09
+SWEEP off+mboff+dnbal | 6.17 | 6.14 | 4.61 | 1.36 | 0.00 | 0.05 | 0.09
+SWEEP off+mboff+noadapt | 7.60 | 7.57 | 6.06 | 1.35 | 0.00 | 0.05 | 0.09
+SWEEP off+mboff+subdiv1 | 7.47 | 7.07 | 6.06 | 0.84 | 0.00 | 0.05 | 0.09
+SWEEP preview | 8.06 | 7.61 | 6.10 | 1.36 | 0.00 | 0.04 | 0.09
+RENDER_DONE
+PERF_DONE wall 282.7 s

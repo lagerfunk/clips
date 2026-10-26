@@ -1,0 +1,23 @@
+job pf-ep02-final c7 frames 100-105 res 720 samples 12 args '--perf final': 6 png
+00:49.150  cycles           | WARNING CUEW initialization failed: Error opening the library
+01:25.320  render           | Saved: 'frames/f_0100.png'
+PERF - f=100 total=34.35 prep=0.00 | pre=1.33 sync=0.36 geom=0.05 bvh=0.09 light=0.39 trace=31.66 save=0.21 other=0.27
+PERF_RAW Sample 31.66; (blender pre) 1.33; Updating Lights 0.39; Synchronizing object 0.36; Initializing 0.23; Finished 0.21; Updating Scene BVH 0.07; Updating Images 0.03; Updating Mesh 0.03
+Saved frames/f_0100.png
+01:59.374  render           | Saved: 'frames/f_0101.png'
+PERF - f=101 total=33.21 gap=0.85 prep=0.00 | pre=0.77 sync=0.29 geom=0.02 bvh=0.06 light=0.01 trace=31.67 save=0.12 other=0.26
+PERF_RAW Sample 31.67; (blender pre) 0.77; Synchronizing object 0.29; Initializing 0.23; Finished 0.12; Updating Scene BVH 0.06; Updating Mesh 0.03; Updating Lights 0.01; Updating Objects 0.01
+Saved frames/f_0101.png
+02:33.588  render           | Saved: 'frames/f_0102.png'
+PERF - f=102 total=33.28 gap=0.93 prep=0.00 | pre=0.85 sync=0.30 geom=0.02 bvh=0.06 light=0.01 trace=31.65 save=0.12 other=0.26
+Saved frames/f_0102.png
+03:07.660  render           | Saved: 'frames/f_0103.png'
+PERF - f=103 total=33.12 gap=0.95 prep=0.00 | pre=0.87 sync=0.29 geom=0.02 bvh=0.06 light=0.01 trace=31.49 save=0.12 other=0.26
+Saved frames/f_0103.png
+03:41.772  render           | Saved: 'frames/f_0104.png'
+PERF - f=104 total=33.19 gap=0.92 prep=0.00 | pre=0.83 sync=0.29 geom=0.02 bvh=0.06 light=0.01 trace=31.60 save=0.12 other=0.26
+Saved frames/f_0104.png
+04:16.272  render           | Saved: 'frames/f_0105.png'
+PERF - f=105 total=33.54 gap=0.96 prep=0.00 | pre=0.87 sync=0.29 geom=0.02 bvh=0.06 light=0.01 trace=31.91 save=0.12 other=0.26
+Saved frames/f_0105.png
+RENDER_DONE (100, 105)

@@ -1,0 +1,92 @@
+job pf-rb-final c2 stills 1 res 720 samples 12 args '--scene lookdev/ld_junctions.py --shot rb1 --span 3 --sweep off,off+seed,off+haze,off+cull,off+lt,off+deform,off+dnfast,off+dnbal,off+noadapt,off+png,off+subdiv1,final': 12 png
+00:56.294  cycles           | WARNING CUEW initialization failed: Error opening the library
+PERF_SCENE objects=9215 instances=9963 animated=42 materials=127 emissive_sampled=127 haze_only=115 meshes=8345 res=720x1280 samples=12 blur=True shutter=0.50 threads=4 built_at=56.8s
+01:36.230  render           | Saved: '/tmp/perf_ybcrkrgo/f_0090_off.png'
+PERF off k=0 fs=0.03 f=90 total=38.33 prep=0.00 | pre=1.24 sync=0.39 geom=0.07 bvh=0.11 light=1.81 trace=34.23 save=0.25 other=0.22
+PERF_RAW Sample 34.23; Updating Lights 1.81; (blender pre) 1.24; Synchronizing object 0.39; Finished 0.25; Initializing 0.19; Updating Scene BVH 0.08; Updating Images 0.05; Updating Mesh 0.03
+02:12.394  render           | Saved: 'frames/f_0091_off.png'
+PERF off k=1 fs=0.02 f=91 total=36.09 gap=0.08 prep=0.00 | pre=0.11 geom=0.01 bvh=0.07 light=1.37 trace=34.20 save=0.16 other=0.16
+PERF_RAW Sample 34.20; Updating Lights 1.37; Finished 0.16; Initializing 0.14; (blender pre) 0.11; Updating Scene BVH 0.07; Updating Mesh 0.02; Updating Objects 0.01; Updating Meshes Flags 0.00
+02:48.583  render           | Saved: '/tmp/perf_ybcrkrgo/f_0092_off.png'
+PERF off k=2 fs=0.02 f=92 total=36.11 gap=0.08 prep=0.00 | pre=0.11 geom=0.01 bvh=0.07 light=1.37 trace=34.23 save=0.16 other=0.16
+03:24.862  render           | Saved: '/tmp/perf_ybcrkrgo/f_0090_off-seed.png'
+PERF off+seed k=0 fs=0.03 f=90 total=36.18 gap=0.10 prep=0.00 | pre=0.10 geom=0.01 bvh=0.07 light=1.36 trace=34.32 save=0.16 other=0.16
+04:01.040  render           | Saved: 'frames/f_0091_off-seed.png'
+PERF off+seed k=1 fs=0.02 f=91 total=36.10 gap=0.08 prep=0.00 | pre=0.10 geom=0.01 bvh=0.07 light=1.36 trace=34.23 save=0.16 other=0.16
+04:37.526  render           | Saved: '/tmp/perf_ybcrkrgo/f_0092_off-seed.png'
+PERF off+seed k=2 fs=0.02 f=92 total=36.41 gap=0.08 prep=0.00 | pre=0.10 geom=0.01 bvh=0.07 light=1.36 trace=34.54 save=0.16 other=0.16
+05:13.854  render           | Saved: '/tmp/perf_ybcrkrgo/f_0090_off-haze.png'
+PERF off+haze k=0 fs=0.03 f=90 total=36.23 gap=0.10 prep=0.00 | pre=0.10 geom=0.01 bvh=0.07 light=1.36 trace=34.37 save=0.16 other=0.15
+05:50.117  render           | Saved: 'frames/f_0091_off-haze.png'
+PERF off+haze k=1 fs=0.02 f=91 total=36.19 gap=0.07 prep=0.00 | pre=0.10 geom=0.01 bvh=0.07 light=1.38 trace=34.30 save=0.16 other=0.16
+06:26.380  render           | Saved: '/tmp/perf_ybcrkrgo/f_0092_off-haze.png'
+PERF off+haze k=2 fs=0.02 f=92 total=36.19 gap=0.08 prep=0.00 | pre=0.10 geom=0.01 bvh=0.07 light=1.37 trace=34.32 save=0.16 other=0.15
+07:02.591  render           | Saved: '/tmp/perf_ybcrkrgo/f_0090_off-cull.png'
+PERF off+cull k=0 fs=0.03 f=90 total=36.11 gap=0.10 prep=0.00 | pre=0.10 geom=0.01 bvh=0.07 light=1.36 trace=34.25 save=0.16 other=0.15
+07:38.890  render           | Saved: 'frames/f_0091_off-cull.png'
+PERF off+cull k=1 fs=0.02 f=91 total=36.22 gap=0.07 prep=0.00 | pre=0.10 geom=0.01 bvh=0.07 light=1.36 trace=34.37 save=0.16 other=0.15
+08:15.248  render           | Saved: '/tmp/perf_ybcrkrgo/f_0092_off-cull.png'
+PERF off+cull k=2 fs=0.02 f=92 total=36.28 gap=0.08 prep=0.00 | pre=0.12 geom=0.01 bvh=0.07 light=1.36 trace=34.38 save=0.16 other=0.17
+08:40.841  render           | Saved: '/tmp/perf_ybcrkrgo/f_0090_off-lt.png'
+PERF off+lt k=0 fs=0.03 f=90 total=25.49 gap=0.11 prep=0.00 | pre=0.10 geom=0.01 bvh=0.07 light=0.06 trace=24.93 save=0.16 other=0.15
+09:06.408  render           | Saved: 'frames/f_0091_off-lt.png'
+PERF off+lt k=1 fs=0.02 f=91 total=25.50 gap=0.07 prep=0.00 | pre=0.10 geom=0.01 bvh=0.07 light=0.06 trace=24.94 save=0.16 other=0.16
+09:31.922  render           | Saved: '/tmp/perf_ybcrkrgo/f_0092_off-lt.png'
+PERF off+lt k=2 fs=0.02 f=92 total=25.44 gap=0.07 prep=0.00 | pre=0.10 geom=0.01 bvh=0.07 light=0.06 trace=24.89 save=0.16 other=0.15
+10:08.244  render           | Saved: '/tmp/perf_ybcrkrgo/f_0090_off-deform.png'
+PERF off+deform k=0 fs=0.03 f=90 total=36.22 gap=0.10 prep=0.00 | pre=0.10 geom=0.01 bvh=0.07 light=1.36 trace=34.37 save=0.16 other=0.15
+10:44.464  render           | Saved: 'frames/f_0091_off-deform.png'
+PERF off+deform k=1 fs=0.02 f=91 total=36.14 gap=0.08 prep=0.00 | pre=0.10 geom=0.01 bvh=0.07 light=1.36 trace=34.29 save=0.16 other=0.15
+11:20.656  render           | Saved: '/tmp/perf_ybcrkrgo/f_0092_off-deform.png'
+PERF off+deform k=2 fs=0.02 f=92 total=36.12 gap=0.07 prep=0.00 | pre=0.10 geom=0.01 bvh=0.07 light=1.36 trace=34.27 save=0.16 other=0.15
+11:48.979  render           | Saved: '/tmp/perf_ybcrkrgo/f_0090_off-dnfast.png'
+PERF off+dnfast k=0 fs=0.03 f=90 total=28.23 gap=0.09 prep=0.00 | pre=0.10 geom=0.01 bvh=0.07 light=1.36 trace=26.37 save=0.16 other=0.15
+12:17.252  render           | Saved: 'frames/f_0091_off-dnfast.png'
+PERF off+dnfast k=1 fs=0.02 f=91 total=28.20 gap=0.07 prep=0.00 | pre=0.10 geom=0.01 bvh=0.07 light=1.36 trace=26.36 save=0.16 other=0.15
+12:45.572  render           | Saved: '/tmp/perf_ybcrkrgo/f_0092_off-dnfast.png'
+PERF off+dnfast k=2 fs=0.02 f=92 total=28.24 gap=0.08 prep=0.00 | pre=0.10 geom=0.01 bvh=0.07 light=1.36 trace=26.38 save=0.16 other=0.15
+13:16.322  render           | Saved: '/tmp/perf_ybcrkrgo/f_0090_off-dnbal.png'
+PERF off+dnbal k=0 fs=0.03 f=90 total=30.65 gap=0.10 prep=0.00 | pre=0.10 geom=0.01 bvh=0.07 light=1.36 trace=28.80 save=0.16 other=0.15
+13:47.103  render           | Saved: 'frames/f_0091_off-dnbal.png'
+PERF off+dnbal k=1 fs=0.03 f=91 total=30.70 gap=0.08 prep=0.00 | pre=0.10 geom=0.01 bvh=0.07 light=1.37 trace=28.84 save=0.16 other=0.15
+14:17.831  render           | Saved: '/tmp/perf_ybcrkrgo/f_0092_off-dnbal.png'
+PERF off+dnbal k=2 fs=0.02 f=92 total=30.65 gap=0.07 prep=0.00 | pre=0.10 geom=0.01 bvh=0.07 light=1.36 trace=28.81 save=0.16 other=0.15
+14:54.064  render           | Saved: '/tmp/perf_ybcrkrgo/f_0090_off-noadapt.png'
+PERF off+noadapt k=0 fs=0.03 f=90 total=36.14 gap=0.10 prep=0.00 | pre=0.10 geom=0.01 bvh=0.07 light=1.36 trace=34.28 save=0.16 other=0.15
+15:30.301  render           | Saved: 'frames/f_0091_off-noadapt.png'
+PERF off+noadapt k=1 fs=0.02 f=91 total=36.16 gap=0.07 prep=0.00 | pre=0.10 geom=0.01 bvh=0.07 light=1.36 trace=34.31 save=0.16 other=0.15
+16:06.474  render           | Saved: '/tmp/perf_ybcrkrgo/f_0092_off-noadapt.png'
+PERF off+noadapt k=2 fs=0.02 f=92 total=36.10 gap=0.08 prep=0.00 | pre=0.10 geom=0.01 bvh=0.07 light=1.36 trace=34.25 save=0.16 other=0.15
+16:42.615  render           | Saved: '/tmp/perf_ybcrkrgo/f_0090_off-png.png'
+PERF off+png k=0 fs=0.03 f=90 total=36.04 gap=0.10 prep=0.00 | pre=0.10 geom=0.01 bvh=0.07 light=1.36 trace=34.24 save=0.12 other=0.14
+17:18.626  render           | Saved: 'frames/f_0091_off-png.png'
+PERF off+png k=1 fs=0.02 f=91 total=35.94 gap=0.07 prep=0.00 | pre=0.10 geom=0.01 bvh=0.07 light=1.36 trace=34.13 save=0.12 other=0.15
+17:54.657  render           | Saved: '/tmp/perf_ybcrkrgo/f_0092_off-png.png'
+PERF off+png k=2 fs=0.02 f=92 total=35.96 gap=0.07 prep=0.00 | pre=0.10 geom=0.01 bvh=0.07 light=1.35 trace=34.17 save=0.12 other=0.14
+18:30.591  render           | Saved: '/tmp/perf_ybcrkrgo/f_0090_off-subdiv1.png'
+PERF off+subdiv1 k=0 fs=0.18 f=90 total=35.68 gap=0.25 prep=0.00 | pre=0.18 sync=0.08 geom=0.01 bvh=0.07 light=0.90 trace=34.11 save=0.16 other=0.16
+19:06.090  render           | Saved: 'frames/f_0091_off-subdiv1.png'
+PERF off+subdiv1 k=1 fs=0.02 f=91 total=35.43 gap=0.07 prep=0.00 | pre=0.10 geom=0.01 bvh=0.04 light=0.91 trace=34.06 save=0.16 other=0.14
+19:41.927  render           | Saved: '/tmp/perf_ybcrkrgo/f_0092_off-subdiv1.png'
+PERF off+subdiv1 k=2 fs=0.02 f=92 total=35.76 gap=0.08 prep=0.00 | pre=0.10 geom=0.01 bvh=0.05 light=0.90 trace=34.38 save=0.16 other=0.15
+20:18.512  render           | Saved: '/tmp/perf_ybcrkrgo/f_0090_final.png'
+PERF final k=0 fs=0.19 f=90 total=36.32 gap=0.27 prep=0.00 | pre=0.26 sync=0.08 geom=0.01 bvh=0.10 light=1.37 trace=34.21 save=0.12 other=0.17
+20:54.548  render           | Saved: 'frames/f_0091_final.png'
+PERF final k=1 fs=0.02 f=91 total=35.96 gap=0.08 prep=0.00 | pre=0.10 geom=0.01 bvh=0.07 light=1.37 trace=34.15 save=0.12 other=0.15
+21:30.348  render           | Saved: '/tmp/perf_ybcrkrgo/f_0092_final.png'
+PERF final k=2 fs=0.02 f=92 total=35.72 gap=0.07 prep=0.00 | pre=0.10 geom=0.01 bvh=0.07 light=1.35 trace=33.93 save=0.12 other=0.14
+SWEEP variant | first | steady (frames 2+) | trace | sync+geom+bvh+light | denoise | save | pre
+SWEEP off | 38.36 | 36.12 | 34.22 | 1.61 | 0.00 | 0.16 | 0.11
+SWEEP off+seed | 36.21 | 36.28 | 34.39 | 1.61 | 0.00 | 0.16 | 0.10
+SWEEP off+haze | 36.26 | 36.21 | 34.31 | 1.61 | 0.00 | 0.16 | 0.10
+SWEEP off+cull | 36.14 | 36.27 | 34.37 | 1.61 | 0.00 | 0.16 | 0.11
+SWEEP off+lt | 25.52 | 25.49 | 24.91 | 0.29 | 0.00 | 0.16 | 0.10
+SWEEP off+deform | 36.25 | 36.15 | 34.28 | 1.59 | 0.00 | 0.16 | 0.10
+SWEEP off+dnfast | 28.26 | 28.24 | 26.37 | 1.59 | 0.00 | 0.16 | 0.10
+SWEEP off+dnbal | 30.68 | 30.70 | 28.82 | 1.59 | 0.00 | 0.16 | 0.10
+SWEEP off+noadapt | 36.17 | 36.15 | 34.28 | 1.59 | 0.00 | 0.16 | 0.10
+SWEEP off+png | 36.07 | 35.97 | 34.15 | 1.58 | 0.00 | 0.12 | 0.10
+SWEEP off+subdiv1 | 35.86 | 35.62 | 34.22 | 1.11 | 0.00 | 0.16 | 0.10
+SWEEP final | 36.50 | 35.86 | 34.04 | 1.59 | 0.00 | 0.12 | 0.10
+RENDER_DONE rb1 [90]
+PERF_DONE wall 1289.4 s
