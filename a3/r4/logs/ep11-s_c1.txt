@@ -1,0 +1,10 @@
+job ep11-s c1 stills 217,682 res 720 samples 16 args '': 2 png
+terrain 492 x 784
+vegetation 68676 48311 920 1575
+01:02.840  cycles           | WARNING CUEW initialization failed: Error opening the library
+01:50.448  render           | Saved: 'frames/f_0217.png'
+SIGN_SOURCES ["('de-core', '205')", "('de-core', '330.1')", "('de-core', '330.2')", "('de-core', '332')", "('de-core', '333')", "('de-core', '448')", "('de-core', '450-50')", "('de-core', '450-51')", "('de-interchange', '449')"]
+Saved frames/f_0217.png
+02:38.567  render           | Saved: 'frames/f_0682.png'
+Saved frames/f_0682.png
+RENDER_DONE [217, 682]
