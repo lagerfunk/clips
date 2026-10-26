@@ -1,5 +1,8 @@
 Commons API reachable
-de-core: 80 kept, 1 to fetch
-de-core/101-51: File:Zeichen 101-51 - Schnee- oder Eisglätte, StVO 2017.svg [Public domain]
+de-core: 81 kept, 0 to fetch
 de-junctions: 10 kept, 0 to fetch
+de-townplus: 0 kept, 3 to fetch
+de-townplus/318: File:Zeichen 318 - Parkscheibe, StVO 2013.svg [Public domain]
+de-townplus/rad-marking: File:Markierung Radfahrer.svg [Copyrighted free use]
+de-townplus/224: File:Zeichen 224 - Haltestelle, StVO 2017.svg [Public domain]
 done, 0 missing
