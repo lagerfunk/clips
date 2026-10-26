@@ -1,0 +1,7 @@
+job gta-toll-gantry stills 61,136 res 720 samples 16 args '': 0 png
+Traceback (most recent call last):
+  File "/home/runner/work/clips/clips/drivelocal/fl05_toll_unpaid.py", line 13, in <module>
+    from mathutils import Vector  # noqa: E402
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ModuleNotFoundError: No module named 'mathutils'
+scene exited with 1
