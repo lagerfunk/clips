@@ -1,13 +1,10 @@
 {
  "set": "de-interchange",
- "note": "Candidates for a clean (non-dimensioned) Vorwegweiser 449 and three-bar Bake 450-52: the de-core files of both are construction drawings with dimension lines. Interchange agent picks the clean ones after the fetch.",
+ "note": "Current designs whose Commons files are construction drawings: only the plate rectangle is shown (signs.plate_rect), the file stays unaltered. 449 plate is clean. 450-52 carries dimension arrows inside the sign face itself, so kit/interchange.py does not place it by default (show_300=False).",
  "signs": [
-  {"id": "449-1970", "title": "File:Zeichen 449 - Autobahnausfahrt-Vorwegweiser, StVO 1970.svg"},
-  {"id": "449-1974", "title": "File:Zeichen 449 - Vorwegweiser auf Autobahnen, StVO 1974.svg"},
-  {"id": "449-21", "title": "File:Zeichen 449-21.svg"},
-  {"id": "449-22", "title": "File:Zeichen 449-22.svg"},
-  {"id": "450-1970", "title": "File:Zeichen 450 - Ankündigungsbake auf Autobahnen, StVO 1970.svg"},
-  {"id": "450-21", "title": "File:Zeichen 450-21.svg"},
-  {"id": "450-white", "title": "File:Zeichen 450 white.svg"}
+  {"id": "449", "title": "File:Zeichen 449 - Vorwegweiser auf Autobahnen (nach RWBA), StVO 1992.svg",
+   "plate": [0.041, 0.022, 0.96, 0.9578]},
+  {"id": "450-52", "title": "File:Zeichen 450-52 - Ankündigungsbake dreistreifig (300 m), StVO 2013.svg",
+   "plate": [0.1904, 0.0893, 0.9209, 1.0]}
  ]
 }

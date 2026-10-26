@@ -141,6 +141,12 @@ def main():
         for k in list(index):
             if k not in wanted:
                 index.pop(k)
+        for k, e in wanted.items():
+            if k in index:
+                if e.get("plate"):
+                    index[k]["plate"] = e["plate"]
+                else:
+                    index[k].pop("plate", None)
         todo = [e for e in conf["signs"] if not (e["id"] in index and (d / f"{e['id']}.png").exists()
                                                   and acceptable(e, index[e["id"]]["title"]))]
         print(f"{sset}: {len(index)} kept, {len(todo)} to fetch", flush=True)
@@ -189,6 +195,8 @@ def main():
                               "licence": strip_html(meta.get("LicenseShortName", {}).get("value")),
                               "usage": strip_html(meta.get("UsageTerms", {}).get("value")),
                               "retrieved": time.strftime("%Y-%m-%d")}
+                if wanted[sid].get("plate"):
+                    index[sid]["plate"] = wanted[sid]["plate"]
                 print(f"{sset}/{sid}: {t} [{index[sid]['licence']}]", flush=True)
             except Exception as ex:  # noqa: BLE001
                 missing.append(f"{sset}/{sid}: download error {ex}")
