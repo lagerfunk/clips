@@ -3,13 +3,13 @@
   File:UK traffic sign 2925.svg
   File:UK traffic sign 825-B-L.svg
   File:UK traffic sign 823-B-L.svg
-  File:UK traffic sign 824-B-L.svg
   File:UK traffic sign 510.svg
+  File:UK traffic sign 824-B-L.svg
   File:UK traffic sign 611.1.svg
   File:UK traffic sign 611.1 (Gibraltar).svg
   File:UK traffic sign 825-G-R.svg
-  File:UK traffic sign 823-G-R.svg
   File:UK traffic sign 824-G-R.svg
+  File:UK traffic sign 823-G-R.svg
   File:UK traffic sign 823-G-L.svg
   File:UK traffic sign 824-G-L.svg
   File:UK traffic sign 825-B-R.svg
@@ -17,13 +17,13 @@
   File:UK traffic sign 824-B-R.svg
   File:UK traffic sign 823-B-R.svg
   File:UK traffic sign 569.2 - 1981.svg
-  File:UK traffic sign 2706.svg
   File:UK traffic sign 2510.svg
-  File:UK traffic sign 824-W-L.svg
+  File:UK traffic sign 2706.svg
   File:UK traffic sign 825-W-L.svg
   File:UK traffic sign 823-W-L.svg
-  File:UK traffic sign 823-W-R.svg
   File:UK traffic sign 824-W-R.svg
+  File:UK traffic sign 823-W-R.svg
+  File:UK traffic sign 824-W-L.svg
   File:UK traffic sign 825-W-R.svg
   File:Historic Zimbabwe Road sign 1B.34.svg
   File:UK traffic sign 2706 - vaccination centre.svg
@@ -40,14 +40,14 @@
   File:It is illegal to give way to oncoming traffic ^ - geograph.org.uk - 1957988.jpg
   File:UK Traffic Calmed Area Sign - geograph.org.uk - 5142727.jpg
   File:Give way to oncoming traffic, Cwmynyscoy, Pontypool - geograph.org.uk - 2887557.jpg
+  File:UK traffic calmed area sign - geograph.org.uk - 6235799.jpg
   File:UK Traffic Calmed Area Sign - geograph.org.uk - 6234575.jpg
   File:UK Traffic Calmed Area Sign - geograph.org.uk - 6296653.jpg
-  File:UK traffic calmed area sign - geograph.org.uk - 6235799.jpg
   File:Give way sign, Tonegan - geograph.org.uk - 4938521.jpg
   File:"Give Way ahead" sign, Comber - geograph.org.uk - 2842631.jpg
   File:UK Traffic Signs Manual - Chapter 4 - Warning Signs. 2013.pdf
-  File:UK Traffic Signs Manual - Chapter 7 -The Design of Traffic Signs 2013.pdf
   File:Warning sign - Give Way 60 yds, Goodrich - geograph.org.uk - 5022374.jpg
+  File:UK Traffic Signs Manual - Chapter 7 -The Design of Traffic Signs 2013.pdf
   File:UK Traffic Calmed Area Speed Hump Sign - geograph.org.uk - 5097621.jpg
   File:Give way 100 yards sign, Tregarth - geograph.org.uk - 7378223.jpg
   File:Give way 30 yards sign, Rachub - geograph.org.uk - 7703584.jpg
@@ -59,15 +59,15 @@
   File:Traffic sign - geograph.org.uk - 806130.jpg
   File:Warning sign - fire station traffic lights, Macon Way, Crewe - geograph.org.uk - 5112452.jpg
   File:UK traffic sign 781.svg
-  File:UK traffic sign 670V70.svg
   File:Ildiwch - Give Way sign at road junction, Bethesda - geograph.org.uk - 7674347.jpg
   File:Warning sign - Give Way 50 yds, Forge Road, Tintern - geograph.org.uk - 5500565.jpg
-  File:Ildiwch - Give Way sign at road junction, Bethesda - geograph.org.uk - 8051620.jpg
   File:Ildiwch - Give Way sign at road junction, Tregarth - geograph.org.uk - 7647497.jpg
-  File:Ildiwch - Give Way sign at road junction, Mochdre - geograph.org.uk - 8166438.jpg
-  File:Ildiwch - Give Way sign at road junction, Tregarth - geograph.org.uk - 7647512.jpg
-  File:Ildiwch - Give Way sign at road junction, Tregarth - geograph.org.uk - 7647506.jpg
+  File:Ildiwch - Give Way sign at road junction, Bethesda - geograph.org.uk - 8051620.jpg
+  File:UK traffic sign 670V70.svg
   File:Ildiwch - Give Way sign at road junction, Bethesda - geograph.org.uk - 7690147.jpg
+  File:Ildiwch - Give Way sign at road junction, Tregarth - geograph.org.uk - 7647512.jpg
+  File:Ildiwch - Give Way sign at road junction, Mochdre - geograph.org.uk - 8166438.jpg
+  File:Ildiwch - Give Way sign at road junction, Tregarth - geograph.org.uk - 7647506.jpg
   File:UK Traffic Signs Manual - Chapter 8 - Part 1 (Traffic Safety Measures and Signs for Road). Designs 2009.pdf
   File:Ildiwch - Give Way sign at road junction, Bangor - geograph.org.uk - 7585804.jpg
   File:UK Traffic Signals Ahead Sign - geograph.org.uk - 5092947.jpg
@@ -85,8 +85,8 @@
   File:Warning sign - two way traffic ahead, Baneswell, Newport - geograph.org.uk - 4748713.jpg
   File:"Give way" signs, Craigantlet - July 2015 (1) - geograph.org.uk - 4561600.jpg
   File:Warning sign - two way traffic, Bailey Street, Newport - geograph.org.uk - 4904930.jpg
-  File:UK traffic sign 810-R-syl.svg
   File:Warning sign - two-way traffic on Newport Bridge, Newport - geograph.org.uk - 5020632.jpg
+  File:UK traffic sign 810-R-syl.svg
   File:UK traffic sign 810-L-syl.svg
   File:Give Way Road Marking UK.jpg
   File:"Two-way traffic" sign, Helen's Bay - geograph.org.uk - 3527275.jpg
@@ -96,20 +96,20 @@
   File:Warning sign two-way traffic, Llanfrechfa Way, Cwmbran - geograph.org.uk - 6229025.jpg
   File:Ildiwch - Give Way sign at the junction of Holyhead Road and Siliwen Road, Bangor - geograph.org.uk - 7661311.jpg
   File:UK Temporary Traffic Lights - geograph.org.uk - 5050946.jpg
-  File:Warning sign - two-way traffic, Malpas Road, Crindau, Newport - geograph.org.uk - 6505327.jpg
   File:One-way sign, Stow Hill, Newport - geograph.org.uk - 6418614.jpg
+  File:Warning sign - two-way traffic, Malpas Road, Crindau, Newport - geograph.org.uk - 6505327.jpg
   File:Traffic direction signs on Southway Cirencester - geograph.org.uk - 4066890.jpg
   File:Temporary Traffic Lights Sign - geograph.org.uk - 5050956.jpg
-  File:Unffordd-One Way sign, Glamorgan Street, Brecon - geograph.org.uk - 6197930.jpg
   File:UK traffic sign 503–WLS.svg
-  File:Snow warning traffic sign, Henllys Way, Cwmbran - geograph.org.uk - 2731548.jpg
+  File:Unffordd-One Way sign, Glamorgan Street, Brecon - geograph.org.uk - 6197930.jpg
   File:One-way traffic sign, Manthrig Lane, Caersws - geograph.org.uk - 4731807.jpg
+  File:Snow warning traffic sign, Henllys Way, Cwmbran - geograph.org.uk - 2731548.jpg
   File:UK traffic sign 611.1.svg
   File:Warning sign - two way traffic, Blaenavon - geograph.org.uk - 5499013.jpg
   File:UK Traffic Lights Not Working With A Traffic Light Out Of Order Sign - geograph.org.uk - 6106908.jpg
   File:UK traffic sign 833-syl.svg
-  File:One-way sign, South Market Street, Newport - geograph.org.uk - 5819003.jpg
   File:UK traffic sign 2917 (Branded).svg
+  File:One-way sign, South Market Street, Newport - geograph.org.uk - 5819003.jpg
   File:UK traffic sign 834-syl.svg
   File:UK traffic sign 835-syl.svg
   File:UK traffic sign 836-syl.svg
@@ -117,20 +117,20 @@
   File:UK traffic sign 2919.3 (Branded).svg
   File:Ildiwch - Give Way sign at the junction of Ffordd Craig Y Don and Siliwen Road, Bangor - geograph.org.uk - 7661312.jpg
   File:Traffic sign - geograph.org.uk - 2326792.jpg
-  File:Pre-Worboys one way street sign on Alma Road - geograph.org.uk - 3963652.jpg
   File:Temporary traffic lights warning sign - geograph.org.uk - 6544316.jpg
+  File:Pre-Worboys one way street sign on Alma Road - geograph.org.uk - 3963652.jpg
   File:Danger Oncoming Traffic Sign, Great Cheverell Hill - geograph.org.uk - 6756000.jpg
   File:UK traffic sign 2919.3 (Unbranded).svg
   File:Give Way - geograph.org.uk - 3122102.jpg
   File:GIVE WAY 80 yds, Peterstow - geograph.org.uk - 7164311.jpg
+  File:Two-way traffic sign, Turkey Street, Llantwit Major - geograph.org.uk - 4413256.jpg
   File:Temporary traffic lights on Robin Hood Way - geograph.org.uk - 3409804.jpg
   File:Two-way traffic sign, Ballymartin, Templepatrick (May 2017) - geograph.org.uk - 5380522.jpg
-  File:Two-way traffic sign, Turkey Street, Llantwit Major - geograph.org.uk - 4413256.jpg
   File:Bilingual traffic sign alongside Monnow Way, Bettws, Newport - geograph.org.uk - 5880412.jpg
   File:UK traffic sign Tiredness Can Kill.svg
   File:UK traffic sign 626 (1965–1981).svg
-  File:UK traffic sign 503–W–en–cy.svg
   File:Give Way - geograph.org.uk - 8399208.jpg
+  File:UK traffic sign 503–W–en–cy.svg
   File:Traffic calming sign, Edlogan Way, Croesyceiliog, Cwmbran - geograph.org.uk - 5706447.jpg
 ## UK road sign keep left (100)
   File:UK Temporary Keep Left Sign - geograph.org.uk - 5201658.jpg
@@ -140,8 +140,8 @@
   File:Keep Left sign, Gloucester Road, Standish - geograph.org.uk - 8074654.jpg
   File:Keep Left sign, Mafon Road, Nelson - geograph.org.uk - 6006256.jpg
   File:Keep Left sign, Benhall Avenue, Cheltenham - geograph.org.uk - 5026930.jpg
-  File:UK traffic sign 610 (left).svg
   File:Keep Left sign in the middle of the A40 Brecon Road, Abergavenny - geograph.org.uk - 6442248.jpg
+  File:UK traffic sign 610 (left).svg
   File:Keep Left sign NJB05, Lodge Road, Caerleon - geograph.org.uk - 8287748.jpg
   File:Keep left sign, Pillmawr Road, Malpas, Newport - geograph.org.uk - 5471326.jpg
   File:Keep Left sign, Pillmawr Road, Malpas, Newport - geograph.org.uk - 7520974.jpg
@@ -158,17 +158,17 @@
   File:Keep Left sign, Queen's Hill, Newport - geograph.org.uk - 7405321.jpg
   File:Keep Left sign, Devon Place, Newport - geograph.org.uk - 6912588.jpg
   File:Keep Left sign, Llanfrechfa Way, Cwmbran - geograph.org.uk - 6229028.jpg
-  File:Keep Left sign, Park Street, Tonna - geograph.org.uk - 6031989.jpg
   File:Keep Left sign, Bettws Lane, Newport - geograph.org.uk - 7826575.jpg
+  File:Keep Left sign, Park Street, Tonna - geograph.org.uk - 6031989.jpg
   File:"Keep left" sign, Cultra (September 2014) - geograph.org.uk - 4156680.jpg
-  File:Keep Left sign, Bettws Lane, Newport - geograph.org.uk - 7882016.jpg
   File:Keep Left sign, Bute Street, Cardiff - geograph.org.uk - 6336026.jpg
+  File:Keep Left sign, Bettws Lane, Newport - geograph.org.uk - 7882016.jpg
   File:Keep Left sign in Penylan Way, Cwmbran - geograph.org.uk - 7908268.jpg
   File:Keep left sign on a pedestrian refuge in Lewistown - geograph.org.uk - 5960108.jpg
-  File:Keep Left sign, Bute Street, Butetown, Cardiff - geograph.org.uk - 6325262.jpg
-  File:Keep Left sign, Bridge Street, Usk, Monmouthshire - geograph.org.uk - 6742381.jpg
   File:Keep left signs, Bracky - geograph.org.uk - 6504594.jpg
   File:Keep Left sign in the middle of the B4257, Llechryd - geograph.org.uk - 6223864.jpg
+  File:Keep Left sign, Bute Street, Butetown, Cardiff - geograph.org.uk - 6325262.jpg
+  File:Keep Left sign, Bridge Street, Usk, Monmouthshire - geograph.org.uk - 6742381.jpg
   File:Keep Left sign, Seven Stiles Avenue, Newport - geograph.org.uk - 6399020.jpg
   File:Knocked-over A4169 keep left sign, Shifnal - geograph.org.uk - 4753517.jpg
   File:Bangladesh road sign A33 L.svg
@@ -242,42 +242,42 @@
   File:ESP N-610.svg
   File:Atlantic County 610.svg
   File:Burlington County 610.svg
-  File:Hudson County 610.svg
   File:ESP A-610.svg
+  File:Hudson County 610.svg
   File:Cumberland County 610.svg
-  File:Cape May County 610.svg
-  File:Essex County Route 610.svg
   File:Florida 610.svg
+  File:Essex County Route 610.svg
+  File:Cape May County 610.svg
   File:ISL 610.svg
   File:CR 610 jct.svg
   File:Zeichen 610-40 bis 43 - Leitkegel, StVO 2013.svg
   File:Exit 610-CN.png
   File:Saskatchewan Route 610.svg
-  File:Zeichen 610 - Leitkegel, StVO 1970.svg
   File:Route 610-FIN.png
+  File:Zeichen 610 - Leitkegel, StVO 1970.svg
   File:Strada Statale 610 Italia.svg
-  File:ESP DSA-610.svg
-  File:South Carolina 610.svg
   File:610 (Hu) Otszogletu zold tabla.svg
+  File:South Carolina 610.svg
+  File:ESP DSA-610.svg
   File:Finland road sign F31-610.svg
   File:County 610 square.svg
   File:Finland road sign F35-4-610.svg
   File:ESP CL-610.svg
   File:ESP ZA-610.svg
-  File:ESP VA-610.svg
   File:Ontario Exit 610.png
+  File:ESP VA-610.svg
   File:Sussex County Route 610 NJ.svg
   File:Middlesex County Route 610 NJ.svg
-  File:Salem County Route 610 NJ.svg
-  File:ESP C-610 (comarcal).svg
   File:Ocean County Route 610 NJ.svg
+  File:ESP C-610 (comarcal).svg
+  File:Salem County Route 610 NJ.svg
   File:Lion Air Flight 610.svg
   File:Union County Route 610 NJ.svg
   File:I-610.svg
-  File:Morris County Route 610 NJ.svg
   File:Passaic County Route 610 NJ.svg
-  File:Warren County Route 610 NJ.svg
+  File:Morris County Route 610 NJ.svg
   File:Somerset County Route 610 NJ.svg
+  File:Warren County Route 610 NJ.svg
   File:Traffic-signs-manual-chapter-3-diagram 610 (2008).png
   File:Traffic-signs-manual-chapter-3-diagram 610 (2008).svg
   File:Strada Provinciale 610 Italia.svg
@@ -305,8 +305,8 @@
   File:Bundesautobahn 610 number.svg
   File:Schild CS 610 AD.svg
   File:Korea Local Route No.610.svg
-  File:Route départementale française 610.svg
   File:UK traffic sign 610 (right).svg
+  File:Route départementale française 610.svg
   File:Number 610 - numeral system representations.svg
   File:Spain traffic sign C-610, 1962 set.svg
   File:LT road sign 610.svg
