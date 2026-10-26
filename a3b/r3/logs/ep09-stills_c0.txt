@@ -1,0 +1,13 @@
+job ep09-stills c0 stills 82,322,712 res 720 samples 16 args '': 3 png
+terrain 492 x 784
+vegetation 68676 48311 920 1575
+traffic kept 128 of 298
+01:27.879  cycles           | WARNING CUEW initialization failed: Error opening the library
+SIGN_SOURCES [('de-core', '205'), ('de-core', '274-120'), ('de-core', '282'), ('de-core', '330.1'), ('de-core', '330.2'), ('de-core', '332'), ('de-core', '333'), ('de-core', '380'), ('de-core', '448'), ('de-core', '450-50'), ('de-core', '450-51'), ('de-interchange', '449')]
+02:17.411  render           | Saved: 'frames/f_0082.png'
+Saved frames/f_0082.png
+03:03.831  render           | Saved: 'frames/f_0322.png'
+Saved frames/f_0322.png
+04:03.029  render           | Saved: 'frames/f_0712.png'
+Saved frames/f_0712.png
+RENDER_DONE None
