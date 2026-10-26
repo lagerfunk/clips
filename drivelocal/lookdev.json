@@ -1,0 +1,8 @@
+{"rev": 2, "jobs": [
+  {"name": "ld1-drone", "scene": "lookdev/ld_interchange.py", "stills": "300", "res": 720, "samples": 48,
+   "args": "--shot drone"},
+  {"name": "ld2-driver", "scene": "lookdev/ld_interchange.py", "stills": "220", "res": 720, "samples": 48,
+   "args": "--shot driver"},
+  {"name": "ld3-gore", "scene": "lookdev/ld_interchange.py", "stills": "1456", "res": 720, "samples": 48,
+   "args": "--shot gore"}
+]}
