@@ -28,8 +28,9 @@ import urllib.request
 API = "https://commons.wikimedia.org/w/api.php"
 UA = {"User-Agent": "lagerfunk-drivelocal/1.1 (https://github.com/lagerfunk/clips; road-rule explainer videos; "
                     "one request at a time)"}
-PREFER = ["StVO 2017", "StVO 2013", "StVO 2009", "StVO 1992", "StVO 1970"]
-AVOID = re.compile(r"\b(DDR|1938|1956|1964|1971|Vorlage|blank|leer|old|alt|Variante|sample)\b", re.I)
+PREFER = ["StVO 2017", "StVO 2013", "StVO 2009", "StVO 2007", "StVO 2001", "StVO 2000", "StVO 1994",
+          "StVO 1992", "StVO 1988", "StVO 1970"]
+AVOID = re.compile(r"\b(DDR|1938|1956|1964|1971|Vorlage|blank|leer|old|alt|Variante|sample|Skizze)\b|\.\.\.", re.I)
 PAUSE_API, PAUSE_FILE = 1.5, 2.5
 DEADLINE = time.time() + 35 * 60
 _last = [0.0]
@@ -70,6 +71,16 @@ def rasterise(svg, png, width=1024):
     subprocess.run(["rsvg-convert", "-w", str(width), "-o", str(png), str(svg)], check=True, timeout=60)
 
 
+def acceptable(entry, title):
+    """A resolved title must still fit the entry: exact title, or the search prefix, no AVOID word, and every word in
+    "require" (for example 215 must say Kreisverkehr: the 1970 file numbered 215 is a different sign)."""
+    if entry.get("title"):
+        return title == entry["title"]
+    if not re.match(r"^File:" + re.escape(entry["search"]) + r"(\s|\.svg$|,)", title, re.I) or AVOID.search(title):
+        return False
+    return all(w.lower() in title.lower() for w in entry.get("require", []))
+
+
 def resolve(entry):
     if entry.get("title"):
         return entry["title"]
@@ -77,7 +88,7 @@ def resolve(entry):
     res = call(action="query", list="search", srnamespace=6, srlimit=100, srsearch=f'intitle:"{q}"')
     pat = re.compile(r"^File:" + re.escape(q) + r"(\s|\.svg$|,)", re.I)
     titles = [h["title"] for h in res.get("query", {}).get("search", [])
-              if pat.match(h["title"]) and h["title"].lower().endswith(".svg") and not AVOID.search(h["title"])]
+              if pat.match(h["title"]) and h["title"].lower().endswith(".svg") and acceptable(entry, h["title"])]
     if not titles:
         return None
     for p in entry.get("prefer", PREFER):
@@ -122,11 +133,16 @@ def main():
         d.mkdir(parents=True, exist_ok=True)
         idx_path = d / "sources.json"
         index = json.load(open(idx_path, encoding="utf-8")) if idx_path.exists() else {}
+        rev_path = d / "REV"
+        if str(conf.get("rev", 1)) != (rev_path.read_text().strip() if rev_path.exists() else "1"):
+            index = {}          # list revision changed: resolve every title again
+        rev_path.write_text(str(conf.get("rev", 1)) + "\n")
         wanted = {e["id"]: e for e in conf["signs"]}
         for k in list(index):
             if k not in wanted:
                 index.pop(k)
-        todo = [e for e in conf["signs"] if not (e["id"] in index and (d / f"{e['id']}.png").exists())]
+        todo = [e for e in conf["signs"] if not (e["id"] in index and (d / f"{e['id']}.png").exists()
+                                                  and acceptable(e, index[e["id"]]["title"]))]
         print(f"{sset}: {len(index)} kept, {len(todo)} to fetch", flush=True)
         titles = {}
         for e in todo:
