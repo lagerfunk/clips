@@ -1,0 +1,338 @@
+{
+ "set": "de-core",
+ "note": "German StVO signs for the Track A modules (orchestrator list, 26 Oct 2026). Agents add signs in their own list file, never in this one.",
+ "signs": [
+  {
+   "id": "101",
+   "search": "Zeichen 101"
+  },
+  {
+   "id": "102",
+   "search": "Zeichen 102"
+  },
+  {
+   "id": "120",
+   "search": "Zeichen 120"
+  },
+  {
+   "id": "121",
+   "search": "Zeichen 121"
+  },
+  {
+   "id": "123",
+   "search": "Zeichen 123"
+  },
+  {
+   "id": "125",
+   "search": "Zeichen 125"
+  },
+  {
+   "id": "136",
+   "search": "Zeichen 136"
+  },
+  {
+   "id": "138",
+   "search": "Zeichen 138"
+  },
+  {
+   "id": "205",
+   "search": "Zeichen 205"
+  },
+  {
+   "id": "206",
+   "search": "Zeichen 206"
+  },
+  {
+   "id": "208",
+   "search": "Zeichen 208"
+  },
+  {
+   "id": "209-30",
+   "search": "Zeichen 209-30"
+  },
+  {
+   "id": "215",
+   "search": "Zeichen 215"
+  },
+  {
+   "id": "220-10",
+   "search": "Zeichen 220-10"
+  },
+  {
+   "id": "220-20",
+   "search": "Zeichen 220-20"
+  },
+  {
+   "id": "222",
+   "search": "Zeichen 222"
+  },
+  {
+   "id": "237",
+   "search": "Zeichen 237"
+  },
+  {
+   "id": "240",
+   "search": "Zeichen 240"
+  },
+  {
+   "id": "241-30",
+   "search": "Zeichen 241-30"
+  },
+  {
+   "id": "244.1",
+   "search": "Zeichen 244.1"
+  },
+  {
+   "id": "301",
+   "search": "Zeichen 301"
+  },
+  {
+   "id": "306",
+   "search": "Zeichen 306"
+  },
+  {
+   "id": "307",
+   "search": "Zeichen 307"
+  },
+  {
+   "id": "308",
+   "search": "Zeichen 308"
+  },
+  {
+   "id": "350-10",
+   "search": "Zeichen 350-10"
+  },
+  {
+   "id": "357",
+   "search": "Zeichen 357"
+  },
+  {
+   "id": "720",
+   "search": "Zeichen 720"
+  },
+  {
+   "id": "274-30",
+   "search": "Zeichen 274-30"
+  },
+  {
+   "id": "274-50",
+   "search": "Zeichen 274-50"
+  },
+  {
+   "id": "274-60",
+   "search": "Zeichen 274-60"
+  },
+  {
+   "id": "274-70",
+   "search": "Zeichen 274-70"
+  },
+  {
+   "id": "274-80",
+   "search": "Zeichen 274-80"
+  },
+  {
+   "id": "274-100",
+   "search": "Zeichen 274-100"
+  },
+  {
+   "id": "274-120",
+   "search": "Zeichen 274-120"
+  },
+  {
+   "id": "274-130",
+   "search": "Zeichen 274-130"
+  },
+  {
+   "id": "276",
+   "search": "Zeichen 276"
+  },
+  {
+   "id": "277",
+   "search": "Zeichen 277"
+  },
+  {
+   "id": "278-80",
+   "search": "Zeichen 278-80"
+  },
+  {
+   "id": "278-100",
+   "search": "Zeichen 278-100"
+  },
+  {
+   "id": "280",
+   "search": "Zeichen 280"
+  },
+  {
+   "id": "281",
+   "search": "Zeichen 281"
+  },
+  {
+   "id": "282",
+   "search": "Zeichen 282"
+  },
+  {
+   "id": "380",
+   "search": "Zeichen 380"
+  },
+  {
+   "id": "330.1",
+   "search": "Zeichen 330.1"
+  },
+  {
+   "id": "330.2",
+   "search": "Zeichen 330.2"
+  },
+  {
+   "id": "331.1",
+   "search": "Zeichen 331.1"
+  },
+  {
+   "id": "331.2",
+   "search": "Zeichen 331.2"
+  },
+  {
+   "id": "448",
+   "search": "Zeichen 448"
+  },
+  {
+   "id": "449",
+   "search": "Zeichen 449"
+  },
+  {
+   "id": "450-50",
+   "search": "Zeichen 450-50"
+  },
+  {
+   "id": "450-51",
+   "search": "Zeichen 450-51"
+  },
+  {
+   "id": "450-52",
+   "search": "Zeichen 450-52"
+  },
+  {
+   "id": "332",
+   "search": "Zeichen 332"
+  },
+  {
+   "id": "333",
+   "search": "Zeichen 333"
+  },
+  {
+   "id": "385",
+   "search": "Zeichen 385"
+  },
+  {
+   "id": "600",
+   "search": "Zeichen 600"
+  },
+  {
+   "id": "605",
+   "search": "Zeichen 605"
+  },
+  {
+   "id": "610",
+   "search": "Zeichen 610"
+  },
+  {
+   "id": "615",
+   "search": "Zeichen 615"
+  },
+  {
+   "id": "616",
+   "search": "Zeichen 616"
+  },
+  {
+   "id": "531-21",
+   "search": "Zeichen 531-21"
+  },
+  {
+   "id": "531-22",
+   "search": "Zeichen 531-22"
+  },
+  {
+   "id": "501-15",
+   "search": "Zeichen 501-15"
+  },
+  {
+   "id": "501-16",
+   "search": "Zeichen 501-16"
+  },
+  {
+   "id": "283",
+   "search": "Zeichen 283"
+  },
+  {
+   "id": "286",
+   "search": "Zeichen 286"
+  },
+  {
+   "id": "290.1",
+   "search": "Zeichen 290.1"
+  },
+  {
+   "id": "290.2",
+   "search": "Zeichen 290.2"
+  },
+  {
+   "id": "314",
+   "search": "Zeichen 314"
+  },
+  {
+   "id": "315",
+   "search": "Zeichen 315"
+  },
+  {
+   "id": "325.1",
+   "search": "Zeichen 325.1"
+  },
+  {
+   "id": "325.2",
+   "search": "Zeichen 325.2"
+  },
+  {
+   "id": "270.1",
+   "search": "Zeichen 270.1"
+  },
+  {
+   "id": "270.2",
+   "search": "Zeichen 270.2"
+  },
+  {
+   "id": "274.1",
+   "search": "Zeichen 274.1"
+  },
+  {
+   "id": "274.2",
+   "search": "Zeichen 274.2"
+  },
+  {
+   "id": "1040-32",
+   "search": "Zusatzzeichen 1040-32"
+  },
+  {
+   "id": "1040-30",
+   "search": "Zusatzzeichen 1040-30"
+  },
+  {
+   "id": "1053-35",
+   "search": "Zusatzzeichen 1053-35"
+  },
+  {
+   "id": "1031-52",
+   "search": "Zusatzzeichen 1031-52"
+  },
+  {
+   "id": "1004-30",
+   "search": "Zusatzzeichen 1004-30"
+  },
+  {
+   "id": "1004-31",
+   "search": "Zusatzzeichen 1004-31"
+  },
+  {
+   "id": "1001-30",
+   "search": "Zusatzzeichen 1001-30"
+  }
+ ]
+}

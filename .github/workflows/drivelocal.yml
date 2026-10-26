@@ -56,6 +56,11 @@ jobs:
           sparse-checkout: |
             hdri
             fonts/udin
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        continue-on-error: true
+        with:
+          ref: drivelocal-signs
+          path: assets/signs
       - name: Blender as a Python module
         run: |
           sudo apt-get -qq update && sudo apt-get -qq install -y libxi6 libxkbcommon0 libsm6 libgl1 > /dev/null
