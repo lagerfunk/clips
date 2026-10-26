@@ -1,0 +1,11 @@
+job gta-still-fl03 c31 stills 120,380,500,680 res 720 samples 16 args '': 4 png
+02:41.812  cycles           | WARNING CUEW initialization failed: Error opening the library
+03:09.150  render           | Saved: 'frames/f_0120.png'
+Saved frames/f_0120.png
+03:36.760  render           | Saved: 'frames/f_0380.png'
+Saved frames/f_0380.png
+04:07.685  render           | Saved: 'frames/f_0500.png'
+Saved frames/f_0500.png
+04:32.674  render           | Saved: 'frames/f_0680.png'
+Saved frames/f_0680.png
+RENDER_DONE None

@@ -1,9 +1,0 @@
-job gta-arterial-signals stills 121,361,180 res 720 samples 16 args '': 3 png
-01:56.440  cycles           | WARNING CUEW initialization failed: Error opening the library
-02:43.255  render           | Saved: 'frames/f_0121.png'
-Saved frames/f_0121.png
-03:22.497  render           | Saved: 'frames/f_0361.png'
-Saved frames/f_0361.png
-03:58.171  render           | Saved: 'frames/f_0180.png'
-Saved frames/f_0180.png
-RENDER_DONE None

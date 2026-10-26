@@ -1,9 +1,0 @@
-job gta-toll-gantry stills 61,136,360 res 720 samples 16 args '': 3 png
-01:21.902  cycles           | WARNING CUEW initialization failed: Error opening the library
-01:55.976  render           | Saved: 'frames/f_0061.png'
-Saved frames/f_0061.png
-02:31.121  render           | Saved: 'frames/f_0136.png'
-Saved frames/f_0136.png
-03:12.288  render           | Saved: 'frames/f_0360.png'
-Saved frames/f_0360.png
-RENDER_DONE None
