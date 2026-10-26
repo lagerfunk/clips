@@ -1,0 +1,157 @@
+name: lookdev
+# Drive Like a Local look-dev and preview renders from a work branch. A push to a branch "lookdev/<name>" that changes
+# drivelocal/lookdev.json renders what that file lists on parallel runners and puts the results on the branch
+# "lookdev-out" under <name>/<rev>/ (stills as PNG, previews as MP4). Main and the episode renders are not touched.
+#   {"rev": 3, "jobs": [
+#     {"name": "rb-top", "scene": "lookdev/ld_roundabout.py", "stills": "60,120", "res": 720, "samples": 32,
+#      "args": "--shot top"},
+#     {"name": "ep12-preview", "scene": "ep12_zipper.py", "frames": "1-750", "chunks": 6, "res": 540, "samples": 8}]}
+on:
+  push:
+    branches: ['lookdev/**']
+    paths: ['drivelocal/lookdev.json']
+permissions:
+  contents: write
+concurrency:
+  group: lookdev-${{ github.ref_name }}
+  cancel-in-progress: true
+jobs:
+  plan:
+    runs-on: ubuntu-24.04
+    outputs:
+      chunks: ${{ steps.p.outputs.chunks }}
+      enabled: ${{ steps.p.outputs.enabled }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - id: p
+        run: |
+          python3 - >> "$GITHUB_OUTPUT" <<'PY'
+          import json
+          r = json.load(open("drivelocal/lookdev.json"))
+          chunks = []
+          for j in r.get("jobs", [])[:12]:
+              base = {"name": j["name"], "scene": j["scene"], "res": int(j.get("res", 720)),
+                      "samples": int(j.get("samples", 24)), "args": j.get("args", "")}
+              if j.get("stills"):
+                  chunks.append(dict(base, mode="stills", range=str(j["stills"])))
+              else:
+                  a, b = (int(x) for x in j["frames"].split("-"))
+                  n = max(1, min(int(j.get("chunks", 6)), 10))
+                  step = -(-(b - a + 1) // n)
+                  for s in range(a, b + 1, step):
+                      chunks.append(dict(base, mode="frames", range=f"{s}-{min(b, s + step - 1)}"))
+          print("enabled=" + str(bool(chunks)).lower())
+          print("chunks=" + json.dumps({"include": chunks}))
+          PY
+  render:
+    needs: plan
+    if: needs.plan.outputs.enabled == 'true'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 90
+    strategy:
+      fail-fast: false
+      max-parallel: 8
+      matrix: ${{ fromJSON(needs.plan.outputs.chunks) }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: stickman-assets
+          path: assets
+          sparse-checkout: |
+            hdri
+            fonts/udin
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        continue-on-error: true
+        with:
+          ref: drivelocal-signs
+          path: assets/signs
+      - name: Blender as a Python module
+        run: |
+          sudo apt-get -qq update && sudo apt-get -qq install -y libxi6 libxkbcommon0 libsm6 libgl1 > /dev/null
+          pip install -q uv
+          uv python install 3.11
+          uv venv -q -p 3.11 /tmp/bpy
+          VIRTUAL_ENV=/tmp/bpy uv pip install -q bpy numpy
+      - name: Render ${{ matrix.name }} ${{ matrix.range }}
+        env:
+          SCENE: ${{ matrix.scene }}
+          MODE: ${{ matrix.mode }}
+          RANGE: ${{ matrix.range }}
+          RES: ${{ matrix.res }}
+          SAMPLES: ${{ matrix.samples }}
+          ARGS: ${{ matrix.args }}
+        run: |
+          flag="--frames"
+          if [ "$MODE" = stills ]; then flag="--stills"; fi
+          # shellcheck disable=SC2086
+          /tmp/bpy/bin/python "drivelocal/$SCENE" frames "$flag" "$RANGE" --res "$RES" --samples "$SAMPLES" \
+            --assets assets $ARGS 2>&1 | grep -E "Saved /|RENDER_DONE|Error|Traceback|line [0-9]+|WARN" | tail -80
+          n=$(find frames -name '*.png' | wc -l)
+          echo "frames: $n"
+          test "$n" -gt 0
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: ld-${{ matrix.name }}-${{ matrix.range }}
+          path: frames/*.png
+          retention-days: 2
+          compression-level: 0
+  publish:
+    needs: [plan, render]
+    if: always() && needs.plan.outputs.enabled == 'true'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          sparse-checkout: drivelocal/lookdev.json
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
+        with:
+          pattern: ld-*
+          path: dl
+      - name: Collect and push to lookdev-out
+        env:
+          BRANCH: ${{ github.ref_name }}
+        run: |
+          sudo apt-get -qq update && sudo apt-get -qq install -y ffmpeg > /dev/null
+          name="${BRANCH#lookdev/}"
+          name="${name//\//-}"
+          rev=$(python3 -c 'import json; print(json.load(open("drivelocal/lookdev.json")).get("rev", 0))')
+          dest="out/$name/r$rev"
+          mkdir -p "$dest"
+          python3 - "$dest" <<'PY'
+          import json, os, shutil, subprocess, sys, glob
+          dest = sys.argv[1]
+          jobs = json.load(open("drivelocal/lookdev.json")).get("jobs", [])[:12]
+          for j in jobs:
+              dirs = sorted(glob.glob(f"dl/ld-{j['name']}-*"))
+              pngs = sorted(p for d in dirs for p in glob.glob(os.path.join(d, "*.png")))
+              if not pngs:
+                  print("no output for", j["name"])
+                  continue
+              if j.get("stills"):
+                  for p in pngs:
+                      shutil.copy(p, os.path.join(dest, f"{j['name']}_{os.path.basename(p)}"))
+              else:
+                  tmp = os.path.join("join", j["name"])
+                  os.makedirs(tmp, exist_ok=True)
+                  for p in pngs:
+                      shutil.copy(p, tmp)
+                  first = min(int(os.path.basename(p)[2:6]) for p in pngs)
+                  subprocess.run(["ffmpeg", "-v", "error", "-y", "-framerate", "30", "-start_number", str(first),
+                                  "-i", os.path.join(tmp, "f_%04d.png"), "-c:v", "libx264", "-crf", "20",
+                                  "-pix_fmt", "yuv420p", os.path.join(dest, j["name"] + ".mp4")], check=True)
+              print("ok", j["name"], len(pngs))
+          PY
+          cd out
+          git init -q -b lookdev-out
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          url="https://x-access-token:${{ github.token }}@github.com/${GITHUB_REPOSITORY}.git"
+          if git fetch -q --depth 1 "$url" lookdev-out; then git reset -q FETCH_HEAD; fi
+          git add -A
+          git commit -q -m "lookdev $name r$rev from ${GITHUB_SHA}"
+          for _ in 1 2 3 4; do
+            git push -q "$url" HEAD:lookdev-out && break
+            git fetch -q --depth 1 "$url" lookdev-out && git rebase -q FETCH_HEAD
+          done
