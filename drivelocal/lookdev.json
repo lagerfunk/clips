@@ -1,0 +1,8 @@
+{
+ "rev": 1,
+ "jobs": [
+  {"name": "ld1-zebra", "scene": "lookdev/ld_figures.py", "stills": "30", "res": 720, "samples": 48, "args": "--shot zebra"},
+  {"name": "ld2-cyclist", "scene": "lookdev/ld_figures.py", "stills": "30", "res": 720, "samples": 48, "args": "--shot cyclist"},
+  {"name": "ld3-enforce", "scene": "lookdev/ld_figures.py", "stills": "30", "res": 720, "samples": 48, "args": "--shot enforce"}
+ ]
+}

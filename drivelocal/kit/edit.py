@@ -32,27 +32,19 @@ def cut(src, dst, segs, order, fps=30):
     missing = [o for o in order if o not in segs]
     if missing:
         raise SystemExit(f"unknown segments: {missing}")
-    # one encode per segment, then the concat demuxer: a single filter graph with reordered trims buffers every frame
-    # before the first segment it needs and runs out of memory on 7 GB (ep06 DE starts at 26.6 s)
-    tmpd = tempfile.mkdtemp(prefix="dlal-edit-")
-    listing = os.path.join(tmpd, "list.txt")
-    with open(listing, "w") as lf:
-        for i, name in enumerate(order):
-            a, b = segs[name]
-            fa, fb = round(a * fps), round(b * fps)
-            d = (fb - fa) / fps
-            seg = os.path.join(tmpd, f"s{i:02d}.mkv")
-            subprocess.run(["ffmpeg", "-v", "error", "-y", "-ss", f"{fa / fps:.6f}", "-i", src, "-t", f"{d:.6f}",
-                            "-frames:v", str(fb - fa),
-                            "-af", f"afade=t=in:st=0:d=0.04,afade=t=out:st={max(0, d - 0.04):.4f}:d=0.04",
-                            "-c:v", "libx264", "-crf", "18", "-preset", "slow", "-pix_fmt", "yuv420p", "-r", str(fps),
-                            "-c:a", "pcm_s24le", "-ar", "48000", seg], check=True)
-            lf.write(f"file '{seg}'\n")
-    subprocess.run(["ffmpeg", "-v", "error", "-y", "-f", "concat", "-safe", "0", "-i", listing, "-c", "copy",
-                    "-f", "matroska", dst + ".mkv"], check=True)
-    for f in os.listdir(tmpd):
-        os.remove(os.path.join(tmpd, f))
-    os.rmdir(tmpd)
+    parts, labels = [], []
+    for i, name in enumerate(order):
+        a, b = segs[name]
+        a, b = round(a * fps) / fps, round(b * fps) / fps
+        d = b - a
+        parts.append(f"[0:v]trim=start={a}:end={b},setpts=PTS-STARTPTS[v{i}];"
+                     f"[0:a]atrim=start={a}:end={b},asetpts=PTS-STARTPTS,"
+                     f"afade=t=in:st=0:d=0.04,afade=t=out:st={max(0, d - 0.04)}:d=0.04[a{i}];")
+        labels.append(f"[v{i}][a{i}]")
+    fc = "".join(parts) + "".join(labels) + f"concat=n={len(order)}:v=1:a=1[v][a]"
+    subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", src, "-filter_complex", fc, "-map", "[v]", "-map", "[a]",
+                    "-c:v", "libx264", "-crf", "18", "-preset", "slow", "-pix_fmt", "yuv420p", "-r", str(fps),
+                    "-c:a", "pcm_s24le", "-f", "matroska", dst + ".mkv"], check=True)
     # loudness after the cut, then the final mp4
     wav = tempfile.mktemp(suffix=".wav")
     norm = tempfile.mktemp(suffix=".wav")
