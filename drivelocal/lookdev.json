@@ -1,0 +1,18 @@
+{"rev": 1, "jobs": [
+  {"name": "pf-town-final", "scene": "lookdev/ld_perf.py", "stills": "30", "res": 720, "samples": 12,
+   "args": "--scene lookdev/ld_figures.py --shot zebra --span 3 --sweep off,off+seed,off+haze,off+cull,off+lt,off+deform,off+dnfast,off+dnbal,off+noadapt,off+png,off+subdiv1,final"},
+  {"name": "pf-ic-final", "scene": "lookdev/ld_perf.py", "stills": "220", "res": 720, "samples": 12,
+   "args": "--scene lookdev/ld_interchange.py --shot driver --span 3 --sweep off,off+seed,off+haze,off+cull,off+lt,off+deform,off+dnfast,off+dnbal,off+noadapt,off+png,off+subdiv1,final"},
+  {"name": "pf-rb-final", "scene": "lookdev/ld_perf.py", "stills": "1", "res": 720, "samples": 12,
+   "args": "--scene lookdev/ld_junctions.py --shot rb1 --span 3 --sweep off,off+seed,off+haze,off+cull,off+lt,off+deform,off+dnfast,off+dnbal,off+noadapt,off+png,off+subdiv1,final"},
+  {"name": "pf-town-prev", "scene": "lookdev/ld_perf.py", "stills": "30", "res": 360, "samples": 6,
+   "args": "--scene lookdev/ld_figures.py --shot zebra --span 3 --sweep off,off+seed,off+mboff,off+mboff+haze,off+mboff+cull,off+mboff+lt,off+mboff+dnfast,off+mboff+dnbal,off+mboff+noadapt,off+mboff+subdiv1,preview"},
+  {"name": "pf-ic-prev", "scene": "lookdev/ld_perf.py", "stills": "220", "res": 360, "samples": 6,
+   "args": "--scene lookdev/ld_interchange.py --shot driver --span 3 --sweep off,off+seed,off+mboff,off+mboff+haze,off+mboff+cull,off+mboff+lt,off+mboff+dnfast,off+mboff+dnbal,off+mboff+noadapt,off+mboff+subdiv1,preview"},
+  {"name": "pf-rb-prev", "scene": "lookdev/ld_perf.py", "stills": "1", "res": 360, "samples": 6,
+   "args": "--scene lookdev/ld_junctions.py --shot rb1 --span 3 --sweep off,off+seed,off+mboff,off+mboff+haze,off+mboff+cull,off+mboff+lt,off+mboff+dnfast,off+mboff+dnbal,off+mboff+noadapt,off+mboff+subdiv1,preview"},
+  {"name": "pf-ep02-off", "scene": "ep02_rechts_vor_links.py", "frames": "100-105", "chunks": 1, "res": 720,
+   "samples": 12, "args": "--perf off"},
+  {"name": "pf-ep02-final", "scene": "ep02_rechts_vor_links.py", "frames": "100-105", "chunks": 1, "res": 720,
+   "samples": 12, "args": "--perf final"}
+]}
