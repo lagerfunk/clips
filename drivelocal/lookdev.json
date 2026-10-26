@@ -1,0 +1,3 @@
+{"rev": 2, "jobs": [
+  {"name": "ld3-trailer", "scene": "lookdev/ld_lanemgmt.py", "stills": "30", "res": 720, "samples": 48, "args": "--shot trailer"}
+]}

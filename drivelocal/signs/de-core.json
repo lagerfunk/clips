@@ -28,10 +28,7 @@
   },
   {
    "id": "136",
-   "search": "Zeichen 136",
-   "require": [
-    "Kinder"
-   ]
+   "search": "Zeichen 136"
   },
   {
    "id": "138",
@@ -55,10 +52,7 @@
   },
   {
    "id": "215",
-   "search": "Zeichen 215",
-   "require": [
-    "Kreisverkehr"
-   ]
+   "search": "Zeichen 215"
   },
   {
    "id": "220-10",
@@ -225,6 +219,10 @@
    "search": "Zeichen 333"
   },
   {
+   "id": "385",
+   "search": "Zeichen 385"
+  },
+  {
    "id": "600",
    "search": "Zeichen 600"
   },
@@ -329,15 +327,12 @@
    "search": "Zusatzzeichen 1004-30"
   },
   {
-   "id": "101-51",
-   "search": "Zeichen 101-51"
+   "id": "1004-31",
+   "search": "Zusatzzeichen 1004-31"
+  },
+  {
+   "id": "1001-30",
+   "search": "Zusatzzeichen 1001-30"
   }
- ],
- "rev": 2,
- "discover": [
-  "intitle:\"Zeichen 449\"",
-  "intitle:\"Zeichen 450\"",
-  "intitle:\"Zeichen 448\"",
-  "intitle:\"Zeichen 332\""
  ]
 }
