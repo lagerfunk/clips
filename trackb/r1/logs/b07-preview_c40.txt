@@ -1,0 +1,8 @@
+job b07-preview c40 stills 1,3,5,7,9,11,13,15,17,19,21,23,25,27,29,31,33,35,37,39,41,43 res 360 samples 6 args '': 0 png
+vegetation 16292 13785 126 269
+Traceback (most recent call last):
+  File "/home/runner/work/clips/clips/drivelocal/b07_motorway_breakdown.py", line 103, in <module>
+    peds = [F.person(S.env, "driver", seed=2, hiviz=True), F.person(S.env, "passenger", seed=5, hiviz=True)]
+            ^
+NameError: name 'F' is not defined. Did you mean: 'f'?
+scene exited with 1

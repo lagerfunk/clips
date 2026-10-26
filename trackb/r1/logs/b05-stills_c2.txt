@@ -1,0 +1,7 @@
+job b05-stills c2 stills 20,160,700 res 720 samples 16 args '': 0 png
+Traceback (most recent call last):
+  File "/home/runner/work/clips/clips/drivelocal/b05_keep_left_roundabouts.py", line 283, in <module>
+    ped["root"].parent = CY.bpy_empty(traffic, f"ped{k}_footway", loc=(0, 0, TN.KERB_H))   # up on the footway
+    ~~~^^^^^^^^
+KeyError: 'root'
+scene exited with 1
