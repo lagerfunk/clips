@@ -1,0 +1,28 @@
+job b01-stills c0 stills 15,123,453,490,545,680,920 res 720 samples 16 args '': 7 png
+01:32.488  cycles           | WARNING CUEW initialization failed: Error opening the library
+02:14.305  render           | Saved: 'frames/f_0015.png'
+vegetation 16248 13804 127 267
+CABCAM (Vector((8.154999732971191, 159.51499938964844, 1.5059750080108643)), Vector((8.354999542236328, 159.875, 1.39597487449646))) (Vector((8.375, 159.0, 0.36597496271133423)), 1.5707963267948966) (0.0, 0.0, 0.0)
+PERF - f=15 total=41.37 prep=0.00 | pre=0.39 sync=0.42 geom=0.07 bvh=0.21 light=2.26 trace=37.40 save=0.25 other=0.37
+PERF_RAW Sample 37.40; Updating Lights 2.26; Synchronizing object 0.42; (blender pre) 0.39; Initializing 0.35; Finished 0.25; Updating Scene BVH 0.17; Updating Images 0.04; Updating Mesh 0.02
+Saved frames/f_0015.png
+02:56.267  render           | Saved: 'frames/f_0123.png'
+PERF - f=123 total=41.93 gap=0.03 prep=0.00 | pre=0.34 sync=0.01 geom=0.03 bvh=0.16 light=1.87 trace=38.98 save=0.16 other=0.37
+PERF_RAW Sample 38.98; Updating Lights 1.87; Initializing 0.36; (blender pre) 0.34; Finished 0.16; Updating Scene BVH 0.13; Updating Objects 0.02; Synchronizing object 0.01; Updating Mesh 0.01
+Saved frames/f_0123.png
+03:29.953  render           | Saved: 'frames/f_0453.png'
+PERF - f=453 total=33.65 gap=0.04 prep=0.00 | pre=0.36 sync=0.01 geom=0.03 bvh=0.19 light=1.87 trace=30.65 save=0.16 other=0.37
+Saved frames/f_0453.png
+04:09.648  render           | Saved: 'frames/f_0490.png'
+PERF - f=490 total=39.66 gap=0.03 prep=0.00 | pre=0.33 sync=0.01 geom=0.03 bvh=0.14 light=1.87 trace=36.75 save=0.16 other=0.36
+Saved frames/f_0490.png
+04:50.500  render           | Saved: 'frames/f_0545.png'
+PERF - f=545 total=40.82 gap=0.03 prep=0.00 | pre=0.35 sync=0.01 geom=0.03 bvh=0.14 light=1.87 trace=37.89 save=0.15 other=0.37
+Saved frames/f_0545.png
+05:30.295  render           | Saved: 'frames/f_0680.png'
+PERF - f=680 total=39.76 gap=0.03 prep=0.00 | pre=0.36 sync=0.01 geom=0.03 bvh=0.13 light=1.87 trace=36.82 save=0.16 other=0.37
+Saved frames/f_0680.png
+06:03.527  render           | Saved: 'frames/f_0920.png'
+PERF - f=920 total=33.20 gap=0.03 prep=0.00 | pre=0.35 sync=0.02 geom=0.03 bvh=0.13 light=1.87 trace=30.30 save=0.16 other=0.34
+Saved frames/f_0920.png
+RENDER_DONE None signs dict_keys([('at', 'autobahn')])

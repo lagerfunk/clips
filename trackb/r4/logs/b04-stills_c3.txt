@@ -1,0 +1,21 @@
+job b04-stills c3 stills 15,228,423,513,918 res 720 samples 16 args '': 5 png
+01:58.031  cycles           | WARNING CUEW initialization failed: Error opening the library
+02:37.007  render           | Saved: 'frames/f_0015.png'
+vegetation 16329 13797 136 279
+PERF - f=15 total=38.72 prep=0.00 | pre=0.27 sync=0.41 geom=0.07 bvh=0.24 light=2.25 trace=34.87 save=0.24 other=0.37
+PERF_RAW Sample 34.87; Updating Lights 2.25; Synchronizing object 0.41; Initializing 0.34; (blender pre) 0.27; Finished 0.24; Updating Scene BVH 0.19; Updating Images 0.04; Updating Objects 0.02
+Saved frames/f_0015.png
+03:15.457  render           | Saved: 'frames/f_0228.png'
+PERF - f=228 total=38.42 gap=0.03 prep=0.00 | pre=0.33 sync=0.01 geom=0.03 bvh=0.17 light=1.87 trace=35.51 save=0.15 other=0.36
+PERF_RAW Sample 35.51; Updating Lights 1.87; Initializing 0.34; (blender pre) 0.33; Updating Scene BVH 0.17; Finished 0.15; Updating Mesh 0.02; Updating Objects 0.02; Synchronizing object 0.01
+Saved frames/f_0228.png
+03:34.405  render           | Saved: 'frames/f_0423.png'
+PERF - f=423 total=18.92 gap=0.03 prep=0.00 | pre=0.33 sync=0.01 geom=0.03 bvh=0.17 light=1.87 trace=15.98 save=0.16 other=0.37
+Saved frames/f_0423.png
+03:54.359  render           | Saved: 'frames/f_0513.png'
+PERF - f=513 total=19.93 gap=0.03 prep=0.00 | pre=0.33 sync=0.01 geom=0.03 bvh=0.17 light=1.90 trace=16.95 save=0.16 other=0.37
+Saved frames/f_0513.png
+04:32.797  render           | Saved: 'frames/f_0918.png'
+PERF - f=918 total=38.42 gap=0.02 prep=0.00 | pre=0.32 sync=0.01 geom=0.03 bvh=0.16 light=1.88 trace=35.51 save=0.15 other=0.35
+Saved frames/f_0918.png
+RENDER_DONE None signs dict_keys([('ch', 'autobahn')])

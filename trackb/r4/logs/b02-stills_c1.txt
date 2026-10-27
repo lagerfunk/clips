@@ -1,0 +1,20 @@
+job b02-stills c1 stills 15,642,680,900,965 res 720 samples 16 args '': 5 png
+00:56.235  cycles           | WARNING CUEW initialization failed: Error opening the library
+01:46.126  render           | Saved: 'frames/f_0015.png'
+PERF - f=15 total=48.70 prep=0.00 | pre=1.51 sync=1.04 geom=0.11 bvh=0.10 light=0.42 trace=44.81 save=0.25 other=0.46
+PERF_RAW Sample 44.81; (blender pre) 1.51; Synchronizing object 1.04; Initializing 0.42; Updating Lights 0.42; Finished 0.25; Updating Images 0.08; Updating Scene BVH 0.06; Updating Mesh 0.04
+Saved frames/f_0015.png
+02:19.603  render           | Saved: 'frames/f_0642.png'
+PERF - f=642 total=33.30 gap=0.17 prep=0.00 | pre=0.19 sync=0.06 geom=0.02 bvh=0.08 light=0.02 trace=32.40 save=0.16 other=0.38
+PERF_RAW Sample 32.40; Initializing 0.35; (blender pre) 0.19; Finished 0.16; Synchronizing object 0.06; Updating Scene BVH 0.06; Updating Mesh 0.03; Updating Lights 0.02; Updating Geometry BVH Mesh 0.02
+Saved frames/f_0642.png
+02:53.535  render           | Saved: 'frames/f_0680.png'
+PERF - f=680 total=33.75 gap=0.18 prep=0.00 | pre=0.19 sync=0.06 geom=0.02 bvh=0.07 light=0.02 trace=32.85 save=0.16 other=0.38
+Saved frames/f_0680.png
+03:31.907  render           | Saved: 'frames/f_0900.png'
+PERF - f=900 total=38.20 gap=0.18 prep=0.00 | pre=0.19 sync=0.06 geom=0.02 bvh=0.08 light=0.02 trace=37.28 save=0.17 other=0.38
+Saved frames/f_0900.png
+04:08.066  render           | Saved: 'frames/f_0965.png'
+PERF - f=965 total=35.99 gap=0.17 prep=0.00 | pre=0.19 sync=0.06 geom=0.02 bvh=0.08 light=0.02 trace=35.08 save=0.16 other=0.38
+Saved frames/f_0965.png
+RENDER_DONE None signs dict_keys([('it', 'ztl-a'), ('it', 'ztl'), ('it', 'ztl-end'), ('it', 'no-vehicles'), ('it', 'pedestrian-area')])
