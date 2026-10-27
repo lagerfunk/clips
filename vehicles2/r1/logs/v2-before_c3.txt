@@ -1,0 +1,37 @@
+job v2-before c3 stills 1,2,3,4,5,6,7,8,9 res 720 samples 16 args '--before --kinds hatch,saloon,estate': 9 png
+/home/runner/work/clips/clips/drivelocal/lookdev/ld_vehicles2.py:70: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  world.use_nodes = True
+built hatch L 4.29 W 1.74 H 1.51
+built saloon L 4.72 W 1.77 H 1.45
+built estate L 4.78 W 1.78 H 1.50
+00:02.677  cycles           | WARNING CUEW initialization failed: Error opening the library
+00:12.316  render           | Saved: 'frames/f_0001.png'
+PERF - f=1 total=9.63 prep=0.00 | pre=0.02 sync=0.02 bvh=0.01 trace=9.32 save=0.26
+PERF_RAW Sample 9.32; Finished 0.26; Synchronizing object 0.02; (blender pre) 0.02; Updating Scene BVH 0.01; Updating Mesh 0.00; Loading render kernels (may take a few minutes t 0.00; Updating Integrator 0.00; Updating Objects 0.00
+Saved frames/f_0001.png
+00:21.785  render           | Saved: 'frames/f_0002.png'
+PERF - f=2 total=9.47 gap=0.00 prep=0.00 | sync=0.01 bvh=0.01 trace=9.29 save=0.15
+PERF_RAW Sample 9.29; Finished 0.15; Synchronizing object 0.01; Updating Scene BVH 0.01; (blender pre) 0.00; Updating Mesh 0.00; Updating Objects 0.00; Updating Lights 0.00; Initializing 0.00
+Saved frames/f_0002.png
+00:35.289  render           | Saved: 'frames/f_0003.png'
+PERF - f=3 total=13.50 gap=0.00 prep=0.00 | sync=0.01 bvh=0.01 trace=13.32 save=0.15
+Saved frames/f_0003.png
+00:44.640  render           | Saved: 'frames/f_0004.png'
+PERF - f=4 total=9.35 gap=0.00 prep=0.00 | sync=0.01 bvh=0.01 trace=9.18 save=0.15
+Saved frames/f_0004.png
+00:54.043  render           | Saved: 'frames/f_0005.png'
+PERF - f=5 total=9.40 gap=0.00 prep=0.00 | sync=0.01 bvh=0.01 trace=9.22 save=0.15
+Saved frames/f_0005.png
+01:06.865  render           | Saved: 'frames/f_0006.png'
+PERF - f=6 total=12.82 gap=0.00 prep=0.00 | sync=0.01 bvh=0.01 trace=12.64 save=0.15
+Saved frames/f_0006.png
+01:16.322  render           | Saved: 'frames/f_0007.png'
+PERF - f=7 total=9.45 gap=0.00 prep=0.00 | sync=0.01 bvh=0.01 trace=9.28 save=0.15
+Saved frames/f_0007.png
+01:25.930  render           | Saved: 'frames/f_0008.png'
+PERF - f=8 total=9.61 gap=0.00 prep=0.00 | sync=0.01 bvh=0.01 trace=9.43 save=0.15
+Saved frames/f_0008.png
+01:39.602  render           | Saved: 'frames/f_0009.png'
+PERF - f=9 total=13.67 gap=0.00 prep=0.00 | sync=0.01 bvh=0.01 trace=13.49 save=0.15
+Saved frames/f_0009.png
+RENDER_DONE
