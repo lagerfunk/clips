@@ -1,0 +1,14 @@
+job trackc2-lights-check c0 stills 640,700,850 res 720 samples 32 args '--pilot 2 --half lights': 3 png
+19:24.493  cycles           | WARNING CUEW initialization failed: Error opening the library
+20:00.693  render           | Saved: 'frames/f_0640.png'
+PERF - f=640 total=35.07 prep=0.00 | pre=1.37 sync=0.45 geom=0.05 bvh=0.13 light=0.45 trace=32.21 save=0.18 other=0.24
+PERF_RAW Sample 32.21; (blender pre) 1.37; Synchronizing object 0.45; Updating Lights 0.44; Initializing 0.21; Finished 0.18; Updating Scene BVH 0.10; Updating Images 0.03; Updating Mesh 0.03
+Saved frames/f_0640.png
+20:28.212  render           | Saved: 'frames/f_0700.png'
+PERF - f=700 total=26.86 gap=0.66 prep=0.00 | pre=0.66 sync=0.30 geom=0.02 bvh=0.10 light=0.06 trace=25.39 save=0.09 other=0.24
+PERF_RAW Sample 25.39; (blender pre) 0.66; Synchronizing object 0.30; Initializing 0.21; Updating Scene BVH 0.09; Finished 0.09; Updating Lights 0.06; Updating Mesh 0.02; Updating Objects 0.01
+Saved frames/f_0700.png
+21:02.233  render           | Saved: 'frames/f_0850.png'
+PERF - f=850 total=33.31 gap=0.71 prep=0.00 | pre=0.72 sync=0.30 geom=0.02 bvh=0.11 light=0.06 trace=31.77 save=0.09 other=0.24
+Saved frames/f_0850.png
+RENDER_DONE None

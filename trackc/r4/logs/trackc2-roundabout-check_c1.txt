@@ -1,0 +1,14 @@
+job trackc2-roundabout-check c1 stills 640,700,850 res 720 samples 32 args '--pilot 2 --half roundabout': 3 png
+18:28.860  cycles           | WARNING CUEW initialization failed: Error opening the library
+19:04.970  render           | Saved: 'frames/f_0640.png'
+PERF - f=640 total=35.03 prep=0.00 | pre=1.33 sync=0.46 geom=0.07 bvh=0.14 light=0.45 trace=32.16 save=0.18 other=0.24
+PERF_RAW Sample 32.16; (blender pre) 1.33; Synchronizing object 0.46; Updating Lights 0.45; Initializing 0.21; Finished 0.18; Updating Scene BVH 0.10; Updating Images 0.05; Updating Mesh 0.03
+Saved frames/f_0640.png
+19:31.611  render           | Saved: 'frames/f_0700.png'
+PERF - f=700 total=26.01 gap=0.63 prep=0.00 | pre=0.63 sync=0.31 geom=0.02 bvh=0.10 light=0.07 trace=24.57 save=0.09 other=0.23
+PERF_RAW Sample 24.57; (blender pre) 0.63; Synchronizing object 0.31; Initializing 0.21; Updating Scene BVH 0.09; Finished 0.09; Updating Lights 0.07; Updating Mesh 0.02; Updating Objects 0.01
+Saved frames/f_0700.png
+20:05.755  render           | Saved: 'frames/f_0850.png'
+PERF - f=850 total=33.46 gap=0.69 prep=0.00 | pre=0.69 sync=0.31 geom=0.02 bvh=0.11 light=0.07 trace=31.95 save=0.09 other=0.23
+Saved frames/f_0850.png
+RENDER_DONE None
