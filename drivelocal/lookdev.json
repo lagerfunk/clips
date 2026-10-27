@@ -1,0 +1,21 @@
+{
+ "rev": 4,
+ "jobs": [
+  {
+   "name": "ep29-stills",
+   "scene": "ep29_roadworks_yellow_lines.py",
+   "stills": "100,163,784,812,816,820,862",
+   "res": 720,
+   "samples": 16
+  },
+  {
+   "name": "ep29-preview",
+   "scene": "ep29_roadworks_yellow_lines.py",
+   "frames": "1-1176",
+   "chunks": 6,
+   "step": 2,
+   "res": 360,
+   "samples": 6
+  }
+ ]
+}
