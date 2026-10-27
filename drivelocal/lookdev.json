@@ -1,0 +1,37 @@
+{
+  "rev": 1,
+  "jobs": [
+    {
+      "name": "lamps-noon",
+      "scene": "lookdev/ld_lamps.py",
+      "stills": "1,2,3,4,5,6,7",
+      "res": 720,
+      "samples": 16,
+      "args": "--light noon --kinds hatch,saloon,estate"
+    },
+    {
+      "name": "lamps-dusk",
+      "scene": "lookdev/ld_lamps.py",
+      "stills": "1,2,3,4,5,6",
+      "res": 720,
+      "samples": 16,
+      "args": "--light dusk --kinds hatch,saloon,estate"
+    },
+    {
+      "name": "lamps-noon-before",
+      "scene": "lookdev/ld_lamps.py",
+      "stills": "1,2,3,4,5,6,7",
+      "res": 720,
+      "samples": 16,
+      "args": "--before --light noon --kinds hatch,saloon,estate"
+    },
+    {
+      "name": "lamps-dusk-before",
+      "scene": "lookdev/ld_lamps.py",
+      "stills": "1,2,3,4,5,6",
+      "res": 720,
+      "samples": 16,
+      "args": "--before --light dusk --kinds hatch,saloon,estate"
+    }
+  ]
+}

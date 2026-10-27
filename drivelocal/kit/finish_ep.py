@@ -37,6 +37,27 @@ def measure(path):
     return {"lufs": i, "peak": tp, "seconds": round(d, 2), "video": v}
 
 
+def peak_guard(dst, limit=-1.5, tries=3):
+    """AAC can push the true peak 2 dB above the limiter ceiling (ep26 EN came out at -0.5). If the finished file is over
+    `limit`, its sound is limited again with a lower ceiling and re-encoded; the video stream is copied."""
+    m = measure(dst)
+    ceiling = -2.5
+    for _ in range(tries):
+        if m["peak"] <= limit:
+            break
+        ceiling -= (m["peak"] - limit) + 0.3
+        wav, norm, tmp = dst + ".pg.wav", dst + ".pg.norm.wav", dst + ".pg.mp4"
+        run(["ffmpeg", "-v", "error", "-y", "-i", dst, "-vn", "-c:a", "pcm_s24le", wav])
+        run([sys.executable, os.path.join(HERE, "loud.py"), wav, norm, "-14", f"{ceiling:.2f}"], stdout=subprocess.DEVNULL)
+        run(["ffmpeg", "-v", "error", "-y", "-i", dst, "-i", norm, "-map", "0:v", "-map", "1:a", "-c:v", "copy",
+             "-c:a", "aac", "-b:a", "192k", "-map_metadata", "0", "-movflags", "+faststart", tmp])
+        os.replace(tmp, dst)
+        for f in (wav, norm):
+            os.remove(f)
+        m = measure(dst)
+    return m
+
+
 def main():
     ep, render, out = sys.argv[1], sys.argv[2], sys.argv[3]
     langs = ["en", "de", "fr"]
@@ -72,8 +93,8 @@ def main():
             run([sys.executable, os.path.join(HERE, "edit.py"), tmp, dst, segs, ",".join(order)],
                 stdout=subprocess.DEVNULL)
             os.remove(tmp)
-        m = measure(dst)
-        m["ok"] = abs(m["lufs"] + 14) <= 0.6 and m["peak"] <= -1.0 and m["video"].startswith("1080,1920")
+        m = peak_guard(dst)
+        m["ok"] = abs(m["lufs"] + 14) <= 0.6 and m["peak"] <= -1.5 and m["video"].startswith("1080,1920")
         ok = ok and m["ok"]
         checks["files"][os.path.basename(dst)] = m
         run(["ffmpeg", "-v", "error", "-y", "-i", dst, "-vf", "fps=1,scale=216:-1,tile=6x6", "-frames:v", "1",
