@@ -1,0 +1,15 @@
+job a2-ep18-cost c2 stills 859,919,1000 res 720 samples 16 args '': 3 png
+EP18 plates W ['306', '1002-20'] E ['205', '1002-11'] B goes 4.2 A brakes in COST 0.63 cost gap 1.1 A (-5.2, -2.5, 0.0) B (-1.5, -7.7, 0.0) cost camera (3.4, 2.2, 5.0) frames 1044
+01:00.490  cycles           | WARNING CUEW initialization failed: Error opening the library
+01:15.608  render           | Saved: 'frames/f_0859.png'
+PERF - f=859 total=14.05 prep=0.00 | pre=1.05 sync=0.62 geom=0.07 bvh=0.09 light=0.25 trace=11.48 save=0.16 other=0.33
+PERF_RAW Sample 11.48; (blender pre) 1.05; Synchronizing object 0.62; Initializing 0.31; Updating Lights 0.25; Finished 0.16; Updating Scene BVH 0.05; Updating Images 0.05; Updating Mesh 0.02
+Saved frames/f_0859.png
+01:27.916  render           | Saved: 'frames/f_0919.png'
+PERF - f=919 total=12.24 gap=0.07 prep=0.00 | pre=0.12 sync=0.05 geom=0.01 bvh=0.07 light=0.03 trace=11.57 save=0.11 other=0.28
+PERF_RAW Sample 11.57; Initializing 0.26; (blender pre) 0.12; Finished 0.11; Updating Scene BVH 0.05; Synchronizing object 0.05; Updating Lights 0.03; Updating Geometry BVH Mesh 0.02; Updating Mesh 0.02
+Saved frames/f_0919.png
+01:44.013  render           | Saved: 'frames/f_1000.png'
+PERF - f=1000 total=16.03 gap=0.07 prep=0.00 | pre=0.12 sync=0.05 geom=0.01 bvh=0.07 light=0.03 trace=15.37 save=0.10 other=0.28
+Saved frames/f_1000.png
+RENDER_DONE None

@@ -1,0 +1,15 @@
+job a2-ep06-rule c0 stills 640,697,721 res 720 samples 16 args '': 3 png
+EP06 B horn at 0.87 C goes at 4.97 frames 1044
+01:20.341  cycles           | WARNING CUEW initialization failed: Error opening the library
+01:35.379  render           | Saved: 'frames/f_0640.png'
+PERF - f=640 total=13.87 prep=0.00 | pre=1.06 sync=0.69 geom=0.05 bvh=0.10 light=0.27 trace=11.16 save=0.16 other=0.37
+PERF_RAW Sample 11.16; (blender pre) 1.06; Synchronizing object 0.69; Initializing 0.35; Updating Lights 0.27; Finished 0.16; Updating Scene BVH 0.06; Updating Images 0.04; Updating Geometry BVH Mesh 0.03
+Saved frames/f_0640.png
+01:47.271  render           | Saved: 'frames/f_0697.png'
+PERF - f=697 total=11.82 gap=0.08 prep=0.00 | pre=0.13 sync=0.06 geom=0.01 bvh=0.08 light=0.04 trace=11.03 save=0.11 other=0.35
+PERF_RAW Sample 11.03; Initializing 0.34; (blender pre) 0.13; Finished 0.11; Synchronizing object 0.06; Updating Scene BVH 0.05; Updating Lights 0.04; Updating Geometry BVH Mesh 0.03; Updating Mesh 0.02
+Saved frames/f_0697.png
+02:03.907  render           | Saved: 'frames/f_0721.png'
+PERF - f=721 total=16.56 gap=0.07 prep=0.00 | pre=0.17 sync=0.06 geom=0.01 bvh=0.08 light=0.04 trace=15.77 save=0.11 other=0.32
+Saved frames/f_0721.png
+RENDER_DONE None

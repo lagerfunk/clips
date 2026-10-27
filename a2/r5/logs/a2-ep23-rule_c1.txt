@@ -1,0 +1,15 @@
+job a2-ep23-rule c1 stills 375,412,465 res 720 samples 16 args '': 3 png
+EP23 H out of the circle at 6.33 rule indicator 4.73 W goes 5.6 correct indicator 3.83 W 4.63 frames 1032
+01:27.638  cycles           | WARNING CUEW initialization failed: Error opening the library
+01:51.682  render           | Saved: 'frames/f_0375.png'
+PERF - f=375 total=22.72 prep=0.00 | pre=1.33 sync=0.96 geom=0.09 bvh=0.16 light=0.50 trace=18.92 save=0.27 other=0.50
+PERF_RAW Sample 18.92; (blender pre) 1.33; Synchronizing object 0.96; Updating Lights 0.50; Initializing 0.46; Finished 0.27; Updating Scene BVH 0.08; Updating Images 0.07; Updating Mesh 0.04
+Saved frames/f_0375.png
+02:11.417  render           | Saved: 'frames/f_0412.png'
+PERF - f=412 total=19.62 gap=0.11 prep=0.00 | pre=0.17 sync=0.07 geom=0.02 bvh=0.11 light=0.07 trace=18.59 save=0.18 other=0.42
+PERF_RAW Sample 18.59; Initializing 0.39; Finished 0.18; (blender pre) 0.17; Updating Scene BVH 0.08; Updating Lights 0.07; Synchronizing object 0.07; Updating Geometry BVH Mesh 0.04; Updating Mesh 0.03
+Saved frames/f_0412.png
+02:30.878  render           | Saved: 'frames/f_0465.png'
+PERF - f=465 total=19.35 gap=0.11 prep=0.00 | pre=0.17 sync=0.07 geom=0.02 bvh=0.11 light=0.06 trace=18.32 save=0.18 other=0.42
+Saved frames/f_0465.png
+RENDER_DONE None
