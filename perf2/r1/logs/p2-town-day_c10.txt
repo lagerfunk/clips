@@ -1,0 +1,23 @@
+job p2-town-day c10 stills 30 res 720 samples 12 args '--scene lookdev/ld_weather.py --shot night --preset day --span 3 --sweep final,final+seed': 2 png
+00:28.000  cycles           | WARNING CUEW initialization failed: Error opening the library
+BUILD 27.0s
+PERF_SCENE objects=9724 instances=10132 animated=3 materials=104 emissive_sampled=104 haze_only=94 meshes=9061 res=720x1280 samples=12 blur=True shutter=0.50 threads=4 built_at=28.2s
+00:46.357  render           | Saved: '/tmp/perf_cy78ir1m/f_0030_final.png'
+PERF final k=0 fs=0.03 f=30 total=17.13 prep=0.00 | pre=1.19 sync=0.41 geom=0.05 bvh=0.08 light=0.44 trace=14.50 save=0.25 other=0.22
+PERF_RAW Sample 14.50; (blender pre) 1.19; Updating Lights 0.44; Synchronizing object 0.41; Finished 0.25; Initializing 0.19; Updating Scene BVH 0.06; Updating Images 0.03; Updating Mesh 0.02
+01:01.398  render           | Saved: 'frames/f_0031_final.png'
+PERF final k=1 fs=0.02 f=31 total=14.96 gap=0.08 prep=0.00 | pre=0.11 geom=0.01 bvh=0.05 light=0.05 trace=14.44 save=0.16 other=0.14
+PERF_RAW Sample 14.44; Finished 0.16; Initializing 0.13; (blender pre) 0.11; Updating Scene BVH 0.05; Updating Lights 0.05; Updating Mesh 0.01; Updating Objects 0.01; Updating Meshes Flags 0.00
+01:16.435  render           | Saved: '/tmp/perf_cy78ir1m/f_0032_final.png'
+PERF final k=2 fs=0.02 f=32 total=14.96 gap=0.08 prep=0.00 | pre=0.11 geom=0.01 bvh=0.05 light=0.05 trace=14.44 save=0.16 other=0.14
+01:31.450  render           | Saved: '/tmp/perf_cy78ir1m/f_0030_final-seed.png'
+PERF final+seed k=0 fs=0.03 f=30 total=14.91 gap=0.10 prep=0.00 | pre=0.11 geom=0.01 bvh=0.05 light=0.05 trace=14.40 save=0.16 other=0.14
+01:46.513  render           | Saved: 'frames/f_0031_final-seed.png'
+PERF final+seed k=1 fs=0.02 f=31 total=14.98 gap=0.08 prep=0.00 | pre=0.11 geom=0.01 bvh=0.05 light=0.05 trace=14.47 save=0.16 other=0.14
+02:01.534  render           | Saved: '/tmp/perf_cy78ir1m/f_0032_final-seed.png'
+PERF final+seed k=2 fs=0.02 f=32 total=14.94 gap=0.08 prep=0.00 | pre=0.11 geom=0.01 bvh=0.05 light=0.05 trace=14.43 save=0.16 other=0.14
+SWEEP variant | first | steady (frames 2+) | trace | sync+geom+bvh+light | denoise | save | pre
+SWEEP final | 17.16 | 14.98 | 14.44 | 0.25 | 0.00 | 0.16 | 0.11
+SWEEP final+seed | 14.95 | 14.98 | 14.45 | 0.25 | 0.00 | 0.16 | 0.11
+RENDER_DONE night day frame 30 apply 0.0s render 92.5s counts None
+PERF_DONE wall 120.6 s

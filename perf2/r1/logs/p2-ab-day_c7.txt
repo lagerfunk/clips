@@ -1,0 +1,24 @@
+job p2-ab-day c7 stills 30 res 720 samples 12 args '--scene lookdev/ld_weather.py --shot rain --preset day --span 3 --sweep final,final+seed': 2 png
+03:28.715  cycles           | WARNING CUEW initialization failed: Error opening the library
+vegetation 35934 25264 181 340
+BUILD 207.9s
+PERF_SCENE objects=2434 instances=126952 animated=9 materials=73 emissive_sampled=73 haze_only=65 meshes=996 res=720x1280 samples=12 blur=True shutter=0.50 threads=4 built_at=208.1s
+03:45.742  render           | Saved: '/tmp/perf_jmncwj4j/f_0030_final.png'
+PERF final k=0 fs=0.01 f=30 total=16.81 prep=0.00 | pre=0.21 sync=0.59 geom=0.07 bvh=0.17 light=3.48 trace=11.49 save=0.19 other=0.61
+PERF_RAW Sample 11.49; Updating Lights 3.48; Synchronizing object 0.59; Initializing 0.59; (blender pre) 0.21; Finished 0.19; Updating Scene BVH 0.14; Updating Objects 0.03; Updating Images 0.03
+04:01.512  render           | Saved: 'frames/f_0031_final.png'
+PERF final k=1 fs=0.00 f=31 total=15.76 gap=0.01 prep=0.00 | pre=0.52 geom=0.04 bvh=0.12 light=3.06 trace=11.29 save=0.13 other=0.60
+PERF_RAW Sample 11.29; Updating Lights 3.06; Initializing 0.58; (blender pre) 0.52; Finished 0.13; Updating Scene BVH 0.12; Updating Objects 0.04; Updating Mesh 0.02; Updating Shaders 0.01
+04:17.408  render           | Saved: '/tmp/perf_jmncwj4j/f_0032_final.png'
+PERF final k=2 fs=0.00 f=32 total=15.88 gap=0.01 prep=0.00 | pre=0.52 geom=0.04 bvh=0.12 light=3.07 trace=11.40 save=0.13 other=0.61
+04:33.241  render           | Saved: '/tmp/perf_jmncwj4j/f_0030_final-seed.png'
+PERF final+seed k=0 fs=0.01 f=30 total=15.81 gap=0.02 prep=0.00 | pre=0.52 geom=0.04 bvh=0.12 light=3.06 trace=11.35 save=0.13 other=0.58
+04:49.134  render           | Saved: 'frames/f_0031_final-seed.png'
+PERF final+seed k=1 fs=0.00 f=31 total=15.88 gap=0.01 prep=0.00 | pre=0.52 geom=0.04 bvh=0.11 light=3.10 trace=11.39 save=0.13 other=0.58
+05:04.958  render           | Saved: '/tmp/perf_jmncwj4j/f_0032_final-seed.png'
+PERF final+seed k=2 fs=0.00 f=32 total=15.81 gap=0.01 prep=0.00 | pre=0.53 geom=0.04 bvh=0.11 light=3.06 trace=11.35 save=0.13 other=0.58
+SWEEP variant | first | steady (frames 2+) | trace | sync+geom+bvh+light | denoise | save | pre
+SWEEP final | 16.82 | 15.82 | 11.34 | 3.83 | 0.00 | 0.13 | 0.52
+SWEEP final+seed | 15.82 | 15.85 | 11.37 | 3.82 | 0.00 | 0.13 | 0.53
+RENDER_DONE rain day frame 30 apply 0.0s render 96.1s counts None
+PERF_DONE wall 304.1 s

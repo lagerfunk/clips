@@ -1,0 +1,59 @@
+job p2-ab-snow c5 stills 30 res 720 samples 12 args '--scene lookdev/ld_weather.py --shot snow --preset snow+ice --span 3 --sweep final,final+seed,final+tb4,final+glow0,final+precip0,final+lton,final+comp0': 7 png
+02:37.993  cycles           | WARNING CUEW initialization failed: Error opening the library
+vegetation 35934 25264 181 340
+BUILD 156.9s
+PERF_SCENE objects=2433 instances=126768 animated=7 materials=74 emissive_sampled=62 haze_only=0 meshes=997 res=720x1280 samples=12 blur=True shutter=0.50 threads=4 built_at=157.5s
+03:05.876  render           | Saved: '/tmp/perf_64dy4z5m/f_0030_final.png'
+PERF final k=0 fs=0.01 f=30 total=27.31 prep=0.00 | pre=0.21 sync=0.66 geom=0.06 bvh=0.19 light=4.23 trace=21.01 other=0.94
+PERF_RAW Sample 21.01; Updating Lights 4.23; Synchronizing object 0.66; Initializing 0.63; Compositing 0.27; (blender pre) 0.21; Updating Scene BVH 0.16; Updating Objects 0.03; Updating Mesh 0.03
+03:32.514  render           | Saved: 'frames/f_0031_final.png'
+PERF final k=1 fs=0.01 f=31 total=26.61 gap=0.02 prep=0.00 | pre=0.09 sync=0.56 geom=0.07 bvh=0.15 light=3.82 trace=21.06 other=0.86
+PERF_RAW Sample 21.06; Updating Lights 3.82; Initializing 0.64; Synchronizing object 0.56; Compositing 0.20; Updating Scene BVH 0.13; (blender pre) 0.09; Updating Objects 0.03; Updating Meshes Flags 0.02
+03:59.047  render           | Saved: '/tmp/perf_64dy4z5m/f_0032_final.png'
+PERF final k=2 fs=0.01 f=32 total=26.51 gap=0.02 prep=0.00 | pre=0.09 sync=0.58 geom=0.07 bvh=0.14 light=3.84 trace=20.93 other=0.86
+04:25.884  render           | Saved: '/tmp/perf_64dy4z5m/f_0030_final-seed.png'
+PERF final+seed k=0 fs=0.01 f=30 total=26.81 gap=0.03 prep=0.00 | pre=0.09 sync=0.58 geom=0.07 bvh=0.15 light=3.82 trace=21.24 other=0.86
+04:52.521  render           | Saved: 'frames/f_0031_final-seed.png'
+PERF final+seed k=1 fs=0.01 f=31 total=26.61 gap=0.02 prep=0.00 | pre=0.09 sync=0.58 geom=0.08 bvh=0.14 light=3.87 trace=21.00 other=0.86
+05:19.173  render           | Saved: '/tmp/perf_64dy4z5m/f_0032_final-seed.png'
+PERF final+seed k=2 fs=0.01 f=32 total=26.63 gap=0.02 prep=0.00 | pre=0.09 sync=0.58 geom=0.07 bvh=0.14 light=3.81 trace=21.09 other=0.85
+05:45.683  render           | Saved: '/tmp/perf_64dy4z5m/f_0030_final-tb4.png'
+PERF final+tb4 k=0 fs=0.01 f=30 total=26.48 gap=0.03 prep=0.00 | pre=0.09 sync=0.58 geom=0.07 bvh=0.14 light=3.83 trace=20.93 other=0.85
+06:12.241  render           | Saved: 'frames/f_0031_final-tb4.png'
+PERF final+tb4 k=1 fs=0.01 f=31 total=26.54 gap=0.02 prep=0.00 | pre=0.08 sync=0.55 geom=0.07 bvh=0.14 light=3.83 trace=21.04 other=0.82
+06:38.848  render           | Saved: '/tmp/perf_64dy4z5m/f_0032_final-tb4.png'
+PERF final+tb4 k=2 fs=0.01 f=32 total=26.59 gap=0.02 prep=0.00 | pre=0.08 sync=0.55 geom=0.07 bvh=0.14 light=3.82 trace=21.10 other=0.81
+07:05.438  render           | Saved: '/tmp/perf_64dy4z5m/f_0030_final-glow0.png'
+PERF final+glow0 k=0 fs=0.01 f=30 total=26.56 gap=0.03 prep=0.00 | pre=0.08 sync=0.53 geom=0.07 bvh=0.14 light=3.82 trace=21.13 other=0.78
+07:31.843  render           | Saved: 'frames/f_0031_final-glow0.png'
+PERF final+glow0 k=1 fs=0.01 f=31 total=26.38 gap=0.02 prep=0.00 | pre=0.08 sync=0.55 geom=0.07 bvh=0.14 light=3.80 trace=20.95 other=0.79
+07:58.160  render           | Saved: '/tmp/perf_64dy4z5m/f_0032_final-glow0.png'
+PERF final+glow0 k=2 fs=0.01 f=32 total=26.30 gap=0.02 prep=0.00 | pre=0.08 sync=0.54 geom=0.07 bvh=0.14 light=3.80 trace=20.85 other=0.81
+08:21.423  render           | Saved: '/tmp/perf_64dy4z5m/f_0030_final-precip0.png'
+PERF final+precip0 k=0 fs=0.09 f=30 total=23.15 gap=0.11 prep=0.00 | pre=0.17 sync=0.56 geom=0.07 bvh=0.14 light=3.81 trace=17.59 other=0.80
+08:44.320  render           | Saved: 'frames/f_0031_final-precip0.png'
+PERF final+precip0 k=1 fs=0.01 f=31 total=22.88 gap=0.02 prep=0.00 | pre=0.09 sync=0.53 geom=0.07 bvh=0.14 light=3.80 trace=17.44 other=0.80
+09:07.310  render           | Saved: '/tmp/perf_64dy4z5m/f_0032_final-precip0.png'
+PERF final+precip0 k=2 fs=0.01 f=32 total=22.97 gap=0.02 prep=0.00 | pre=0.08 sync=0.53 geom=0.07 bvh=0.14 light=3.81 trace=17.54 other=0.79
+09:39.120  render           | Saved: '/tmp/perf_64dy4z5m/f_0030_final-lton.png'
+PERF final+lton k=0 fs=0.11 f=30 total=31.68 gap=0.13 prep=0.00 | pre=0.20 sync=0.57 geom=0.07 bvh=0.14 light=1.11 trace=28.77 other=0.82
+10:10.482  render           | Saved: 'frames/f_0031_final-lton.png'
+PERF final+lton k=1 fs=0.01 f=31 total=31.34 gap=0.02 prep=0.00 | pre=0.09 sync=0.54 geom=0.07 bvh=0.14 light=1.07 trace=28.61 other=0.81
+10:41.891  render           | Saved: '/tmp/perf_64dy4z5m/f_0032_final-lton.png'
+PERF final+lton k=2 fs=0.01 f=32 total=31.39 gap=0.02 prep=0.00 | pre=0.09 sync=0.53 geom=0.07 bvh=0.14 light=1.07 trace=28.69 other=0.80
+11:08.182  render           | Saved: '/tmp/perf_64dy4z5m/f_0030_final-comp0.png'
+PERF final+comp0 k=0 fs=0.01 f=30 total=26.26 gap=0.03 prep=0.00 | pre=0.09 sync=0.53 geom=0.07 bvh=0.14 light=3.81 trace=20.86 save=0.16 other=0.61
+11:34.342  render           | Saved: 'frames/f_0031_final-comp0.png'
+PERF final+comp0 k=1 fs=0.01 f=31 total=26.14 gap=0.02 prep=0.00 | pre=0.09 sync=0.54 geom=0.07 bvh=0.14 light=3.81 trace=20.73 save=0.15 other=0.62
+12:00.584  render           | Saved: '/tmp/perf_64dy4z5m/f_0032_final-comp0.png'
+PERF final+comp0 k=2 fs=0.01 f=32 total=26.22 gap=0.02 prep=0.00 | pre=0.09 sync=0.55 geom=0.07 bvh=0.14 light=3.80 trace=20.80 save=0.15 other=0.61
+SWEEP variant | first | steady (frames 2+) | trace | sync+geom+bvh+light | denoise | save | pre
+SWEEP final | 27.32 | 26.57 | 20.99 | 5.48 | 0.00 | 0.00 | 0.09
+SWEEP final+seed | 26.82 | 26.63 | 21.04 | 5.49 | 0.00 | 0.00 | 0.09
+SWEEP final+tb4 | 26.49 | 26.57 | 21.07 | 5.40 | 0.00 | 0.00 | 0.08
+SWEEP final+glow0 | 26.57 | 26.34 | 20.90 | 5.35 | 0.00 | 0.00 | 0.08
+SWEEP final+precip0 | 23.24 | 22.93 | 17.49 | 5.34 | 0.00 | 0.00 | 0.09
+SWEEP final+lton | 31.79 | 31.37 | 28.65 | 2.63 | 0.00 | 0.00 | 0.09
+SWEEP final+comp0 | 26.27 | 26.19 | 20.77 | 5.18 | 0.00 | 0.15 | 0.09
+RENDER_DONE snow snow+ice frame 30 apply 0.3s render 562.1s counts {'road': 4, 'surf': 45, 'retro': 10, 'lamp': 0, 'win': 1, 'vlight': 2, 'haze': 73, 'lamps': 0, 'vehicles': 6, 'lit': 0, 'sprays': 0, 'precip': {'wx_snow': 19000}}
+PERF_DONE wall 719.6 s

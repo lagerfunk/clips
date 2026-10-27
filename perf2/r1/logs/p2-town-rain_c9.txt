@@ -1,0 +1,65 @@
+job p2-town-rain c9 stills 30 res 720 samples 12 args '--scene lookdev/ld_weather.py --shot night --preset rain --span 3 --sweep final,final+seed,final+tb4,final+spray0,final+glow0,final+precip0,final+lton,final+comp0': 8 png
+00:44.420  cycles           | WARNING CUEW initialization failed: Error opening the library
+BUILD 43.2s
+PERF_SCENE objects=9730 instances=10139 animated=5 materials=106 emissive_sampled=92 haze_only=0 meshes=9064 res=720x1280 samples=12 blur=True shutter=0.50 threads=4 built_at=45.5s
+01:20.384  render           | Saved: '/tmp/perf_clbb_e0m/f_0030_final.png'
+PERF final k=0 fs=0.06 f=30 total=33.59 prep=0.00 | pre=1.32 sync=0.42 geom=0.02 bvh=0.08 light=0.46 trace=30.69 other=0.60
+PERF_RAW Sample 30.69; (blender pre) 1.32; Updating Lights 0.45; Synchronizing object 0.42; Compositing 0.29; Initializing 0.28; Updating Scene BVH 0.06; Updating Mesh 0.03; Updating Objects 0.01
+01:51.726  render           | Saved: 'frames/f_0031_final.png'
+PERF final k=1 fs=0.05 f=31 total=31.20 gap=0.14 prep=0.00 | pre=0.15 sync=0.16 geom=0.02 bvh=0.06 trace=30.32 other=0.49
+PERF_RAW Sample 30.32; Initializing 0.27; Compositing 0.20; Synchronizing object 0.16; (blender pre) 0.15; Updating Scene BVH 0.06; Updating Mesh 0.02; Updating Objects 0.01; Updating Meshes Flags 0.00
+02:22.591  render           | Saved: '/tmp/perf_clbb_e0m/f_0032_final.png'
+PERF final k=2 fs=0.05 f=32 total=30.72 gap=0.14 prep=0.00 | pre=0.14 sync=0.16 geom=0.02 bvh=0.06 trace=29.88 other=0.46
+02:54.210  render           | Saved: '/tmp/perf_clbb_e0m/f_0030_final-seed.png'
+PERF final+seed k=0 fs=0.06 f=30 total=31.45 gap=0.17 prep=0.00 | pre=0.15 sync=0.16 geom=0.02 bvh=0.06 trace=30.60 other=0.47
+03:25.490  render           | Saved: 'frames/f_0031_final-seed.png'
+PERF final+seed k=1 fs=0.05 f=31 total=31.13 gap=0.15 prep=0.00 | pre=0.14 sync=0.16 geom=0.02 bvh=0.06 trace=30.27 other=0.48
+03:56.601  render           | Saved: '/tmp/perf_clbb_e0m/f_0032_final-seed.png'
+PERF final+seed k=2 fs=0.04 f=32 total=30.98 gap=0.13 prep=0.00 | pre=0.14 sync=0.15 geom=0.02 bvh=0.06 trace=30.16 other=0.45
+04:28.040  render           | Saved: '/tmp/perf_clbb_e0m/f_0030_final-tb4.png'
+PERF final+tb4 k=0 fs=0.06 f=30 total=31.28 gap=0.16 prep=0.00 | pre=0.14 sync=0.15 geom=0.02 bvh=0.06 trace=30.45 other=0.46
+04:58.989  render           | Saved: 'frames/f_0031_final-tb4.png'
+PERF final+tb4 k=1 fs=0.05 f=31 total=30.82 gap=0.13 prep=0.00 | pre=0.14 sync=0.15 geom=0.02 bvh=0.06 trace=29.99 other=0.46
+05:29.481  render           | Saved: '/tmp/perf_clbb_e0m/f_0032_final-tb4.png'
+PERF final+tb4 k=2 fs=0.04 f=32 total=30.37 gap=0.13 prep=0.00 | pre=0.14 sync=0.15 geom=0.01 bvh=0.06 trace=29.55 other=0.45
+05:50.750  render           | Saved: '/tmp/perf_clbb_e0m/f_0030_final-spray0.png'
+PERF final+spray0 k=0 fs=0.61 f=30 total=20.55 gap=0.71 prep=0.01 | pre=0.74 sync=0.33 geom=0.02 bvh=0.06 trace=18.92 other=0.48
+06:10.620  render           | Saved: 'frames/f_0031_final-spray0.png'
+PERF final+spray0 k=1 fs=0.05 f=31 total=19.73 gap=0.14 prep=0.01 | pre=0.15 sync=0.15 geom=0.01 bvh=0.06 trace=18.88 other=0.47
+06:30.613  render           | Saved: '/tmp/perf_clbb_e0m/f_0032_final-spray0.png'
+PERF final+spray0 k=2 fs=0.05 f=32 total=19.85 gap=0.14 prep=0.00 | pre=0.15 sync=0.15 geom=0.01 bvh=0.06 trace=18.99 other=0.47
+07:03.555  render           | Saved: '/tmp/perf_clbb_e0m/f_0030_final-glow0.png'
+PERF final+glow0 k=0 fs=0.68 f=30 total=32.15 gap=0.79 prep=0.01 | pre=0.89 sync=0.34 geom=0.02 bvh=0.06 trace=30.33 other=0.50
+07:34.801  render           | Saved: 'frames/f_0031_final-glow0.png'
+PERF final+glow0 k=1 fs=0.05 f=31 total=31.10 gap=0.15 prep=0.01 | pre=0.16 sync=0.16 geom=0.02 bvh=0.06 trace=30.21 other=0.49
+08:05.817  render           | Saved: '/tmp/perf_clbb_e0m/f_0032_final-glow0.png'
+PERF final+glow0 k=2 fs=0.05 f=32 total=30.87 gap=0.14 prep=0.01 | pre=0.16 sync=0.16 geom=0.02 bvh=0.06 trace=29.96 other=0.50
+08:39.693  render           | Saved: '/tmp/perf_clbb_e0m/f_0030_final-precip0.png'
+PERF final+precip0 k=0 fs=0.75 f=30 total=33.01 gap=0.87 prep=0.01 | pre=0.87 sync=0.34 geom=0.02 bvh=0.06 trace=31.18 other=0.52
+09:11.246  render           | Saved: 'frames/f_0031_final-precip0.png'
+PERF final+precip0 k=1 fs=0.05 f=31 total=31.40 gap=0.16 prep=0.01 | pre=0.16 sync=0.15 geom=0.02 bvh=0.06 trace=30.50 other=0.49
+09:42.475  render           | Saved: '/tmp/perf_clbb_e0m/f_0032_final-precip0.png'
+PERF final+precip0 k=2 fs=0.05 f=32 total=31.07 gap=0.15 prep=0.01 | pre=0.15 sync=0.16 geom=0.02 bvh=0.06 trace=30.20 other=0.48
+10:22.064  render           | Saved: '/tmp/perf_clbb_e0m/f_0030_final-lton.png'
+PERF final+lton k=0 fs=0.72 f=30 total=38.75 gap=0.84 prep=0.00 | pre=0.90 sync=0.34 geom=0.02 bvh=0.07 light=0.01 trace=36.91 other=0.51
+10:59.301  render           | Saved: 'frames/f_0031_final-lton.png'
+PERF final+lton k=1 fs=0.05 f=31 total=37.09 gap=0.15 prep=0.00 | pre=0.15 sync=0.15 geom=0.02 bvh=0.06 light=0.01 trace=36.23 other=0.47
+11:36.075  render           | Saved: '/tmp/perf_clbb_e0m/f_0032_final-lton.png'
+PERF final+lton k=2 fs=0.05 f=32 total=36.62 gap=0.15 prep=0.00 | pre=0.15 sync=0.15 geom=0.01 bvh=0.06 light=0.01 trace=35.76 other=0.47
+12:07.692  render           | Saved: '/tmp/perf_clbb_e0m/f_0030_final-comp0.png'
+PERF final+comp0 k=0 fs=0.06 f=30 total=31.45 gap=0.17 prep=0.00 | pre=0.15 sync=0.15 geom=0.01 bvh=0.06 trace=30.64 save=0.16 other=0.28
+12:38.966  render           | Saved: 'frames/f_0031_final-comp0.png'
+PERF final+comp0 k=1 fs=0.05 f=31 total=31.13 gap=0.15 prep=0.00 | pre=0.15 sync=0.15 geom=0.02 bvh=0.06 trace=30.32 save=0.16 other=0.27
+13:09.835  render           | Saved: '/tmp/perf_clbb_e0m/f_0032_final-comp0.png'
+PERF final+comp0 k=2 fs=0.05 f=32 total=30.73 gap=0.14 prep=0.00 | pre=0.14 sync=0.16 geom=0.02 bvh=0.06 trace=29.93 save=0.16 other=0.27
+SWEEP variant | first | steady (frames 2+) | trace | sync+geom+bvh+light | denoise | save | pre
+SWEEP final | 33.65 | 31.01 | 30.10 | 0.71 | 0.00 | 0.00 | 0.15
+SWEEP final+seed | 31.51 | 31.10 | 30.21 | 0.69 | 0.00 | 0.00 | 0.14
+SWEEP final+tb4 | 31.34 | 30.63 | 29.77 | 0.68 | 0.00 | 0.00 | 0.14
+SWEEP final+spray0 | 21.17 | 19.84 | 18.94 | 0.70 | 0.00 | 0.00 | 0.15
+SWEEP final+glow0 | 32.83 | 31.03 | 30.09 | 0.73 | 0.00 | 0.00 | 0.16
+SWEEP final+precip0 | 33.76 | 31.29 | 30.35 | 0.72 | 0.00 | 0.00 | 0.16
+SWEEP final+lton | 39.47 | 36.91 | 35.99 | 0.71 | 0.00 | 0.00 | 0.15
+SWEEP final+comp0 | 31.51 | 30.98 | 30.12 | 0.50 | 0.00 | 0.16 | 0.15
+RENDER_DONE night rain frame 30 apply 0.4s render 743.3s counts {'road': 5, 'surf': 72, 'retro': 11, 'lamp': 1, 'win': 1, 'vlight': 2, 'haze': 104, 'lamps': 0, 'vehicles': 11, 'lit': 0, 'sprays': 2, 'precip': {'wx_rain': 18000}}
+PERF_DONE wall 788.8 s

@@ -1,0 +1,8 @@
+job p2-ep19-close c1 stills 307 res 720 samples 12 args '--scene lookdev/perf2/ep19_tailgating.py --span 2 --sweep final,final+seed,final+vbias,final+vbias1,final+vbias+spray0,final+vbias+glow0,final+vbias+precip0,final+vbias+lton,final+vbias+comp0': 0 png
+Traceback (most recent call last):
+  File "/home/runner/work/clips/clips/drivelocal/lookdev/ld_perf.py", line 101, in <module>
+    runpy.run_path(SCENE, run_name="__main__")
+  File "<frozen runpy>", line 290, in run_path
+  File "<frozen runpy>", line 254, in _get_code_from_file
+FileNotFoundError: [Errno 2] No such file or directory: '/home/runner/work/clips/clips/drivelocal/lookdev/perf2/ep19_tailgating.py'
+scene exited with 1
