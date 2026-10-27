@@ -31,6 +31,12 @@ BASE = {
     "png": 15,                    # PNG compression
     "seed": 0,
     "subdiv": None,               # None: render levels as built; n: Simplify caps render subdivision at n
+    # weather levers (perf2, reports/perf2.md); None or () leaves the scene as built and weather.apply() set it
+    "volume": None,               # (biased, step rate, max steps) of the volume integrator
+    "transparent": None,          # transparent_max_bounces
+    "compositing": None,          # False: compositor (bloom) off, to time it
+    "hide": (),                   # experiment: object name prefixes not rendered (the cost of one weather element)
+    "glow_radius": None,          # weather tail-glow lights farther than this from the camera are not rendered
 }
 LEVERS = {
     "cull": {"cull": (0.25, 150.0)},
@@ -44,6 +50,18 @@ LEVERS = {
     "mboff": {"motion_blur": False},
     "subdiv1": {"subdiv": 1},
     "seed": {"seed": 1},          # same settings, other noise: the noise floor for the A/B comparisons
+    "lton": {"light_tree": True},
+    "vbias": {"volume": (True, 4.0, 24)},      # weather's ray-marched spray settings
+    "vbias1": {"volume": (True, 1.0, 64)},     # finer steps
+    "vunb": {"volume": (False, 1.0, 1024)},    # Blender's default: what ep19's own spray() calls rendered with
+    "vs12": {"volume": (True, 4.0, 12)},       # fewer march steps
+    "vs8": {"volume": (True, 8.0, 8)},
+    "tb4": {"transparent": 4},
+    "comp0": {"compositing": False},
+    "spray0": {"hide": ("wx_spray_",)},
+    "glow0": {"hide": ("wx_tailglow_",)},
+    "precip0": {"hide": ("wx_rain", "wx_snow")},
+    "glow60": {"glow_radius": 60.0},
 }
 FAST_DENOISE = ("RGB_ALBEDO_NORMAL", "FAST", "HIGH")
 # Chosen from the runner sweep of 26 Oct 2026 (reports/perf.md): only levers that cut seconds and stay inside the
@@ -62,7 +80,7 @@ PROFILES = {
 AUTO_LT_ANIMATED = 200
 
 _S = {"cfg": None, "key": None, "hazed": set(), "tag": "", "handlers": False, "t_pre": None, "t_post": None,
-      "last": None, "acc": {}, "n": 0, "prep": 0.0, "save": 0.0, "log": []}
+      "last": None, "acc": {}, "n": 0, "prep": 0.0, "save": 0.0, "log": [], "orig": {}, "hidden": set()}
 
 
 def override():
@@ -88,13 +106,30 @@ def config(profile="final", **extra):
     cfg = dict(BASE)
     for part in str(profile).split("+"):
         if part in PROFILES:
-            cfg.update(PROFILES[part])
+            add = PROFILES[part]
         elif part in LEVERS:
-            cfg.update(LEVERS[part])
+            add = LEVERS[part]
         elif part not in ("", "base"):
             raise ValueError("perf: unknown profile or lever " + part)
+        else:
+            continue
+        hide = cfg["hide"] + tuple(add.get("hide", ()))
+        cfg.update(add)
+        cfg["hide"] = hide
     cfg.update(extra)
     return cfg
+
+
+def _hold(key, obj, attr, val):
+    """A scene lever whose baseline is whatever the scene had (None): remember that once, put it back on None."""
+    orig = _S["orig"]
+    if val is None:
+        if key in orig:
+            _set(obj, attr, orig.pop(key))
+        return
+    if key not in orig:
+        orig[key] = getattr(obj, attr)
+    _set(obj, attr, val)
 
 
 def _set(obj, attr, val):
@@ -131,6 +166,11 @@ def apply(profile="final", **extra):
     _set(r, "use_simplify", cfg["subdiv"] is not None)
     if cfg["subdiv"] is not None:
         _set(r, "simplify_subdivision_render", cfg["subdiv"])
+    vol = cfg["volume"] or (None, None, None)
+    for k, attr in enumerate(("volume_biased", "volume_step_rate", "volume_max_steps")):
+        _hold(attr, c, attr, vol[k])
+    _hold("transparent_max_bounces", c, "transparent_max_bounces", cfg["transparent"])
+    _hold("use_compositing", r, "use_compositing", cfg["compositing"])
     cfg["profile"] = profile
     _S["cfg"], _S["key"] = cfg, None
     _hooks()
@@ -198,7 +238,28 @@ def prepare():
         if want == "AUTO":
             _S["hazed"].clear()
         _S["key"] = key
+    _hide(cfg, sc)
     _S["prep"] += time.perf_counter() - t0
+
+
+def _hide(cfg, sc):
+    """Experiment levers: objects whose name starts with a "hide" prefix are not rendered; with glow_radius, weather
+    tail-glow lights farther than that from the camera are not rendered (decided again before every render)."""
+    pre, rad = cfg["hide"], cfg["glow_radius"]
+    if not pre and rad is None and not _S["hidden"]:
+        return
+    cam = sc.camera.matrix_world.translation if sc.camera else None
+    for o in sc.objects:
+        n = o.name
+        off = bool(pre) and n.startswith(pre)
+        if not off and rad is not None and cam is not None and n.startswith("wx_tailglow_"):
+            off = (o.matrix_world.translation - cam).length > rad
+        if off and not o.hide_render:
+            o.hide_render = True
+            _S["hidden"].add(n)
+        elif not off and n in _S["hidden"]:
+            o.hide_render = False
+            _S["hidden"].discard(n)
 
 
 # ------------------------------------------------------------------ timing

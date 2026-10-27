@@ -1,0 +1,7 @@
+{
+ "rev": 6,
+ "jobs": [
+  {"name": "a5-ep10-stills", "scene": "ep10_winter_tyres.py", "stills": "64,196,631,751,895,931,961", "res": 720, "samples": 16},
+  {"name": "a5-ep10-preview", "scene": "ep10_winter_tyres.py", "frames": "1-1050", "chunks": 6, "step": 2, "res": 360, "samples": 6}
+ ]
+}
