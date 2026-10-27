@@ -90,7 +90,7 @@ jobs:
     needs: [plan, render]
     if: always() && needs.plan.outputs.enabled == 'true'
     runs-on: ubuntu-24.04
-    timeout-minutes: 30
+    timeout-minutes: 45
     strategy:
       fail-fast: false
       max-parallel: 1
@@ -116,11 +116,14 @@ jobs:
           git init -q -b drivelocal-renders
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git fetch -q "https://github.com/${GITHUB_REPOSITORY}.git" drivelocal-renders && git reset -q FETCH_HEAD || true
+          # shallow: the branch history holds every earlier MP4, a full fetch took the join past its timeout (2b ep22, ep23)
+          git fetch -q --depth 1 "https://github.com/${GITHUB_REPOSITORY}.git" drivelocal-renders && git reset -q FETCH_HEAD || true
           git add "$NAME.mp4"
           git commit -q -m "render $NAME ($n frames) from ${GITHUB_SHA}"
           for _ in 1 2 3; do
             git push -q "https://x-access-token:${{ github.token }}@github.com/${GITHUB_REPOSITORY}.git" \
               HEAD:drivelocal-renders && break
-            git fetch -q "https://github.com/${GITHUB_REPOSITORY}.git" drivelocal-renders && git rebase -q FETCH_HEAD
+            # re-commit on the new tip (index from the remote tree, only our file in the work tree; no rebase on a shallow clone)
+            git fetch -q --depth 1 "https://github.com/${GITHUB_REPOSITORY}.git" drivelocal-renders && git reset -q FETCH_HEAD &&
+              git add "$NAME.mp4" && git commit -q -m "render $NAME ($n frames) from ${GITHUB_SHA}"
           done

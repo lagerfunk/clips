@@ -1,4 +1,5 @@
-{"enabled": true, "rev": 6, "jobs": [
+{"enabled": true, "rev": 7, "jobs": [
+  {"name": "dlal-23-roundabout-indicate", "scene": "ep23_roundabout_indicate.py", "frames": "1-1032", "chunks": 18, "res": 720, "samples": 12},
   {"name": "dlal-17-out-of-fuel", "scene": "ep17_out_of_fuel.py", "frames": "1-1095", "chunks": 16, "res": 720, "samples": 12},
   {"name": "dlal-19-tailgating", "scene": "ep19_tailgating.py", "frames": "1-1017", "chunks": 15, "res": 720, "samples": 12},
   {"name": "trackb-b01-vignette-18-days", "scene": "b01_vignette_18_days.py", "frames": "1-1059", "chunks": 16, "res": 720, "samples": 12},
