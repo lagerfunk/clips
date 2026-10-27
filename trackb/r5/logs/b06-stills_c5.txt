@@ -1,0 +1,11 @@
+job b06-stills c5 stills 16,661 res 720 samples 16 args '': 2 png
+01:28.078  cycles           | WARNING CUEW initialization failed: Error opening the library
+01:50.582  render           | Saved: 'frames/f_0016.png'
+PERF - f=16 total=21.11 prep=0.00 | pre=1.59 sync=1.17 geom=0.06 bvh=0.10 light=0.25 trace=17.09 save=0.17 other=0.67
+PERF_RAW Sample 17.09; (blender pre) 1.59; Synchronizing object 1.17; Initializing 0.63; Updating Lights 0.25; Finished 0.17; Updating Scene BVH 0.05; Updating Mesh 0.04; Updating Images 0.03
+Saved frames/f_0016.png
+02:12.202  render           | Saved: 'frames/f_0661.png'
+PERF - f=661 total=21.42 gap=0.20 prep=0.00 | pre=0.18 sync=0.18 geom=0.02 bvh=0.08 light=0.03 trace=20.25 save=0.10 other=0.58
+PERF_RAW Sample 20.25; Initializing 0.55; Synchronizing object 0.18; (blender pre) 0.18; Finished 0.10; Updating Scene BVH 0.04; Updating Geometry BVH Mesh 0.04; Updating Mesh 0.04; Updating Lights 0.03
+Saved frames/f_0661.png
+RENDER_DONE None signs dict_keys([('nl', 'b6-give-way'), ('nl', 'g11-cycle-path')])
