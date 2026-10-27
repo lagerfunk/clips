@@ -1,0 +1,15 @@
+job ep12-rule c0 stills 559,655,691 res 720 samples 16 args '': 3 png
+01:35.684  cycles           | WARNING CUEW initialization failed: Error opening the library
+02:02.655  render           | Saved: 'frames/f_0559.png'
+SIGN_SOURCES []
+PERF - f=559 total=26.25 prep=0.00 | pre=1.41 sync=1.16 geom=0.05 bvh=0.15 light=0.45 trace=22.36 save=0.25 other=0.43
+PERF_RAW Sample 22.36; (blender pre) 1.41; Synchronizing object 1.16; Updating Lights 0.45; Initializing 0.39; Finished 0.25; Updating Scene BVH 0.10; Updating Mesh 0.04; Updating Images 0.03
+Saved frames/f_0559.png
+02:28.114  render           | Saved: 'frames/f_0655.png'
+PERF - f=655 total=25.35 gap=0.11 prep=0.00 | pre=0.18 sync=0.06 geom=0.02 bvh=0.12 light=0.05 trace=24.40 save=0.17 other=0.36
+PERF_RAW Sample 24.40; Initializing 0.33; (blender pre) 0.18; Finished 0.17; Updating Scene BVH 0.09; Synchronizing object 0.06; Updating Lights 0.05; Updating Geometry BVH Mesh 0.03; Updating Mesh 0.03
+Saved frames/f_0655.png
+02:50.817  render           | Saved: 'frames/f_0691.png'
+PERF - f=691 total=22.59 gap=0.11 prep=0.00 | pre=0.18 sync=0.07 geom=0.02 bvh=0.12 light=0.05 trace=21.65 save=0.16 other=0.35
+Saved frames/f_0691.png
+RENDER_DONE None
