@@ -28,7 +28,7 @@ def render(src, dst, gain_db, ceiling_db):
 def main():
     src, dst = sys.argv[1], sys.argv[2]
     target = float(sys.argv[3]) if len(sys.argv) > 3 else -14.0
-    ceiling = float(sys.argv[4]) if len(sys.argv) > 4 else -1.5
+    ceiling = float(sys.argv[4]) if len(sys.argv) > 4 else -2.5   # AAC encoding adds up to 1 dB of overshoot
     i0, _ = measure(src)
     gain = target - i0
     for _ in range(5):

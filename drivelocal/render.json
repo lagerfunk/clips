@@ -1,6 +1,11 @@
-{"enabled": true, "rev": 3, "jobs": [
-  {"name": "dlal-02-rechts-vor-links", "scene": "ep02_rechts_vor_links.py", "frames": "1-735", "chunks": 18, "res": 720, "samples": 16},
-  {"name": "dlal-03-three-cars", "scene": "ep03_three_cars.py", "frames": "1-768", "chunks": 18, "res": 720, "samples": 16},
-  {"name": "dlal-04-priority-road", "scene": "ep04_priority_road.py", "frames": "1-735", "chunks": 18, "res": 720, "samples": 16},
-  {"name": "dlal-05-gruenpfeil", "scene": "ep05_gruenpfeil.py", "frames": "1-774", "chunks": 18, "res": 720, "samples": 16}
+{"enabled": true, "rev": 4, "jobs": [
+  {"name": "dlal-07-onramp-merge", "scene": "ep07_onramp_merge.py", "frames": "1-987", "chunks": 21, "res": 720, "samples": 12},
+  {"name": "dlal-11-left-lane-passing", "scene": "ep11_left_lane_passing.py", "frames": "1-1035", "chunks": 22, "res": 720, "samples": 12},
+  {"name": "dlal-13-speed-trailer", "scene": "ep13_speed_trailer.py", "frames": "1-1077", "chunks": 23, "res": 720, "samples": 12},
+  {"name": "dlal-15-zipper-merge", "scene": "ep15_zipper_merge.py", "frames": "1-1056", "chunks": 22, "res": 720, "samples": 12},
+  {"name": "dlal-16-parking-direction", "scene": "ep16_parking_direction.py", "frames": "1-987", "chunks": 21, "res": 720, "samples": 12},
+  {"name": "dlal-20-phone-red-light", "scene": "ep20_phone_red_light.py", "frames": "1-1017", "chunks": 22, "res": 720, "samples": 12},
+  {"name": "dlal-21-exit-sequence", "scene": "ep21_exit_sequence.py", "frames": "1-1017", "chunks": 22, "res": 720, "samples": 12},
+  {"name": "dlal-24-red-x-gantry", "scene": "ep24_red_x_gantry.py", "frames": "1-1044", "chunks": 22, "res": 720, "samples": 12},
+  {"name": "dlal-26-parking-disc", "scene": "ep26_parking_disc.py", "frames": "1-1002", "chunks": 21, "res": 720, "samples": 12}
 ]}
