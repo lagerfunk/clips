@@ -1,0 +1,121 @@
+job dlal-13-speed-trailer c2 frames 217-324 res 720 samples 12 args '': 108 png
+PERF - f=295 total=25.30 gap=0.37 prep=0.00 | pre=0.41 sync=0.82 geom=0.07 bvh=0.35 light=4.64 trace=17.79 other=1.21
+Saved frames/f_0295.png
+[2095.5s] frame 295
+35:22.660  render           | Saved: 'frames/f_0296.png'
+PERF - f=296 total=25.52 gap=0.44 prep=0.00 | pre=0.46 sync=0.85 geom=0.08 bvh=0.35 light=4.66 trace=17.83 other=1.28
+Saved frames/f_0296.png
+[2121.5s] frame 296
+35:48.465  render           | Saved: 'frames/f_0297.png'
+PERF - f=297 total=25.43 gap=0.37 prep=0.00 | pre=0.40 sync=0.79 geom=0.08 bvh=0.33 light=4.67 trace=17.94 other=1.22
+Saved frames/f_0297.png
+[2147.3s] frame 297
+36:14.199  render           | Saved: 'frames/f_0298.png'
+PERF - f=298 total=25.36 gap=0.37 prep=0.00 | pre=0.44 sync=0.79 geom=0.08 bvh=0.33 light=4.65 trace=17.88 other=1.19
+Saved frames/f_0298.png
+[2173.0s] frame 298
+36:40.040  render           | Saved: 'frames/f_0299.png'
+PERF - f=299 total=25.45 gap=0.39 prep=0.00 | pre=0.41 sync=0.79 geom=0.08 bvh=0.36 light=4.65 trace=17.94 other=1.22
+Saved frames/f_0299.png
+[2198.9s] frame 299
+37:05.458  render           | Saved: 'frames/f_0300.png'
+PERF - f=300 total=25.04 gap=0.38 prep=0.00 | pre=0.41 sync=0.81 geom=0.08 bvh=0.34 light=4.64 trace=17.56 other=1.19
+Saved frames/f_0300.png
+[2224.3s] frame 300
+37:31.010  render           | Saved: 'frames/f_0301.png'
+PERF - f=301 total=25.17 gap=0.38 prep=0.00 | pre=0.41 sync=0.82 geom=0.08 bvh=0.35 light=4.65 trace=17.61 other=1.25
+Saved frames/f_0301.png
+[2249.8s] frame 301
+37:56.358  render           | Saved: 'frames/f_0302.png'
+PERF - f=302 total=24.97 gap=0.38 prep=0.00 | pre=0.41 sync=0.79 geom=0.08 bvh=0.34 light=4.65 trace=17.47 other=1.23
+Saved frames/f_0302.png
+[2275.2s] frame 302
+38:21.951  render           | Saved: 'frames/f_0303.png'
+PERF - f=303 total=25.20 gap=0.39 prep=0.00 | pre=0.43 sync=0.80 geom=0.08 bvh=0.35 light=4.65 trace=17.69 other=1.21
+Saved frames/f_0303.png
+[2300.8s] frame 303
+38:47.458  render           | Saved: 'frames/f_0304.png'
+PERF - f=304 total=25.13 gap=0.38 prep=0.00 | pre=0.41 sync=0.80 geom=0.08 bvh=0.33 light=4.65 trace=17.66 other=1.19
+Saved frames/f_0304.png
+[2326.3s] frame 304
+39:13.017  render           | Saved: 'frames/f_0305.png'
+PERF - f=305 total=25.18 gap=0.38 prep=0.00 | pre=0.42 sync=0.83 geom=0.07 bvh=0.36 light=4.65 trace=17.61 other=1.24
+Saved frames/f_0305.png
+[2351.8s] frame 305
+39:38.347  render           | Saved: 'frames/f_0306.png'
+PERF - f=306 total=24.96 gap=0.37 prep=0.00 | pre=0.42 sync=0.81 geom=0.08 bvh=0.34 light=4.65 trace=17.45 other=1.22
+Saved frames/f_0306.png
+[2377.2s] frame 306
+40:03.911  render           | Saved: 'frames/f_0307.png'
+PERF - f=307 total=25.17 gap=0.40 prep=0.00 | pre=0.42 sync=0.80 geom=0.08 bvh=0.34 light=4.65 trace=17.64 other=1.24
+Saved frames/f_0307.png
+[2402.7s] frame 307
+40:29.493  render           | Saved: 'frames/f_0308.png'
+PERF - f=308 total=25.20 gap=0.38 prep=0.00 | pre=0.42 sync=0.80 geom=0.08 bvh=0.33 light=4.65 trace=17.67 other=1.24
+Saved frames/f_0308.png
+[2428.3s] frame 308
+40:55.174  render           | Saved: 'frames/f_0309.png'
+PERF - f=309 total=25.24 gap=0.44 prep=0.00 | pre=0.46 sync=0.82 geom=0.08 bvh=0.34 light=4.66 trace=17.66 other=1.22
+Saved frames/f_0309.png
+[2454.0s] frame 309
+41:20.765  render           | Saved: 'frames/f_0310.png'
+PERF - f=310 total=25.19 gap=0.41 prep=0.00 | pre=0.44 sync=0.84 geom=0.08 bvh=0.35 light=4.66 trace=17.56 other=1.26
+Saved frames/f_0310.png
+[2479.6s] frame 310
+41:46.371  render           | Saved: 'frames/f_0311.png'
+PERF - f=311 total=25.23 gap=0.37 prep=0.00 | pre=0.41 sync=0.79 geom=0.08 bvh=0.33 light=4.64 trace=17.77 other=1.21
+Saved frames/f_0311.png
+[2505.2s] frame 311
+42:12.067  render           | Saved: 'frames/f_0312.png'
+PERF - f=312 total=25.29 gap=0.41 prep=0.00 | pre=0.44 sync=0.80 geom=0.08 bvh=0.35 light=4.65 trace=17.75 other=1.22
+Saved frames/f_0312.png
+[2530.9s] frame 312
+42:37.954  render           | Saved: 'frames/f_0313.png'
+PERF - f=313 total=25.48 gap=0.41 prep=0.00 | pre=0.46 sync=0.84 geom=0.09 bvh=0.35 light=4.67 trace=17.77 other=1.31
+Saved frames/f_0313.png
+[2556.8s] frame 313
+43:03.861  render           | Saved: 'frames/f_0314.png'
+PERF - f=314 total=25.49 gap=0.42 prep=0.00 | pre=0.42 sync=0.84 geom=0.08 bvh=0.35 light=4.67 trace=17.87 other=1.27
+Saved frames/f_0314.png
+[2582.7s] frame 314
+43:29.549  render           | Saved: 'frames/f_0315.png'
+PERF - f=315 total=25.29 gap=0.40 prep=0.00 | pre=0.46 sync=0.82 geom=0.08 bvh=0.35 light=4.66 trace=17.68 other=1.24
+Saved frames/f_0315.png
+[2608.4s] frame 315
+43:55.075  render           | Saved: 'frames/f_0316.png'
+PERF - f=316 total=25.14 gap=0.39 prep=0.00 | pre=0.44 sync=0.82 geom=0.08 bvh=0.36 light=4.66 trace=17.52 other=1.26
+Saved frames/f_0316.png
+[2633.9s] frame 316
+44:20.530  render           | Saved: 'frames/f_0317.png'
+PERF - f=317 total=25.08 gap=0.37 prep=0.00 | pre=0.41 sync=0.81 geom=0.08 bvh=0.34 light=4.64 trace=17.57 other=1.23
+Saved frames/f_0317.png
+[2659.4s] frame 317
+44:45.904  render           | Saved: 'frames/f_0318.png'
+PERF - f=318 total=25.00 gap=0.38 prep=0.00 | pre=0.42 sync=0.80 geom=0.07 bvh=0.35 light=4.64 trace=17.51 other=1.20
+Saved frames/f_0318.png
+[2684.7s] frame 318
+45:11.162  render           | Saved: 'frames/f_0319.png'
+PERF - f=319 total=24.89 gap=0.37 prep=0.00 | pre=0.41 sync=0.80 geom=0.07 bvh=0.34 light=4.64 trace=17.43 other=1.19
+Saved frames/f_0319.png
+[2710.0s] frame 319
+45:36.521  render           | Saved: 'frames/f_0320.png'
+PERF - f=320 total=24.98 gap=0.38 prep=0.00 | pre=0.42 sync=0.81 geom=0.08 bvh=0.34 light=4.65 trace=17.49 other=1.19
+Saved frames/f_0320.png
+[2735.3s] frame 320
+46:01.866  render           | Saved: 'frames/f_0321.png'
+PERF - f=321 total=24.96 gap=0.39 prep=0.00 | pre=0.42 sync=0.83 geom=0.08 bvh=0.35 light=4.68 trace=17.40 other=1.21
+Saved frames/f_0321.png
+[2760.7s] frame 321
+46:27.043  render           | Saved: 'frames/f_0322.png'
+PERF - f=322 total=24.79 gap=0.39 prep=0.00 | pre=0.42 sync=0.79 geom=0.08 bvh=0.34 light=4.64 trace=17.31 other=1.21
+Saved frames/f_0322.png
+[2785.9s] frame 322
+46:52.445  render           | Saved: 'frames/f_0323.png'
+PERF - f=323 total=25.00 gap=0.40 prep=0.00 | pre=0.44 sync=0.81 geom=0.08 bvh=0.34 light=4.65 trace=17.46 other=1.22
+Saved frames/f_0323.png
+[2811.3s] frame 323
+47:17.875  render           | Saved: 'frames/f_0324.png'
+PERF - f=324 total=25.05 gap=0.38 prep=0.00 | pre=0.41 sync=0.80 geom=0.07 bvh=0.34 light=4.64 trace=17.57 other=1.21
+Saved frames/f_0324.png
+[2836.7s] frame 324
+RENDER_DONE (217, 324)
