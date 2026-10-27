@@ -76,6 +76,53 @@ for s in range(int(rw.s_t1 + 30), int(SE - 10), 30):
     o.scale = (1.0, 1.0, 1.0)
 trailer = EN.SpeedTrailer(road, env, TR_S, x=12.3, h=0.012)
 trailer.light["peak"] = 2600.0
+
+def trailer_rear(tr, plate="JX VM 131"):
+    """(Copied from ep29, QA r14: the ep13 trailer rear showed a blank panel.) Road rear of the trailer: the end facing traffic (local +y), opposite the drawbar. A dark light board under the
+    shell on two brackets, a lamp cluster at each end (amber indicator outside, red tail and brake lens inside), a red
+    triangle reflector inboard of each cluster, a plate holder with a German plate in the middle and a plate lamp."""
+    L, _Wd, _H = tr.dims
+    y1, g = L / 2, tr.root
+    nm = g.name
+    steel = bpy.data.materials["en_trailer_steel"]
+    dark = bpy.data.materials["en_trailer_dark"]
+    red = Z._mat("a4_tr_tail", (0.42, 0.012, 0.01), 0.12, emit=(1.0, 0.04, 0.02), estr=0.12)
+    amber = Z._mat("a4_tr_ind", (0.6, 0.26, 0.012), 0.12)
+    tri = Z._mat("a4_tr_tri", (0.62, 0.015, 0.012), 0.25, emit=(1.0, 0.05, 0.03), estr=0.3)
+    clear = Z._mat("a4_tr_platelamp", (0.75, 0.75, 0.72), 0.1, emit=(1.0, 0.97, 0.9), estr=0.2)
+    yf = y1 + 0.08                                                           # front face of the board
+    b = LM.MB()
+    b.box((0.0, y1 + 0.06, 0.215), (1.46, 0.04, 0.17))                      # light board
+    b.box((0.0, y1 + 0.075, 0.307), (1.46, 0.07, 0.02))                     # top flange
+    for sx in (-1, 1):
+        b.box((sx * 0.45, y1 - 0.10, 0.285), (0.05, 0.32, 0.05))           # brackets under the shell
+        b.box((sx * 0.585, yf + 0.008, 0.215), (0.30, 0.016, 0.115))        # lamp housing
+    b.box((0.0, yf + 0.004, 0.205), (0.56, 0.008, 0.145))                   # plate holder rim
+    b.obj(nm + "_rearboard", dark, env, g)
+    hood = LM.MB()
+    hood.box((0.0, yf + 0.02, 0.292), (0.10, 0.03, 0.022))                  # plate lamp hood
+    hood.obj(nm + "_platelamp_hood", steel, env, g)
+    lam, ind = LM.MB(), LM.MB()
+    for sx in (-1, 1):
+        lam.box((sx * 0.53, yf + 0.019, 0.215), (0.15, 0.008, 0.085))
+        ind.box((sx * 0.675, yf + 0.019, 0.215), (0.08, 0.008, 0.085))
+    lam.obj(nm + "_taillamps", red, env, g)
+    ind.obj(nm + "_indicators", amber, env, g)
+    t3 = LM.MB()
+    for sx in (-1, 1):
+        cx, a = sx * 0.355, 0.15                                            # equilateral, point up, hollow centre
+        t3.poly([(cx - a / 2, yf + 0.003, 0.14), (cx + a / 2, yf + 0.003, 0.14), (cx, yf + 0.003, 0.14 + a * 0.866)])
+    t3.obj(nm + "_triangles", tri, env, g)
+    pl = LM.MB()
+    pl.box((0.0, yf + 0.021, 0.279), (0.06, 0.004, 0.006))
+    pl.obj(nm + "_platelamp", clear, env, g)
+    bpy.context.view_layer.update()
+    mw = g.matrix_world
+    n = (mw.to_3x3() @ Vector((0.0, 1.0, 0.0))).normalized()
+    V.plate_on(env, g, tuple(mw @ Vector((0.0, yf + 0.009, 0.205))), tuple(n), plate, V.common(), nm + "_plate")
+
+
+trailer_rear(trailer)
 column = EN.CameraColumn(road, env, COL_S, x=19.0)
 laser = EN.LaserCheck(road, env, lib, LAS_S, x=19.6)
 EN.assert_no_section_control()

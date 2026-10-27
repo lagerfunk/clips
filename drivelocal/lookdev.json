@@ -1,0 +1,3 @@
+{"rev": 3, "jobs": [
+  {"name": "dlal-20-phone-red-light", "scene": "ep20_phone_red_light.py", "frames": "1-1017", "chunks": 10, "res": 720, "samples": 12}
+]}
