@@ -1,0 +1,9 @@
+job gta-still-fl04 c0 stills 985 res 720 samples 16 args '': 1 png
+03:35.542  cycles           | WARNING CUEW initialization failed: Error opening the library
+03:57.502  render           | Saved: 'frames/f_0985.png'
+END CARD palms removed [('palm.141', 8.9, -159.2), ('palm.142', 8.9, -139.7), ('palm.143', 8.9, -118.3), ('palm.144', 8.9, -102.8)]
+END CARD (8.32, -160.0, 2.63) w 0.76 h 0.76 d 5.25 dz 0.53
+PERF - f=985 total=21.50 prep=0.00 | pre=0.58 sync=0.71 geom=0.10 bvh=0.13 light=1.34 trace=17.78 save=0.26 other=0.60
+PERF_RAW Sample 17.78; Updating Lights 1.34; Synchronizing object 0.71; (blender pre) 0.58; Initializing 0.55; Finished 0.26; Updating Scene BVH 0.10; Updating Mesh 0.05; Updating Images 0.04
+Saved frames/f_0985.png
+RENDER_DONE None
