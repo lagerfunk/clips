@@ -1,0 +1,17 @@
+job trackc3-ddi-stills c0 stills 40,560,800 res 720 samples 16 args '--pilot 3 --layout ddi': 3 png
+/home/runner/work/clips/clips/drivelocal/lookdev/ld_trackc.py:7753: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  "ba03ddb206b21207abd6b748536631ec1e0507454e60dd8c01624783afa28ea6a7d5babb32468471e6473ed1c37e29d6959a315bd4ac3d8f"
+01:48.848  cycles           | WARNING CUEW initialization failed: Error opening the library
+TC3_SCENE ddi cars 70 models 25 dots 8 ribbons 4 frames 3
+02:06.552  render           | Saved: 'frames/f_0040.png'
+PERF - f=40 total=17.55 prep=0.00 | pre=0.22 sync=0.14 geom=0.04 bvh=0.32 light=0.46 trace=16.05 save=0.25 other=0.07
+PERF_RAW Sample 16.05; Updating Lights 0.46; Finished 0.25; Updating Scene BVH 0.23; (blender pre) 0.22; Synchronizing object 0.14; Initializing 0.05; Updating Images 0.03; Updating Geometry BVH taillight.034 0.03
+Saved frames/f_0040.png
+02:24.907  render           | Saved: 'frames/f_0560.png'
+PERF - f=560 total=18.21 gap=0.15 prep=0.00 | pre=0.15 sync=0.04 geom=0.01 bvh=0.23 light=0.07 trace=17.46 save=0.16 other=0.09
+PERF_RAW Sample 17.46; Updating Scene BVH 0.23; Finished 0.16; (blender pre) 0.15; Updating Lights 0.07; Initializing 0.06; Synchronizing object 0.04; Updating Mesh 0.04; Updating Objects 0.00
+Saved frames/f_0560.png
+02:41.338  render           | Saved: 'frames/f_0800.png'
+PERF - f=800 total=16.27 gap=0.16 prep=0.00 | pre=0.16 sync=0.04 geom=0.01 bvh=0.22 light=0.07 trace=15.52 save=0.16 other=0.09
+Saved frames/f_0800.png
+RENDER_DONE None
