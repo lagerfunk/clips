@@ -1,0 +1,21 @@
+job ep17-stills c0 stills 529,598,868,934 res 720 samples 16 args '': 4 png
+terrain 492 x 784
+vegetation 68676 48311 920 1575
+traffic kept 140 of 298
+01:51.749  cycles           | WARNING CUEW initialization failed: Error opening the library
+SIGN_SOURCES [('de-core', '205'), ('de-core', '283'), ('de-core', '330.1'), ('de-core', '330.2'), ('de-core', '332'), ('de-core', '333'), ('de-core', '448'), ('de-core', '450-50'), ('de-core', '450-51'), ('de-interchange', '449')]
+02:36.977  render           | Saved: 'frames/f_0529.png'
+PERF - f=529 total=44.91 prep=0.00 | pre=0.53 sync=1.71 geom=0.21 bvh=1.25 light=0.48 trace=38.98 other=1.74
+PERF_RAW Sample 38.98; Synchronizing object 1.71; Initializing 1.40; Updating Scene BVH 1.09; (blender pre) 0.53; Updating Lights 0.48; Compositing 0.29; Updating Images 0.13; Updating Geometry BVH Cube.086 0.08
+Saved frames/f_0529.png
+03:19.909  render           | Saved: 'frames/f_0598.png'
+PERF - f=598 total=42.87 gap=0.06 prep=0.00 | pre=0.21 sync=1.39 geom=0.12 bvh=1.11 light=0.02 trace=38.20 other=1.82
+PERF_RAW Sample 38.20; Initializing 1.58; Synchronizing object 1.39; Updating Scene BVH 1.01; Compositing 0.21; (blender pre) 0.21; Updating Geometry BVH plate_r_d.011 0.08; Updating Objects 0.06; Updating Meshes Flags 0.04
+Saved frames/f_0598.png
+04:08.522  render           | Saved: 'frames/f_0868.png'
+PERF - f=868 total=48.55 gap=0.06 prep=0.00 | pre=0.22 sync=1.36 geom=0.12 bvh=1.14 light=0.02 trace=43.88 other=1.81
+Saved frames/f_0868.png
+04:57.923  render           | Saved: 'frames/f_0934.png'
+PERF - f=934 total=49.35 gap=0.05 prep=0.00 | pre=0.19 sync=1.27 geom=0.11 bvh=1.08 light=0.02 trace=45.03 other=1.64
+Saved frames/f_0934.png
+RENDER_DONE None
