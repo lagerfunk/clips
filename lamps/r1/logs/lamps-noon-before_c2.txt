@@ -1,0 +1,80 @@
+job lamps-noon-before c2 stills 1,2,3,4,5,6,7 res 720 samples 16 args '--before --light noon --kinds hatch,saloon,estate': 7 png
+KIT vehicles /home/runner/work/clips/clips/drivelocal/lookdev/vehicles_main.py sha1 7aa843b304a107333e5a961888758bfdbfe9ce6b
+built hatch L 4.34 W 1.74 H 1.51
+built saloon L 4.72 W 1.77 H 1.45
+built estate L 4.79 W 1.78 H 1.50
+00:01.950  cycles           | WARNING CUEW initialization failed: Error opening the library
+VIEW AgX AgX - Punchy exposure 0.0
+LAMP f=1 car=hatch part=taillight mat=car_tail box=539,633,576,674 facing=0.67 dist=3.4
+LAMP f=1 car=hatch part=taillight mat=car_tail box=719,610,746,645 facing=0.52 dist=4.4
+LAMP f=1 car=hatch part=brake3 mat=car_tail box=580,484,633,492 facing=0.58 dist=4.0
+LAMP f=1 car=hatch part=indicator mat=dl_ind_L box=576,644,600,668 facing=0.63 dist=3.6
+LAMP f=1 car=hatch part=indicator mat=dl_ind_L box=97,591,101,596 facing=0.35 dist=6.0
+LAMP f=1 car=hatch part=indicator mat=dl_ind_R box=701,613,720,635 facing=0.55 dist=4.1
+00:10.903  render           | Saved: 'frames/f_0001.png'
+PERF - f=1 total=8.92 prep=0.00 | pre=0.02 sync=0.01 geom=0.03 bvh=0.01 light=0.29 trace=8.37 save=0.19
+PERF_RAW Sample 8.37; Updating Lights 0.29; Finished 0.19; Updating Images 0.02; (blender pre) 0.02; Synchronizing object 0.01; Updating Mesh 0.00; Updating Scene BVH 0.00; Updating Geometry BVH bumper_line.002 0.00
+Saved frames/f_0001.png
+LAMP f=2 car=hatch part=headlight mat=car_head box=699,658,716,674 facing=0.55 dist=4.3
+LAMP f=2 car=hatch part=headlight mat=car_head box=552,681,575,700 facing=0.65 dist=3.6
+LAMP f=2 car=hatch part=indicator mat=dl_ind_L box=717,655,722,676 facing=0.54 dist=4.4
+LAMP f=2 car=hatch part=indicator mat=dl_ind_R box=543,679,550,704 facing=0.66 dist=3.5
+LAMP f=2 car=hatch part=indicator mat=dl_ind_R box=291,634,301,640 facing=0.57 dist=4.1
+00:19.093  render           | Saved: 'frames/f_0002.png'
+PERF - f=2 total=8.17 gap=0.02 prep=0.00 | trace=8.04 save=0.13
+PERF_RAW Sample 8.04; Finished 0.13; (blender pre) 0.00; Updating Scene BVH 0.00; Updating Lights 0.00; Updating Mesh 0.00; Initializing 0.00; Denoise (after the last sample) 0.00; Updating Shaders 0.00
+Saved frames/f_0002.png
+LAMP f=3 car=saloon part=taillight mat=car_tail box=548,632,589,675 facing=0.66 dist=3.3
+LAMP f=3 car=saloon part=indicator mat=dl_ind_L box=588,643,614,669 facing=0.62 dist=3.5
+LAMP f=3 car=saloon part=indicator mat=dl_ind_L box=61,576,65,580 facing=0.32 dist=6.3
+00:27.518  render           | Saved: 'frames/f_0003.png'
+PERF - f=3 total=8.40 gap=0.02 prep=0.00 | trace=8.27 save=0.12
+Saved frames/f_0003.png
+LAMP f=4 car=saloon part=headlight mat=car_head box=577,684,601,704 facing=0.63 dist=3.4
+LAMP f=4 car=saloon part=indicator mat=dl_ind_R box=567,682,575,708 facing=0.65 dist=3.4
+LAMP f=4 car=saloon part=indicator mat=dl_ind_R box=307,626,318,633 facing=0.58 dist=3.9
+00:35.834  render           | Saved: 'frames/f_0004.png'
+PERF - f=4 total=8.29 gap=0.02 prep=0.00 | trace=8.16 save=0.13
+Saved frames/f_0004.png
+LAMP f=5 car=estate part=taillight mat=car_tail box=543,639,583,681 facing=0.66 dist=3.4
+LAMP f=5 car=estate part=brake3 mat=car_tail box=596,477,649,484 facing=0.59 dist=3.9
+LAMP f=5 car=estate part=indicator mat=dl_ind_L box=583,650,608,675 facing=0.62 dist=3.6
+LAMP f=5 car=estate part=indicator mat=dl_ind_L box=68,581,72,586 facing=0.33 dist=6.3
+LAMP f=5 car=estate part=indicator mat=dl_ind_R box=714,618,734,639 facing=0.54 dist=4.1
+00:44.412  render           | Saved: 'frames/f_0005.png'
+PERF - f=5 total=8.56 gap=0.02 prep=0.00 | trace=8.43 save=0.13
+Saved frames/f_0005.png
+LAMP f=6 car=estate part=headlight mat=car_head box=717,662,735,678 facing=0.53 dist=4.2
+LAMP f=6 car=estate part=headlight mat=car_head box=569,686,593,705 facing=0.64 dist=3.6
+LAMP f=6 car=estate part=indicator mat=dl_ind_R box=559,684,566,709 facing=0.65 dist=3.5
+LAMP f=6 car=estate part=indicator mat=dl_ind_R box=293,629,303,636 facing=0.57 dist=4.1
+00:52.731  render           | Saved: 'frames/f_0006.png'
+PERF - f=6 total=8.30 gap=0.02 prep=0.00 | trace=8.17 save=0.13
+Saved frames/f_0006.png
+LAMP f=7 car=t0_hatch part=taillight mat=car_tail box=289,559,297,565 facing=0.99 dist=28.0
+LAMP f=7 car=t0_hatch part=taillight mat=car_tail box=335,559,343,565 facing=1.00 dist=27.9
+LAMP f=7 car=t0_hatch part=brake3 mat=car_tail box=310,536,323,537 facing=0.86 dist=28.2
+LAMP f=7 car=t0_hatch part=indicator mat=dl_ind_L box=297,561,303,565 facing=0.99 dist=28.0
+LAMP f=7 car=t0_hatch part=indicator mat=dl_ind_R box=330,559,335,562 facing=1.00 dist=27.9
+LAMP f=7 car=t1_saloon part=taillight mat=car_tail box=455,558,464,563 facing=1.00 dist=29.2
+LAMP f=7 car=t1_saloon part=taillight mat=car_tail box=502,558,510,563 facing=1.00 dist=29.3
+LAMP f=7 car=t1_saloon part=indicator mat=dl_ind_L box=464,560,469,563 facing=1.00 dist=29.2
+LAMP f=7 car=t1_saloon part=indicator mat=dl_ind_R box=496,558,502,561 facing=1.00 dist=29.2
+LAMP f=7 car=t2_estate part=taillight mat=car_tail box=603,553,611,558 facing=0.99 dist=32.0
+LAMP f=7 car=t2_estate part=taillight mat=car_tail box=646,553,654,558 facing=0.98 dist=32.2
+LAMP f=7 car=t2_estate part=brake3 mat=car_tail box=622,531,634,532 facing=0.90 dist=32.3
+LAMP f=7 car=t2_estate part=indicator mat=dl_ind_L box=611,555,616,558 facing=0.99 dist=32.1
+LAMP f=7 car=t2_estate part=indicator mat=dl_ind_R box=641,553,646,556 facing=0.98 dist=32.2
+LAMP f=7 car=t3_estate part=headlight mat=car_head box=118,577,124,580 facing=0.97 dist=25.3
+LAMP f=7 car=t3_estate part=headlight mat=car_head box=75,577,81,580 facing=0.96 dist=25.5
+LAMP f=7 car=t3_estate part=indicator mat=dl_ind_L box=124,576,126,581 facing=0.97 dist=25.3
+LAMP f=7 car=t3_estate part=indicator mat=dl_ind_L box=153,568,154,569 facing=0.23 dist=26.3
+LAMP f=7 car=t3_estate part=indicator mat=dl_ind_R box=72,576,74,580 facing=0.96 dist=25.6
+LAMP f=7 car=t4_saloon part=headlight mat=car_head box=64,556,68,559 facing=0.96 dist=35.0
+LAMP f=7 car=t4_saloon part=headlight mat=car_head box=33,556,37,559 facing=0.96 dist=35.2
+LAMP f=7 car=t4_saloon part=indicator mat=dl_ind_L box=69,556,70,559 facing=0.96 dist=34.9
+LAMP f=7 car=t4_saloon part=indicator mat=dl_ind_R box=31,556,32,559 facing=0.95 dist=35.2
+00:59.475  render           | Saved: 'frames/f_0007.png'
+PERF - f=7 total=6.72 gap=0.03 prep=0.00 | trace=6.59 save=0.12
+Saved frames/f_0007.png
+RENDER_DONE
