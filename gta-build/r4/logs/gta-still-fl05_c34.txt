@@ -1,0 +1,17 @@
+job gta-still-fl05 c34 stills 236,496,649,946 res 720 samples 16 args '': 4 png
+01:13.554  cycles           | WARNING CUEW initialization failed: Error opening the library
+01:28.320  render           | Saved: 'frames/f_0236.png'
+PERF - f=236 total=14.40 prep=0.00 | pre=0.42 sync=0.28 geom=0.06 bvh=0.07 light=0.80 trace=12.26 save=0.20 other=0.32
+PERF_RAW Sample 12.26; Updating Lights 0.80; (blender pre) 0.42; Initializing 0.30; Synchronizing object 0.28; Finished 0.20; Updating Scene BVH 0.05; Updating Images 0.03; Updating Objects 0.02
+Saved frames/f_0236.png
+01:56.850  render           | Saved: 'frames/f_0496.png'
+PERF - f=496 total=28.48 gap=0.05 prep=0.00 | pre=0.26 geom=0.04 bvh=0.04 light=0.50 trace=27.19 save=0.13 other=0.32
+PERF_RAW Sample 27.19; Updating Lights 0.50; Initializing 0.30; (blender pre) 0.26; Finished 0.13; Updating Scene BVH 0.04; Updating Objects 0.02; Updating Mesh 0.02; Updating Meshes Flags 0.01
+Saved frames/f_0496.png
+02:13.554  render           | Saved: 'frames/f_0649.png'
+PERF - f=649 total=16.65 gap=0.05 prep=0.00 | pre=0.27 geom=0.04 bvh=0.04 light=0.50 trace=15.35 save=0.13 other=0.32
+Saved frames/f_0649.png
+02:25.095  render           | Saved: 'frames/f_0946.png'
+PERF - f=946 total=11.45 gap=0.09 prep=0.00 | pre=0.29 geom=0.03 bvh=0.04 light=0.50 trace=10.15 save=0.13 other=0.31
+Saved frames/f_0946.png
+RENDER_DONE None

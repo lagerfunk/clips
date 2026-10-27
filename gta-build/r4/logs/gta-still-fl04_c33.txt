@@ -1,0 +1,15 @@
+job gta-still-fl04 c33 stills 526,940,991 res 720 samples 16 args '': 3 png
+03:28.244  cycles           | WARNING CUEW initialization failed: Error opening the library
+04:04.545  render           | Saved: 'frames/f_0526.png'
+END CARD (8.32, -160.0, 2.63) w 0.76 h 0.76 d 5.25 dz 0.53
+PERF - f=526 total=35.86 prep=0.00 | pre=0.58 sync=0.52 geom=0.08 bvh=0.10 light=1.20 trace=32.61 save=0.29 other=0.48
+PERF_RAW Sample 32.61; Updating Lights 1.20; (blender pre) 0.58; Synchronizing object 0.52; Initializing 0.42; Finished 0.29; Updating Scene BVH 0.07; Updating Mesh 0.05; Updating Images 0.04
+Saved frames/f_0526.png
+04:27.559  render           | Saved: 'frames/f_0940.png'
+PERF - f=940 total=22.95 gap=0.07 prep=0.00 | pre=0.45 sync=0.01 geom=0.04 bvh=0.07 light=0.82 trace=20.95 save=0.17 other=0.44
+PERF_RAW Sample 20.95; Updating Lights 0.82; (blender pre) 0.45; Initializing 0.41; Finished 0.17; Updating Scene BVH 0.06; Updating Mesh 0.03; Updating Objects 0.03; Updating Geometry BVH sedan_ind5 0.01
+Saved frames/f_0940.png
+04:51.140  render           | Saved: 'frames/f_0991.png'
+PERF - f=991 total=23.51 gap=0.07 prep=0.00 | pre=0.43 geom=0.04 bvh=0.06 light=0.82 trace=21.56 save=0.17 other=0.44
+Saved frames/f_0991.png
+RENDER_DONE None
