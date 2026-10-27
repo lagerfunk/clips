@@ -1,0 +1,10 @@
+job ep21-pov c1 stills 335,375 res 720 samples 16 args '': 2 png
+terrain 492 x 784
+vegetation 68676 48311 920 1575
+00:52.536  cycles           | WARNING CUEW initialization failed: Error opening the library
+01:36.450  render           | Saved: 'frames/f_0335.png'
+SIGN_SOURCES ["('de-core', '205')", "('de-core', '330.1')", "('de-core', '330.2')", "('de-core', '332')", "('de-core', '333')", "('de-core', '448')", "('de-core', '450-50')", "('de-core', '450-51')", "('de-interchange', '449')"]
+Saved frames/f_0335.png
+02:22.768  render           | Saved: 'frames/f_0375.png'
+Saved frames/f_0375.png
+RENDER_DONE [335, 375]
