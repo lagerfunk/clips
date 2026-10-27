@@ -1,0 +1,20 @@
+{
+ "rev": 5,
+ "name": "trackb",
+ "jobs": [
+  {"name": "b01-stills", "scene": "b01_vignette_18_days.py", "stills": "16,124,409,484,544,664,901", "res": 720, "samples": 16},
+  {"name": "b02-stills", "scene": "b02_ztl_camera_gate.py", "stills": "16,640,691,946", "res": 720, "samples": 16},
+  {"name": "b03-stills", "scene": "b03_rain_speed_limits.py", "stills": "16,214,394,469,538,901", "res": 720, "samples": 16},
+  {"name": "b04-stills", "scene": "b04_raser_law.py", "stills": "16,199,290,328,919", "res": 720, "samples": 16},
+  {"name": "b05-stills", "scene": "b05_keep_left_roundabouts.py", "stills": "16,700", "res": 720, "samples": 16},
+  {"name": "b06-stills", "scene": "b06_cyclists_priority.py", "stills": "16,661", "res": 720, "samples": 16},
+  {"name": "b07-stills", "scene": "b07_motorway_breakdown.py", "stills": "16,115,409,679", "res": 720, "samples": 16},
+  {"name": "b01-preview", "scene": "b01_vignette_18_days.py", "frames": "1-1059", "chunks": 6, "step": 2, "res": 360, "samples": 6},
+  {"name": "b02-preview", "scene": "b02_ztl_camera_gate.py", "frames": "1-1104", "chunks": 6, "step": 2, "res": 360, "samples": 6},
+  {"name": "b03-preview", "scene": "b03_rain_speed_limits.py", "frames": "1-1089", "chunks": 6, "step": 2, "res": 360, "samples": 6},
+  {"name": "b04-preview", "scene": "b04_raser_law.py", "frames": "1-1104", "chunks": 6, "step": 2, "res": 360, "samples": 6},
+  {"name": "b05-preview", "scene": "b05_keep_left_roundabouts.py", "frames": "1-1089", "chunks": 6, "step": 2, "res": 360, "samples": 6},
+  {"name": "b06-preview", "scene": "b06_cyclists_priority.py", "frames": "1-1059", "chunks": 6, "step": 2, "res": 360, "samples": 6},
+  {"name": "b07-preview", "scene": "b07_motorway_breakdown.py", "frames": "1-1104", "chunks": 6, "step": 2, "res": 360, "samples": 6}
+ ]
+}

@@ -157,5 +157,16 @@ class Overlay:
     def foot(self, t0, t1, y=1470):
         self.add(t0, t1, "Foot", X0, y, self.footer, fit(36, self.footer, 860, 0.6), "\\fad(200,0)")
 
+    def foot2(self, t0, t1, y=960, size=40, width=860):
+        """Source footer in up to three lines at up to `size` px (the Germany episodes' 40 px), centred at y, which
+        sits between the closing lines and the end-card signs (and clear of the platform's bottom bar): split at ' · ',
+        each part word-wrapped to the width."""
+        per = max(8, int(width / (0.6 * size)))
+        lines = []
+        for part in self.footer.split(" · "):
+            lines += wrap(part, per)
+        size = min(size, min(fit(size, ln, width, 0.6) for ln in lines))
+        self.add(t0, t1, "Foot", X0, y, "\\N".join(lines), size, "\\fad(200,0)")
+
     def text(self):
         return HEAD + "\n".join(self.ev) + "\n"
