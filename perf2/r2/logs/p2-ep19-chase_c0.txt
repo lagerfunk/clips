@@ -1,0 +1,38 @@
+job p2-ep19-chase c0 stills 200 res 720 samples 12 args '--scene ep19_tailgating.py --span 2 --sweep final+vunb,final+vunb+seed,final,final+vs12,final+vs8': 5 png
+terrain 492 x 784
+vegetation 68676 48311 920 1575
+traffic kept 140 of 298
+01:50.155  cycles           | WARNING CUEW initialization failed: Error opening the library
+SIGN_SOURCES [('de-core', '205'), ('de-core', '330.1'), ('de-core', '330.2'), ('de-core', '332'), ('de-core', '333'), ('de-core', '448'), ('de-core', '450-50'), ('de-core', '450-51'), ('de-interchange', '449')]
+PERF_SCENE objects=3226 instances=249341 animated=1042 materials=110 emissive_sampled=89 haze_only=0 meshes=1422 res=720x1280 samples=12 blur=True shutter=0.50 threads=4 built_at=109.6s
+04:02.033  render           | Saved: '/tmp/perf_a7iswo51/f_0200_final-vunb.png'
+PERF final+vunb k=0 fs=0.03 f=200 total=131.41 prep=0.00 | pre=0.50 sync=1.49 geom=52.90 bvh=1.18 light=0.48 trace=73.14 other=1.73
+PERF_RAW Sample 73.14; Updating Volume 52.68; Synchronizing object 1.49; Initializing 1.39; Updating Scene BVH 1.05; (blender pre) 0.50; Updating Lights 0.48; Compositing 0.29; Updating Images 0.11
+06:12.033  render           | Saved: 'frames/f_0201_final-vunb.png'
+PERF final+vunb k=1 fs=0.02 f=201 total=129.94 gap=0.06 prep=0.00 | pre=0.18 sync=1.23 geom=52.50 bvh=1.08 light=0.02 trace=73.34 other=1.59
+PERF_RAW Sample 73.34; Updating Volume 52.37; Initializing 1.35; Synchronizing object 1.23; Updating Scene BVH 1.00; Compositing 0.20; (blender pre) 0.18; Updating Geometry BVH plate_f_d.011 0.07; Updating Objects 0.06
+08:21.364  render           | Saved: '/tmp/perf_a7iswo51/f_0200_final-vunb-seed.png'
+PERF final+vunb+seed k=0 fs=0.02 f=200 total=129.27 gap=0.06 prep=0.00 | pre=0.18 sync=1.21 geom=52.45 bvh=1.05 light=0.02 trace=72.78 other=1.58
+10:31.195  render           | Saved: 'frames/f_0201_final-vunb-seed.png'
+PERF final+vunb+seed k=1 fs=0.02 f=201 total=129.77 gap=0.06 prep=0.00 | pre=0.18 sync=1.20 geom=52.49 bvh=1.09 light=0.02 trace=73.23 other=1.56
+11:52.534  render           | Saved: '/tmp/perf_a7iswo51/f_0200_final.png'
+PERF final k=0 fs=0.04 f=200 total=81.25 gap=0.09 prep=0.00 | pre=0.18 sync=1.18 geom=0.13 bvh=1.05 light=0.02 trace=77.20 other=1.49
+13:13.574  render           | Saved: 'frames/f_0201_final.png'
+PERF final k=1 fs=0.02 f=201 total=80.98 gap=0.06 prep=0.00 | pre=0.18 sync=1.17 geom=0.13 bvh=1.07 light=0.02 trace=76.94 other=1.48
+14:34.123  render           | Saved: '/tmp/perf_a7iswo51/f_0200_final-vs12.png'
+PERF final+vs12 k=0 fs=0.02 f=200 total=80.48 gap=0.07 prep=0.00 | pre=0.17 sync=1.17 geom=0.13 bvh=1.05 light=0.02 trace=76.45 other=1.48
+15:54.888  render           | Saved: 'frames/f_0201_final-vs12.png'
+PERF final+vs12 k=1 fs=0.02 f=201 total=80.70 gap=0.06 prep=0.00 | pre=0.18 sync=1.18 geom=0.13 bvh=1.06 light=0.02 trace=76.59 other=1.53
+17:16.443  render           | Saved: '/tmp/perf_a7iswo51/f_0200_final-vs8.png'
+PERF final+vs8 k=0 fs=0.02 f=200 total=81.49 gap=0.07 prep=0.00 | pre=0.19 sync=1.19 geom=0.13 bvh=1.09 light=0.02 trace=77.33 other=1.54
+18:37.543  render           | Saved: 'frames/f_0201_final-vs8.png'
+PERF final+vs8 k=1 fs=0.02 f=201 total=81.04 gap=0.06 prep=0.00 | pre=0.20 sync=1.21 geom=0.13 bvh=1.08 light=0.02 trace=76.85 other=1.54
+SWEEP variant | first | steady (frames 2+) | trace | sync+geom+bvh+light | denoise | save | pre
+SWEEP final+vunb | 131.43 | 129.96 | 73.34 | 56.42 | 0.00 | 0.00 | 0.18
+SWEEP final+vunb+seed | 129.29 | 129.79 | 73.23 | 56.36 | 0.00 | 0.00 | 0.18
+SWEEP final | 81.29 | 81.00 | 76.94 | 3.87 | 0.00 | 0.00 | 0.18
+SWEEP final+vs12 | 80.51 | 80.72 | 76.59 | 3.93 | 0.00 | 0.00 | 0.18
+SWEEP final+vs8 | 81.51 | 81.06 | 76.85 | 3.98 | 0.00 | 0.00 | 0.20
+Saved frames/f_0201_final-vs8.png
+RENDER_DONE None
+PERF_DONE wall 1116.6 s

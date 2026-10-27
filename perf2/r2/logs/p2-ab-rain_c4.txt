@@ -1,0 +1,38 @@
+job p2-ab-rain c4 stills 30 res 720 samples 12 args '--scene lookdev/ld_weather.py --shot rain --preset rain --span 3 --sweep final,final+seed,final+vs12,final+vs8': 4 png
+02:38.797  cycles           | WARNING CUEW initialization failed: Error opening the library
+vegetation 35934 25264 181 340
+BUILD 158.0s
+PERF_SCENE objects=2445 instances=126964 animated=11 materials=75 emissive_sampled=63 haze_only=0 meshes=999 res=720x1280 samples=12 blur=True shutter=0.50 threads=4 built_at=158.5s
+03:08.246  render           | Saved: '/tmp/perf_dy3hcvtg/f_0030_final.png'
+PERF final k=0 fs=0.01 f=30 total=28.91 prep=0.00 | pre=0.23 sync=0.58 geom=0.04 bvh=0.17 light=0.35 trace=26.71 other=0.83
+PERF_RAW Sample 26.71; Synchronizing object 0.58; Initializing 0.58; Updating Lights 0.35; Compositing 0.23; (blender pre) 0.23; Updating Scene BVH 0.13; Updating Objects 0.03; Updating Mesh 0.02
+03:36.741  render           | Saved: 'frames/f_0031_final.png'
+PERF final k=1 fs=0.01 f=31 total=28.46 gap=0.03 prep=0.00 | pre=0.07 sync=0.49 geom=0.06 bvh=0.11 light=0.01 trace=26.96 other=0.75
+PERF_RAW Sample 26.96; Initializing 0.58; Synchronizing object 0.49; Compositing 0.16; Updating Scene BVH 0.10; (blender pre) 0.07; Updating Objects 0.03; Updating Meshes Flags 0.01; Updating Mesh 0.01
+04:05.073  render           | Saved: '/tmp/perf_dy3hcvtg/f_0032_final.png'
+PERF final k=2 fs=0.01 f=32 total=28.30 gap=0.03 prep=0.00 | pre=0.08 sync=0.50 geom=0.05 bvh=0.11 light=0.01 trace=26.78 other=0.77
+04:33.379  render           | Saved: '/tmp/perf_dy3hcvtg/f_0030_final-seed.png'
+PERF final+seed k=0 fs=0.01 f=30 total=28.27 gap=0.04 prep=0.00 | pre=0.07 sync=0.49 geom=0.06 bvh=0.11 light=0.01 trace=26.78 other=0.76
+05:01.619  render           | Saved: 'frames/f_0031_final-seed.png'
+PERF final+seed k=1 fs=0.01 f=31 total=28.21 gap=0.03 prep=0.00 | pre=0.07 sync=0.48 geom=0.05 bvh=0.11 light=0.01 trace=26.74 other=0.74
+05:29.847  render           | Saved: '/tmp/perf_dy3hcvtg/f_0032_final-seed.png'
+PERF final+seed k=2 fs=0.01 f=32 total=28.20 gap=0.03 prep=0.00 | pre=0.07 sync=0.47 geom=0.05 bvh=0.11 light=0.01 trace=26.76 other=0.72
+05:57.914  render           | Saved: '/tmp/perf_dy3hcvtg/f_0030_final-vs12.png'
+PERF final+vs12 k=0 fs=0.01 f=30 total=28.03 gap=0.03 prep=0.00 | pre=0.07 sync=0.47 geom=0.05 bvh=0.11 light=0.01 trace=26.61 other=0.71
+06:25.990  render           | Saved: 'frames/f_0031_final-vs12.png'
+PERF final+vs12 k=1 fs=0.01 f=31 total=28.05 gap=0.03 prep=0.00 | pre=0.07 sync=0.47 geom=0.05 bvh=0.11 light=0.01 trace=26.63 other=0.70
+06:53.952  render           | Saved: '/tmp/perf_dy3hcvtg/f_0032_final-vs12.png'
+PERF final+vs12 k=2 fs=0.01 f=32 total=27.93 gap=0.03 prep=0.00 | pre=0.07 sync=0.47 geom=0.05 bvh=0.11 light=0.01 trace=26.50 other=0.72
+07:21.003  render           | Saved: '/tmp/perf_dy3hcvtg/f_0030_final-vs8.png'
+PERF final+vs8 k=0 fs=0.01 f=30 total=27.02 gap=0.04 prep=0.00 | pre=0.07 sync=0.47 geom=0.05 bvh=0.11 light=0.01 trace=25.60 other=0.71
+07:47.967  render           | Saved: 'frames/f_0031_final-vs8.png'
+PERF final+vs8 k=1 fs=0.01 f=31 total=26.94 gap=0.03 prep=0.00 | pre=0.07 sync=0.47 geom=0.05 bvh=0.11 light=0.01 trace=25.52 other=0.71
+08:14.838  render           | Saved: '/tmp/perf_dy3hcvtg/f_0032_final-vs8.png'
+PERF final+vs8 k=2 fs=0.01 f=32 total=26.84 gap=0.03 prep=0.00 | pre=0.07 sync=0.47 geom=0.05 bvh=0.11 light=0.01 trace=25.41 other=0.72
+SWEEP variant | first | steady (frames 2+) | trace | sync+geom+bvh+light | denoise | save | pre
+SWEEP final | 28.92 | 28.39 | 26.87 | 1.43 | 0.00 | 0.00 | 0.08
+SWEEP final+seed | 28.28 | 28.21 | 26.75 | 1.38 | 0.00 | 0.00 | 0.07
+SWEEP final+vs12 | 28.04 | 28.00 | 26.57 | 1.35 | 0.00 | 0.00 | 0.07
+SWEEP final+vs8 | 27.03 | 26.90 | 25.46 | 1.35 | 0.00 | 0.00 | 0.07
+RENDER_DONE rain rain frame 30 apply 0.2s render 335.6s counts {'road': 4, 'surf': 45, 'retro': 10, 'lamp': 0, 'win': 1, 'vlight': 2, 'haze': 73, 'lamps': 0, 'vehicles': 8, 'lit': 0, 'sprays': 2, 'precip': {'wx_rain': 18000}}
+PERF_DONE wall 494.1 s
