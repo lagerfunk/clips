@@ -1,0 +1,10 @@
+job a5-ep20-stills c0 stills 700 res 720 samples 16 args '': 1 png
+02:34.140  cycles           | WARNING CUEW initialization failed: Error opening the library
+ON_BODY hero -0.15 -0.36 hit (-0.36, -0.15, 1.505)
+SIGN_SOURCES []
+WEATHER 700 ('night', 1.0)
+03:08.464  render           | Saved: 'frames/f_0700.png'
+PERF - f=700 total=32.62 prep=0.01 | pre=1.39 sync=0.38 geom=0.02 bvh=0.07 light=0.46 trace=29.66 other=0.62
+PERF_RAW Sample 29.66; (blender pre) 1.39; Updating Lights 0.46; Synchronizing object 0.38; Initializing 0.30; Compositing 0.29; Updating Scene BVH 0.07; Updating Mesh 0.02; Updating Objects 0.01
+Saved frames/f_0700.png
+RENDER_DONE None
