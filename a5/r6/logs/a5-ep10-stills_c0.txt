@@ -1,0 +1,30 @@
+job a5-ep10-stills c0 stills 64,196,631,751,895,931,961 res 720 samples 16 args '': 7 png
+02:22.982  cycles           | WARNING CUEW initialization failed: Error opening the library
+EP10_POS L 4.28 4.28 hook 34.83 park 62.52 cost 46.0 line 68.26 line_y -11.74
+SIGN_SOURCES [('de-core', '101-51')]
+SHOT_STARTS [('H_chase', 1), ('H_close', 49), ('S_drone', 67), ('S_tread', 157), ('S_sign', 247), ('S_chase', 307), ('R_drone', 367), ('R_tyre', 535), ('C_chase', 607), ('C_top', 673), ('K_tyre', 775), ('K_street', 865), ('K_chase', 920), ('E_card', 970)]
+WEATHER 64 ('ice', 0.9)
+02:45.873  render           | Saved: 'frames/f_0064.png'
+PERF - f=64 total=21.45 prep=0.00 | pre=1.07 sync=0.29 geom=0.02 bvh=0.07 light=0.29 trace=19.27 other=0.43
+PERF_RAW Sample 19.27; (blender pre) 1.07; Synchronizing object 0.29; Updating Lights 0.29; Initializing 0.22; Compositing 0.18; Updating Scene BVH 0.06; Updating Mesh 0.02; Updating Images 0.01
+Saved frames/f_0064.png
+03:09.721  render           | Saved: 'frames/f_0196.png'
+PERF - f=196 total=23.18 gap=0.67 prep=0.00 | pre=0.78 sync=0.18 geom=0.02 bvh=0.06 light=0.03 trace=21.73 other=0.39
+PERF_RAW Sample 21.73; (blender pre) 0.78; Initializing 0.24; Synchronizing object 0.18; Compositing 0.13; Updating Scene BVH 0.05; Updating Lights 0.03; Updating Mesh 0.02; Updating Objects 0.01
+Saved frames/f_0196.png
+03:27.799  render           | Saved: 'frames/f_0631.png'
+PERF - f=631 total=17.35 gap=0.73 prep=0.00 | pre=0.83 sync=0.18 geom=0.02 bvh=0.06 light=0.03 trace=15.84 other=0.38
+Saved frames/f_0631.png
+03:52.031  render           | Saved: 'frames/f_0751.png'
+PERF - f=751 total=23.49 gap=0.74 prep=0.00 | pre=0.84 sync=0.18 geom=0.02 bvh=0.06 light=0.03 trace=21.97 other=0.40
+Saved frames/f_0751.png
+04:12.023  render           | Saved: 'frames/f_0895.png'
+PERF - f=895 total=19.24 gap=0.75 prep=0.00 | pre=0.84 sync=0.18 geom=0.02 bvh=0.06 light=0.03 trace=17.72 other=0.40
+Saved frames/f_0895.png
+04:32.585  render           | Saved: 'frames/f_0931.png'
+PERF - f=931 total=19.82 gap=0.75 prep=0.00 | pre=0.84 sync=0.18 geom=0.02 bvh=0.06 light=0.03 trace=18.30 other=0.39
+Saved frames/f_0931.png
+04:52.559  render           | Saved: 'frames/f_0961.png'
+PERF - f=961 total=19.21 gap=0.77 prep=0.00 | pre=0.85 sync=0.18 geom=0.02 bvh=0.06 light=0.03 trace=17.68 other=0.40
+Saved frames/f_0961.png
+RENDER_DONE None
