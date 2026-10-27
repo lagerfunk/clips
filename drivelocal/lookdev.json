@@ -1,0 +1,13 @@
+{
+ "rev": 7,
+ "jobs": [
+  {"name": "ep08-answer", "scene": "ep08_car_vs_bike.py", "stills": "466,496", "res": 720, "samples": 16},
+  {"name": "ep14-cost", "scene": "ep14_stop_vs_giveway.py", "stills": "556,781,826,862,886,916", "res": 720, "samples": 16},
+  {"name": "ep22-rule", "scene": "ep22_zebra_crossing.py", "stills": "601,604,607,620", "res": 720, "samples": 16},
+  {"name": "ep25-answer", "scene": "ep25_green_arrow_cyclist.py", "stills": "529,586,646,667", "res": 720, "samples": 16},
+  {"name": "ep08-preview", "scene": "ep08_car_vs_bike.py", "frames": "1-1041", "chunks": 6, "res": 360, "samples": 6, "step": 2},
+  {"name": "ep14-preview", "scene": "ep14_stop_vs_giveway.py", "frames": "1-1041", "chunks": 6, "res": 360, "samples": 6, "step": 2},
+  {"name": "ep22-preview", "scene": "ep22_zebra_crossing.py", "frames": "1-1041", "chunks": 6, "res": 360, "samples": 6, "step": 2},
+  {"name": "ep25-preview", "scene": "ep25_green_arrow_cyclist.py", "frames": "1-1035", "chunks": 6, "res": 360, "samples": 6, "step": 2}
+ ]
+}
