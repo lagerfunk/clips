@@ -1,0 +1,28 @@
+job ep15-stills c1 stills 880,935 res 720 samples 16 args '': 2 png
+vegetation 42807 29314 301 530
+[ 196.8s] world built
+WARN roadworks: no barrier picture for a left closure, barrier left out
+[ 217.3s] sim 291 vehicles, 2250 steps
+dropped 11 vehicles in conflict with scripted ones
+[ 227.4s] sim 265 vehicles, 2250 steps
+hero A lane change [23.03, 24.77, 0, 1, 17.47] hero B [29.0, 30.97, 0, 1, 0.4]
+zip SM 2365.0 taper [2395.0, 2375.0] hero B s at lane change [2323.3, 2332.1]
+[ 230.3s] tracks 494
+[ 230.5s] tracks after cull 384
+AUDIT zipper merges variant A (vehicle, metres before the lane end): [('hero', 613.2), ('hero', 613.2)]
+AUDIT zipper merges variant B (vehicle, metres before the lane end): [('v68', 30.8), ('hero', 41.7), ('v70', 54.1), ('v71', 60.9)]
+AUDIT ok
+[ 237.1s] cast 384
+[ 237.1s] cameras
+03:58.604  cycles           | WARNING CUEW initialization failed: Error opening the library
+04:31.305  render           | Saved: 'frames/f_0880.png'
+PERF - f=880 total=31.47 prep=0.00 | pre=0.91 sync=1.15 geom=0.22 bvh=0.75 light=5.43 trace=21.38 save=0.01 other=1.61
+PERF_RAW Sample 21.38; Updating Lights 5.43; Initializing 1.19; Synchronizing object 1.15; (blender pre) 0.91; Updating Scene BVH 0.59; Compositing 0.37; Updating Images 0.12; Updating Geometry BVH Cube 0.09
+Saved frames/f_0880.png
+[ 270.1s] frame 880
+05:02.295  render           | Saved: 'frames/f_0935.png'
+PERF - f=935 total=30.31 gap=0.68 prep=0.00 | pre=0.72 sync=1.01 geom=0.12 bvh=0.50 light=4.91 trace=21.30 other=1.75
+PERF_RAW Sample 21.30; Updating Lights 4.91; Initializing 1.33; Synchronizing object 1.01; (blender pre) 0.72; Updating Scene BVH 0.50; Compositing 0.30; Updating Mesh 0.12; Updating Objects 0.07
+Saved frames/f_0935.png
+[ 301.1s] frame 935
+RENDER_DONE [880, 935]

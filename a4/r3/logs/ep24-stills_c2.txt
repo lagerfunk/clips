@@ -1,0 +1,31 @@
+job ep24-stills c2 stills 196,260,330 res 720 samples 16 args '': 3 png
+vegetation 42896 29318 309 542
+[ 179.0s] world built
+[ 185.0s] sim 207 vehicles, 2716 steps
+dropped 0 vehicles in conflict with scripted ones
+[ 192.0s] sim 219 vehicles, 3055 steps
+dropped 7 vehicles in conflict with scripted ones
+[ 195.7s] sim 177 vehicles, 660 steps
+dropped 2 vehicles in conflict with scripted ones
+[ 197.0s] tracks 531
+[ 197.1s] tracks after cull 240
+AUDIT FAIL lane change without indicator: 1 frames, ['C:police2'] e.g. frame 673
+AUDIT 1 failure kinds
+[ 201.5s] cast 240
+[ 201.5s] cameras
+03:22.727  cycles           | WARNING CUEW initialization failed: Error opening the library
+03:54.417  render           | Saved: 'frames/f_0196.png'
+PERF - f=196 total=30.84 prep=0.00 | pre=0.66 sync=1.10 geom=0.10 bvh=0.77 light=5.15 trace=21.62 save=0.01 other=1.43
+PERF_RAW Sample 21.62; Updating Lights 5.15; Synchronizing object 1.10; Initializing 1.03; (blender pre) 0.66; Updating Scene BVH 0.63; Compositing 0.36; Updating Geometry BVH plate_r_d.011 0.05; Updating Objects 0.04
+Saved frames/f_0196.png
+[ 233.4s] frame 196
+04:20.519  render           | Saved: 'frames/f_0260.png'
+PERF - f=260 total=25.63 gap=0.47 prep=0.00 | pre=0.49 sync=0.87 geom=0.08 bvh=0.49 light=4.74 trace=17.60 other=1.35
+PERF_RAW Sample 17.60; Updating Lights 4.74; Initializing 1.00; Synchronizing object 0.87; Updating Scene BVH 0.49; (blender pre) 0.49; Compositing 0.28; Updating Mesh 0.07; Updating Objects 0.05
+Saved frames/f_0260.png
+[ 259.5s] frame 260
+04:47.077  render           | Saved: 'frames/f_0330.png'
+PERF - f=330 total=26.05 gap=0.51 prep=0.00 | pre=0.52 sync=0.88 geom=0.08 bvh=0.47 light=4.76 trace=17.97 other=1.37
+Saved frames/f_0330.png
+[ 286.0s] frame 330
+RENDER_DONE [196, 260, 330]

@@ -1,0 +1,36 @@
+job ep29-stills c3 stills 52,290,545,690 res 720 samples 16 args '': 4 png
+vegetation 42907 29397 301 545
+[ 138.6s] world built
+[ 152.2s] sim 159 vehicles, 1721 steps
+dropped 11 vehicles in conflict with scripted ones
+[ 155.7s] sim 175 vehicles, 2520 steps
+dropped 7 vehicles in conflict with scripted ones
+[ 157.2s] sim 133 vehicles, 600 steps
+dropped 2 vehicles in conflict with scripted ones
+[ 158.5s] tracks 409
+[ 158.6s] tracks after cull 161
+AUDIT ok
+[ 160.7s] cast 161
+[ 160.7s] cameras
+/home/runner/work/clips/clips/drivelocal/ep29_roadworks_yellow_lines.py:299: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  fade.use_nodes = True
+02:41.780  cycles           | WARNING CUEW initialization failed: Error opening the library
+03:03.301  render           | Saved: 'frames/f_0052.png'
+PERF - f=52 total=20.77 prep=0.00 | pre=0.59 sync=0.83 geom=0.18 bvh=0.37 light=4.03 trace=13.62 save=0.01 other=1.15
+PERF_RAW Sample 13.62; Updating Lights 4.03; Synchronizing object 0.83; Initializing 0.82; (blender pre) 0.59; Compositing 0.29; Updating Scene BVH 0.28; Updating Images 0.11; Updating Objects 0.04
+Saved frames/f_0052.png
+[ 182.4s] frame 52
+03:24.172  render           | Saved: 'frames/f_0290.png'
+PERF - f=290 total=20.48 gap=0.40 prep=0.00 | pre=0.43 sync=0.71 geom=0.08 bvh=0.25 light=3.73 trace=14.11 other=1.16
+PERF_RAW Sample 14.11; Updating Lights 3.73; Initializing 0.88; Synchronizing object 0.71; (blender pre) 0.43; Updating Scene BVH 0.25; Compositing 0.23; Updating Mesh 0.05; Updating Objects 0.05
+Saved frames/f_0290.png
+[ 203.3s] frame 290
+03:45.796  render           | Saved: 'frames/f_0545.png'
+PERF - f=545 total=21.19 gap=0.44 prep=0.00 | pre=0.46 sync=0.71 geom=0.08 bvh=0.31 light=3.75 trace=14.74 other=1.15
+Saved frames/f_0545.png
+[ 224.9s] frame 545
+04:13.419  render           | Saved: 'frames/f_0690.png'
+PERF - f=690 total=27.17 gap=0.45 prep=0.00 | pre=0.46 sync=0.71 geom=0.08 bvh=0.28 light=3.73 trace=20.81 other=1.11
+Saved frames/f_0690.png
+[ 252.5s] frame 690
+RENDER_DONE [52, 290, 545, 690]
