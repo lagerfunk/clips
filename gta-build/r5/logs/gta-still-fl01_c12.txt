@@ -1,0 +1,8 @@
+job gta-still-fl01 c12 stills 271 res 720 samples 16 args '': 1 png
+02:29.439  cycles           | WARNING CUEW initialization failed: Error opening the library
+02:48.698  render           | Saved: 'frames/f_0271.png'
+END CARD (8.32, 0.0, 2.64) w 0.62 h 0.78 d 4.29 dz 0.44
+PERF - f=271 total=18.79 prep=0.00 | pre=0.56 sync=0.68 geom=0.09 bvh=0.13 light=1.07 trace=15.45 save=0.21 other=0.60
+PERF_RAW Sample 15.45; Updating Lights 1.07; Synchronizing object 0.68; (blender pre) 0.56; Initializing 0.55; Finished 0.21; Updating Scene BVH 0.09; Updating Mesh 0.05; Updating Objects 0.04
+Saved frames/f_0271.png
+RENDER_DONE None
