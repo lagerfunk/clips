@@ -1,0 +1,24 @@
+{
+  "rev": 3,
+  "name": "trackb",
+  "jobs": [
+    {
+      "name": "b06-preview",
+      "scene": "b06_cyclists_priority.py",
+      "frames": "1-1059",
+      "chunks": 6,
+      "step": 2,
+      "res": 360,
+      "samples": 6
+    },
+    {
+      "name": "b07-preview",
+      "scene": "b07_motorway_breakdown.py",
+      "frames": "1-1104",
+      "chunks": 6,
+      "step": 2,
+      "res": 360,
+      "samples": 6
+    }
+  ]
+}
