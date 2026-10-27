@@ -1,11 +1,15 @@
-{"enabled": true, "rev": 4, "jobs": [
-  {"name": "dlal-07-onramp-merge", "scene": "ep07_onramp_merge.py", "frames": "1-987", "chunks": 21, "res": 720, "samples": 12},
-  {"name": "dlal-11-left-lane-passing", "scene": "ep11_left_lane_passing.py", "frames": "1-1035", "chunks": 22, "res": 720, "samples": 12},
-  {"name": "dlal-13-speed-trailer", "scene": "ep13_speed_trailer.py", "frames": "1-1077", "chunks": 23, "res": 720, "samples": 12},
-  {"name": "dlal-15-zipper-merge", "scene": "ep15_zipper_merge.py", "frames": "1-1056", "chunks": 22, "res": 720, "samples": 12},
-  {"name": "dlal-16-parking-direction", "scene": "ep16_parking_direction.py", "frames": "1-987", "chunks": 21, "res": 720, "samples": 12},
-  {"name": "dlal-20-phone-red-light", "scene": "ep20_phone_red_light.py", "frames": "1-1017", "chunks": 22, "res": 720, "samples": 12},
-  {"name": "dlal-21-exit-sequence", "scene": "ep21_exit_sequence.py", "frames": "1-1017", "chunks": 22, "res": 720, "samples": 12},
-  {"name": "dlal-24-red-x-gantry", "scene": "ep24_red_x_gantry.py", "frames": "1-1044", "chunks": 22, "res": 720, "samples": 12},
-  {"name": "dlal-26-parking-disc", "scene": "ep26_parking_disc.py", "frames": "1-1002", "chunks": 21, "res": 720, "samples": 12}
+{"enabled": true, "rev": 5, "jobs": [
+  {"name": "dlal-06-roundabout-quiz", "scene": "ep06_roundabout_quiz.py", "frames": "1-1044", "chunks": 18, "res": 720, "samples": 12},
+  {"name": "dlal-08-car-vs-bike", "scene": "ep08_car_vs_bike.py", "frames": "1-1041", "chunks": 18, "res": 720, "samples": 12},
+  {"name": "dlal-09-no-speed-limit", "scene": "ep09_no_speed_limit.py", "frames": "1-1047", "chunks": 18, "res": 720, "samples": 12},
+  {"name": "dlal-10-winter-tyres", "scene": "ep10_winter_tyres.py", "frames": "1-1050", "chunks": 18, "res": 720, "samples": 12},
+  {"name": "dlal-12-tram-vs-car", "scene": "ep12_tram_vs_car.py", "frames": "1-990", "chunks": 17, "res": 720, "samples": 12},
+  {"name": "dlal-14-stop-vs-giveway", "scene": "ep14_stop_vs_giveway.py", "frames": "1-1041", "chunks": 18, "res": 720, "samples": 12},
+  {"name": "dlal-18-bending-priority", "scene": "ep18_bending_priority.py", "frames": "1-1044", "chunks": 18, "res": 720, "samples": 12},
+  {"name": "dlal-22-zebra-crossing", "scene": "ep22_zebra_crossing.py", "frames": "1-1041", "chunks": 18, "res": 720, "samples": 12},
+  {"name": "dlal-23-roundabout-indicate", "scene": "ep23_roundabout_indicate.py", "frames": "1-1032", "chunks": 18, "res": 720, "samples": 12},
+  {"name": "dlal-25-green-arrow-cyclist", "scene": "ep25_green_arrow_cyclist.py", "frames": "1-1035", "chunks": 18, "res": 720, "samples": 12},
+  {"name": "dlal-27-t-junction-no-signs", "scene": "ep27_t_junction_no_signs.py", "frames": "1-1044", "chunks": 18, "res": 720, "samples": 12},
+  {"name": "dlal-28-two-lane-roundabout", "scene": "ep28_two_lane_roundabout.py", "frames": "1-1041", "chunks": 18, "res": 720, "samples": 12},
+  {"name": "dlal-29-roadworks-yellow-lines", "scene": "ep29_roadworks_yellow_lines.py", "frames": "1-1176", "chunks": 20, "res": 720, "samples": 12}
 ]}
