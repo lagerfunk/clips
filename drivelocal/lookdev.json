@@ -1,0 +1,37 @@
+{
+ "rev": 5,
+ "jobs": [
+  {
+   "name": "ep07-pov",
+   "scene": "ep07_onramp_merge.py",
+   "stills": "250,320",
+   "res": 720,
+   "samples": 16
+  },
+  {
+   "name": "ep21-pov",
+   "scene": "ep21_exit_sequence.py",
+   "stills": "335,375",
+   "res": 720,
+   "samples": 16
+  },
+  {
+   "name": "ep07-prev",
+   "scene": "ep07_onramp_merge.py",
+   "frames": "1-987",
+   "chunks": 6,
+   "step": 2,
+   "res": 360,
+   "samples": 6
+  },
+  {
+   "name": "ep21-prev",
+   "scene": "ep21_exit_sequence.py",
+   "frames": "1-1017",
+   "chunks": 6,
+   "step": 2,
+   "res": 360,
+   "samples": 6
+  }
+ ]
+}

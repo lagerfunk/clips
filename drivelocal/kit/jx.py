@@ -389,11 +389,10 @@ def render_frames(shots, out, todo):
     badges = badge_roots()
     for f in todo:
         sc.frame_set(f)
-        cam = shots.camera_at(f) or sc.camera
-        if sc.camera != cam:          # a camera assignment rebuilds the depsgraph relations (about 1.4 s a frame)
-            sc.camera = cam
-        if badges and sc.camera:      # keyed at f: the render's own depsgraph evaluates the keys, no 2nd frame_set
+        sc.camera = shots.camera_at(f) or sc.camera
+        if badges and sc.camera:
             face_camera(badges, sc.camera, f)
+            sc.frame_set(f)
         sc.render.filepath = os.path.join(out, f"f_{f:04d}.png")
         bpy.ops.render.render(write_still=True)
         print("Saved", sc.render.filepath, flush=True)

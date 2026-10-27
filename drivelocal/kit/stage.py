@@ -217,8 +217,6 @@ def render_setup(samples, res_x, res_y, motion_blur=True):
     except TypeError:
         pass
     r.image_settings.file_format = "PNG"
-    import perf      # render speed levers per profile (final, preview, still; --perf off for the old settings)
-    perf.apply(perf.auto(samples, res_x, res_y))
 
 
 def camera(name, lens):
