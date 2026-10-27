@@ -1,0 +1,12 @@
+job ep25-pov c3 stills 613,661 res 720 samples 16 args '': 2 png
+00:48.991  cycles           | WARNING CUEW initialization failed: Error opening the library
+01:03.742  render           | Saved: 'frames/f_0613.png'
+SIGN_SOURCES [('de-core', '720')]
+PERF - f=613 total=13.73 prep=0.00 | pre=1.00 sync=0.76 geom=0.04 bvh=0.09 light=0.25 trace=11.08 save=0.16 other=0.35
+PERF_RAW Sample 11.08; (blender pre) 1.00; Synchronizing object 0.76; Initializing 0.33; Updating Lights 0.25; Finished 0.16; Updating Scene BVH 0.06; Updating Images 0.02; Updating Mesh 0.02
+Saved frames/f_0613.png
+01:16.902  render           | Saved: 'frames/f_0661.png'
+PERF - f=661 total=13.09 gap=0.07 prep=0.00 | pre=0.13 sync=0.07 geom=0.01 bvh=0.08 light=0.03 trace=12.35 save=0.11 other=0.32
+PERF_RAW Sample 12.35; Initializing 0.31; (blender pre) 0.13; Finished 0.11; Synchronizing object 0.07; Updating Scene BVH 0.06; Updating Lights 0.03; Updating Geometry BVH Mesh 0.02; Updating Mesh 0.01
+Saved frames/f_0661.png
+RENDER_DONE None

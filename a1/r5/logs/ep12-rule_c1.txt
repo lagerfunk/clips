@@ -1,0 +1,18 @@
+job ep12-rule c1 stills 619,655,691,727 res 720 samples 16 args '': 4 png
+00:42.832  cycles           | WARNING CUEW initialization failed: Error opening the library
+00:57.862  render           | Saved: 'frames/f_0619.png'
+SIGN_SOURCES []
+PERF - f=619 total=14.43 prep=0.00 | pre=0.98 sync=0.62 geom=0.04 bvh=0.08 light=0.24 trace=12.03 save=0.15 other=0.29
+PERF_RAW Sample 12.03; (blender pre) 0.98; Synchronizing object 0.62; Initializing 0.27; Updating Lights 0.24; Finished 0.15; Updating Scene BVH 0.06; Updating Mesh 0.02; Updating Images 0.02
+Saved frames/f_0619.png
+01:09.574  render           | Saved: 'frames/f_0655.png'
+PERF - f=655 total=11.64 gap=0.07 prep=0.00 | pre=0.12 sync=0.05 geom=0.01 bvh=0.07 light=0.03 trace=11.01 save=0.10 other=0.25
+PERF_RAW Sample 11.01; Initializing 0.23; (blender pre) 0.12; Finished 0.10; Updating Scene BVH 0.05; Synchronizing object 0.05; Updating Lights 0.03; Updating Mesh 0.02; Updating Geometry BVH Mesh 0.02
+Saved frames/f_0655.png
+01:20.384  render           | Saved: 'frames/f_0691.png'
+PERF - f=691 total=10.74 gap=0.07 prep=0.00 | pre=0.12 sync=0.05 geom=0.01 bvh=0.07 light=0.03 trace=10.12 save=0.10 other=0.25
+Saved frames/f_0691.png
+01:31.083  render           | Saved: 'frames/f_0727.png'
+PERF - f=727 total=10.63 gap=0.07 prep=0.00 | pre=0.12 sync=0.05 geom=0.01 bvh=0.07 light=0.03 trace=10.00 save=0.10 other=0.25
+Saved frames/f_0727.png
+RENDER_DONE None
