@@ -1,0 +1,11 @@
+job b08-stills c3 stills 290,679 res 720 samples 16 args '': 2 png
+01:12.684  cycles           | WARNING CUEW initialization failed: Error opening the library
+01:45.493  render           | Saved: 'frames/f_0290.png'
+PERF - f=290 total=30.60 prep=0.00 | pre=2.16 sync=1.32 geom=0.09 bvh=0.08 light=0.42 trace=25.63 save=0.26 other=0.64
+PERF_RAW Sample 25.63; (blender pre) 2.16; Synchronizing object 1.32; Initializing 0.58; Updating Lights 0.42; Finished 0.26; Updating Scene BVH 0.06; Updating Mesh 0.05; Updating Images 0.04
+Saved frames/f_0290.png
+02:09.409  render           | Saved: 'frames/f_0679.png'
+PERF - f=679 total=23.66 gap=0.26 prep=0.00 | pre=0.21 sync=0.14 geom=0.03 bvh=0.06 light=0.03 trace=22.50 save=0.16 other=0.52
+PERF_RAW Sample 22.50; Initializing 0.48; (blender pre) 0.21; Finished 0.16; Synchronizing object 0.14; Updating Scene BVH 0.06; Updating Mesh 0.04; Updating Lights 0.03; Updating Objects 0.02
+Saved frames/f_0679.png
+RENDER_DONE None signs dict_keys([('de-core', '205'), ('de-core', '215'), ('de-core', '222'), ('es', 'r1-ceda'), ('es', 'r402-rotonda')])
