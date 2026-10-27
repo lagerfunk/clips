@@ -1,0 +1,24 @@
+job ep14-cost c1 stills 556,781,826,862,886,916 res 720 samples 16 args '': 6 png
+01:21.322  cycles           | WARNING CUEW initialization failed: Error opening the library
+01:56.203  render           | Saved: 'frames/f_0556.png'
+SIGN_SOURCES [('de-core', '205'), ('de-core', '206'), ('de-core', '306')]
+PERF - f=556 total=33.73 prep=0.00 | pre=1.34 sync=1.25 geom=0.06 bvh=0.16 light=0.44 trace=29.83 save=0.26 other=0.39
+PERF_RAW Sample 29.83; (blender pre) 1.34; Synchronizing object 1.25; Updating Lights 0.44; Initializing 0.36; Finished 0.26; Updating Scene BVH 0.10; Updating Images 0.05; Updating Mesh 0.03
+Saved frames/f_0556.png
+02:24.582  render           | Saved: 'frames/f_0781.png'
+PERF - f=781 total=28.29 gap=0.09 prep=0.00 | pre=0.14 sync=0.07 geom=0.01 bvh=0.13 light=0.05 trace=27.38 save=0.16 other=0.33
+PERF_RAW Sample 27.38; Initializing 0.31; Finished 0.16; (blender pre) 0.14; Updating Scene BVH 0.10; Synchronizing object 0.07; Updating Lights 0.05; Updating Geometry BVH Mesh 0.03; Updating Mesh 0.02
+Saved frames/f_0781.png
+02:52.630  render           | Saved: 'frames/f_0826.png'
+PERF - f=826 total=27.96 gap=0.09 prep=0.00 | pre=0.14 sync=0.08 geom=0.01 bvh=0.13 light=0.05 trace=27.05 save=0.16 other=0.33
+Saved frames/f_0826.png
+03:20.341  render           | Saved: 'frames/f_0862.png'
+PERF - f=862 total=27.62 gap=0.09 prep=0.00 | pre=0.14 sync=0.08 geom=0.01 bvh=0.13 light=0.05 trace=26.71 save=0.16 other=0.34
+Saved frames/f_0862.png
+03:49.642  render           | Saved: 'frames/f_0886.png'
+PERF - f=886 total=29.21 gap=0.09 prep=0.00 | pre=0.15 sync=0.08 geom=0.02 bvh=0.13 light=0.05 trace=28.30 save=0.16 other=0.34
+Saved frames/f_0886.png
+04:19.832  render           | Saved: 'frames/f_0916.png'
+PERF - f=916 total=30.10 gap=0.09 prep=0.00 | pre=0.14 sync=0.07 geom=0.01 bvh=0.13 light=0.05 trace=29.20 save=0.16 other=0.33
+Saved frames/f_0916.png
+RENDER_DONE None
