@@ -1,0 +1,8 @@
+{"rev": 2, "jobs": [
+  {"name": "p2-ep19-chase", "scene": "lookdev/ld_perf.py", "stills": "200", "res": 720, "samples": 12, "args": "--scene ep19_tailgating.py --span 2 --sweep final+vunb,final+vunb+seed,final,final+vs12,final+vs8"},
+  {"name": "p2-ep19-close", "scene": "lookdev/ld_perf.py", "stills": "307", "res": 720, "samples": 12, "args": "--scene ep19_tailgating.py --span 2 --sweep final+vunb,final+vunb+seed,final,final+vs12,final+vs8"},
+  {"name": "p2-ep19-top", "scene": "lookdev/ld_perf.py", "stills": "427", "res": 720, "samples": 12, "args": "--scene ep19_tailgating.py --span 2 --sweep final+vunb,final+vunb+seed,final,final+vs12,final+vs8"},
+  {"name": "p2-ep19-drone", "scene": "lookdev/ld_perf.py", "stills": "127", "res": 720, "samples": 12, "args": "--scene ep19_tailgating.py --span 2 --sweep final+vunb,final+vunb+seed,final,final+vs12,final+vs8"},
+  {"name": "p2-ab-rain", "scene": "lookdev/ld_perf.py", "stills": "30", "res": 720, "samples": 12, "args": "--scene lookdev/ld_weather.py --shot rain --preset rain --span 3 --sweep final,final+seed,final+vs12,final+vs8"},
+  {"name": "p2-town-rain", "scene": "lookdev/ld_perf.py", "stills": "30", "res": 720, "samples": 12, "args": "--scene lookdev/ld_weather.py --shot night --preset rain --span 3 --sweep final,final+seed,final+vs12,final+vs8"}
+]}

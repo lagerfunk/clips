@@ -39,6 +39,9 @@ from mathutils import Vector
 PRESETS = ("day", "dusk", "night", "rain", "fog", "snow", "ice")
 # render budget: falling rain streaks, snow flakes, spray volumes (nearest vehicles to the camera)
 BUDGET = {"rain": 30000, "snow": 20000, "spray_boxes": 2}
+# Ray marching for the spray mist. spray() sets it for every box (also when an episode calls spray() itself with
+# auto_spray=False); Cycles 5.0's unbiased default is 40-50x slower on these procedural volumes (reports/perf2.md).
+SPRAY_VOLUME = {"volume_biased": True, "volume_step_rate": 4.0, "volume_max_steps": 24}
 RAIN_COUNT = 18000
 SNOW_COUNT = 19000
 CONTRAST = 0.05            # meteorological visibility: distance where 5 % contrast is left, so haze D = V / 3.0
@@ -1428,7 +1431,16 @@ def spray(obj, frames=None, speed=None, strength=1.0, seed=0):
     for k in ("visible_shadow", "visible_diffuse", "visible_glossy", "visible_transmission"):
         setattr(o, k, False)
     o["wx_count"] = 0
+    _spray_volumes()
     return o
+
+
+def _spray_volumes():
+    """Biased ray marching for the spray boxes (apply("day") puts the scene's own values back)."""
+    c = bpy.context.scene.cycles
+    for k, v in SPRAY_VOLUME.items():
+        if getattr(c, k) != v:
+            setattr(c, k, v)
 
 
 # ------------------------------------------------------------------ state, restore
@@ -1655,9 +1667,7 @@ def apply(preset, strength=1.0, seed=0, auto_spray=True, **kw):
         sprays = sprays[:BUDGET["spray_boxes"]]
     if sprays:
         # biased ray-marched volumes: 50x cheaper than the unbiased default for this soft mist (measured 0.6 s vs 32 s)
-        sc.cycles.volume_biased = True
-        sc.cycles.volume_step_rate = 4.0
-        sc.cycles.volume_max_steps = 24
+        _spray_volumes()
     # ---- falling rain / snow
     pre = []
     if P["rain"] > 0:
