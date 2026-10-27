@@ -1,0 +1,3 @@
+{"rev": 4, "jobs": [
+  {"name": "trackc3-ddi-720", "scene": "lookdev/ld_trackc.py", "frames": "1-912", "chunks": 14, "res": 720, "samples": 16, "args": "--pilot 3 --layout ddi"}
+]}

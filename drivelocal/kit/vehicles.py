@@ -110,39 +110,11 @@ def mat(key, *a, **k):
     return _mats[key]
 
 
-# Lit lamp colours and levels. The scenes render through AgX (Punchy), which walks any light brighter than about
-# 1.0 (linear) towards white: the old brake level (0.8 + 5.2) came out pink, the old indicator (12) cream. So the lit
-# colours are fully saturated and the lit levels sit where AgX still shows them saturated, with a small brighter core
-# in the middle of each lens. Through AgX Punchy (display hue / saturation): LIT_RED at 0.5 to 1.2 is hue 0 to 5 deg,
-# saturation 0.90 to 1.0; LIT_AMBER at 0.5 to 1.0 is hue 35 to 37 deg, saturation 0.95 to 1.0.
-LIT_RED = (1.0, 0.0, 0.02)     # brake, tail, third brake light (a touch of blue: pure red drifts to orange in AgX)
-LIT_AMBER = (1.0, 0.33, 0.0)   # indicators
-TAIL_REST = 0.25    # car_tail's own glow (Principled Emission Strength; weather scales it for tail lights at dusk)
-BRAKE_GAIN = 0.85   # x instance property "brake" (0 or 1): the lit brake lens
-TAIL_GAIN = 0.3     # x instance property "tail" (motion.bake night flag)
-IND_ON_REF = 12.0   # motion.IND_ON, the value motion keys on ind_l / ind_r when an indicator is lit
-IND_LIT = 0.75      # emission of a lit indicator lens
-IND_OFF = (0.30, 0.10, 0.0)   # unlit indicator lens: a dark amber, so a lit lens (LIT_AMBER) reads clearly brighter in sun
-HEAD_GAIN = 6.0     # x "head": low beams (white, unchanged)
-# hot core: emission x (1 + k) inside r_in of the lens centre (object origin), back to x 1 at r_out (metres)
-BRAKE_CORE = (0.8, 0.012, 0.036)
-IND_CORE = (0.35, 0.01, 0.03)
-# a lit lens is lit from behind: its sunlit diffuse and its rest glow (car_tail's, which weather turns up for tail
-# lights at dusk and night) drop to (1 - LIT_DIM) while the main term is on, so the lamp's own light plus sun or tail
-# glow stays under the level where AgX bleaches it. Unlit lenses keep their colour exactly.
-LIT_DIM = 0.7
-
-
-def lamp(key, color, rough, emit, estr, terms, core=None, lit_ref=None):
+def lamp(key, color, rough, emit, estr, terms):
     """A lamp material: the usual Principled (its Emission Strength stays a plain value that scripts may set) plus an
     Emission of the same colour whose strength is the sum of per-instance custom properties read with an Attribute
-    node of type Instancer, each times a gain: terms = [("brake", 0.85), ("tail", 0.3)]. One material serves every
-    car; motion.bake keys the properties on each car instance. A car without them reads 0 and looks unchanged.
-    core = (k, r_in, r_out): the property terms are k times brighter at the lens centre (the part's object origin),
-    fading back to 1 x between r_in and r_out metres: a small hot core instead of a lens that blows out to white.
-    lit_ref: the first term's value when the lamp is fully lit (brake for car_tail, ind_l / ind_r for the indicators);
-    as that term reaches it, the base colour and the Principled emission colour (the rest glow) fade to (1 - LIT_DIM)
-    of themselves. Both stay as given while the lamp is off."""
+    node of type Instancer, each times a gain: terms = [("brake", 5.2), ("tail", 1.6)]. One material serves every
+    car; motion.bake keys the properties on each car instance. A car without them reads 0 and looks unchanged."""
     if key in _mats and _alive(_mats[key]):
         return _mats[key]
     m = W.principled(key, color, rough, emit=emit, estr=estr)
@@ -150,7 +122,6 @@ def lamp(key, color, rough, emit, estr, terms, core=None, lit_ref=None):
     out = nt.nodes["Material Output"]
     p = nt.nodes["Principled BSDF"]
     acc = None
-    first = None
     for attr, gain in terms:
         a = nt.nodes.new("ShaderNodeAttribute")
         a.attribute_type = "INSTANCER"
@@ -174,57 +145,13 @@ def lamp(key, color, rough, emit, estr, terms, core=None, lit_ref=None):
         nt.links.new(inv.outputs[0], mul2.inputs[1])
         mul = mul2
         if acc is None:
-            acc = first = mul
+            acc = mul
         else:
             add = nt.nodes.new("ShaderNodeMath")
             add.operation = "ADD"
             nt.links.new(acc.outputs[0], add.inputs[0])
             nt.links.new(mul.outputs[0], add.inputs[1])
             acc = add
-    if lit_ref:
-        lf = nt.nodes.new("ShaderNodeMath")              # 1 - LIT_DIM * min(1, first term / lit_ref)
-        lf.operation = "DIVIDE"
-        lf.use_clamp = True
-        nt.links.new(first.outputs[0], lf.inputs[0])
-        lf.inputs[1].default_value = lit_ref
-        fd = nt.nodes.new("ShaderNodeMath")
-        fd.operation = "MULTIPLY_ADD"
-        nt.links.new(lf.outputs[0], fd.inputs[0])
-        fd.inputs[1].default_value = -LIT_DIM
-        fd.inputs[2].default_value = 1.0
-        bc = nt.nodes.new("ShaderNodeVectorMath")
-        bc.operation = "SCALE"
-        bc.label = "dl_lit_dim"
-        bc.inputs[0].default_value = color
-        nt.links.new(fd.outputs[0], bc.inputs["Scale"])
-        nt.links.new(bc.outputs[0], p.inputs["Base Color"])
-        if estr:      # the rest glow (weather carries this link into its tail-light group and scales it)
-            ec = nt.nodes.new("ShaderNodeVectorMath")
-            ec.operation = "SCALE"
-            ec.label = "dl_lit_rest"
-            ec.inputs[0].default_value = emit
-            nt.links.new(fd.outputs[0], ec.inputs["Scale"])
-            nt.links.new(ec.outputs[0], p.inputs["Emission Color"])
-    if core:
-        k, r_in, r_out = core
-        tc = nt.nodes.new("ShaderNodeTexCoord")
-        ln = nt.nodes.new("ShaderNodeVectorMath")
-        ln.operation = "LENGTH"
-        nt.links.new(tc.outputs["Object"], ln.inputs[0])
-        mr = nt.nodes.new("ShaderNodeMapRange")
-        mr.interpolation_type = "SMOOTHSTEP"
-        mr.clamp = True
-        mr.inputs["From Min"].default_value = r_in
-        mr.inputs["From Max"].default_value = r_out
-        mr.inputs["To Min"].default_value = 1.0 + k
-        mr.inputs["To Max"].default_value = 1.0
-        nt.links.new(ln.outputs["Value"], mr.inputs["Value"])
-        hot = nt.nodes.new("ShaderNodeMath")
-        hot.operation = "MULTIPLY"
-        hot.label = "dl_core"
-        nt.links.new(acc.outputs[0], hot.inputs[0])
-        nt.links.new(mr.outputs["Result"], hot.inputs[1])
-        acc = hot
     em = nt.nodes.new("ShaderNodeEmission")
     em.inputs["Color"].default_value = (*emit, 1)
     nt.links.new(acc.outputs[0], em.inputs["Strength"])
@@ -237,11 +164,9 @@ def lamp(key, color, rough, emit, estr, terms, core=None, lit_ref=None):
 
 
 def lamp_mats():
-    """Amber indicator lenses, left and right (properties ind_l, ind_r: 0 or motion.IND_ON = 12, scaled so a lit lens
-    emits IND_LIT in LIT_AMBER, with a hot core)."""
-    g = IND_LIT / IND_ON_REF
-    return (lamp("dl_ind_L", IND_OFF, 0.15, LIT_AMBER, 0.0, [("ind_l", g)], core=IND_CORE, lit_ref=IND_LIT),
-            lamp("dl_ind_R", IND_OFF, 0.15, LIT_AMBER, 0.0, [("ind_r", g)], core=IND_CORE, lit_ref=IND_LIT))
+    """Amber indicator lenses, left and right (properties ind_l, ind_r carry the emission strength: 0 or 12)."""
+    return (lamp("dl_ind_L", (0.9, 0.35, 0.0), 0.15, (1.0, 0.45, 0.0), 0.0, [("ind_l", 1.0)]),
+            lamp("dl_ind_R", (0.9, 0.35, 0.0), 0.15, (1.0, 0.45, 0.0), 0.0, [("ind_r", 1.0)]))
 
 
 def common():
@@ -250,9 +175,8 @@ def common():
         tyre=mat("car_tyre", (0.025, 0.025, 0.025), 0.75),
         rim=mat("car_rim", (0.72, 0.73, 0.75), 0.28, metal=1.0),
         plastic=mat("car_plastic", (0.03, 0.03, 0.032), 0.55),
-        head=lamp("car_head", (0.9, 0.9, 0.88), 0.1, (1, 0.97, 0.9), 1.5, [("head", HEAD_GAIN)]),
-        tail=lamp("car_tail", (0.5, 0.01, 0.012), 0.15, LIT_RED, TAIL_REST,
-                  [("brake", BRAKE_GAIN), ("tail", TAIL_GAIN)], core=BRAKE_CORE, lit_ref=BRAKE_GAIN),
+        head=lamp("car_head", (0.9, 0.9, 0.88), 0.1, (1, 0.97, 0.9), 1.5, [("head", 6.0)]),
+        tail=lamp("car_tail", (0.5, 0.01, 0.01), 0.15, (1, 0.03, 0.02), 0.8, [("brake", 5.2), ("tail", 1.6)]),
 
         plate=mat("car_plate", (0.88, 0.88, 0.86), 0.35),
         euband=mat("car_euband", (0.0, 0.05, 0.35), 0.4),
