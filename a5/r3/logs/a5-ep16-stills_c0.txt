@@ -1,0 +1,10 @@
+job a5-ep16-stills c0 stills 240 res 720 samples 16 args '': 1 png
+00:38.536  cycles           | WARNING CUEW initialization failed: Error opening the library
+CORRECT manoeuvre frames 370 shown 195
+SIGN_SOURCES [('de-core', '220-20')]
+WEATHER 240 ('day', 1.0)
+01:09.934  render           | Saved: 'frames/f_0240.png'
+PERF - f=240 total=30.26 prep=0.00 | pre=1.29 sync=0.84 geom=0.05 bvh=0.11 light=0.44 trace=26.97 save=0.25 other=0.31
+PERF_RAW Sample 26.97; (blender pre) 1.29; Synchronizing object 0.84; Updating Lights 0.44; Initializing 0.28; Finished 0.25; Updating Scene BVH 0.07; Updating Images 0.03; Updating Mesh 0.03
+Saved frames/f_0240.png
+RENDER_DONE None

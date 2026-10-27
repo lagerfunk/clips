@@ -1,0 +1,29 @@
+job a5-ep26-stills c2 stills 50,210,457,560,620,900 res 720 samples 16 args '': 6 png
+01:22.398  cycles           | WARNING CUEW initialization failed: Error opening the library
+ADOPTED 89
+DISC_SOURCE model model
+DISC_AT (3.82, 34.326, 1.099) normal (-0.0, 0.557, 0.83) ws (3.5, 34.540000915527344, 1.1200000047683716)
+ON_BODY hero 1.34 0.3 hit (0.3, 1.34, 0.943)
+SIGN_SOURCES [('de-core', '1040-32'), ('de-core', '283'), ('de-core', '314')]
+WEATHER 50 ('day', 1.0)
+01:57.643  render           | Saved: 'frames/f_0050.png'
+PERF - f=50 total=34.14 prep=0.00 | pre=1.34 sync=0.79 geom=0.06 bvh=0.11 light=0.45 trace=30.81 save=0.25 other=0.34
+PERF_RAW Sample 30.81; (blender pre) 1.34; Synchronizing object 0.79; Updating Lights 0.45; Initializing 0.31; Finished 0.25; Updating Scene BVH 0.08; Updating Images 0.04; Updating Mesh 0.03
+Saved frames/f_0050.png
+02:35.430  render           | Saved: 'frames/f_0210.png'
+PERF - f=210 total=37.14 gap=0.65 prep=0.00 | pre=0.76 sync=0.35 geom=0.02 bvh=0.09 light=0.05 trace=35.35 save=0.17 other=0.36
+PERF_RAW Sample 35.35; (blender pre) 0.76; Synchronizing object 0.35; Initializing 0.34; Finished 0.17; Updating Scene BVH 0.07; Updating Lights 0.05; Updating Mesh 0.02; Updating Geometry BVH Mesh 0.02
+Saved frames/f_0210.png
+03:01.229  render           | Saved: 'frames/f_0457.png'
+PERF - f=457 total=25.07 gap=0.73 prep=0.00 | pre=0.86 sync=0.36 geom=0.02 bvh=0.09 light=0.05 trace=23.15 save=0.16 other=0.38
+Saved frames/f_0457.png
+03:35.553  render           | Saved: 'frames/f_0560.png'
+PERF - f=560 total=33.54 gap=0.78 prep=0.00 | pre=0.88 sync=0.36 geom=0.02 bvh=0.09 light=0.05 trace=31.60 save=0.16 other=0.38
+Saved frames/f_0560.png
+04:05.710  render           | Saved: 'frames/f_0620.png'
+PERF - f=620 total=29.40 gap=0.75 prep=0.00 | pre=0.80 sync=0.35 geom=0.02 bvh=0.09 light=0.05 trace=27.57 save=0.16 other=0.37
+Saved frames/f_0620.png
+04:40.987  render           | Saved: 'frames/f_0900.png'
+PERF - f=900 total=34.51 gap=0.77 prep=0.00 | pre=0.86 sync=0.35 geom=0.02 bvh=0.09 light=0.05 trace=32.61 save=0.17 other=0.37
+Saved frames/f_0900.png
+RENDER_DONE None
