@@ -1,0 +1,15 @@
+job trackc3-plain-stills c1 stills 150,680 res 720 samples 16 args '--pilot 3 --layout plain': 2 png
+/home/runner/work/clips/clips/drivelocal/lookdev/ld_trackc.py:7867: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  "291f222a3e5c815ebf7425a2e5f392156a6b9c183b49170fc988f8621f841bea054abe5bf6c73884f7be7c5f6e32af3ab1388ec611da5c4e"
+TC3_DRESS {'decid': 8519, 'conif': 3509, 'bush': 3349} farms 16
+01:59.700  cycles           | WARNING CUEW initialization failed: Error opening the library
+TC3_SCENE plain cars 70 models 25 dots 13 ribbons 2 frames 2
+02:20.259  render           | Saved: 'frames/f_0150.png'
+PERF - f=150 total=20.26 prep=0.00 | pre=0.24 sync=0.27 geom=0.06 bvh=0.38 light=1.32 trace=17.53 save=0.25 other=0.21
+PERF_RAW Sample 17.53; Updating Lights 1.32; Updating Scene BVH 0.29; Synchronizing object 0.27; Finished 0.25; (blender pre) 0.24; Initializing 0.18; Updating Images 0.04; Updating Geometry BVH door_gap.092 0.03
+Saved frames/f_0150.png
+02:40.002  render           | Saved: 'frames/f_0680.png'
+PERF - f=680 total=19.58 gap=0.16 prep=0.00 | pre=0.19 sync=0.18 geom=0.02 bvh=0.28 light=0.89 trace=17.65 save=0.16 other=0.21
+PERF_RAW Sample 17.65; Updating Lights 0.89; Updating Scene BVH 0.25; Initializing 0.19; (blender pre) 0.19; Synchronizing object 0.18; Finished 0.16; Updating Geometry BVH tc3dot2_rim 0.03; Updating Mesh 0.02
+Saved frames/f_0680.png
+RENDER_DONE None
