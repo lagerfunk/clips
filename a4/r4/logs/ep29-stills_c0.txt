@@ -1,0 +1,49 @@
+job ep29-stills c0 stills 100,163,784,812,816,820,862 res 720 samples 16 args '': 7 png
+vegetation 42907 29397 301 545
+[ 142.4s] world built
+[ 158.1s] sim 159 vehicles, 1721 steps
+dropped 11 vehicles in conflict with scripted ones
+[ 160.7s] sim 175 vehicles, 2520 steps
+dropped 7 vehicles in conflict with scripted ones
+[ 161.7s] sim 133 vehicles, 600 steps
+dropped 2 vehicles in conflict with scripted ones
+[ 162.7s] tracks 408
+[ 162.8s] tracks after cull 163
+AUDIT ok
+[ 164.5s] cast 163
+[ 164.5s] cameras
+ep29 flash at frame 820: hatchback -1.2 m from the trailer, 85 km/h
+/home/runner/work/clips/clips/drivelocal/ep29_roadworks_yellow_lines.py:379: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  fade.use_nodes = True
+02:45.524  cycles           | WARNING CUEW initialization failed: Error opening the library
+03:02.668  render           | Saved: 'frames/f_0100.png'
+PERF - f=100 total=16.43 prep=0.00 | pre=0.54 sync=0.63 geom=0.16 bvh=0.34 light=2.75 trace=11.02 save=0.01 other=1.00
+PERF_RAW Sample 11.02; Updating Lights 2.75; Initializing 0.74; Synchronizing object 0.63; (blender pre) 0.54; Updating Scene BVH 0.27; Compositing 0.22; Updating Images 0.10; Updating Objects 0.04
+Saved frames/f_0100.png
+[ 181.8s] frame 100
+03:16.953  render           | Saved: 'frames/f_0163.png'
+PERF - f=163 total=13.88 gap=0.41 prep=0.00 | pre=0.44 sync=0.54 geom=0.07 bvh=0.21 light=2.58 trace=9.11 other=0.93
+PERF_RAW Sample 9.11; Updating Lights 2.58; Initializing 0.70; Synchronizing object 0.54; (blender pre) 0.44; Updating Scene BVH 0.21; Compositing 0.18; Updating Mesh 0.04; Updating Objects 0.04
+Saved frames/f_0163.png
+[ 196.1s] frame 163
+03:32.250  render           | Saved: 'frames/f_0784.png'
+PERF - f=784 total=14.87 gap=0.43 prep=0.00 | pre=0.46 sync=0.55 geom=0.07 bvh=0.21 light=2.54 trace=10.09 other=0.94
+Saved frames/f_0784.png
+[ 211.4s] frame 784
+03:51.946  render           | Saved: 'frames/f_0812.png'
+PERF - f=812 total=19.25 gap=0.45 prep=0.00 | pre=0.45 sync=0.54 geom=0.07 bvh=0.23 light=2.53 trace=14.50 other=0.92
+Saved frames/f_0812.png
+[ 231.1s] frame 812
+04:11.915  render           | Saved: 'frames/f_0816.png'
+PERF - f=816 total=19.52 gap=0.44 prep=0.00 | pre=0.47 sync=0.56 geom=0.08 bvh=0.20 light=2.60 trace=14.66 other=0.95
+Saved frames/f_0816.png
+[ 251.1s] frame 816
+04:30.916  render           | Saved: 'frames/f_0820.png'
+PERF - f=820 total=18.53 gap=0.47 prep=0.00 | pre=0.47 sync=0.56 geom=0.07 bvh=0.21 light=2.43 trace=13.81 other=0.97
+Saved frames/f_0820.png
+[ 270.1s] frame 820
+04:49.842  render           | Saved: 'frames/f_0862.png'
+PERF - f=862 total=18.47 gap=0.46 prep=0.00 | pre=0.54 sync=0.54 geom=0.07 bvh=0.20 light=2.59 trace=13.57 other=0.95
+Saved frames/f_0862.png
+[ 289.0s] frame 862
+RENDER_DONE [100, 163, 784, 812, 816, 820, 862]
