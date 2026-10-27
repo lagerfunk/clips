@@ -1,0 +1,4 @@
+{"rev": 6, "jobs": [
+  {"name": "gta-still-fl04", "scene": "fl04_school_bus.py", "stills": "985", "res": 720, "samples": 16},
+  {"name": "gta-prev-fl04", "scene": "fl04_school_bus.py", "frames": "1-1035", "chunks": 6, "step": 2, "res": 360, "samples": 6}
+]}
