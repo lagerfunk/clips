@@ -1,0 +1,121 @@
+job b05-preview c6 stills 911,913,915,917,919,921,923,925,927,929,931,933,935,937,939, res 360 samples 6 args '': 90 png
+Saved frames/f_0971.png
+06:54.651  render           | Saved: 'frames/f_0973.png'
+Saved frames/f_0973.png
+06:59.540  render           | Saved: 'frames/f_0975.png'
+Saved frames/f_0975.png
+07:04.352  render           | Saved: 'frames/f_0977.png'
+Saved frames/f_0977.png
+07:09.193  render           | Saved: 'frames/f_0979.png'
+Saved frames/f_0979.png
+07:14.004  render           | Saved: 'frames/f_0981.png'
+Saved frames/f_0981.png
+07:18.896  render           | Saved: 'frames/f_0983.png'
+Saved frames/f_0983.png
+07:23.649  render           | Saved: 'frames/f_0985.png'
+Saved frames/f_0985.png
+07:28.395  render           | Saved: 'frames/f_0987.png'
+Saved frames/f_0987.png
+07:33.131  render           | Saved: 'frames/f_0989.png'
+Saved frames/f_0989.png
+07:37.917  render           | Saved: 'frames/f_0991.png'
+Saved frames/f_0991.png
+07:42.723  render           | Saved: 'frames/f_0993.png'
+Saved frames/f_0993.png
+07:47.529  render           | Saved: 'frames/f_0995.png'
+Saved frames/f_0995.png
+07:52.291  render           | Saved: 'frames/f_0997.png'
+Saved frames/f_0997.png
+07:57.036  render           | Saved: 'frames/f_0999.png'
+Saved frames/f_0999.png
+08:01.840  render           | Saved: 'frames/f_1001.png'
+Saved frames/f_1001.png
+08:06.755  render           | Saved: 'frames/f_1003.png'
+Saved frames/f_1003.png
+08:11.564  render           | Saved: 'frames/f_1005.png'
+Saved frames/f_1005.png
+08:16.374  render           | Saved: 'frames/f_1007.png'
+Saved frames/f_1007.png
+08:21.165  render           | Saved: 'frames/f_1009.png'
+Saved frames/f_1009.png
+08:26.038  render           | Saved: 'frames/f_1011.png'
+Saved frames/f_1011.png
+08:30.861  render           | Saved: 'frames/f_1013.png'
+Saved frames/f_1013.png
+08:35.625  render           | Saved: 'frames/f_1015.png'
+Saved frames/f_1015.png
+08:40.455  render           | Saved: 'frames/f_1017.png'
+Saved frames/f_1017.png
+08:45.307  render           | Saved: 'frames/f_1019.png'
+Saved frames/f_1019.png
+08:50.144  render           | Saved: 'frames/f_1021.png'
+Saved frames/f_1021.png
+08:55.012  render           | Saved: 'frames/f_1023.png'
+Saved frames/f_1023.png
+08:59.928  render           | Saved: 'frames/f_1025.png'
+Saved frames/f_1025.png
+09:04.800  render           | Saved: 'frames/f_1027.png'
+Saved frames/f_1027.png
+09:09.769  render           | Saved: 'frames/f_1029.png'
+Saved frames/f_1029.png
+09:14.569  render           | Saved: 'frames/f_1031.png'
+Saved frames/f_1031.png
+09:19.359  render           | Saved: 'frames/f_1033.png'
+Saved frames/f_1033.png
+09:24.159  render           | Saved: 'frames/f_1035.png'
+Saved frames/f_1035.png
+09:28.932  render           | Saved: 'frames/f_1037.png'
+Saved frames/f_1037.png
+09:33.751  render           | Saved: 'frames/f_1039.png'
+Saved frames/f_1039.png
+09:38.510  render           | Saved: 'frames/f_1041.png'
+Saved frames/f_1041.png
+09:43.380  render           | Saved: 'frames/f_1043.png'
+Saved frames/f_1043.png
+09:48.210  render           | Saved: 'frames/f_1045.png'
+Saved frames/f_1045.png
+09:52.968  render           | Saved: 'frames/f_1047.png'
+Saved frames/f_1047.png
+09:57.774  render           | Saved: 'frames/f_1049.png'
+Saved frames/f_1049.png
+10:02.591  render           | Saved: 'frames/f_1051.png'
+Saved frames/f_1051.png
+10:07.441  render           | Saved: 'frames/f_1053.png'
+Saved frames/f_1053.png
+10:12.361  render           | Saved: 'frames/f_1055.png'
+Saved frames/f_1055.png
+10:17.301  render           | Saved: 'frames/f_1057.png'
+Saved frames/f_1057.png
+10:22.232  render           | Saved: 'frames/f_1059.png'
+Saved frames/f_1059.png
+10:27.323  render           | Saved: 'frames/f_1061.png'
+Saved frames/f_1061.png
+10:32.477  render           | Saved: 'frames/f_1063.png'
+Saved frames/f_1063.png
+10:37.319  render           | Saved: 'frames/f_1065.png'
+Saved frames/f_1065.png
+10:42.116  render           | Saved: 'frames/f_1067.png'
+Saved frames/f_1067.png
+10:46.878  render           | Saved: 'frames/f_1069.png'
+Saved frames/f_1069.png
+10:51.630  render           | Saved: 'frames/f_1071.png'
+Saved frames/f_1071.png
+10:56.394  render           | Saved: 'frames/f_1073.png'
+Saved frames/f_1073.png
+11:01.199  render           | Saved: 'frames/f_1075.png'
+Saved frames/f_1075.png
+11:05.949  render           | Saved: 'frames/f_1077.png'
+Saved frames/f_1077.png
+11:10.855  render           | Saved: 'frames/f_1079.png'
+Saved frames/f_1079.png
+11:15.658  render           | Saved: 'frames/f_1081.png'
+Saved frames/f_1081.png
+11:20.429  render           | Saved: 'frames/f_1083.png'
+Saved frames/f_1083.png
+11:25.179  render           | Saved: 'frames/f_1085.png'
+Saved frames/f_1085.png
+11:29.986  render           | Saved: 'frames/f_1087.png'
+Saved frames/f_1087.png
+11:34.716  render           | Saved: 'frames/f_1089.png'
+Saved frames/f_1089.png
+RENDER_DONE None signs dict_keys([('de-core', '205'), ('de-core', '215'), ('de-core', '222'), ('de-core', '350-10'), ('uk', 'roundabout-ahead'), ('uk', 'give-way'), ('uk', 'keep-left')])
