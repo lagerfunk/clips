@@ -45,7 +45,7 @@ def cut(src, dst, segs, order, fps=30):
             subprocess.run(["ffmpeg", "-v", "error", "-y", "-ss", f"{fa / fps:.6f}", "-i", src, "-t", f"{d:.6f}",
                             "-frames:v", str(fb - fa),
                             "-af", f"afade=t=in:st=0:d=0.04,afade=t=out:st={max(0, d - 0.04):.4f}:d=0.04",
-                            "-c:v", "libx264", "-crf", "18", "-preset", "slow", "-pix_fmt", "yuv420p", "-r", str(fps),
+                            "-c:v", "libx264", "-crf", "18", "-preset", os.environ.get("DLAL_PRESET", "veryfast"), "-pix_fmt", "yuv420p", "-r", str(fps),
                             "-c:a", "pcm_s24le", "-ar", "48000", seg], check=True)
             lf.write(f"file '{seg}'\n")
     subprocess.run(["ffmpeg", "-v", "error", "-y", "-f", "concat", "-safe", "0", "-i", listing, "-c", "copy",

@@ -1,0 +1,4 @@
+{"rev": 2, "jobs": [
+  {"name": "ep05-rule", "scene": "ep05_gruenpfeil.py", "frames": "295-462", "chunks": 6, "res": 720, "samples": 16, "args": "--perf off"},
+  {"name": "ep05-cost", "scene": "ep05_gruenpfeil.py", "frames": "463-684", "chunks": 8, "res": 720, "samples": 16, "args": "--perf off"}
+]}
