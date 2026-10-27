@@ -1,0 +1,7 @@
+{
+ "rev": 6,
+ "jobs": [
+  {"name": "a2-ep28-look", "scene": "ep28_two_lane_roundabout.py", "stills": "529,536,556", "res": 720, "samples": 16},
+  {"name": "a2-ep28", "scene": "ep28_two_lane_roundabout.py", "frames": "1-1041", "chunks": 6, "res": 360, "samples": 6, "step": 2}
+ ]
+}
