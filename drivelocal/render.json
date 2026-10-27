@@ -1,15 +1,17 @@
-{"enabled": true, "rev": 5, "jobs": [
-  {"name": "dlal-06-roundabout-quiz", "scene": "ep06_roundabout_quiz.py", "frames": "1-1044", "chunks": 18, "res": 720, "samples": 12},
-  {"name": "dlal-08-car-vs-bike", "scene": "ep08_car_vs_bike.py", "frames": "1-1041", "chunks": 18, "res": 720, "samples": 12},
-  {"name": "dlal-09-no-speed-limit", "scene": "ep09_no_speed_limit.py", "frames": "1-1047", "chunks": 18, "res": 720, "samples": 12},
-  {"name": "dlal-10-winter-tyres", "scene": "ep10_winter_tyres.py", "frames": "1-1050", "chunks": 18, "res": 720, "samples": 12},
-  {"name": "dlal-12-tram-vs-car", "scene": "ep12_tram_vs_car.py", "frames": "1-990", "chunks": 17, "res": 720, "samples": 12},
-  {"name": "dlal-14-stop-vs-giveway", "scene": "ep14_stop_vs_giveway.py", "frames": "1-1041", "chunks": 18, "res": 720, "samples": 12},
-  {"name": "dlal-18-bending-priority", "scene": "ep18_bending_priority.py", "frames": "1-1044", "chunks": 18, "res": 720, "samples": 12},
-  {"name": "dlal-22-zebra-crossing", "scene": "ep22_zebra_crossing.py", "frames": "1-1041", "chunks": 18, "res": 720, "samples": 12},
-  {"name": "dlal-23-roundabout-indicate", "scene": "ep23_roundabout_indicate.py", "frames": "1-1032", "chunks": 18, "res": 720, "samples": 12},
-  {"name": "dlal-25-green-arrow-cyclist", "scene": "ep25_green_arrow_cyclist.py", "frames": "1-1035", "chunks": 18, "res": 720, "samples": 12},
-  {"name": "dlal-27-t-junction-no-signs", "scene": "ep27_t_junction_no_signs.py", "frames": "1-1044", "chunks": 18, "res": 720, "samples": 12},
-  {"name": "dlal-28-two-lane-roundabout", "scene": "ep28_two_lane_roundabout.py", "frames": "1-1041", "chunks": 18, "res": 720, "samples": 12},
-  {"name": "dlal-29-roadworks-yellow-lines", "scene": "ep29_roadworks_yellow_lines.py", "frames": "1-1176", "chunks": 20, "res": 720, "samples": 12}
+{"enabled": true, "rev": 6, "jobs": [
+  {"name": "dlal-17-out-of-fuel", "scene": "ep17_out_of_fuel.py", "frames": "1-1095", "chunks": 16, "res": 720, "samples": 12},
+  {"name": "dlal-19-tailgating", "scene": "ep19_tailgating.py", "frames": "1-1017", "chunks": 15, "res": 720, "samples": 12},
+  {"name": "trackb-b01-vignette-18-days", "scene": "b01_vignette_18_days.py", "frames": "1-1059", "chunks": 16, "res": 720, "samples": 12},
+  {"name": "trackb-b02-ztl-camera-gate", "scene": "b02_ztl_camera_gate.py", "frames": "1-1104", "chunks": 16, "res": 720, "samples": 12},
+  {"name": "trackb-b03-rain-speed-limits", "scene": "b03_rain_speed_limits.py", "frames": "1-1089", "chunks": 16, "res": 720, "samples": 12},
+  {"name": "trackb-b04-raser-law", "scene": "b04_raser_law.py", "frames": "1-1104", "chunks": 16, "res": 720, "samples": 12},
+  {"name": "trackb-b05-keep-left-roundabouts", "scene": "b05_keep_left_roundabouts.py", "frames": "1-1089", "chunks": 16, "res": 720, "samples": 12},
+  {"name": "trackb-b06-cyclists-priority", "scene": "b06_cyclists_priority.py", "frames": "1-1059", "chunks": 16, "res": 720, "samples": 12},
+  {"name": "trackb-b07-motorway-breakdown", "scene": "b07_motorway_breakdown.py", "frames": "1-1104", "chunks": 16, "res": 720, "samples": 12},
+  {"name": "trackb-b08-roundabout-outer-lane", "scene": "b08_roundabout_outer_lane.py", "frames": "1-1104", "chunks": 16, "res": 720, "samples": 12},
+  {"name": "gta-fl01-speed-bands", "scene": "fl01_speed_bands.py", "frames": "1-1032", "chunks": 15, "res": 720, "samples": 12},
+  {"name": "gta-fl02-red-light", "scene": "fl02_red_light.py", "frames": "1-1011", "chunks": 15, "res": 720, "samples": 12},
+  {"name": "gta-fl03-move-over", "scene": "fl03_move_over.py", "frames": "1-1011", "chunks": 15, "res": 720, "samples": 12},
+  {"name": "gta-fl04-school-bus", "scene": "fl04_school_bus.py", "frames": "1-1035", "chunks": 15, "res": 720, "samples": 12},
+  {"name": "gta-fl05-toll-unpaid", "scene": "fl05_toll_unpaid.py", "frames": "1-984", "chunks": 15, "res": 720, "samples": 12}
 ]}
