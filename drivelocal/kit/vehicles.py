@@ -7,6 +7,8 @@ import math
 import bmesh
 import bpy
 from mathutils import Matrix, Vector
+from mathutils.bvhtree import BVHTree
+from mathutils.interpolate import poly_3d_calc
 
 import world as W
 
@@ -31,9 +33,9 @@ KINDS = {
         S(1.90, 0.24, 0.50, 0.96, 0.97, 1.51, 0.73),
         S(2.50, 0.24, 0.50, 0.96, 0.97, 1.48, 0.72),
         S(3.18, 0.25, 0.50, 0.94, 0.96, 1.00, 0.82),
-        S(3.72, 0.26, 0.50, 0.86, 0.94, 0.90, 0.82),
-        S(4.13, 0.30, 0.50, 0.76, 0.90, 0.79, 0.74),
-        S(4.28, 0.36, 0.52, 0.66, 0.78, 0.70, 0.56)],
+        S(3.72, 0.26, 0.50, 0.88, 0.94, 0.94, 0.84),     # bonnet and an upright nose, not a wedge
+        S(4.13, 0.30, 0.50, 0.76, 0.86, 0.85, 0.78),
+        S(4.28, 0.36, 0.52, 0.70, 0.70, 0.80, 0.58)],
         spans="bfbgbgfbbb"),
     "estate": dict(L=4.77, W=0.92, r=0.33, axles=(1.06, 3.85), stations=[
         S(0.00, 0.44, 0.58, 0.84, 0.82, 1.00, 0.62),
@@ -46,9 +48,9 @@ KINDS = {
         S(2.32, 0.25, 0.50, 0.96, 0.97, 1.50, 0.73),
         S(2.95, 0.25, 0.50, 0.96, 0.97, 1.47, 0.72),
         S(3.62, 0.26, 0.50, 0.93, 0.96, 0.99, 0.82),
-        S(4.18, 0.27, 0.50, 0.85, 0.94, 0.89, 0.82),
-        S(4.62, 0.30, 0.50, 0.75, 0.90, 0.78, 0.74),
-        S(4.77, 0.36, 0.52, 0.65, 0.78, 0.69, 0.56)],
+        S(4.18, 0.27, 0.50, 0.87, 0.94, 0.93, 0.84),
+        S(4.62, 0.30, 0.50, 0.75, 0.86, 0.84, 0.78),
+        S(4.77, 0.36, 0.52, 0.69, 0.70, 0.79, 0.58)],
         spans="bfbgbgbgfbbb"),
     "saloon": dict(L=4.71, W=0.915, r=0.33, axles=(1.04, 3.89), stations=[
         S(0.00, 0.44, 0.58, 0.84, 0.82, 0.90, 0.64),
@@ -60,9 +62,9 @@ KINDS = {
         S(2.30, 0.25, 0.50, 0.96, 0.97, 1.45, 0.72),
         S(2.95, 0.25, 0.50, 0.96, 0.97, 1.42, 0.71),
         S(3.66, 0.26, 0.50, 0.92, 0.96, 0.98, 0.82),
-        S(4.20, 0.27, 0.50, 0.84, 0.94, 0.88, 0.82),
-        S(4.56, 0.30, 0.50, 0.74, 0.90, 0.77, 0.74),
-        S(4.71, 0.36, 0.52, 0.64, 0.78, 0.68, 0.56)],
+        S(4.20, 0.27, 0.50, 0.86, 0.94, 0.92, 0.84),
+        S(4.56, 0.30, 0.50, 0.74, 0.86, 0.83, 0.78),
+        S(4.71, 0.36, 0.52, 0.68, 0.70, 0.78, 0.58)],
         spans="bbfbgbgfbbb"),
     "suv": dict(L=4.60, W=0.93, r=0.36, axles=(0.95, 3.70), stations=[
         S(0.00, 0.50, 0.66, 1.02, 0.84, 1.16, 0.66),
@@ -258,10 +260,13 @@ def rim(root, g, x, y, z, R, sx, style="alloy", name="rim"):
 
 
 CREASE_LONG = {1: 0.7, 8: 0.7, 2: 0.55, 7: 0.55, 3: 0.75, 6: 0.75, 4: 0.6, 5: 0.6}
+C_PILLAR_CREASE = 0.0
+CAP_INSET = 0.05      # flat front and rear faces of the cars out to this far from their corners (m)
 
 
 def body_mesh(kind, body_mat, glass_mat, trim_mat, band=None):
     """Material slots: 0 paint, 1 glass, 2 dark lower trim, 3 police band."""
+    kind_in = kind
     k = KINDS[kind] if isinstance(kind, str) else kind
     kind = kind if isinstance(kind, str) else k.get("name", "shell")
     Wh = k["W"]
@@ -294,20 +299,47 @@ def body_mesh(kind, body_mat, glass_mat, trim_mat, band=None):
             f.material_index = idx
             if idx == 1:
                 glass_edges.update(((i, j), (i + 1, j)))
-    # end caps as a strip of quads across the car: bumper (trim), lower panel, upper panel, top
+    # end caps as a strip of quads across the car: bumper (trim), lower panel, upper panel, top. Cars get two extra
+    # columns `cap` metres in from each side, so the front and rear faces stay flat out to near their corners (the
+    # lamp units sit on them as flat plates) and the corners round off within that margin
+    cap = k.get("cap", CAP_INSET) if isinstance(kind_in, str) else k.get("cap", 0.0)
+    cap_crease = {}
     for ring_, flip, glass in ((rings[0], True, k.get("rear_glass")), (rings[-1], False, k.get("front_glass"))):
+        inner = {}
+        if cap:
+            for lv in range(5):
+                a, b = ring_[lv].co, ring_[9 - lv].co
+                t = min(0.3, cap / max(1e-6, (b - a).length))
+                inner[lv] = (bm.verts.new(a.lerp(b, t)), bm.verts.new(a.lerp(b, 1 - t)))
         for (a1, a2, b2, b1), idx in (((0, 1, 8, 9), 2), ((1, 2, 7, 8), 0), ((2, 3, 6, 7), 1 if glass else 0),
                                       ((3, 4, 5, 6), 0)):
-            q = [ring_[a1], ring_[a2], ring_[b2], ring_[b1]]
-            f = bm.faces.new(list(reversed(q)) if flip else q)
-            f.material_index = idx
+            if cap:
+                (l1, r1), (l2, r2) = inner[a1], inner[a2]
+                qs = [[ring_[a1], ring_[a2], l2, l1], [l1, l2, r2, r1], [r1, r2, ring_[b2], ring_[b1]]]
+                if a1 == 1:                      # the bumper's top line, across the whole cap
+                    for e_ in ((ring_[1], l1), (l1, r1), (r1, ring_[8])):
+                        cap_crease[frozenset(e_)] = 0.9
+            else:
+                qs = [[ring_[a1], ring_[a2], ring_[b2], ring_[b1]]]
+            for q in qs:
+                f = bm.faces.new(list(reversed(q)) if flip else q)
+                f.material_index = idx
     bm.edges.ensure_lookup_table()
+    pos = {v: (ii, jj) for ii, r in enumerate(rings) for jj, v in enumerate(r)}
+    # a short, steep tailgate span (hatch, estate, SUV): the roof-edge creases stop at the top of the C-pillar instead
+    # of bending down it (a creased edge turning through 70 degrees pinches the surface at the rear roof corner)
+    soft = {i for i, t in enumerate(spans) if t == "f" and i < len(spans) // 2
+            and abs(st[i + 1][7] - st[i][7]) > 0.25 and st[i + 1][0] - st[i][0] < 0.3}
     for e in bm.edges:
         a_, b_ = e.verts
-        ia = next((ii, jj) for ii, r in enumerate(rings) for jj, v in enumerate(r) if v is a_)
-        ib = next((ii, jj) for ii, r in enumerate(rings) for jj, v in enumerate(r) if v is b_)
+        ia, ib = pos.get(a_), pos.get(b_)
+        if ia is None or ib is None:
+            e[cl] = cap_crease.get(frozenset((a_, b_)), 0.0)
+            continue
         if ia[1] == ib[1] and abs(ia[0] - ib[0]) == 1:          # along the car
             e[cl] = min(1.0, CREASE_LONG.get(ia[1], 0.0) * k.get("crease", 1.0))
+            if min(ia[0], ib[0]) in soft and ia[1] in (3, 4, 5, 6):
+                e[cl] = C_PILLAR_CREASE
         elif ia[0] == ib[0]:                                     # around a station, or across an end cap
             lo = min(ia, ib, key=lambda q: q[1])
             if (lo[0], lo[1]) in glass_edges and abs(ia[1] - ib[1]) == 1:
@@ -359,6 +391,206 @@ def stick(root_coll, parent, body, origin, direction, size, m, up=(0, 0, 1), emb
     o.parent = parent
     o.matrix_parent_inverse = parent.matrix_world.inverted()
     return o
+
+
+# ------------------------------------------------------------------ parts moulded onto the body (lamps, trim)
+_TREES = {}
+
+
+def _tree(body):
+    """BVH of the body mesh in its own coordinates (cached per mesh; car() drops it when the car is done)."""
+    key = body.data.as_pointer()
+    if key not in _TREES:
+        me = body.data
+        _TREES[key] = BVHTree.FromPolygons([v.co.copy() for v in me.vertices], [tuple(p.vertices) for p in me.polygons])
+    return _TREES[key]
+
+
+def rrect(w, h, r, n=7):
+    """Rounded rectangle outline w x h (corner radius r), counter-clockwise, centred on 0."""
+    r = max(0.002, min(r, w / 2 - 1e-4, h / 2 - 1e-4))
+    pts = []
+    for cx, cy, a0 in ((w / 2 - r, h / 2 - r, 0), (-w / 2 + r, h / 2 - r, 90), (-w / 2 + r, -h / 2 + r, 180),
+                       (w / 2 - r, -h / 2 + r, 270)):
+        for i in range(n):
+            a = math.radians(a0 + 90.0 * i / (n - 1))
+            pts.append((cx + r * math.cos(a), cy + r * math.sin(a)))
+    return pts
+
+
+def rpoly(pts, r, n=6):
+    """Counter-clockwise polygon with every corner rounded (radius about r)."""
+    out = []
+    m = len(pts)
+    for i in range(m):
+        p0, p1, p2 = Vector(pts[i - 1]), Vector(pts[i]), Vector(pts[(i + 1) % m])
+        d0, d1 = p0 - p1, p2 - p1
+        rr = min(r, d0.length * 0.45, d1.length * 0.45)
+        a, b = p1 + d0.normalized() * rr, p1 + d1.normalized() * rr
+        for k in range(n):
+            t = k / (n - 1)
+            q = a * (1 - t) ** 2 + p1 * (2 * t * (1 - t)) + b * (t * t)
+            out.append((q.x, q.y))
+    return out
+
+
+def conform(root_coll, parent, body, origin, direction, size, m, offset=0.002, skirt=0.0025, corner=0.3, shape=None,
+            side=0, name="lamp", rings=3, shift=(0.0, 0.0)):
+    """A lens or trim panel moulded onto the body, so it sits flush instead of standing off it as a box: ray cast from
+    origin along direction (as stick), then an outline in the tangent plane at the hit (a rounded rectangle
+    size[0] x size[1], or shape = counter-clockwise (u, v) points in metres) filled with rings, every point snapped to
+    the nearest body surface and lifted by `offset` along its normal, with a skirt that dips `skirt` under the surface
+    so no gap shows at grazing angles. u is horizontal (outwards when side = -1/+1 on a front or rear face, forwards
+    on a side face), v points up the surface. The object origin is the lens centre (headlight spot lamps and
+    weather read it). Returns the object or None."""
+    bmw = _mw(body)
+    inv = bmw.inverted()
+    hit, loc, nrm, _i = body.ray_cast(inv @ Vector(origin), (inv.to_3x3() @ Vector(direction)).normalized(),
+                                      distance=5.0)
+    if not hit:
+        return None
+    tree = _tree(body)
+    n0 = nrm.normalized()
+    u = Vector((0, 0, 1)).cross(n0)
+    if u.length < 0.2:
+        u = Vector((1, 0, 0)) if abs(n0.x) < 0.9 else Vector((0, 1, 0))
+    u.normalize()
+    if side and abs(u.x) > 0.5 and u.x * side < 0:
+        u = -u
+    if side and abs(u.x) <= 0.5 and u.y < 0:
+        u = -u
+    v = n0.cross(u).normalized()
+    loc = loc + u * shift[0] + v * shift[1]
+    P = [Vector(p) for p in (shape or rrect(size[0], size[1], corner * min(size[0], size[1])))]
+    c2 = sum(P, Vector((0.0, 0.0))) / len(P)
+
+    def snap(p2):
+        # project along the lamp axis from well outside the body (a decal: the outline keeps its shape as seen
+        # head-on); where the surface turns away, the nearest surface point from outside (wraps, never folds)
+        p = loc + u * p2.x + v * p2.y + n0 * 0.3
+        q, fn, _fi, _d = tree.ray_cast(p, -n0, 0.6)
+        if q is None or fn.dot(n0) < 0.35:
+            q, fn, _fi, _d = tree.find_nearest(p)
+        if q is None:
+            return p - n0 * 0.3, n0
+        return q, (fn if fn.dot(n0) > -0.2 else n0)
+
+    q0, f0 = snap(c2)
+    cen = q0 + f0 * offset
+    bm = bmesh.new()
+    top = []
+    for k in range(rings):
+        s = (rings - k) / rings
+        ring = []
+        for p in P:
+            q, fn = snap(c2 + (p - c2) * s)
+            ring.append(bm.verts.new(q + fn * offset - cen))
+        top.append(ring)
+    cv = bm.verts.new((0.0, 0.0, 0.0))
+    N = len(P)
+    for k in range(rings - 1):
+        for i in range(N):
+            i2 = (i + 1) % N
+            bm.faces.new((top[k][i], top[k][i2], top[k + 1][i2], top[k + 1][i])).smooth = True
+    for i in range(N):
+        bm.faces.new((top[-1][i], top[-1][(i + 1) % N], cv)).smooth = True
+    sk = []
+    for p in P:
+        q, fn = snap(p)
+        sk.append(bm.verts.new(q - fn * skirt - cen))
+    for i in range(N):
+        i2 = (i + 1) % N
+        bm.faces.new((sk[i], sk[i2], top[0][i2], top[0][i])).smooth = False
+    for i in range(N):                    # the lens edge is sharp: the skirt does not bend the lens shading
+        e = bm.edges.get((top[0][i], top[0][(i + 1) % N]))
+        if e:
+            e.smooth = False
+    bm.normal_update()
+    if sum((f.normal.dot(n0) for f in bm.faces), 0.0) < 0:
+        bmesh.ops.reverse_faces(bm, faces=bm.faces)
+    me = bpy.data.meshes.new(name)
+    bm.to_mesh(me)
+    bm.free()
+    me.materials.append(m)
+    o = bpy.data.objects.new(name, me)
+    root_coll.objects.link(o)
+    o.parent = parent
+    o.matrix_basis = _mw(parent).inverted() @ bmw @ Matrix.Translation(cen)
+    return o
+
+
+def _mw(o):
+    """World matrix from the parent chain (valid before a depsgraph update and outside the view layer)."""
+    return (_mw(o.parent) @ o.matrix_parent_inverse if o.parent else Matrix.Identity(4)) @ o.matrix_basis
+
+
+def seam(root_coll, parent, body, rays, m, width=0.005, offset=0.0015, name="seam"):
+    """A shut line (or any thin line) drawn on the body through the hits of `rays` [(origin, direction)], each point
+    snapped to the surface: bumper line, door gaps. Rays that miss are skipped."""
+    inv = _mw(body).inverted()
+    pts = []
+    for o_, d_ in rays:
+        hit, loc, nrm, _i = body.ray_cast(inv @ Vector(o_), (inv.to_3x3() @ Vector(d_)).normalized(), distance=5.0)
+        if hit:
+            pts.append((loc, nrm.normalized()))
+    if len(pts) < 2:
+        return None
+    bm = bmesh.new()
+    prev = None
+    for i, (q, n) in enumerate(pts):
+        t = (pts[min(i + 1, len(pts) - 1)][0] - pts[max(i - 1, 0)][0]).normalized()
+        b = n.cross(t).normalized() * (width / 2)
+        cur = (bm.verts.new(q + n * offset - b), bm.verts.new(q + n * offset + b))
+        if prev:
+            bm.faces.new((prev[0], cur[0], cur[1], prev[1]))
+        prev = cur
+    me = bpy.data.meshes.new(name)
+    bm.to_mesh(me)
+    bm.free()
+    me.materials.append(m)
+    o = bpy.data.objects.new(name, me)
+    root_coll.objects.link(o)
+    o.parent = parent
+    o.matrix_basis = _mw(parent).inverted() @ _mw(body)
+    return o
+
+
+def smooth_normals(body, cage_me, levels=3):
+    """Custom split normals for a baked subdivision body from the same cage subdivided one level finer (without the
+    wheel-arch booleans): the long, uneven faces of the level-2 body and the boolean's triangle fans no longer show as
+    waves and dents in the reflections. Faces of the arch cut keep their own flat normals."""
+    ref = bpy.data.objects.new("_ref_normals", cage_me)
+    bpy.context.scene.collection.objects.link(ref)
+    sub = ref.modifiers.new("sub", "SUBSURF")
+    sub.levels = sub.render_levels = levels
+    ev = ref.evaluated_get(bpy.context.evaluated_depsgraph_get())
+    rm = ev.to_mesh()
+    rv = [v.co.copy() for v in rm.vertices]
+    rn = [v.normal.copy() for v in rm.vertices]
+    rp = [tuple(p.vertices) for p in rm.polygons]
+    ev.to_mesh_clear()
+    bpy.data.objects.remove(ref)
+    tree = BVHTree.FromPolygons(rv, rp)
+    me = body.data
+    arch = {i for i, m_ in enumerate(me.materials) if m_ and m_.name.startswith("car_arch")}
+    vn = []
+    for v in me.vertices:
+        q, _fn, fi, d = tree.find_nearest(v.co)
+        if q is None or d > 0.03:
+            vn.append(None)
+            continue
+        ids = rp[fi]
+        w = poly_3d_calc([rv[j] for j in ids], q)
+        n = sum((rn[j] * w_ for j, w_ in zip(ids, w)), Vector()).normalized()
+        vn.append(n)
+    out = [None] * len(me.loops)
+    for p in me.polygons:
+        for li in p.loop_indices:
+            n = vn[me.loops[li].vertex_index]
+            out[li] = tuple(p.normal) if (p.material_index in arch or n is None) else tuple(n)
+    me.normals_split_custom_set(out)
+    bpy.data.meshes.remove(cage_me)
+    return body
 
 
 # District codes that are not assigned anywhere in Germany (ADAC list of all Unterscheidungszeichen, read
@@ -433,6 +665,7 @@ def car(kind, color, name, plate_txt="F LK 202", metal=0.45, police=False, c=Non
         body_m = paint(name, color, metal)
         band = None
     me = body_mesh(kind, body_m, C["glass"], C["plastic"], band)
+    cage = me.copy()
     body = bpy.data.objects.new(name + "_body", me)
     root.objects.link(body)
     sub = body.modifiers.new("sub", "SUBSURF")
@@ -454,6 +687,7 @@ def car(kind, color, name, plate_txt="F LK 202", metal=0.45, police=False, c=Non
         bpy.data.objects.remove(cu)
     for p in body.data.polygons:
         p.use_smooth = True
+    smooth_normals(body, cage)
     body.parent = g
     zbelt = k["stations"][len(k["stations"]) // 2][3]
     # wheels
@@ -472,40 +706,59 @@ def car(kind, color, name, plate_txt="F LK 202", metal=0.45, police=False, c=Non
     # lights, grille, plates, mirrors (ray cast onto the baked body)
     front_z = k["stations"][-2][3] - 0.08
     rear_z = k["stations"][1][3] - 0.02
+    # lamp units are flat plates on the flat front and rear faces (lamp_units); grille and trim are moulded (conform)
+    seam_m = mat("car_seam", (0.006, 0.006, 0.007), 0.6)
+    chrome = mat("car_chrome", (0.8, 0.8, 0.82), 0.15, metal=1.0)
+    lamp_units(root, g, body, k, C)
     for sx in (-1, 1):
-        stick(root, g, body, (sx * Wh * 0.62, L + 1.0, front_z), (0, -1, 0), (0.36, 0.04, 0.11), C["head"],
-              name="headlight", embed=0.028, bevel=0.012)
-        stick(root, g, body, (sx * Wh * 0.72, -1.0, rear_z), (0, 1, 0), (0.34, 0.04, 0.1), C["tail"],
-              name="taillight", embed=0.028, bevel=0.012)
-        stick(root, g, body, (sx * (Wh + 1.0), 0.16, rear_z), (-sx, 0, 0), (0.2, 0.04, 0.09), C["tail"],
-              name="taillight_side", embed=0.028, bevel=0.012)
         mz = zbelt + 0.12
         cab = [i for i, s in enumerate(k["stations"]) if s[7] - s[3] > 0.25]
         my = k["stations"][cab[-1] + 1][0] - 0.3
         stick(root, g, body, (sx * (Wh + 1.0), my, mz), (-sx, 0, 0), (0.1, 0.17, 0.12), body_m, name="mirror",
               bevel=0.03, embed=0.02)
-    stick(root, g, body, (0, L + 1.0, front_z - 0.17), (0, -1, 0), (Wh * 0.85, 0.05, 0.16), C["plastic"],
-          name="grille")
+    # front of an ordinary small car: slim upper grille between the headlights, a wider lower intake in the bumper,
+    # the bumper line running from wheel arch to wheel arch under the headlights (no badge anywhere)
+    conform(root, g, body, (0, L + 1.0, front_z - 0.03), (0, -1, 0), None, C["plastic"], 0.0015, name="grille",
+            shape=rpoly([(-0.3, -0.045), (0.3, -0.045), (0.34, 0.035), (-0.34, 0.035)], 0.03))
+    conform(root, g, body, (0, L + 1.0, front_z - 0.25), (0, -1, 0), None, C["plastic"], 0.0015, name="intake",
+            shape=rpoly([(-0.44, -0.06), (0.44, -0.06), (0.37, 0.06), (-0.37, 0.06)], 0.04))
+    yb = k["axles"][1] + r + 0.12
+    zb_ = front_z - 0.115
+    ang = [math.radians(a_ * 0.5) for a_ in range(-180, 181, 3)]
+    seam(root, g, body, [((0, yb, zb_), (math.sin(a_), math.cos(a_), 0)) for a_ in ang], seam_m, name="bumper_line")
     plate_text(root, g, body, (0, L + 1.0, front_z - 0.32), (0, -1, 0), plate_txt, C, "plate_f")
     plate_text(root, g, body, (0, -1.0, rear_z - 0.22), (0, 1, 0), plate_txt, C, "plate_r")
-    # small details that sell it up close: badge, third brake light, rear wiper, reflectors, exhausts, roof rails
-    chrome = mat("car_chrome", (0.8, 0.8, 0.82), 0.15, metal=1.0)
-    if not police:
-        stick(root, g, body, (0, -1.0, rear_z - 0.06), (0, 1, 0), (0.12, 0.02, 0.06), chrome, name="badge",
-              bevel=0.008, embed=0.006)
+    # door gaps and handles (cars with side glass in two spans: four doors), tailgate shut line
+    gl = [(k["stations"][i][0], k["stations"][i + 1][0]) for i, t_ in enumerate(k["spans"]) if t_ == "g"]
+    zs_ = k["stations"][len(k["stations"]) // 2][2]
+    if len(gl) >= 2 and kind != "van":
+        y_a = min(gl[-1][1] + 0.45, k["axles"][1] - r - 0.1)
+        y_b = (gl[-2][1] + gl[-1][0]) / 2
+        y_c = max(gl[-2][0] + 0.2, k["axles"][0] + r + 0.12)
+        for sx in (-1, 1):
+            for y_ in (y_a, y_b, y_c):
+                zz = [zs_ - 0.06 + (zbelt - zs_ + 0.04) * i_ / 7 for i_ in range(8)]
+                seam(root, g, body, [((sx * (Wh + 1.0), y_, z_), (-sx, 0, 0)) for z_ in zz], seam_m,
+                     name="door_gap")
+            for y_ in (y_b, y_c):
+                conform(root, g, body, (sx * (Wh + 1.0), y_ + 0.16, zbelt - 0.08), (-sx, 0, 0), (0.13, 0.028),
+                        C["plastic"], 0.002, corner=0.5, side=sx, name="handle", rings=2)
+    # third brake light, rear wiper, reflectors, exhausts
     rg = [s_ for s_ in k["stations"][:4] if s_[7] - s_[3] > 0.25]
     if rg and kind != "saloon":
         zt = rg[0][7] - 0.06
-        b3 = stick(root, g, body, (0, -1.0, zt), (0, 1, 0), (0.3, 0.02, 0.035), C["tail"], name="brake3",
-                   bevel=0.006, embed=0.004)
+        fr = face_frame(body, (0, -1.0, zt), (0, 1, 0), 0.3, 0.03)       # a flat strip on the top of the glass
+        b3 = fr and plate(root, g, body, fr, [rrect(0.3, 0.03, 0.012)], C["tail"], -0.0015, LIFT_LENS, 0.0008,
+                          name="brake3", bend=True)
         if b3:
             b3["dl_no_tail"] = 1.0
         stick(root, g, body, (0.12, -1.0, zt - 0.32), (0, 1, 0), (0.42, 0.015, 0.02), C["plastic"], name="wiper",
               bevel=0.0, embed=0.002)
     for sx in (-1, 1):
-        rf = stick(root, g, body, (sx * Wh * 0.72, -1.0, k["stations"][0][2] - 0.05), (0, 1, 0),
-                   (0.16, 0.012, 0.04), C["tail"], name="reflector", bevel=0.0, embed=0.003)
-        if rf:
+        # rear reflectors: small flat plates on the bumper's rear face, well inside its corners
+        fr = face_frame(body, (sx * Wh * 0.5, -1.0, k["stations"][0][2] - 0.045), (0, 1, 0), 0.11, 0.026, sx)
+        if fr:
+            rf = plate(root, g, body, fr, [rrect(0.11, 0.026, 0.011)], C["tail"], _skirt(fr), LIFT_LENS, name="reflector")
             rf["dl_no_tail"] = rf["dl_no_brake"] = 1.0
     if kind != "van":
         bpy.ops.mesh.primitive_cylinder_add(vertices=16, radius=0.04, depth=0.2, location=(-Wh * 0.55, 0.13, 0.27),
@@ -534,7 +787,266 @@ def car(kind, color, name, plate_txt="F LK 202", metal=0.45, police=False, c=Non
         if o.parent is g:
             o.location.y -= L / 2
     lamp_spots(root, body, kind)
+    indicator_lenses(root, g, body)
+    _TREES.clear()
     return root
+
+
+def indicator_lenses(root, g, body):
+    """Tag the amber indicator sections of the lamp units (lamp_units: front in the headlight unit, rear in the rear
+    cluster, side repeater on the front wing) with their dl_lamps record index (object property dl_lamp). They are
+    objects "indicator" with material dl_ind_L / dl_ind_R, unlit on a parked car (the instance has no ind_l / ind_r);
+    motion.rig moves them into the per-vehicle lamp instances that blink."""
+    for o in root.objects:
+        if "dl_spot" in o:
+            o["dl_lamp"] = int(o["dl_spot"])
+
+
+# ------------------------------------------------------------------ lamp units: flat plates on the flat faces
+DEBUG = bool(__import__("os").environ.get("DL_LAMP_DEBUG"))
+LIFT_HOUSING = 0.0010      # housing top above the face plane (m); the plane already clears every body point under it
+LIFT_LENS = 0.0014         # lens sections
+LIFT_INNER = 0.0018        # the white inner shape of the headlight, over the clear lens
+
+
+def _tangent(n, side=0):
+    """Horizontal u (outwards for side -1/+1 on a front or rear face, forwards on a side face) and v up the face."""
+    u = Vector((0, 0, 1)).cross(n)
+    if u.length < 0.2:
+        u = Vector((1, 0, 0)) if abs(n.x) < 0.9 else Vector((0, 1, 0))
+    u.normalize()
+    if side and abs(u.x) > 0.5 and u.x * side < 0:
+        u = -u
+    if side and abs(u.x) <= 0.5 and u.y < 0:
+        u = -u
+    return u, n.cross(u).normalized()
+
+
+def _inside(P, p):
+    return all((b[0] - a[0]) * (p[1] - a[1]) - (b[1] - a[1]) * (p[0] - a[0]) >= -1e-9 for a, b in zip(P, P[1:] + P[:1]))
+
+
+def face_frame(body, origin, direction, w, h, side=0, grid=(13, 7), outline=None):
+    """Local plane of the flat body face under a w x h rectangle: ray cast from origin along direction onto the body,
+    then a grid of rays over the rectangle and a least-squares plane through the hits (twice, the second time on the
+    fitted plane), moved out to the highest hit so no body point under the rectangle stands above it. Returns
+    (centre, u, v, n, spread) in body coordinates (u horizontal, outwards for side -1/+1 on a front or rear face; v up
+    the face; n out of the body; spread = how far the body under the rectangle falls away from the plane) or None.
+    outline: a convex counter-clockwise [(u, v)] inside the rectangle; only the body under it counts."""
+    import numpy as np
+    bmw = _mw(body)
+    inv = bmw.inverted()
+    hit, loc, nrm, _i = body.ray_cast(inv @ Vector(origin), (inv.to_3x3() @ Vector(direction)).normalized(),
+                                      distance=5.0)
+    if not hit:
+        return None
+    tree = _tree(body)
+    n = nrm.normalized()
+    c = loc.copy()
+    for _ in range(2):
+        u, v = _tangent(n, side)
+        pts = []
+        for i in range(grid[0]):
+            for j in range(grid[1]):
+                du, dv = w * (i / (grid[0] - 1) - 0.5), h * (j / (grid[1] - 1) - 0.5)
+                if outline and not _inside(outline, (du * 0.999, dv * 0.999)):
+                    continue
+                p = c + u * du + v * dv
+                q, _fn, _fi, _d = tree.ray_cast(p + n * 0.15, -n, 0.3)
+                if q is not None:
+                    pts.append(q)
+        if len(pts) < 6:
+            return None
+        P = np.array([tuple(q) for q in pts])
+        m0 = P.mean(0)
+        nn = Vector(np.linalg.svd(P - m0)[2][2])
+        n = nn if nn.dot(n) > 0 else -nn
+        d = [(q - Vector(m0)).dot(n) for q in pts]
+        c = c - n * (c - Vector(m0)).dot(n)
+    u, v = _tangent(n, side)
+    if DEBUG:
+        print("face_frame", tuple(round(x_, 3) for x_ in origin), "w %.3f h %.3f spread %.2f mm n %s"
+              % (w, h, (max(d) - min(d)) * 1000, tuple(round(x_, 2) for x_ in n)), flush=True)
+    return c + n * max(d), u, v, n, max(d) - min(d)
+
+
+def _skirt(fr):
+    """Base of a plate's edge: just under the lowest body point under it (so no gap shows at grazing angles)."""
+    return -min(0.0025, fr[4] + 0.0005)
+
+
+def _dedupe(P, eps=1e-5):
+    out = []
+    for p in P:
+        if not out or (p - out[-1]).length > eps:
+            out.append(p)
+    while len(out) > 2 and (out[0] - out[-1]).length <= eps:
+        out.pop()
+    return out
+
+
+def _inset(P, d):
+    """Convex counter-clockwise outline moved inwards by d."""
+    out = []
+    m = len(P)
+    for i in range(m):
+        a, b, c = P[i - 1], P[i], P[(i + 1) % m]
+        e0, e1 = (b - a).normalized(), (c - b).normalized()
+        n0, n1 = Vector((-e0.y, e0.x)), Vector((-e1.y, e1.x))
+        bis = n0 + n1
+        bis = bis.normalized() if bis.length > 1e-6 else n0
+        out.append(b + bis * (d / max(0.35, bis.dot(n0))))
+    return out
+
+
+def clip(P, u0, u1, v0=-9.0, v1=9.0):
+    """Convex outline [(u, v)] clipped to the box u0..u1, v0..v1 (Sutherland-Hodgman), counter-clockwise."""
+    P = [Vector(p) for p in P]
+    for ax, lim, keep_lo in ((0, u0, True), (0, u1, False), (1, v0, True), (1, v1, False)):
+        inside = (lambda p: p[ax] >= lim) if keep_lo else (lambda p: p[ax] <= lim)  # noqa: E731
+        out = []
+        for i in range(len(P)):
+            p, q = P[i - 1], P[i]
+            if inside(q):
+                if not inside(p):
+                    out.append(p + (q - p) * ((lim - p[ax]) / (q[ax] - p[ax])))
+                out.append(q)
+            elif inside(p):
+                out.append(p + (q - p) * ((lim - p[ax]) / (q[ax] - p[ax])))
+        P = out
+    return [(p.x, p.y) for p in _dedupe(P)]
+
+
+def ellipse(w, h, n=24, c=(0.0, 0.0)):
+    return [(c[0] + w / 2 * math.cos(2 * math.pi * i / n), c[1] + h / 2 * math.sin(2 * math.pi * i / n))
+            for i in range(n)]
+
+
+def plate(root_coll, parent, body, fr, outlines, m, z0, z1, bevel=0.0012, name="lamp", bend=False):
+    """A flat lens or housing on a face frame fr (face_frame): each convex counter-clockwise outline [(u, v)] (metres,
+    from the frame centre) becomes a slab from z0 to z1 along the face normal (metres above the fitted plane), its
+    top inset by `bevel` (a small chamfer), flat shaded, so the outline stays crisp. One object for all outlines, its
+    origin at their centre on the top face (headlight spot lamps and weather read it). bend=True: a long thin strip
+    (the third brake light) follows the body along u (each cross-section stays flat), for a crowned surface."""
+    c, u, v, n = fr[:4]
+    tree = _tree(body)
+
+    def lift(p):
+        if not bend:
+            return 0.0
+        q, _fn, _fi, _d = tree.ray_cast(c + u * p.x + n * 0.15, -n, 0.3)
+        return 0.0 if q is None else (q - c).dot(n)
+    Ps = [_dedupe([Vector(p) for p in P]) for P in outlines]
+    allp = [p for P in Ps for p in P]
+    m2 = sum(allp, Vector((0.0, 0.0))) / len(allp)
+    cen = c + u * m2.x + v * m2.y + n * z1
+    bm = bmesh.new()
+    for P in Ps:
+        if bend:                          # points every centimetre along the long edges, so they can follow the body
+            P = [a.lerp(b, t / k_) for a, b in zip(P, P[1:] + P[:1])
+                 for k_ in [max(1, int((b - a).length / 0.01))] for t in range(k_)]
+        T = _inset(P, bevel) if bevel else P
+        lo = [bm.verts.new(c + u * p.x + v * p.y + n * (z0 + lift(p)) - cen) for p in P]
+        hi = [bm.verts.new(c + u * p.x + v * p.y + n * (z1 + lift(p)) - cen) for p in T]
+        for i in range(len(P)):
+            i2 = (i + 1) % len(P)
+            bm.faces.new((lo[i], lo[i2], hi[i2], hi[i]))
+        f_ = bm.faces.new(hi)
+        if bend:
+            bmesh.ops.triangulate(bm, faces=[f_], quad_method="BEAUTY", ngon_method="BEAUTY")
+    me = bpy.data.meshes.new(name)
+    bm.to_mesh(me)
+    bm.free()
+    me.materials.append(m)
+    o = bpy.data.objects.new(name, me)
+    root_coll.objects.link(o)
+    o.parent = parent
+    o.matrix_basis = _mw(parent).inverted() @ _mw(body) @ Matrix.Translation(cen)
+    return o
+
+
+def lamp_units(root, g, body, k, C):
+    """Lamp units as on a production car, each a flat plate on a flat face (never wrapping a corner):
+    - a headlight unit per side on the front face: dark housing rim, clear lens with two white reflector discs
+      (object "headlight", car_head), amber indicator section at the outer end ("indicator");
+    - a rear cluster per side on the rear face: dark housing rim, red tail and brake section on the outer side
+      ("taillight", car_tail), amber indicator ("indicator") over a small white reversing section ("tl_reverse");
+    - a small amber oval side repeater on each front wing ("indicator").
+    The indicator sections carry dl_spot = their dl_lamps record (per side: front, rear, side repeater; left first).
+    Returns the number of indicator sections."""
+    L, Wh, st = k["L"], k["W"], k["stations"]
+    ml, mr = lamp_mats()
+    clear = mat("car_lens_clear", (0.78, 0.78, 0.8), 0.2)
+    rev = mat("car_lens_reverse", (0.86, 0.86, 0.87), 0.12)
+    rim = 0.007
+    gap = 0.003
+    n = 0
+    # front face: the flat panel of the nose between the grille and the rounding of the corner
+    wf = st[-1][4] * Wh
+    zf = st[-2][3] - 0.08
+    hw, hh = min(HEAD_W, HEAD_OUT * wf - HEAD_IN), 0.11
+    hx = HEAD_IN + hw / 2
+    zf = min(zf + HEAD_DZ, st[-1][3] - 0.01 - hh / 2)       # top just under the nose's beltline (still flat)
+    hshape = rpoly([(-hw / 2, -hh / 2), (hw / 2, -hh / 2), (hw / 2, hh / 2 - HEAD_CUT[1]),
+                    (hw / 2 - HEAD_CUT[0], hh / 2), (-hw / 2, hh / 2)], 0.022)
+    # rear face: the flat panel between the bumper and the tailgate glass
+    wr = st[0][4] * Wh
+    tw, th = TAIL_W * wr, 0.14
+    tx = TAIL_OUT * wr - tw / 2
+    tz = st[0][3] + 0.01 - th / 2
+    for side in (-1, 1):
+        mi = ml if side < 0 else mr
+        # headlight unit
+        fr = face_frame(body, (side * hx, L + 1.0, zf), (0, -1, 0), hw, hh, side, outline=hshape)
+        if fr:
+            plate(root, g, body, fr, [hshape], C["plastic"], _skirt(fr), LIFT_HOUSING, name="hl_housing")
+            iw, ih = hw - 2 * rim, hh - 2 * rim
+            inner = [tuple(p) for p in _inset(_dedupe([Vector(p) for p in hshape]), rim)]
+            ua = iw / 2 - 0.2 * iw
+            plate(root, g, body, fr, [clip(inner, -iw / 2, ua - gap / 2)], clear, LIFT_HOUSING, LIFT_LENS, 0.0008,
+                  name="hl_lens")
+            dc = ih * 0.62
+            cw = ua - gap / 2 + iw / 2
+            plate(root, g, body, fr, [ellipse(dc, dc, 24, (-iw / 2 + cw * f_, 0.0)) for f_ in (0.3, 0.72)],
+                  C["head"], LIFT_LENS, LIFT_INNER, 0.0008, name="headlight")
+            o = plate(root, g, body, fr, [clip(inner, ua + gap / 2, iw / 2)], mi, LIFT_HOUSING, LIFT_LENS, 0.0008,
+                      name="indicator")
+            o["dl_spot"] = n
+        n += 1
+        # rear cluster
+        fr = face_frame(body, (side * tx, -1.0, tz), (0, 1, 0), tw, th, side)
+        if fr:
+            plate(root, g, body, fr, [rrect(tw, th, 0.022)], C["plastic"], _skirt(fr), LIFT_HOUSING, name="tl_housing")
+            iw, ih = tw - 2 * rim, th - 2 * rim
+            inner = rrect(iw, ih, 0.022 - rim)
+            ua = -iw / 2 + 0.4 * iw
+            vb = -ih / 2 + 0.4 * ih
+            plate(root, g, body, fr, [clip(inner, ua + gap / 2, iw / 2)], C["tail"], LIFT_HOUSING, LIFT_LENS, 0.0008,
+                  name="taillight")
+            o = plate(root, g, body, fr, [clip(inner, -iw / 2, ua - gap / 2, vb + gap / 2)], mi, LIFT_HOUSING,
+                      LIFT_LENS, 0.0008, name="indicator")
+            o["dl_spot"] = n
+            plate(root, g, body, fr, [clip(inner, -iw / 2, ua - gap / 2, -9.0, vb - gap / 2)], rev, LIFT_HOUSING,
+                  LIFT_LENS, 0.0008, name="tl_reverse")
+        n += 1
+        # side repeater: a small amber oval on the front wing, above the rear of the wheel arch
+        ya = k["axles"][1] - 0.2
+        za = 2 * k["r"] + 0.1
+        fr = face_frame(body, (side * (Wh + 1.0), ya, za), (-side, 0, 0), 0.07, 0.026, side)
+        if fr:
+            o = plate(root, g, body, fr, [ellipse(0.07, 0.026)], mi, _skirt(fr), LIFT_LENS, 0.0008, name="indicator")
+            o["dl_spot"] = n
+        n += 1
+    return n
+
+
+HEAD_IN = 0.352    # headlight unit inner edge (m from the centre line; the grille ends at 0.34)
+HEAD_W = 0.26      # headlight unit width at most (m)
+HEAD_OUT = 0.86    # its outer edge at most this far out (fraction of the front face half width)
+HEAD_CUT = (0.05, 0.04)   # outer top corner cut back along the wing line (u, v in m): the nose rounds off there
+HEAD_DZ = -0.012   # headlight centre relative to the old spot (m)
+TAIL_W = 0.45      # rear cluster width, fraction of the rear face half width
+TAIL_OUT = 0.86    # its outer edge (fraction of the rear face half width)
 
 
 def police_livery(root, g, body, k, L, Wh, C):
@@ -607,7 +1119,8 @@ def lamp_spots(root, body, kind):
     """Indicator lens positions (front corner, rear corner, side repeater on each side), ray cast onto the body and
     stored on the collection as root["dl_lamps"] = [x, y, z, size_x, size_y, size_z, side, part, ...] in car
     coordinates, side -1 = left, part 0 (the unit itself; 1 trailer, 2 drawbar dolly for lorries). motion.rig builds the lenses from it (jx.hero places its own at the same spots); nothing is
-    added to the car collection itself, so parked cars stay as they were. Also root["dl_heads"]: headlight centres."""
+    added to the car collection itself, so parked cars stay as they were. Also root["dl_heads"]: headlight centres.
+    Cars built by car() take the spots from the indicator sections of their lamp units (objects with dl_spot)."""
     k = KINDS[kind]
     L, Wh = k["L"], k["W"]
     zf = k["stations"][-2][3] - 0.02
@@ -615,7 +1128,17 @@ def lamp_spots(root, body, kind):
     bw = body.parent.matrix_basis @ body.matrix_parent_inverse @ body.matrix_basis
     inv = bw.inverted()
     spec = []
-    for side in (-1, 1):
+    secs = sorted((o for o in root.objects if "dl_spot" in o), key=lambda o: int(o["dl_spot"]))
+    for o in secs:
+        # the indicator sections of the lamp units (lamp_units): centre on the lens, size of its bounding box
+        mw = o.parent.matrix_basis @ o.matrix_parent_inverse @ o.matrix_basis
+        ps = [mw @ v.co for v in o.data.vertices]
+        lo = Vector(map(min, *ps)) if len(ps) > 1 else ps[0]
+        hi = Vector(map(max, *ps)) if len(ps) > 1 else ps[0]
+        c = mw.translation
+        spec += [round(c.x, 5), round(c.y, 5), round(c.z, 5), max(0.01, hi.x - lo.x), max(0.01, hi.y - lo.y),
+                 max(0.01, hi.z - lo.z), -1.0 if c.x < 0 else 1.0, 0.0]
+    for side in (() if secs else (-1, 1)):
         for (y, z, sz) in ((L / 2 - 0.12, zf, (0.16, 0.08, 0.06)), (-L / 2 + 0.1, zr, (0.14, 0.06, 0.06)),
                            (L * 0.16, k["stations"][len(k["stations"]) // 2][3] + 0.14, (0.1, 0.03, 0.03))):
             origin = Vector((side * (Wh + 1.0), y, z))
@@ -805,6 +1328,13 @@ def rtw(name="rtw", c=None):
         _box(root, g, "front_flash", (sx * 0.55, L / 2 + 0.01, 0.62), (0.18, 0.04, 0.07), m_, 0.01)
     front = [v for i in range(0, len(root["dl_lamps"]), 8) for v in root["dl_lamps"][i:i + 8]
              if root["dl_lamps"][i + 1] > 0]
+    keep = [i // 8 for i in range(0, len(root["dl_lamps"]), 8) if root["dl_lamps"][i + 1] > 0]
+    for o in list(root.objects):          # moulded lenses follow their records (the rear ones are under the module)
+        if "dl_lamp" in o:
+            if int(o["dl_lamp"]) in keep:
+                o["dl_lamp"] = keep.index(int(o["dl_lamp"]))
+            else:
+                bpy.data.objects.remove(o)
     for sx in (-1, 1):
         front += [sx * 0.95, y0 - 0.015, 0.95, 0.2, 0.04, 0.1, sx, 0]
     root["dl_lamps"] = front
@@ -887,6 +1417,7 @@ def shell(root, g, spec, body_m, C, band=None, arches=(), name="shell"):
     """Subdivision-cage body from a station spec (as KINDS, W = half width), wheel arches (y, radius, z) cut with
     booleans, baked, smooth, parented to g. Returns the body object (also the ray-cast target for stickers)."""
     me = body_mesh(dict(spec, name=name), body_m, C["glass"], C["plastic"], band)
+    cage = me.copy()
     body = bpy.data.objects.new(name + "_body", me)
     root.objects.link(body)
     sub = body.modifiers.new("sub", "SUBSURF")
@@ -908,6 +1439,7 @@ def shell(root, g, spec, body_m, C, band=None, arches=(), name="shell"):
         bpy.data.objects.remove(cu)
     for p_ in body.data.polygons:
         p_.use_smooth = True
+    smooth_normals(body, cage)
     body.parent = g
     return body
 

@@ -1,0 +1,29 @@
+{
+  "rev": 2,
+  "jobs": [
+    {
+      "name": "v3-after",
+      "scene": "lookdev/ld_vehicles2.py",
+      "stills": "1,2,3,4,5,6,7,8,9,10,11,12",
+      "res": 720,
+      "samples": 16,
+      "args": "--kinds hatch,saloon,estate"
+    },
+    {
+      "name": "v3-before",
+      "scene": "lookdev/ld_vehicles2.py",
+      "stills": "1,2,3,4,5,6,7,8,9,10,11,12",
+      "res": 720,
+      "samples": 16,
+      "args": "--before --kinds hatch,saloon,estate"
+    },
+    {
+      "name": "v3-more",
+      "scene": "lookdev/ld_vehicles2.py",
+      "stills": "1,2,3,4,5,6,7,8,9,10,11,12",
+      "res": 720,
+      "samples": 16,
+      "args": "--kinds suv,van,police"
+    }
+  ]
+}

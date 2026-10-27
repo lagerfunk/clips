@@ -200,8 +200,9 @@ def model(src):
         cc.instance_offset = off + Vector((0.0, pivot[u["part"]], 0.0))
         cc["dl_src"] = src.name
         colls[u["part"]] = cc
+    lens = {int(o["dl_lamp"]): o for o in objs if "dl_lamp" in o}     # moulded indicator lenses (vehicles.py)
     for o in objs:
-        if o not in tyres and o not in rims:
+        if o not in tyres and o not in rims and "dl_lamp" not in o:
             colls.get(_part(o), colls["main"]).objects.link(o)
     # wheels: hub centre, radius, width; rims go to the nearest tyre on the same side
     wheels = []
@@ -270,7 +271,7 @@ def model(src):
     if "dl_heads" in src:
         h = list(src["dl_heads"])
         heads = [h[i:i + 3] for i in range(0, len(h), 3)]
-    lamps = _lamps(src, lib, lo, hi, heads, pivot)
+    lamps = _lamps(src, lib, lo, hi, heads, pivot, lens, off)
     md = dict(src=src, body=colls["main"], colls=colls, units=units, pivot=pivot, wheels=out, wb=wb,
               rear_axle=rear_axle, lo=lo, hi=hi, heads=heads, lamps=lamps, length=hi.y - lo.y, width=hi.x - lo.x,
               height=hi.z)
@@ -278,9 +279,10 @@ def model(src):
     return md
 
 
-def _lamps(src, lib, lo, hi, heads, pivot):
+def _lamps(src, lib, lo, hi, heads, pivot, lens=None, off=Vector()):
     """Indicator lenses per unit from dl_lamps ([x, y, z, size_x, size_y, size_z, side, unit] records; side -1 is
-    the left, -x when the vehicle faces +y; unit 0 main, 1 trailer, 2 dolly), else bounding-box corners."""
+    the left, -x when the vehicle faces +y; unit 0 main, 1 trailer, 2 dolly), else bounding-box corners. A record
+    with a moulded lens in the model (object tagged dl_lamp = record index) uses that lens, else a small box."""
     if "dl_lamps" in src:
         v = list(src["dl_lamps"])
         spec = [v[i:i + 8] for i in range(0, len(v) - 7, 8)]
@@ -299,7 +301,14 @@ def _lamps(src, lib, lo, hi, heads, pivot):
             lc = bpy.data.collections.new(f"{src.name}__lamps_{part}")
             lib.children.link(lc)
             out[part] = lc
-        me = _box_mesh(f"{src.name}_ind{k}", (sx, sy, sz))
+        pr = (lens or {}).get(k)
+        if pr is not None and pr.type == "MESH":
+            me = pr.data.copy()
+            me.name = f"{src.name}_ind{k}"
+            me.transform(Matrix.Translation(-Vector((x, y, z))) @ Matrix.Translation(-off) @ _world(pr))
+            me.materials.clear()
+        else:
+            me = _box_mesh(f"{src.name}_ind{k}", (sx, sy, sz))
         me.materials.append(ml if side < 0 else mr)
         o = bpy.data.objects.new(f"{src.name}_ind{k}", me)
         o.location = (x, y - pivot[part], z)
