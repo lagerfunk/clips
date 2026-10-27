@@ -1,0 +1,15 @@
+job a2-ep28-look c0 stills 529,536,556 res 720 samples 16 args '': 3 png
+EP28 crossing s 156.8 drift s 133.2 correct indicator 4.73 correct min gap H-W 1.99 frames 1041
+00:57.124  cycles           | WARNING CUEW initialization failed: Error opening the library
+01:23.369  render           | Saved: 'frames/f_0529.png'
+PERF - f=529 total=25.01 prep=0.00 | pre=1.26 sync=0.90 geom=0.06 bvh=0.15 light=0.40 trace=21.57 save=0.23 other=0.42
+PERF_RAW Sample 21.57; (blender pre) 1.26; Synchronizing object 0.90; Updating Lights 0.40; Initializing 0.39; Finished 0.23; Updating Scene BVH 0.08; Updating Images 0.05; Updating Mesh 0.03
+Saved frames/f_0529.png
+01:45.352  render           | Saved: 'frames/f_0536.png'
+PERF - f=536 total=21.91 gap=0.07 prep=0.00 | pre=0.19 sync=0.06 geom=0.01 bvh=0.11 light=0.06 trace=21.01 save=0.14 other=0.34
+PERF_RAW Sample 21.01; Initializing 0.31; (blender pre) 0.19; Finished 0.14; Updating Scene BVH 0.07; Updating Lights 0.06; Synchronizing object 0.06; Updating Geometry BVH Mesh 0.03; Updating Mesh 0.02
+Saved frames/f_0536.png
+02:06.702  render           | Saved: 'frames/f_0556.png'
+PERF - f=556 total=21.27 gap=0.08 prep=0.00 | pre=0.14 sync=0.06 geom=0.01 bvh=0.10 light=0.06 trace=20.40 save=0.14 other=0.35
+Saved frames/f_0556.png
+RENDER_DONE None
