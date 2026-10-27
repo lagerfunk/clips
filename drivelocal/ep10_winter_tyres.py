@@ -89,7 +89,7 @@ K.walker(env, "ped1", 4, [(HX + 1.6, -70.0), (HX + 1.6, -20.0)], [(1.1 * i / FPS
          coat=(0.2, 0.25, 0.32))
 S101 = (HX + TN.KERB_W + 0.6, -24.0)
 if K.have("101-51", "de-core"):
-    SG.assembly([("101-51", 0.9)], env, (S101[0], S101[1], TN.KERB_H), rz=0.0, bottom=2.0, set_="de-core")
+    SG.assembly([("101-51", 0.9)], env, (S101[0], S101[1], TN.KERB_H), rz=math.pi, bottom=2.0, set_="de-core")  # face to the approaching car (QA r9)
 else:
     print("SIGN_MISSING de-core 101-51")
 # The ice itself is weather.apply("ice") (glaze over frosty asphalt); no glowing patches on the road.
@@ -226,13 +226,13 @@ sh.add("H_chase", 24, t0, t0 + 1.6, chase(H, 5.6, 0.75, -0.4, 10.0, 0.5))
 sh.add("H_close", 30, t0 + 1.6, TL.a("SITUATION"),
        lambda t: (Vector((HX + 2.2, EST_Y - 0.8, 0.9)), Vector((KB - 0.3, EST_Y - 2.5, 0.6))))
 t0 = TL.a("SITUATION")
-sh.add("S_drone", 24, t0, t0 + 3.0, lambda t: (Vector((-14.0 + 2.0 * (t - t0), -36.0 + 1.5 * (t - t0), 17.0)),
+sh.add("S_drone", 24, t0, t0 + 2.2, lambda t: (Vector((-14.0 + 2.0 * (t - t0), -36.0 + 1.5 * (t - t0), 17.0)),
                                                Vector((KB, -19.0, 0.0))))
 # "Next morning: ice.": low on the frosty footway just behind the parked hero, along its flank at the rear wheel and
 # the kerb (the side glass is seen at a grazing angle, no flat window plane). Rear axle 1.38 m behind the middle.
 Y_RW = Y_PARK - 1.38
-sh.add("S_tread", 35, t0 + 3.0, t0 + 6.0,
-       lambda t: (Vector((HX + 0.45, Y_RW - 1.85 + 0.12 * (t - t0 - 3.0), 0.40)),
+sh.add("S_tread", 35, t0 + 2.2, t0 + 6.0,   # cut on "Next morning: ice." (QA r9)
+       lambda t: (Vector((HX + 0.45, Y_RW - 1.85 + 0.12 * (t - t0 - 2.2), 0.40)),
                   Vector((KB + 0.93, Y_RW, 0.26))))
 sh.add("S_sign", 30, t0 + 6.0, t0 + 8.0, lambda t: (Vector((S101[0] - 0.9, S101[1] - 5.5 + 0.2 * (t - t0 - 6.0), 1.5)),
                                                    Vector((S101[0] - 0.6, S101[1], 2.3))))
@@ -271,6 +271,6 @@ K.end_card(T, env, sh, TL.a("END"), TL.T, signs_=(("101-51", 0.9),))
 K.light(az=245.0, elev=16.0, energy=5.0, exposure=0.3)
 a = TL.a
 K.finish(sh, TL, wx=[(0.0, a("SITUATION"), "ice", 0.9),
-                     (a("SITUATION", 3.0), a("SITUATION", 8.4), "ice", 0.9),
+                     (a("SITUATION", 2.2), a("SITUATION", 8.4), "ice", 0.9),
                      (a("SITUATION", 8.4), a("RULE"), "snow+ice", 0.6),
                      (a("RULE"), a("END"), "ice", 0.9)])

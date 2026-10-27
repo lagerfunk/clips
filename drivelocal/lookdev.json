@@ -1,0 +1,8 @@
+{
+ "rev": 5,
+ "jobs": [
+  {"name": "ep17-stills", "scene": "ep17_out_of_fuel.py", "stills": "529,598,868,934", "res": 720, "samples": 16},
+  {"name": "ep17-preview", "scene": "ep17_out_of_fuel.py", "frames": "1-1095", "chunks": 8, "step": 2, "res": 360, "samples": 6},
+  {"name": "ep19-preview", "scene": "ep19_tailgating.py", "frames": "1-1017", "chunks": 10, "step": 2, "res": 360, "samples": 6}
+ ]
+}
