@@ -1,0 +1,42 @@
+job dlal-19-fix c1 frames 618-628 res 720 samples 12 args '': 11 png
+terrain 492 x 784
+vegetation 68676 48311 920 1575
+traffic kept 140 of 298
+02:07.563  cycles           | WARNING CUEW initialization failed: Error opening the library
+SIGN_SOURCES [('de-core', '205'), ('de-core', '330.1'), ('de-core', '330.2'), ('de-core', '332'), ('de-core', '333'), ('de-core', '448'), ('de-core', '450-50'), ('de-core', '450-51'), ('de-interchange', '449')]
+02:53.501  render           | Saved: 'frames/f_0618.png'
+PERF - f=618 total=45.63 prep=0.00 | pre=0.50 sync=1.51 geom=0.20 bvh=0.90 light=0.47 trace=40.41 other=1.64
+PERF_RAW Sample 40.41; Synchronizing object 1.51; Initializing 1.30; Updating Scene BVH 0.74; (blender pre) 0.50; Updating Lights 0.47; Compositing 0.29; Updating Images 0.11; Updating Geometry BVH t_white_ind1 0.09
+Saved frames/f_0618.png
+03:37.889  render           | Saved: 'frames/f_0619.png'
+PERF - f=619 total=44.33 gap=0.06 prep=0.00 | pre=0.19 sync=1.24 geom=0.11 bvh=0.77 light=0.02 trace=40.44 other=1.56
+PERF_RAW Sample 40.44; Initializing 1.32; Synchronizing object 1.24; Updating Scene BVH 0.67; Compositing 0.20; (blender pre) 0.19; Updating Geometry BVH plate_f_d.011 0.08; Updating Objects 0.06; Updating Mesh 0.03
+Saved frames/f_0619.png
+04:22.384  render           | Saved: 'frames/f_0620.png'
+PERF - f=620 total=44.44 gap=0.06 prep=0.00 | pre=0.18 sync=1.26 geom=0.11 bvh=0.76 light=0.02 trace=40.55 other=1.55
+Saved frames/f_0620.png
+05:06.853  render           | Saved: 'frames/f_0621.png'
+PERF - f=621 total=44.41 gap=0.06 prep=0.00 | pre=0.18 sync=1.25 geom=0.11 bvh=0.75 light=0.02 trace=40.55 other=1.55
+Saved frames/f_0621.png
+05:50.939  render           | Saved: 'frames/f_0622.png'
+PERF - f=622 total=44.03 gap=0.06 prep=0.00 | pre=0.19 sync=1.22 geom=0.12 bvh=0.75 light=0.02 trace=40.18 other=1.55
+Saved frames/f_0622.png
+06:34.906  render           | Saved: 'frames/f_0623.png'
+PERF - f=623 total=43.91 gap=0.06 prep=0.00 | pre=0.19 sync=1.25 geom=0.12 bvh=0.77 light=0.02 trace=40.02 other=1.55
+Saved frames/f_0623.png
+07:18.884  render           | Saved: 'frames/f_0624.png'
+PERF - f=624 total=43.92 gap=0.06 prep=0.00 | pre=0.19 sync=1.23 geom=0.11 bvh=0.74 light=0.02 trace=40.07 other=1.55
+Saved frames/f_0624.png
+08:03.228  render           | Saved: 'frames/f_0625.png'
+PERF - f=625 total=44.28 gap=0.06 prep=0.00 | pre=0.19 sync=1.22 geom=0.11 bvh=0.75 light=0.02 trace=40.43 other=1.56
+Saved frames/f_0625.png
+08:47.268  render           | Saved: 'frames/f_0626.png'
+PERF - f=626 total=43.98 gap=0.06 prep=0.00 | pre=0.19 sync=1.22 geom=0.12 bvh=0.74 light=0.02 trace=40.15 other=1.55
+Saved frames/f_0626.png
+09:31.058  render           | Saved: 'frames/f_0627.png'
+PERF - f=627 total=43.73 gap=0.06 prep=0.00 | pre=0.19 sync=1.24 geom=0.11 bvh=0.75 light=0.02 trace=39.86 other=1.56
+Saved frames/f_0627.png
+10:15.672  render           | Saved: 'frames/f_0628.png'
+PERF - f=628 total=44.56 gap=0.06 prep=0.00 | pre=0.19 sync=1.23 geom=0.12 bvh=0.74 light=0.02 trace=40.68 other=1.57
+Saved frames/f_0628.png
+RENDER_DONE (618, 628)
