@@ -40,7 +40,9 @@ L0, L1, L2 = (S.lane_x(i) for i in range(3))
 hero = jx.hero("estate", (0.62, 0.64, 0.67), "hero", "QZ RG 207", S.lib, S.traffic, metal=0.5)
 CY.blank_plates([hero["coll"]])          # the story never says the driver came from Germany: blank like the locals
 HS = 300.0
-ht = S.track([(0, 36.0), (K0, 36.0), (K0 + 3.0, 30.0)], [(0, L1)], N, HS)
+# CORRECT: down to the wet limit, then clearly slower again under "Very poor view? Slower still." (QA r23: the final
+# showed about 100 km/h there)
+ht = S.track([(0, 36.0), (K0, 36.0), (K0 + 3.0, 30.0), (K0 + 4.6, 19.0)], [(0, L1)], N, HS)
 hs = S.last_s
 S.drive(hero, ht)
 c, tr = S.cars, S.trucks
@@ -73,7 +75,7 @@ ins = S.ins
 IN.setup(ASSETS)
 # the speedometer is the estate's own instrument cluster behind the wheel, seen from the driver's seat in the rain
 PK.see_through(hero)
-IN.cluster(hero, lambda t: 3.6 * ht[max(0, min(N - 1, int(round(t * FPS))))]["v"])
+IN.cluster(hero, lambda t: 3.6 * ht[max(0, min(N - 1, int(round(t * FPS))))]["v"], numerals=False)   # no readable speed
 TOP, BOT, KD = IN.windscreen(hero)
 cab = IN.cabin_cam(hero["obj"], hero)
 IN.body_off_camera(hero, [(H0, H0 + 1.1), (S0 + 3.0, S0 + 6.0), (K0 + 3.2, E0)])

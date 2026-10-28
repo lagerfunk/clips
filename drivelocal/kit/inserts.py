@@ -475,9 +475,10 @@ def cabin_cam(inst, hero):
     return cam
 
 
-def cluster(hero, speed_kmh_fn=None, limit=None, glow=2.0):
+def cluster(hero, speed_kmh_fn=None, limit=None, glow=2.0, numerals=True):
     """Instrument cluster behind the steering wheel: a dark hood, a lit speedometer dial with real scale numbers
-    (0 to 260 in 20s) and a needle keyed from speed_kmh_fn(t). Returns the needle pivot."""
+    (0 to 260 in 20s; numerals=False keeps the ticks but no numbers, so no speed can be read off the dial) and a
+    needle keyed from speed_kmh_fn(t). Returns the needle pivot."""
     top, bot, k = windscreen(hero)
     coll, root = hero["coll"], _root(hero)
     cabin(hero)
@@ -504,7 +505,7 @@ def cluster(hero, speed_kmh_fn=None, limit=None, glow=2.0):
                 CY.flat(coll, "cl_tk", CY.bar_pts(cx + r0 * math.cos(a), r0 * math.sin(a), cx + r1 * math.cos(a),
                                                    r1 * math.sin(a), 0.0016 if v % 20 == 0 else 0.0009),
                         (0.95, 0.95, 0.95), glow, rot=(0, 0, 0), parent=g, z=0.0007)
-                if v % 40 == 0:
+                if numerals and v % 40 == 0:
                     text(coll, str(v), 0.0085, (0.95, 0.95, 0.95), (cx + 0.034 * math.cos(a), 0.034 * math.sin(a),
                                                                     0.0007), g, align="CENTER", emit=glow)
             text(coll, "km/h", 0.0065, (0.7, 0.72, 0.75), (cx, -0.024, 0.0007), g, align="CENTER", emit=glow * 0.7)

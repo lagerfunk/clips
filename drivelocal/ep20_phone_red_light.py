@@ -522,25 +522,9 @@ for o in (mt, CC.objects["mount20_arm"], fo):
     K.show_between(o, TL.a("COST"), TL.a("END"))       # rev 2: no empty cradle on the dash while he holds the phone
 IN.adopt(H)
 yH = Y_LINE - 0.4 - H["L"] / 2
-# COST: the officer's notepad lies on the hero's roof on the driver's side (the police estate stands in the next lane),
-# lit by the officer's torch (rev 2: a white sheet floating in a studio under its own key light came out pure white)
+# COST opens on the street shot of the two cars at the red light (QA r18: the notepad close-up on the roof read as a
+# primitive prop scene, so it is gone, with its torch)
 FWD, RIGHT, UPZ = Vector((0.0, 1.0, 0.0)), Vector((1.0, 0.0, 0.0)), Vector((0.0, 0.0, 1.0))
-Mh = K.car_matrix(H, XR, yH, math.pi / 2)
-pp, pn = K.on_body(H, Mh, -0.15, -0.36)
-pad_c = pp + pn * 0.012
-# yellow pad: the kit's mid-grey paper vanished on the light roof under the torch (final r3 check)
-K.show_between(K.pad(env, tuple(pad_c), TL.a("COST", 0.4), TL.a("COST", 2.1), rot=K.lay_rot(pn, RIGHT + FWD * 0.3),
-                     paper_rgb=(0.86, 0.78, 0.42)),
-               TL.a("COST"), TL.a("CORRECT"))
-tl = bpy.data.lights.new("pad_torch", "SPOT")
-tl.spot_size, tl.spot_blend, tl.color, tl.shadow_soft_size = math.radians(34), 0.6, (1.0, 0.93, 0.8), 0.03
-pt = bpy.data.objects.new("pad_torch", tl)
-env.objects.link(pt)
-pt.location = pad_c - RIGHT * 0.55 - FWD * 0.25 + UPZ * 0.75
-pt.rotation_euler = K.stage.look_rot(Vector(pt.location), pad_c)
-for fr, e in ((1, 0.0), (f("COST") - 1, 0.0), (f("COST"), 14.0), (f("COST", 2.2), 14.0), (f("COST", 2.2) + 1, 0.0)):
-    tl.energy = e
-    tl.keyframe_insert("energy", frame=fr)
 
 # ------------------------------------------------------------------ cameras
 sh = K.Shots(N)                  # frame-exact cuts (ep10_za5kit.Shots)
@@ -566,10 +550,8 @@ sh.add("S_drone", 24, t0 + 6.5, TL.a("RULE"), lambda t: (Vector((-9.0, yH - 11.0
 t0 = TL.a("RULE")
 sh.add("R_dash", 34, t0, TL.a("COST"), eye)
 t0 = TL.a("COST")
-sh.add("C_pad", 34, t0, t0 + 2.2, lambda t: (pad_c - RIGHT * 0.42 - FWD * (0.36 - 0.03 * (t - t0)) + UPZ * 0.46,
-                                             pad_c + FWD * 0.05))
 # the fine over the two cars at the red light, seen from behind between the lanes (rev 2: a top view of the dark street)
-sh.add("C_rear", 28, t0 + 2.2, TL.a("CORRECT"), lambda t: (Vector((0.2, yH - 8.6 + 0.25 * (t - t0 - 2.2), 2.3)),
+sh.add("C_rear", 28, t0, TL.a("CORRECT"), lambda t: (Vector((0.2, yH - 8.6 + 0.25 * (t - t0 - 2.2), 2.3)),
                                                          Vector((3.3, yH + 2.5, 0.9))))
 t0 = TL.a("CORRECT")
 sh.add("K_mount", 34, t0, t0 + 3.0, mnt)

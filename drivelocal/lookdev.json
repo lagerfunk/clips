@@ -1,0 +1,3 @@
+{"rev": 1, "jobs": [
+  {"name": "dlal-19-fix", "scene": "ep19_tailgating.py", "frames": "607-672", "chunks": 6, "res": 720, "samples": 12}
+]}
