@@ -1,0 +1,4 @@
+{"rev": 2, "jobs": [
+  {"name": "trackb-b03-hook", "scene": "b03_rain_speed_limits.py", "frames": "1-34", "chunks": 3, "res": 720, "samples": 12},
+  {"name": "trackb-b03-sdash", "scene": "b03_rain_speed_limits.py", "frames": "169-259", "chunks": 6, "res": 720, "samples": 12}
+]}
