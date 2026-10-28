@@ -1,0 +1,33 @@
+job trackb-b03-fix c9 frames 955-963 res 720 samples 12 args '': 9 png
+01:42.837  cycles           | WARNING CUEW initialization failed: Error opening the library
+02:26.944  render           | Saved: 'frames/f_0955.png'
+vegetation 16276 13804 133 273
+PERF - f=955 total=43.87 prep=0.00 | pre=0.40 sync=0.41 geom=0.09 bvh=0.28 light=0.46 trace=41.57 other=0.67
+PERF_RAW Sample 41.57; Updating Lights 0.46; Synchronizing object 0.41; (blender pre) 0.40; Initializing 0.36; Compositing 0.29; Updating Scene BVH 0.23; Updating Images 0.06; Updating Mesh 0.02
+Saved frames/f_0955.png
+03:09.495  render           | Saved: 'frames/f_0956.png'
+PERF - f=956 total=42.50 gap=0.05 prep=0.00 | pre=0.15 sync=0.33 geom=0.03 bvh=0.22 light=0.01 trace=41.20 other=0.57
+PERF_RAW Sample 41.20; Initializing 0.35; Synchronizing object 0.33; Updating Scene BVH 0.20; Compositing 0.20; (blender pre) 0.15; Updating Objects 0.02; Updating Geometry BVH txt 0.01; Updating Mesh 0.01
+Saved frames/f_0956.png
+03:52.489  render           | Saved: 'frames/f_0957.png'
+PERF - f=957 total=42.94 gap=0.05 prep=0.00 | pre=0.16 sync=0.32 geom=0.03 bvh=0.22 light=0.01 trace=41.63 other=0.56
+Saved frames/f_0957.png
+04:36.395  render           | Saved: 'frames/f_0958.png'
+PERF - f=958 total=43.84 gap=0.06 prep=0.00 | pre=0.18 sync=0.35 geom=0.04 bvh=0.22 light=0.01 trace=42.39 other=0.64
+Saved frames/f_0958.png
+05:19.515  render           | Saved: 'frames/f_0959.png'
+PERF - f=959 total=43.06 gap=0.06 prep=0.00 | pre=0.17 sync=0.34 geom=0.05 bvh=0.22 light=0.01 trace=41.64 other=0.63
+Saved frames/f_0959.png
+06:02.021  render           | Saved: 'frames/f_0960.png'
+PERF - f=960 total=42.45 gap=0.06 prep=0.00 | pre=0.17 sync=0.34 geom=0.04 bvh=0.21 light=0.01 trace=41.08 other=0.61
+Saved frames/f_0960.png
+06:43.866  render           | Saved: 'frames/f_0961.png'
+PERF - f=961 total=41.80 gap=0.05 prep=0.00 | pre=0.15 sync=0.32 geom=0.03 bvh=0.20 light=0.01 trace=40.50 other=0.58
+Saved frames/f_0961.png
+07:25.747  render           | Saved: 'frames/f_0962.png'
+PERF - f=962 total=41.82 gap=0.06 prep=0.00 | pre=0.16 sync=0.32 geom=0.04 bvh=0.21 light=0.01 trace=40.52 other=0.57
+Saved frames/f_0962.png
+08:07.741  render           | Saved: 'frames/f_0963.png'
+PERF - f=963 total=41.94 gap=0.06 prep=0.00 | pre=0.16 sync=0.32 geom=0.04 bvh=0.21 light=0.01 trace=40.64 other=0.57
+Saved frames/f_0963.png
+RENDER_DONE (955, 963) signs dict_keys([('fr', 'autoroute'), ('fr', 'b14-130'), ('fr', 'b14-110'), ('fr', 'b14-100'), ('fr', 'b14-80')])
