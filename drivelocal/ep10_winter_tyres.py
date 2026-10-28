@@ -87,9 +87,9 @@ for key, x, y, yaw in (("hatch_blue", KB, -75.0, math.pi / 2), ("suv_dark", -KB,
     K.parked(env, fleet[key], key, x, y, yaw)
 K.walker(env, "ped1", 4, [(HX + 1.6, -70.0), (HX + 1.6, -20.0)], [(1.1 * i / FPS, 1.1) for i in range(N)],
          coat=(0.2, 0.25, 0.32))
-S101 = (HX + TN.KERB_W + 0.6, -24.0)
+S101 = (HX + TN.KERB_W + 0.6, -25.5)   # 1.5 m before the lamp mast at -24 so the mast is behind the plate (QA r19)
 if K.have("101-51", "de-core"):
-    SG.assembly([("101-51", 0.9)], env, (S101[0], S101[1], TN.KERB_H), rz=math.pi, bottom=2.0, set_="de-core")  # face to the approaching car (QA r9)
+    SG.assembly([("101-51", 0.9)], env, (S101[0], S101[1], TN.KERB_H), rz=0.0, bottom=2.0, set_="de-core")  # rz 0: face to the car driving +Y towards it (QA r17: rz pi showed the hero the back)
 else:
     print("SIGN_MISSING de-core 101-51")
 # The ice itself is weather.apply("ice") (glaze over frosty asphalt); no glowing patches on the road.

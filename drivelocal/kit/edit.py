@@ -42,8 +42,14 @@ def cut(src, dst, segs, order, fps=30):
             fa, fb = round(a * fps), round(b * fps)
             d = (fb - fa) / fps
             seg = os.path.join(tmpd, f"s{i:02d}.mkv")
+            n = fb - fa
+            # the first and last frame of a segment can carry a one-frame artefact of the canonical render (a washed
+            # haze frame or an overlay jump at the shot change, QA r28 Florida finals): they are replaced by clones of
+            # their inner neighbours, so every segment edge is clean in every language order
+            vf = (["-vf", "trim=start_frame=1:end_frame=%d,setpts=PTS-STARTPTS,"
+                   "tpad=start=1:start_mode=clone:stop=1:stop_mode=clone" % (n - 1)] if n >= 6 else [])
             subprocess.run(["ffmpeg", "-v", "error", "-y", "-ss", f"{fa / fps:.6f}", "-i", src, "-t", f"{d:.6f}",
-                            "-frames:v", str(fb - fa),
+                            "-frames:v", str(n)] + vf + [
                             "-af", f"afade=t=in:st=0:d=0.04,afade=t=out:st={max(0, d - 0.04):.4f}:d=0.04",
                             "-c:v", "libx264", "-crf", "18", "-preset", os.environ.get("DLAL_PRESET", "veryfast"), "-pix_fmt", "yuv420p", "-r", str(fps),
                             "-c:a", "pcm_s24le", "-ar", "48000", seg], check=True)

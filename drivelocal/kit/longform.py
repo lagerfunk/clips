@@ -64,6 +64,13 @@ def dur(p):
                                 capture_output=True, text=True, check=True).stdout)
 
 
+def true_peak(path):
+    r = subprocess.run(["ffmpeg", "-nostats", "-i", path, "-vn", "-af", "ebur128=peak=true", "-f", "null", "-"],
+                       capture_output=True, text=True)
+    vals = [float(ln.split()[1]) for ln in r.stderr.splitlines() if ln.strip().startswith("Peak:") and len(ln.split()) > 1]
+    return vals[-1] if vals else 0.0
+
+
 def run(cmd):
     subprocess.run(cmd, check=True)
 
@@ -72,7 +79,10 @@ def card(path, ass_text, seconds, tmp):
     a = os.path.join(tmp, os.path.basename(path) + ".ass")
     open(a, "w", encoding="utf-8").write(HEAD + ass_text)
     run(["ffmpeg", "-v", "error", "-y", "-f", "lavfi", "-i", f"color=c=0x111418:s={W}x{H}:d={seconds}:r={FPS}",
-         "-f", "lavfi", "-i", f"anullsrc=r=48000:cl=stereo", "-t", str(seconds),
+         "-f", "lavfi", "-i",
+         # a soft synthesised two-note chime at the start of the card (sound design, no music, no voice)
+         f"aevalsrc=0.20*sin(2*PI*880*t)*exp(-3*t)+0.12*sin(2*PI*1320*t)*exp(-4*t):s=48000:c=stereo:d={seconds}",
+         "-t", str(seconds),
          "-vf", f"subtitles={a}:fontsdir={FONTS}", "-c:v", "libx264", "-crf", "18", "-pix_fmt", "yuv420p",
          "-c:a", "pcm_s24le", "-f", "matroska", path])
 
@@ -104,12 +114,13 @@ def main():
          f"{plan['title']}\nDialogue: 1,{ts(0.6)},{ts(plan.get('intro_s', 5))},Mid,,0,0,0,,"
          f"{{\\pos(960,600)\\fad(300,200)}}{plan.get('subtitle', '')}\n", plan.get("intro_s", 5), tmp)
     parts.append(intro)
-    marks.append((0.0, plan.get("intro_label", "Intro")))
     t += plan.get("intro_s", 5)
     for i, ch in enumerate(plan["chapters"], 1):
         src = ch["file"] if os.path.isabs(ch["file"]) else os.path.join(base, ch["file"])
         p = os.path.join(tmp, f"{i:02d}_ch.mkv")
-        marks.append((t, f"{i}. {ch['title']}"))
+        # YouTube ignores a chapter list with any entry under 10 s: the intro card folds into chapter 1 (0:00) and
+        # the outro card into the last chapter
+        marks.append((0.0 if i == 1 else t, f"{i}. {ch['title']}"))
         t += chapter(p, src, i, ch["title"], ch["rule"], ch.get("trim_end", 0.0), tmp)
         parts.append(p)
     outro = os.path.join(tmp, "99_outro.mkv")
@@ -118,7 +129,6 @@ def main():
                  f"{{\\pos(960,{430 + 80 * k})\\fad(300,200)}}{ln}\n" for k, ln in enumerate(lines))
     card(outro, ev, plan.get("outro_s", 6), tmp)
     parts.append(outro)
-    marks.append((t, plan.get("outro_label", "Sources")))
     lst = os.path.join(tmp, "list.txt")
     open(lst, "w").write("".join(f"file '{p}'\n" for p in parts))
     joined = os.path.join(tmp, "joined.mkv")
@@ -127,8 +137,18 @@ def main():
     run(["ffmpeg", "-v", "error", "-y", "-i", joined, "-vn", "-c:a", "pcm_s24le", wav])
     loud = subprocess.run([sys.executable, os.path.join(HERE, "loud.py"), wav, norm], capture_output=True, text=True,
                           check=True).stdout.strip()
-    run(["ffmpeg", "-v", "error", "-y", "-i", joined, "-i", norm, "-map", "0:v", "-map", "1:a", "-c:v", "copy",
-         "-c:a", "aac", "-b:a", "192k", "-movflags", "+faststart", "-metadata", f"title={plan['title']}", out])
+    # -aac_pns 0: perceptual noise substitution let one transient overshoot to 0 dBTP after encoding (long-guide QA r2);
+    # re-measure the muxed file and pull the gain down if the encode still lands above -1.5 dBTP
+    gain = 0.0
+    for _ in range(3):
+        run(["ffmpeg", "-v", "error", "-y", "-i", joined, "-i", norm, "-map", "0:v", "-map", "1:a", "-c:v", "copy",
+             "-af", f"volume={gain}dB", "-c:a", "aac", "-aac_pns", "0", "-b:a", "192k", "-movflags", "+faststart",
+             "-metadata", f"title={plan['title']}", out])
+        tp = true_peak(out)
+        if tp <= -1.6:
+            break
+        gain -= tp + 1.7
+    print("TRUE_PEAK", tp, "gain", round(gain, 2), flush=True)
     with open(out + ".chapters.txt", "w", encoding="utf-8") as f:
         for s, label in marks:
             f.write(f"{int(s // 60)}:{int(s % 60):02d} {label}\n")

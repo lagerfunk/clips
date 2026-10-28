@@ -276,13 +276,13 @@ INK = IN.INK
 IN.letter(ins, "letter", tuple(CL), math.radians(-5), [
     ("Verkeersboete · Beschikking", 0.0062, "din", IN.GREY_T, 0.0),
     ("Aan de kentekenhouder", 0.0072, "din", INK, 0.012),
-    ("Personenauto, buitenlands kenteken", 0.0072, "din", INK, 0.004),
+    ("Personenauto", 0.0072, "din", INK, 0.004),
     ("Gedraging", 0.0072, "din", IN.GREY_T, 0.022),
     ("Geen voorrang verlenen", 0.0125, "bold", INK, 0.006),
     ("bij het afslaan, kruising met fietspad", 0.0072, "din", INK, 0.006),
     ("Boetebedrag:  " + NUMBERS["nl_priority_failure_fine_320"], 0.0145, "bold", IN.RED, 0.022),
     ("Exclusief administratiekosten.", 0.0062, "din", IN.GREY_T, 0.008),
-    ("Betaal binnen de termijn op de acceptgiro.", 0.0072, "din", INK, 0.016),
+    ("Betaal binnen de gestelde termijn.", 0.0072, "din", INK, 0.016),
     ("Niet eens? Maak binnen de termijn bezwaar.", 0.0072, "din", INK, 0.006),
     ("Deze brief is automatisch aangemaakt.", 0.0058, "din", IN.GREY_T, 0.026),
 ])

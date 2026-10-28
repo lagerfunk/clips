@@ -802,7 +802,9 @@ def car(kind, color, name, plate_txt="F LK 202", metal=0.45, police=False, c=Non
     zb_ = front_z - 0.115
     ang = [math.radians(a_ * 0.5) for a_ in range(-180, 181, 3)]
     seam(root, g, body, [((0, yb, zb_), (math.sin(a_), math.cos(a_), 0)) for a_ in ang], seam_m, name="bumper_line")
-    plate_text(root, g, body, (0, L + 1.0, front_z - 0.32), (0, -1, 0), plate_txt, C, "plate_f")
+    # the saloon's apron curves under at -0.32, which hid its front plate (QA r24 ep19): it sits on the intake instead
+    plate_text(root, g, body, (0, L + 1.0, front_z - (0.24 if kind == "saloon" else 0.32)), (0, -1, 0), plate_txt, C,
+               "plate_f")
     plate_text(root, g, body, (0, -1.0, rear_z - 0.22), (0, 1, 0), plate_txt, C, "plate_r")
     # door gaps and handles (cars with side glass in two spans: four doors), tailgate shut line
     gl = [(k["stations"][i][0], k["stations"][i + 1][0]) for i, t_ in enumerate(k["spans"]) if t_ == "g"]

@@ -1,0 +1,3 @@
+{"rev": 1, "jobs": [
+  {"name": "trackb-b06-letter", "scene": "b06_cyclists_priority.py", "frames": "602-740", "chunks": 8, "res": 720, "samples": 12}
+]}
