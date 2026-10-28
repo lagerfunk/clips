@@ -1,0 +1,3 @@
+{"rev": 1, "jobs": [
+  {"name": "dlal-23-fix", "scene": "ep23_roundabout_indicate.py", "frames": "157-206", "chunks": 5, "res": 720, "samples": 12}
+]}

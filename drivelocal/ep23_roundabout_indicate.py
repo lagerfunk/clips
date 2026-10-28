@@ -62,7 +62,7 @@ Wt.hold("HOOK", PW, sW)
 # ---------------------------------------------------------------- SITUATION
 nSi = tl.nf("SITUATION")
 svH_si = Z.cruise(sH_line - 6.0 * 0.4, 6.0, nSi)
-H.drive("SITUATION", PH, svH_si, wrong_left(0.2, 3.0))
+H.drive("SITUATION", PH, svH_si, wrong_left(0.2, 4.6))   # blinks through the chase under "He indicates on the way in" (2.2-4.6; QA r22)
 T_H_OUT = Z.t_when(svH_si, PH.s_circle_out)
 Wt.drive("SITUATION", PW, jx.kinematics(sW, 0.0, [(0, "hold", None), (8.5, "cruise", 2.0)], nSi, a_acc=1.6), indW)
 Q.drive("SITUATION", PW, jx.kinematics(sQ - 39.0, 6.0, [(0, "cruise", 6.0), (5.5, "stop", sQ)], nSi))
