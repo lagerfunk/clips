@@ -1,0 +1,36 @@
+job dlal-23-fix c2 frames 177-186 res 720 samples 12 args '': 10 png
+EP23 H out of the circle at 6.33 rule indicator 4.73 W goes 5.6 correct indicator 3.83 W 4.63 frames 1032
+01:21.270  cycles           | WARNING CUEW initialization failed: Error opening the library
+01:44.542  render           | Saved: 'frames/f_0177.png'
+PERF - f=177 total=22.00 prep=0.00 | pre=1.35 sync=1.03 geom=0.07 bvh=0.16 light=0.46 trace=18.25 save=0.25 other=0.44
+PERF_RAW Sample 18.25; (blender pre) 1.35; Synchronizing object 1.03; Updating Lights 0.46; Initializing 0.40; Finished 0.25; Updating Scene BVH 0.08; Updating Images 0.05; Updating Mesh 0.03
+Saved frames/f_0177.png
+02:03.784  render           | Saved: 'frames/f_0178.png'
+PERF - f=178 total=19.14 gap=0.10 prep=0.00 | pre=0.16 sync=0.05 geom=0.02 bvh=0.10 light=0.07 trace=18.22 save=0.16 other=0.37
+PERF_RAW Sample 18.22; Initializing 0.34; (blender pre) 0.16; Finished 0.16; Updating Lights 0.07; Updating Scene BVH 0.07; Synchronizing object 0.05; Updating Geometry BVH Mesh 0.03; Updating Mesh 0.02
+Saved frames/f_0178.png
+02:23.092  render           | Saved: 'frames/f_0179.png'
+PERF - f=179 total=19.21 gap=0.10 prep=0.00 | pre=0.16 sync=0.05 geom=0.02 bvh=0.10 light=0.07 trace=18.29 save=0.16 other=0.36
+Saved frames/f_0179.png
+02:42.230  render           | Saved: 'frames/f_0180.png'
+PERF - f=180 total=19.04 gap=0.10 prep=0.00 | pre=0.16 sync=0.05 geom=0.02 bvh=0.10 light=0.07 trace=18.11 save=0.16 other=0.37
+Saved frames/f_0180.png
+03:01.532  render           | Saved: 'frames/f_0181.png'
+PERF - f=181 total=19.20 gap=0.10 prep=0.00 | pre=0.16 sync=0.05 geom=0.02 bvh=0.10 light=0.07 trace=18.30 save=0.16 other=0.35
+Saved frames/f_0181.png
+03:20.816  render           | Saved: 'frames/f_0182.png'
+PERF - f=182 total=19.18 gap=0.10 prep=0.00 | pre=0.16 sync=0.05 geom=0.02 bvh=0.10 light=0.07 trace=18.27 save=0.16 other=0.36
+Saved frames/f_0182.png
+03:40.323  render           | Saved: 'frames/f_0183.png'
+PERF - f=183 total=19.40 gap=0.11 prep=0.00 | pre=0.17 sync=0.06 geom=0.02 bvh=0.10 light=0.07 trace=18.43 save=0.16 other=0.40
+Saved frames/f_0183.png
+03:59.569  render           | Saved: 'frames/f_0184.png'
+PERF - f=184 total=19.15 gap=0.10 prep=0.00 | pre=0.16 sync=0.05 geom=0.01 bvh=0.10 light=0.07 trace=18.22 save=0.16 other=0.37
+Saved frames/f_0184.png
+04:18.841  render           | Saved: 'frames/f_0185.png'
+PERF - f=185 total=19.17 gap=0.10 prep=0.00 | pre=0.16 sync=0.05 geom=0.02 bvh=0.10 light=0.07 trace=18.25 save=0.18 other=0.36
+Saved frames/f_0185.png
+04:38.307  render           | Saved: 'frames/f_0186.png'
+PERF - f=186 total=19.37 gap=0.10 prep=0.00 | pre=0.16 sync=0.05 geom=0.02 bvh=0.10 light=0.07 trace=18.44 save=0.16 other=0.37
+Saved frames/f_0186.png
+RENDER_DONE (177, 186)
